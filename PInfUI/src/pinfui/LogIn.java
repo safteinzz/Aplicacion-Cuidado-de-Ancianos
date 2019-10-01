@@ -121,6 +121,9 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccesoActionPerformed
+        PInfUI.ventanaLogIn.hide();
+        PInfUI.ventanaUser.setVisible(true);
+        /*
         boolean logcheck = false;
         String query = "select * from usuario where usuario.NOMBRE_USUARIO = '" + jTFUser.getText() + "';";
         Statement statement;
@@ -149,7 +152,8 @@ public class LogIn extends javax.swing.JFrame {
             conn.close();           
         } catch (SQLException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        } 
+        */
     }//GEN-LAST:event_jButtonAccesoActionPerformed
 
     private void jLabelRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroMouseClicked
