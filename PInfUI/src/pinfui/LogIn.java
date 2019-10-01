@@ -5,7 +5,12 @@
  */
 package pinfui;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 /**
  *
  * @author SaFteiNZz
@@ -35,8 +40,8 @@ public class LogIn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        jPFPass = new javax.swing.JPasswordField();
+        jTFUser = new javax.swing.JTextField();
         jButtonAcceso = new javax.swing.JButton();
         jLabelRegistro = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -85,8 +90,8 @@ public class LogIn extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPasswordField1)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jPFPass)
+                                .addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -100,11 +105,11 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel2)
                 .addGap(17, 17, 17)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPFPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(jButtonAcceso)
                 .addGap(18, 18, 18)
@@ -116,7 +121,33 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccesoActionPerformed
-        // TODO add your handling code here:
+        boolean logcheck = false;
+        String query = "select * from usuario where usuario.NOMBRE_USUARIO = '" + jTFUser.getText() + "';";
+        Statement statement;
+        ResultSet rs;
+        try {
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query); 
+            while (rs.next())
+            {                
+                byte[] sal = rs.getBytes("SAL");             
+                String contrasenahashed = "";
+                contrasenahashed = PInfUI.getHash(jPFPass.getText(), sal);
+
+                if (contrasenahashed.equals(rs.getString("CONTRASENA_USUARIO")))
+                {
+                    logcheck = true;
+                    //llamar a funcion de creación de ventana de usuario
+                }
+
+                //DEBUG
+                //JOptionPane.showMessageDialog(null ,"\nHash1: " + contrasenahashed + "\nHash2: " + rs.getString("CONTRASENA_USUARIO"), "Error", ERROR_MESSAGE);
+            }
+            conn.close();           
+        } catch (SQLException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }//GEN-LAST:event_jButtonAccesoActionPerformed
 
     private void jLabelRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroMouseClicked
@@ -166,8 +197,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelRegistro;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPFPass;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTFUser;
     // End of variables declaration//GEN-END:variables
 }

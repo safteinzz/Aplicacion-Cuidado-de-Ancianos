@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
+import java.sql.*;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 /**
  *
@@ -33,6 +35,25 @@ public class Registro extends javax.swing.JFrame {
     
     public Registro() {
         initComponents();
+        // Reyenar combobox pais
+        //--- Sacar datos bd
+        String query = "select * from paises";
+        // Preparar el statement
+        Statement statement;
+        ResultSet rs;
+        try {
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query); 
+            //--- Loop reyenado cbox
+            while (rs.next())
+            {
+                jCBPais.addItem(rs.getString("NOMBRE").toString());
+            }
+            conn.close();           
+        } catch (SQLException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
 
     /**
@@ -71,8 +92,8 @@ public class Registro extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jBRegistrarse = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
-        jCBPaisResidencia = new javax.swing.JComboBox<>();
-        jCBLocalidad = new javax.swing.JComboBox<>();
+        jCBPais = new javax.swing.JComboBox<>();
+        jTFCiudad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -121,9 +142,8 @@ public class Registro extends javax.swing.JFrame {
             }
         });
 
-        jCBPaisResidencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCBLocalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBPais.setMaximumSize(new java.awt.Dimension(112, 112));
+        jCBPais.setPreferredSize(new java.awt.Dimension(112, 22));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,10 +172,10 @@ public class Registro extends javax.swing.JFrame {
                                             .addComponent(jLabel2)
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel9)
-                                            .addComponent(jTFEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCBPaisResidencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jCBLocalidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jTFEmail)
+                                            .addComponent(jTFCiudad)
+                                            .addComponent(jCBPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(75, 75, 75)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel15)
@@ -165,15 +185,15 @@ public class Registro extends javax.swing.JFrame {
                                             .addComponent(jLabel3)
                                             .addComponent(jPFContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jPFRepiteContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTFFijo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                        .addComponent(jTFMovil, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTFDireccion, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jBRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTFMovil, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTFFijo, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jBRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7))))
+                                        .addGap(7, 7, 7))
+                                    .addComponent(jTFDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel16))
                         .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -206,12 +226,10 @@ public class Registro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTFApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCBPaisResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCBPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(31, 31, 31)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9))
+                                .addGap(31, 31, 31))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,10 +247,12 @@ public class Registro extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jPFRepiteContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCBLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTFCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel15))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
@@ -244,13 +264,13 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(jTFMovil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBRegistrarse)
                     .addComponent(jBCancelar))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -258,7 +278,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void jBRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistrarseActionPerformed
         //CHECKEAR SI SE HA RELLENADO TODO LO IMPRESCINDIBLE
-        if (jTFNombre.getText().isEmpty() || jTFApellidos.getText().isEmpty() || jTFEmail.getText().isEmpty() || jCBPaisResidencia.getSelectedIndex() == -1 || jCBLocalidad.getSelectedIndex() == -1 || jTFDireccion.getText().isEmpty() || jTFMovil.getText().isEmpty() || jTFUsuario.getText().isEmpty() || jPFContrasena.getText().isEmpty() || jPFRepiteContrasena.getText().isEmpty())
+        if (jTFNombre.getText().isEmpty() || jTFApellidos.getText().isEmpty() || jTFEmail.getText().isEmpty() || jCBPais.getSelectedIndex() == -1 || jTFCiudad.getText().isEmpty() || jTFDireccion.getText().isEmpty() || jTFMovil.getText().isEmpty() || jTFUsuario.getText().isEmpty() || jPFContrasena.getText().isEmpty() || jPFRepiteContrasena.getText().isEmpty())
             JOptionPane.showMessageDialog(null ,"Tienes que rellenar todas las casillas marcadas con (*)", "Error", ERROR_MESSAGE);
         else 
         {
@@ -267,53 +287,54 @@ public class Registro extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null ,"Has puesto contraseñas diferentes", "Error", ERROR_MESSAGE);
             else
             {
-                String algorithm = "SHA-256";
                 String contrasenahashed = "";
-                byte[] salt = createSalt();
                 try {
-                    contrasenahashed = generateHash(jPFContrasena.getText(), algorithm, salt);
+                    byte[] salt = PInfUI.getSalt();
+                    contrasenahashed = PInfUI.getHash(jPFContrasena.getText(), salt);                       
+                    //check el hash (debug)
+                    //JOptionPane.showMessageDialog(null ,contrasenahashed, "Error", ERROR_MESSAGE);
+                    // Crear query                
+                    String fijo = "N/A";
+                    if (!jTFFijo.getText().isEmpty()) 
+                        fijo = jTFFijo.getText();
+                    String query = "insert into USUARIO(NOMBRE_USUARIO,"
+                            + " CONTRASENA_USUARIO,"
+                            + " NOMBRE,"
+                            + " APELLIDOS,"
+                            + " EMAIL,"
+                            + " TLF_MOVIL,"
+                            + " TLF_FIJO,"
+                            + " LOCALIDAD,"
+                            + " PAIS,"
+                            + " DIRECCION,"
+                            + " SAL)" + " values ('" + jTFUsuario.getText() + "','"
+                            + contrasenahashed + "','"
+                            + jTFNombre.getText() + "','"
+                            + jTFApellidos.getText() + "','"
+                            + jTFEmail.getText() + "','"
+                            + jTFMovil.getText() + "','"
+                            + fijo + "','"
+                            + jTFCiudad.getText() + "','"
+                            + jCBPais.getSelectedItem().toString() + "','"
+                            + jTFDireccion.getText() + "',?);";
+                    // Preparar el statement
+                    
+                    try {
+                        conn = DriverManager.getConnection(myUrl, userBD, passBD);
+                        PreparedStatement pstmt = conn.prepareStatement(query);
+                        pstmt.setBytes(1, salt);
+                        pstmt.executeUpdate();
+                        pstmt.close();
+                        conn.close();
+                        JOptionPane.showMessageDialog(null ,"Cuenta creada con exito", "Error", INFORMATION_MESSAGE);
+                        PInfUI.ventanaRegistro.hide();
+                        PInfUI.ventanaLogIn.setVisible(true);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+                    } 
                 } catch (NoSuchAlgorithmException ex) {
                     Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                //check el hash (debug)
-                //JOptionPane.showMessageDialog(null ,contrasenahashed, "Error", ERROR_MESSAGE);
-                // Crear query                
-                String fijo = "N/A";
-                if (!jTFFijo.getText().isEmpty()) fijo = jTFFijo.getText();
-                String query = "insert into USUARIO(NOMBRE_USUARIO,"
-                        + " CONTRASENA_USUARIO,"
-                        + " NOMBRE,"
-                        + " APELLIDOS,"
-                        + " EMAIL,"
-                        + " TLF_MOVIL,"
-                        + " TLF_FIJO,"
-                        + " LOCALIDAD,"
-                        + " PAIS,"
-                        + " DIRECCION,"
-                        + " SAL)" + " values ('" + jTFUsuario.getText() + "','"
-                        + contrasenahashed + "','"
-                        + jTFNombre.getText() + "','"
-                        + jTFApellidos.getText() + "','"
-                        + jTFEmail.getText() + "','"
-                        + jTFMovil.getText() + "','"
-                        + fijo + "','"
-                        + jCBLocalidad.getSelectedItem().toString() + "','"
-                        + jCBPaisResidencia.getSelectedItem().toString() + "','"
-                        + jTFDireccion.getText() + "','"
-                        + salt + "');";
-                // Preparar el statement
-                PreparedStatement statement;
-                try {
-                    conn = DriverManager.getConnection(myUrl, userBD, passBD);
-                    statement = conn.prepareStatement(query);
-                    statement.execute();
-                    conn.close();
-                    JOptionPane.showMessageDialog(null ,"Cuenta creada con exito", "Error", INFORMATION_MESSAGE);
-                    PInfUI.ventanaRegistro.hide();
-                    PInfUI.ventanaLogIn.setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-                } 
             }
         }
     }//GEN-LAST:event_jBRegistrarseActionPerformed
@@ -358,42 +379,12 @@ public class Registro extends javax.swing.JFrame {
         });
     }
     
-    private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException
-    {
-        MessageDigest digest = MessageDigest.getInstance(algorithm);
-        digest.reset();
-        digest.update(salt);
-        byte[] hash = digest.digest(data.getBytes());
-        return bytesToStringHex(hash);
-    } 
     
-    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-    
-    public static String bytesToStringHex(byte[] bytes)
-    {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int j = 0; j < bytes.length;j++)
-        {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
-        }
-        return new String(hexChars);
-    }
-    
-    public static byte[] createSalt()
-    {
-        byte[] bytes = new byte[5];
-        SecureRandom random = new SecureRandom();
-        random.nextBytes(bytes);
-        return bytes;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBRegistrarse;
-    private javax.swing.JComboBox<String> jCBLocalidad;
-    private javax.swing.JComboBox<String> jCBPaisResidencia;
+    private javax.swing.JComboBox<String> jCBPais;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -413,6 +404,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPFRepiteContrasena;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTFApellidos;
+    private javax.swing.JTextField jTFCiudad;
     private javax.swing.JTextField jTFDireccion;
     private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFFijo;
