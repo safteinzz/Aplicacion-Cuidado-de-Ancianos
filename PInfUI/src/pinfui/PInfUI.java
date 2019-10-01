@@ -18,7 +18,7 @@ public class PInfUI {
 
     public static LogIn ventanaLogIn = new LogIn();
     public static Registro ventanaRegistro = new Registro();
-    public static PantallaUsuario ventanaMainUI = new PantallaUsuario();
+    public static PantallaUsuario ventanaUser = new PantallaUsuario();
     
     public static void main(String[] args) {
         ventanaLogIn.setVisible(true);

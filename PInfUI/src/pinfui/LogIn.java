@@ -138,7 +138,9 @@ public class LogIn extends javax.swing.JFrame {
                 if (contrasenahashed.equals(rs.getString("CONTRASENA_USUARIO")))
                 {
                     logcheck = true;
-                    //llamar a funcion de creación de ventana de usuario
+                    PInfUI.ventanaLogIn.hide();
+                    PInfUI.ventanaUser.setVisible(true);
+                    //en su momento esto tiene que reyenar la ventana antes de mostrarla con los datos de la bd.
                 }
 
                 //DEBUG
