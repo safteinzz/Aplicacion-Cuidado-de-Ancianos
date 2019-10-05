@@ -16,6 +16,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
      */
     public PantallaUsuario() {
         initComponents();
+        myInitComponents();
     }
 
     /**
@@ -27,22 +28,188 @@ public class PantallaUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelVentana = new javax.swing.JPanel();
+        panelBarraIzquierda = new javax.swing.JPanel();
+        panelUsuario = new javax.swing.JPanel();
+        labelNombreUser = new javax.swing.JLabel();
+        panelOtrasVentanas = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        panelVentanaInicio = new javax.swing.JPanel();
+        labelVentanaInicio = new javax.swing.JLabel();
+        panelVentanaOtra = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        panelDatosVentana = new javax.swing.JPanel();
+        labelTituloVentana = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelVentana.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelBarraIzquierda.setBackground(new java.awt.Color(51, 153, 255));
+
+        panelUsuario.setBackground(new java.awt.Color(51, 153, 255));
+
+        labelNombreUser.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelNombreUser.setText("nombreUsuario");
+
+        javax.swing.GroupLayout panelUsuarioLayout = new javax.swing.GroupLayout(panelUsuario);
+        panelUsuario.setLayout(panelUsuarioLayout);
+        panelUsuarioLayout.setHorizontalGroup(
+            panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelNombreUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelUsuarioLayout.setVerticalGroup(
+            panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUsuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelNombreUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelOtrasVentanas.setBackground(new java.awt.Color(51, 153, 255));
+
+        panelVentanaInicio.setBackground(new java.awt.Color(0, 153, 255));
+
+        labelVentanaInicio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelVentanaInicio.setText("Inicio");
+
+        javax.swing.GroupLayout panelVentanaInicioLayout = new javax.swing.GroupLayout(panelVentanaInicio);
+        panelVentanaInicio.setLayout(panelVentanaInicioLayout);
+        panelVentanaInicioLayout.setHorizontalGroup(
+            panelVentanaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaInicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelVentanaInicio)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelVentanaInicioLayout.setVerticalGroup(
+            panelVentanaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaInicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelVentanaInicio)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelVentanaOtra.setBackground(new java.awt.Color(0, 102, 255));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel11.setText("Otra ventana");
+
+        javax.swing.GroupLayout panelVentanaOtraLayout = new javax.swing.GroupLayout(panelVentanaOtra);
+        panelVentanaOtra.setLayout(panelVentanaOtraLayout);
+        panelVentanaOtraLayout.setHorizontalGroup(
+            panelVentanaOtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaOtraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+        panelVentanaOtraLayout.setVerticalGroup(
+            panelVentanaOtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaOtraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelOtrasVentanasLayout = new javax.swing.GroupLayout(panelOtrasVentanas);
+        panelOtrasVentanas.setLayout(panelOtrasVentanasLayout);
+        panelOtrasVentanasLayout.setHorizontalGroup(
+            panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelVentanaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelVentanaOtra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+        );
+        panelOtrasVentanasLayout.setVerticalGroup(
+            panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
+                .addComponent(panelVentanaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelVentanaOtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 361, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout panelBarraIzquierdaLayout = new javax.swing.GroupLayout(panelBarraIzquierda);
+        panelBarraIzquierda.setLayout(panelBarraIzquierdaLayout);
+        panelBarraIzquierdaLayout.setHorizontalGroup(
+            panelBarraIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelOtrasVentanas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelBarraIzquierdaLayout.setVerticalGroup(
+            panelBarraIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBarraIzquierdaLayout.createSequentialGroup()
+                .addComponent(panelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelOtrasVentanas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelDatosVentana.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelTituloVentana.setBackground(new java.awt.Color(255, 255, 255));
+        labelTituloVentana.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTituloVentana.setForeground(new java.awt.Color(0, 153, 255));
+        labelTituloVentana.setText("Título de la ventana");
+
+        javax.swing.GroupLayout panelDatosVentanaLayout = new javax.swing.GroupLayout(panelDatosVentana);
+        panelDatosVentana.setLayout(panelDatosVentanaLayout);
+        panelDatosVentanaLayout.setHorizontalGroup(
+            panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelDatosVentanaLayout.setVerticalGroup(
+            panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloVentana)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelVentanaLayout = new javax.swing.GroupLayout(panelVentana);
+        panelVentana.setLayout(panelVentanaLayout);
+        panelVentanaLayout.setHorizontalGroup(
+            panelVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVentanaLayout.createSequentialGroup()
+                .addComponent(panelBarraIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelDatosVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelVentanaLayout.setVerticalGroup(
+            panelVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelBarraIzquierda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelDatosVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(panelVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(panelVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo para añadir los cambios que queramos nosotros por codigo
+    private void myInitComponents(){
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +246,35 @@ public class PantallaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelNombreUser;
+    private javax.swing.JLabel labelTituloVentana;
+    private javax.swing.JLabel labelVentanaInicio;
+    private javax.swing.JPanel panelBarraIzquierda;
+    private javax.swing.JPanel panelDatosVentana;
+    private javax.swing.JPanel panelOtrasVentanas;
+    private javax.swing.JPanel panelUsuario;
+    private javax.swing.JPanel panelVentana;
+    private javax.swing.JPanel panelVentanaInicio;
+    private javax.swing.JPanel panelVentanaInicio1;
+    private javax.swing.JPanel panelVentanaInicio2;
+    private javax.swing.JPanel panelVentanaInicio3;
+    private javax.swing.JPanel panelVentanaInicio4;
+    private javax.swing.JPanel panelVentanaInicio5;
+    private javax.swing.JPanel panelVentanaInicio6;
+    private javax.swing.JPanel panelVentanaInicio7;
+    private javax.swing.JPanel panelVentanaInicio8;
+    private javax.swing.JPanel panelVentanaInicio9;
+    private javax.swing.JPanel panelVentanaOtra;
     // End of variables declaration//GEN-END:variables
 }
