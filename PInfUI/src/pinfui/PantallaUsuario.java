@@ -5,6 +5,9 @@
  */
 package pinfui;
 
+import java.awt.Color;
+import java.awt.Cursor;
+
 /**
  *
  * @author SaFteiNZz
@@ -32,6 +35,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         panelBarraIzquierda = new javax.swing.JPanel();
         panelUsuario = new javax.swing.JPanel();
         labelNombreUser = new javax.swing.JLabel();
+        iconSalir = new javax.swing.JLabel();
         panelOtrasVentanas = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         panelVentanaInicio = new javax.swing.JPanel();
@@ -45,12 +49,21 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         panelVentana.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelBarraIzquierda.setBackground(new java.awt.Color(51, 153, 255));
+        panelBarraIzquierda.setBackground(new java.awt.Color(0, 153, 255));
 
-        panelUsuario.setBackground(new java.awt.Color(51, 153, 255));
+        panelUsuario.setBackground(new java.awt.Color(0, 153, 255));
 
         labelNombreUser.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelNombreUser.setText("nombreUsuario");
+
+        iconSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrar-sesion.png"))); // NOI18N
+        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        iconSalir.setPreferredSize(new java.awt.Dimension(16, 16));
+        iconSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconSalirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelUsuarioLayout = new javax.swing.GroupLayout(panelUsuario);
         panelUsuario.setLayout(panelUsuarioLayout);
@@ -59,19 +72,32 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelNombreUser)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(iconSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelUsuarioLayout.setVerticalGroup(
             panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelNombreUser)
+                .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreUser)
+                    .addComponent(iconSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelOtrasVentanas.setBackground(new java.awt.Color(51, 153, 255));
+        panelOtrasVentanas.setBackground(new java.awt.Color(0, 153, 255));
 
         panelVentanaInicio.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelVentanaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelVentanaInicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelVentanaInicioMouseExited(evt);
+            }
+        });
 
         labelVentanaInicio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelVentanaInicio.setText("Inicio");
@@ -93,7 +119,16 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelVentanaOtra.setBackground(new java.awt.Color(0, 102, 255));
+        panelVentanaOtra.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaOtra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelVentanaOtra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelVentanaOtraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelVentanaOtraMouseExited(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel11.setText("Otra ventana");
@@ -105,7 +140,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelVentanaOtraLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelVentanaOtraLayout.setVerticalGroup(
             panelVentanaOtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +200,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelDatosVentanaLayout.setVerticalGroup(
@@ -204,6 +239,27 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void panelVentanaOtraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaOtraMouseEntered
+        panelVentanaOtra.setBackground(new java.awt.Color(0, 102, 204));
+    }//GEN-LAST:event_panelVentanaOtraMouseEntered
+
+    private void panelVentanaOtraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaOtraMouseExited
+        panelVentanaOtra.setBackground(new java.awt.Color(0, 153, 255));
+    }//GEN-LAST:event_panelVentanaOtraMouseExited
+
+    private void panelVentanaInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaInicioMouseEntered
+        panelVentanaInicio.setBackground(new java.awt.Color(0, 102, 204));
+    }//GEN-LAST:event_panelVentanaInicioMouseEntered
+
+    private void panelVentanaInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaInicioMouseExited
+        panelVentanaInicio.setBackground(new java.awt.Color(0, 153, 255));
+    }//GEN-LAST:event_panelVentanaInicioMouseExited
+
+    private void iconSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSalirMouseClicked
+        PInfUI.ventanaUser.hide();
+        PInfUI.ventanaLogIn.setVisible(true);
+    }//GEN-LAST:event_iconSalirMouseClicked
 
     //metodo para añadir los cambios que queramos nosotros por codigo
     private void myInitComponents(){
@@ -246,16 +302,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel iconSalir;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelNombreUser;
     private javax.swing.JLabel labelTituloVentana;
@@ -266,15 +314,6 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel panelUsuario;
     private javax.swing.JPanel panelVentana;
     private javax.swing.JPanel panelVentanaInicio;
-    private javax.swing.JPanel panelVentanaInicio1;
-    private javax.swing.JPanel panelVentanaInicio2;
-    private javax.swing.JPanel panelVentanaInicio3;
-    private javax.swing.JPanel panelVentanaInicio4;
-    private javax.swing.JPanel panelVentanaInicio5;
-    private javax.swing.JPanel panelVentanaInicio6;
-    private javax.swing.JPanel panelVentanaInicio7;
-    private javax.swing.JPanel panelVentanaInicio8;
-    private javax.swing.JPanel panelVentanaInicio9;
     private javax.swing.JPanel panelVentanaOtra;
     // End of variables declaration//GEN-END:variables
 }
