@@ -44,6 +44,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         panelDatosVentana = new javax.swing.JPanel();
         labelTituloVentana = new javax.swing.JLabel();
+        jButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,10 +56,10 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         labelNombreUser.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelNombreUser.setText("nombreUsuario");
+        labelNombreUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         iconSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrar-sesion.png"))); // NOI18N
         iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconSalir.setPreferredSize(new java.awt.Dimension(16, 16));
         iconSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconSalirMouseClicked(evt);
@@ -72,8 +73,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelNombreUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(iconSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(iconSalir)
                 .addContainerGap())
         );
         panelUsuarioLayout.setVerticalGroup(
@@ -82,13 +83,14 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNombreUser)
-                    .addComponent(iconSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(iconSalir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelOtrasVentanas.setBackground(new java.awt.Color(0, 153, 255));
 
         panelVentanaInicio.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         panelVentanaInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelVentanaInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -109,7 +111,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelVentanaInicioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelVentanaInicio)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         panelVentanaInicioLayout.setVerticalGroup(
             panelVentanaInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,6 +122,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         );
 
         panelVentanaOtra.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaOtra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         panelVentanaOtra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelVentanaOtra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -140,7 +143,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelVentanaOtraLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         panelVentanaOtraLayout.setVerticalGroup(
             panelVentanaOtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,14 +165,15 @@ public class PantallaUsuario extends javax.swing.JFrame {
         panelOtrasVentanasLayout.setVerticalGroup(
             panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelVentanaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelVentanaOtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
             .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 361, Short.MAX_VALUE)))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 342, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout panelBarraIzquierdaLayout = new javax.swing.GroupLayout(panelBarraIzquierda);
@@ -194,21 +198,39 @@ public class PantallaUsuario extends javax.swing.JFrame {
         labelTituloVentana.setForeground(new java.awt.Color(0, 153, 255));
         labelTituloVentana.setText("Título de la ventana");
 
+        jButton.setBackground(new java.awt.Color(0, 153, 255));
+        jButton.setText("Guardar");
+        jButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton.setBorderPainted(false);
+        jButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton.setFocusable(false);
+        jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosVentanaLayout = new javax.swing.GroupLayout(panelDatosVentana);
         panelDatosVentana.setLayout(panelDatosVentanaLayout);
         panelDatosVentanaLayout.setHorizontalGroup(
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+                .addGap(333, 333, 333)
+                .addComponent(jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosVentanaLayout.setVerticalGroup(
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTituloVentana)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton)
+                .addGap(86, 86, 86))
         );
 
         javax.swing.GroupLayout panelVentanaLayout = new javax.swing.GroupLayout(panelVentana);
@@ -242,18 +264,22 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
     private void panelVentanaOtraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaOtraMouseEntered
         panelVentanaOtra.setBackground(new java.awt.Color(0, 102, 204));
+        panelVentanaOtra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }//GEN-LAST:event_panelVentanaOtraMouseEntered
 
     private void panelVentanaOtraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaOtraMouseExited
         panelVentanaOtra.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaOtra.setBorder(null);
     }//GEN-LAST:event_panelVentanaOtraMouseExited
 
     private void panelVentanaInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaInicioMouseEntered
         panelVentanaInicio.setBackground(new java.awt.Color(0, 102, 204));
+        panelVentanaInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }//GEN-LAST:event_panelVentanaInicioMouseEntered
 
     private void panelVentanaInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVentanaInicioMouseExited
         panelVentanaInicio.setBackground(new java.awt.Color(0, 153, 255));
+        panelVentanaInicio.setBorder(null);
     }//GEN-LAST:event_panelVentanaInicioMouseExited
 
     private void iconSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSalirMouseClicked
@@ -261,9 +287,14 @@ public class PantallaUsuario extends javax.swing.JFrame {
         PInfUI.ventanaLogIn.setVisible(true);
     }//GEN-LAST:event_iconSalirMouseClicked
 
+    private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonActionPerformed
+
     //metodo para añadir los cambios que queramos nosotros por codigo
     private void myInitComponents(){
-        
+        panelVentanaOtra.setBorder(null);
+        panelVentanaInicio.setBorder(null);
     }
     
     /**
@@ -303,6 +334,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconSalir;
+    private javax.swing.JButton jButton;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelNombreUser;
