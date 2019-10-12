@@ -21,8 +21,6 @@ public class LogIn extends javax.swing.JFrame {
     private static Connection conn;
     private static String myDriver = "com.mysql.cj.jdbc.Driver";
     private static String myUrl = "jdbc:mysql://localhost/DBPInf";
-    private static String userBD = "safteinzz";
-    private static String passBD = "21505519";
     private static String userBD = "root";
     private static String passBD = "123456789";
     
