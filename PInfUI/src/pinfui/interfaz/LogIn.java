@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pinfui;
+package pinfui.interfaz;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -23,6 +23,8 @@ public class LogIn extends javax.swing.JFrame {
     private static String myUrl = "jdbc:mysql://localhost/DBPInf";
     private static String userBD = "safteinzz";
     private static String passBD = "21505519";
+    private static String userBD = "root";
+    private static String passBD = "123456789";
     
     public LogIn() {
         initComponents();

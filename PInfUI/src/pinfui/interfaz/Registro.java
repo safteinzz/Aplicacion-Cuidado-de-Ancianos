@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pinfui;
+package pinfui.interfaz;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,8 +30,8 @@ public class Registro extends javax.swing.JFrame {
     private static Connection conn;
     private static String myDriver = "com.mysql.cj.jdbc.Driver";
     private static String myUrl = "jdbc:mysql://localhost/DBPInf";
-    private static String userBD = "safteinzz";
-    private static String passBD = "21505519";
+    private static String userBD = "root";
+    private static String passBD = "123456789";
     
     public Registro() {
         initComponents();
@@ -160,7 +160,7 @@ public class Registro extends javax.swing.JFrame {
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTFNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                    .addComponent(jTFNombre)
                                     .addComponent(jTFApellidos))
                                 .addGap(75, 75, 75)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

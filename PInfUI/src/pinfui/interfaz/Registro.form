@@ -35,7 +35,7 @@
                                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFNombre" alignment="0" pref="112" max="32767" attributes="0"/>
+                                  <Component id="jTFNombre" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTFApellidos" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
