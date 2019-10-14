@@ -20,6 +20,7 @@ import javax.swing.SwingUtilities;
 public class PantallaUsuario extends javax.swing.JFrame {
 
     private boolean terminarHiloCorreo = false;
+    private boolean terminarHiloButton = false;
     
     /**
      * Creates new form PantallaUsuario
@@ -37,6 +38,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         panelVentana = new javax.swing.JPanel();
         panelBarraIzquierda = new javax.swing.JPanel();
@@ -55,6 +57,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
         panelDatosVentana = new javax.swing.JPanel();
         labelTituloVentana = new javax.swing.JLabel();
         jButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,9 +96,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
             panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombreUser)
-                    .addComponent(iconSalir))
+                .addGroup(panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconSalir)
+                    .addComponent(labelNombreUser))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -261,17 +266,43 @@ public class PantallaUsuario extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Button");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(90, 16, 100, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, -10, 290, 110);
+
         javax.swing.GroupLayout panelDatosVentanaLayout = new javax.swing.GroupLayout(panelDatosVentana);
         panelDatosVentana.setLayout(panelDatosVentanaLayout);
         panelDatosVentanaLayout.setHorizontalGroup(
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE))
+                    .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosVentanaLayout.setVerticalGroup(
@@ -279,6 +310,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTituloVentana)
+                .addGap(74, 74, 74)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton)
                 .addGap(86, 86, 86))
@@ -352,6 +385,17 @@ public class PantallaUsuario extends javax.swing.JFrame {
         PInfUI.ventanaLogIn.setVisible(true);
     }//GEN-LAST:event_iconSalirMouseClicked
 
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+         terminarHiloButton = false;
+         
+         crearHiloCambioIconButton();
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        terminarHiloButton = true;
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
+    }//GEN-LAST:event_jLabel1MouseExited
+
     //metodo para añadir los cambios que queramos nosotros por codigo
     private void myInitComponents(){
         panelVentanaOtra.setBorder(null);
@@ -387,6 +431,41 @@ public class PantallaUsuario extends javax.swing.JFrame {
     
     private java.awt.Font cambiarSize(int sizeActual, int suma){
         return new java.awt.Font("Tahoma", 0, sizeActual + suma);
+    }
+    
+    private void crearHiloCambioIconButton(){
+        // Creacion de un hilo para cambiar la imagen del correo cuando tengas notificaciones nuevas - Asi llama mas la atencion
+        new Thread(new Runnable() {
+            public void run() {
+                
+                //Se controlara el tiempo para que cambie el icono cada segundo
+                Calendar proximaEjecucion = Calendar.getInstance();
+                proximaEjecucion.setTime(new Date());
+                proximaEjecucion.add(Calendar.MILLISECOND, 20);
+                
+                int contador = 1;
+                //Siempre que terminarHiloCorreo este a false se ejecutara el hilo
+                while(!terminarHiloButton && contador <10){
+                    Calendar fechaActual = Calendar.getInstance();
+                    fechaActual.setTime(new Date());
+                    
+                    if(fechaActual.compareTo(proximaEjecucion) >= 0){
+                        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
+                        contador++;
+                        proximaEjecucion.setTime(new Date());
+                        proximaEjecucion.add(Calendar.MILLISECOND, 20);
+                    }
+
+                    try {
+                        java.lang.Thread.sleep(100);
+                    }catch(Exception e) { }
+                }
+                
+                if(contador == 10){
+                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit10.png")));
+                }
+            }
+        }).start();
     }
     
     private void crearHiloCambioIconCorreo(){
@@ -479,6 +558,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel iconCorreo;
     private javax.swing.JLabel iconSalir;
     private javax.swing.JButton jButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelNombreUser;
     private javax.swing.JLabel labelOtraVentana;
