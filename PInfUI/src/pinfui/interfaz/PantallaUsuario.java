@@ -38,7 +38,6 @@ public class PantallaUsuario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panelVentana = new javax.swing.JPanel();
         panelBarraIzquierda = new javax.swing.JPanel();
@@ -57,9 +56,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
         panelDatosVentana = new javax.swing.JPanel();
         labelTituloVentana = new javax.swing.JLabel();
         jButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        panelButtonDeslizante = new javax.swing.JPanel();
+        etiquetaButtonDeslizante = new javax.swing.JLabel();
+        imagenButtonDeslizante = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -266,25 +265,27 @@ public class PantallaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setLayout(null);
+        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelButtonDeslizante.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Button");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(90, 16, 100, 40);
+        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaButtonDeslizante.setText("Guardar");
+        panelButtonDeslizante.add(etiquetaButtonDeslizante);
+        etiquetaButtonDeslizante.setBounds(0, 1, 160, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
+        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                imagenButtonDeslizanteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                imagenButtonDeslizanteMouseExited(evt);
             }
         });
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, -10, 290, 110);
+        panelButtonDeslizante.add(imagenButtonDeslizante);
+        imagenButtonDeslizante.setBounds(0, 0, 190, 35);
 
         javax.swing.GroupLayout panelDatosVentanaLayout = new javax.swing.GroupLayout(panelDatosVentana);
         panelDatosVentana.setLayout(panelDatosVentanaLayout);
@@ -301,8 +302,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(276, 276, 276)
+                .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosVentanaLayout.setVerticalGroup(
@@ -310,8 +311,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(panelDatosVentanaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTituloVentana)
-                .addGap(74, 74, 74)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton)
                 .addGap(86, 86, 86))
@@ -385,16 +386,16 @@ public class PantallaUsuario extends javax.swing.JFrame {
         PInfUI.ventanaLogIn.setVisible(true);
     }//GEN-LAST:event_iconSalirMouseClicked
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+    private void imagenButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseEntered
          terminarHiloButton = false;
          
          crearHiloCambioIconButton();
-    }//GEN-LAST:event_jLabel1MouseEntered
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+    private void imagenButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseExited
         terminarHiloButton = true;
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
-    }//GEN-LAST:event_jLabel1MouseExited
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseExited
 
     //metodo para añadir los cambios que queramos nosotros por codigo
     private void myInitComponents(){
@@ -416,6 +417,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         listaLabels.add(labelVentanaInicio);
         listaLabels.add(labelVentanaMensajeria);
         listaLabels.add(labelOtraVentana);
+        listaLabels.add(etiquetaButtonDeslizante);
         
         for(javax.swing.JLabel label : listaLabels){
             label.setFont(cambiarSize(label.getFont().getSize(), 10));
@@ -441,19 +443,19 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 //Se controlara el tiempo para que cambie el icono cada segundo
                 Calendar proximaEjecucion = Calendar.getInstance();
                 proximaEjecucion.setTime(new Date());
-                proximaEjecucion.add(Calendar.MILLISECOND, 20);
+                proximaEjecucion.add(Calendar.MILLISECOND, 5);
                 
                 int contador = 1;
                 //Siempre que terminarHiloCorreo este a false se ejecutara el hilo
-                while(!terminarHiloButton && contador <10){
+                while(!terminarHiloButton && contador <19){
                     Calendar fechaActual = Calendar.getInstance();
                     fechaActual.setTime(new Date());
                     
                     if(fechaActual.compareTo(proximaEjecucion) >= 0){
-                        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
+                        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
                         contador++;
                         proximaEjecucion.setTime(new Date());
-                        proximaEjecucion.add(Calendar.MILLISECOND, 20);
+                        proximaEjecucion.add(Calendar.MILLISECOND, 5);
                     }
 
                     try {
@@ -461,8 +463,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     }catch(Exception e) { }
                 }
                 
-                if(contador == 10){
-                    jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit10.png")));
+                if(contador == 19){
+                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit19.png")));
                 }
             }
         }).start();
@@ -555,12 +557,11 @@ public class PantallaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel etiquetaButtonDeslizante;
     private javax.swing.JLabel iconCorreo;
     private javax.swing.JLabel iconSalir;
+    private javax.swing.JLabel imagenButtonDeslizante;
     private javax.swing.JButton jButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelNombreUser;
     private javax.swing.JLabel labelOtraVentana;
@@ -568,6 +569,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel labelVentanaInicio;
     private javax.swing.JLabel labelVentanaMensajeria;
     private javax.swing.JPanel panelBarraIzquierda;
+    private javax.swing.JPanel panelButtonDeslizante;
     private javax.swing.JPanel panelDatosVentana;
     private javax.swing.JPanel panelOtrasVentanas;
     private javax.swing.JPanel panelUsuario;
