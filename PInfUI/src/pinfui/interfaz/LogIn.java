@@ -7,10 +7,14 @@ package pinfui.interfaz;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import pinfui.dto.LabelDTO;
 /**
  *
  * @author SaFteiNZz
@@ -24,8 +28,14 @@ public class LogIn extends javax.swing.JFrame {
     private static String userBD = "root";
     private static String passBD = "123456789";
     
+    private boolean terminarHiloButton = false;
+    
+    private List<LabelDTO> historicoFuentes;
+    
     public LogIn() {
         initComponents();
+        
+        generarHistoricoFuentes();
     }
 
     /**
@@ -37,30 +47,28 @@ public class LogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jPFPass = new javax.swing.JPasswordField();
         jTFUser = new javax.swing.JTextField();
-        jButtonAcceso = new javax.swing.JButton();
         jLabelRegistro = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        labelTitulo1 = new javax.swing.JLabel();
+        labelTitulo4 = new javax.swing.JLabel();
+        labelTitulo2 = new javax.swing.JLabel();
+        panelButtonDeslizante = new javax.swing.JPanel();
+        etiquetaButtonDeslizante = new javax.swing.JLabel();
+        imagenButtonDeslizante = new javax.swing.JLabel();
+        comboSize = new javax.swing.JComboBox<>();
+        labelTitulo3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Usuario");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setText("Contraseña");
-
-        jLabel3.setText("Introduce tu usuario y contraseña");
-
-        jButtonAcceso.setText("Acceder");
-        jButtonAcceso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAccesoActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelRegistro.setForeground(new java.awt.Color(51, 51, 255));
         jLabelRegistro.setText("Aun no estas registrado? Haz click");
@@ -70,57 +78,175 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
+        labelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo1.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo1.setText("Introduce tu usuario y contraseña");
+
+        labelTitulo4.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo4.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo4.setText("Tamaño de letra");
+
+        labelTitulo2.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo2.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo2.setText("Usuario");
+
+        panelButtonDeslizante.setBackground(new java.awt.Color(255, 255, 255));
+        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelButtonDeslizanteMouseClicked(evt);
+            }
+        });
+        panelButtonDeslizante.setLayout(null);
+
+        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaButtonDeslizante.setText("Acceder");
+        panelButtonDeslizante.add(etiquetaButtonDeslizante);
+        etiquetaButtonDeslizante.setBounds(0, 1, 370, 30);
+
+        imagenButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
+        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseExited(evt);
+            }
+        });
+        panelButtonDeslizante.add(imagenButtonDeslizante);
+        imagenButtonDeslizante.setBounds(0, 0, 370, 35);
+
+        comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "2", "4", "6", "8", "10", "12", "14", "16" }));
+        comboSize.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboSizeItemStateChanged(evt);
+            }
+        });
+        comboSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSizeActionPerformed(evt);
+            }
+        });
+
+        labelTitulo3.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo3.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo3.setText("Contraseña");
+
+        jLabel1.setText("Acceder");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelTitulo3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelTitulo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator1)
+            .addComponent(jTFUser)
+            .addComponent(labelTitulo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPFPass)
+            .addComponent(labelTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(comboSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(78, Short.MAX_VALUE)
+                .addComponent(jLabelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(labelTitulo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labelTitulo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labelTitulo3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPFPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(labelTitulo4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelRegistro)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(343, 343, 343)
+                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(108, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPFPass)
-                                .addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel3)
-                .addGap(7, 7, 7)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jLabel2)
-                .addGap(17, 17, 17)
-                .addComponent(jPFPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(jButtonAcceso)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelRegistro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccesoActionPerformed
+    private void jLabelRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroMouseClicked
+        PInfUI.ventanaLogIn.hide();
+        PInfUI.ventanaRegistro.setVisible(true);
+    }//GEN-LAST:event_jLabelRegistroMouseClicked
+
+    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboSizeActionPerformed
+
+    private void comboSizeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSizeItemStateChanged
+        cambiarFuentes();
+    }//GEN-LAST:event_comboSizeItemStateChanged
+
+    private void panelButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelButtonDeslizanteMouseClicked
         PInfUI.ventanaLogIn.hide();
         PInfUI.ventanaUser.setVisible(true);
         /*
@@ -131,13 +257,12 @@ public class LogIn extends javax.swing.JFrame {
         try {
             conn = DriverManager.getConnection(myUrl, userBD, passBD);
             statement = conn.createStatement();
-            rs = statement.executeQuery(query); 
+            rs = statement.executeQuery(query);
             while (rs.next())
-            {                
-                byte[] sal = rs.getBytes("SAL");             
+            {
+                byte[] sal = rs.getBytes("SAL");
                 String contrasenahashed = "";
                 contrasenahashed = PInfUI.getHash(jPFPass.getText(), sal);
-
                 if (contrasenahashed.equals(rs.getString("CONTRASENA_USUARIO")))
                 {
                     logcheck = true;
@@ -145,22 +270,122 @@ public class LogIn extends javax.swing.JFrame {
                     PInfUI.ventanaUser.setVisible(true);
                     //en su momento esto tiene que reyenar la ventana antes de mostrarla con los datos de la bd.
                 }
-
                 //DEBUG
                 //JOptionPane.showMessageDialog(null ,"\nHash1: " + contrasenahashed + "\nHash2: " + rs.getString("CONTRASENA_USUARIO"), "Error", ERROR_MESSAGE);
             }
-            conn.close();           
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
         */
-    }//GEN-LAST:event_jButtonAccesoActionPerformed
+    }//GEN-LAST:event_panelButtonDeslizanteMouseClicked
 
-    private void jLabelRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegistroMouseClicked
+    private void imagenButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseExited
+        terminarHiloButton = true;
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseExited
+
+    private void imagenButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseEntered
+        terminarHiloButton = false;
+
+        crearHiloCambioIconButton();
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseEntered
+
+    private void imagenButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseClicked
+        System.out.println("PRUEBA");
         PInfUI.ventanaLogIn.hide();
-        PInfUI.ventanaRegistro.setVisible(true);
-    }//GEN-LAST:event_jLabelRegistroMouseClicked
+        PInfUI.ventanaUser.setVisible(true);
+        PInfUI.ventanaUser.cambiarFuentes();
+        /*
+        boolean logcheck = false;
+        String query = "select * from usuario where usuario.NOMBRE_USUARIO = '" + jTFUser.getText() + "';";
+        Statement statement;
+        ResultSet rs;
+        try {
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next())
+            {
+                byte[] sal = rs.getBytes("SAL");
+                String contrasenahashed = "";
+                contrasenahashed = PInfUI.getHash(jPFPass.getText(), sal);
+                if (contrasenahashed.equals(rs.getString("CONTRASENA_USUARIO")))
+                {
+                    logcheck = true;
+                    PInfUI.ventanaLogIn.hide();
+                    PInfUI.ventanaUser.setVisible(true);
+                    //en su momento esto tiene que reyenar la ventana antes de mostrarla con los datos de la bd.
+                }
+                //DEBUG
+                //JOptionPane.showMessageDialog(null ,"\nHash1: " + contrasenahashed + "\nHash2: " + rs.getString("CONTRASENA_USUARIO"), "Error", ERROR_MESSAGE);
+            }
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseClicked
 
+    private void generarHistoricoFuentes(){
+        historicoFuentes = new ArrayList<LabelDTO>();
+        historicoFuentes.add(new LabelDTO(labelTitulo1, labelTitulo1.getFont().getSize()));
+        historicoFuentes.add(new LabelDTO(labelTitulo2, labelTitulo2.getFont().getSize()));
+        historicoFuentes.add(new LabelDTO(labelTitulo3, labelTitulo3.getFont().getSize()));
+        historicoFuentes.add(new LabelDTO(labelTitulo4, labelTitulo4.getFont().getSize()));
+        historicoFuentes.add(new LabelDTO(etiquetaButtonDeslizante, etiquetaButtonDeslizante.getFont().getSize()));
+    }
+    
+    private void crearHiloCambioIconButton(){
+        // Creacion de un hilo para cambiar la imagen del correo cuando tengas notificaciones nuevas - Asi llama mas la atencion
+        new Thread(new Runnable() {
+            public void run() {
+                
+                //Se controlara el tiempo para que cambie el icono cada segundo
+                Calendar proximaEjecucion = Calendar.getInstance();
+                proximaEjecucion.setTime(new java.util.Date());
+                proximaEjecucion.add(Calendar.MILLISECOND, 5);
+                
+                int contador = 1;
+                //Siempre que terminarHiloCorreo este a false se ejecutara el hilo
+                while(!terminarHiloButton && contador <19){
+                    Calendar fechaActual = Calendar.getInstance();
+                    fechaActual.setTime(new java.util.Date());
+                    
+                    if(fechaActual.compareTo(proximaEjecucion) >= 0){
+                        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
+                        contador++;
+                        proximaEjecucion.setTime(new java.util.Date());
+                        proximaEjecucion.add(Calendar.MILLISECOND, 5);
+                    }
+
+                    try {
+                        java.lang.Thread.sleep(100);
+                    }catch(Exception e) { }
+                }
+                
+                if(contador == 19){
+                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit19.png")));
+                }
+            }
+        }).start();
+    }
+    
+    private void cambiarFuentes(){
+        
+        int size = Integer.parseInt(comboSize.getSelectedItem().toString());
+        PInfUI.setSizeFuente(size);
+        
+        for(LabelDTO label : historicoFuentes){
+            label.getLabel().setFont(cambiarSize(label.getSize(), size));
+        }
+        
+    }
+    
+    private java.awt.Font cambiarSize(int sizeActual, int suma){
+        return new java.awt.Font("Tahoma", 0, sizeActual + suma);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -198,13 +423,20 @@ public class LogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAcceso;
+    private javax.swing.JComboBox<String> comboSize;
+    private javax.swing.JLabel etiquetaButtonDeslizante;
+    private javax.swing.JLabel imagenButtonDeslizante;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelRegistro;
     private javax.swing.JPasswordField jPFPass;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTFUser;
+    private javax.swing.JLabel labelTitulo1;
+    private javax.swing.JLabel labelTitulo2;
+    private javax.swing.JLabel labelTitulo3;
+    private javax.swing.JLabel labelTitulo4;
+    private javax.swing.JPanel panelButtonDeslizante;
     // End of variables declaration//GEN-END:variables
 }

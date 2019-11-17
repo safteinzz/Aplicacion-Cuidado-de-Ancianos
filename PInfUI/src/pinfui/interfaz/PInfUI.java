@@ -20,9 +20,10 @@ public class PInfUI {
     public static Registro ventanaRegistro = new Registro();
     public static PantallaUsuario ventanaUser = new PantallaUsuario();
     
+    private static int sizeFuente = 0;
+    
     public static void main(String[] args) {
         ventanaLogIn.setVisible(true);
-        ventanaLogIn.setResizable(false);
     }
     
     
@@ -63,5 +64,13 @@ public class PInfUI {
         sr.nextBytes(salt);
         //return salt
         return salt;
+    }
+    
+    public static void setSizeFuente(int sizeFuente) {
+        PInfUI.sizeFuente = sizeFuente;
+    }
+
+    public static int getSizeFuente() {
+        return sizeFuente;
     }
 }

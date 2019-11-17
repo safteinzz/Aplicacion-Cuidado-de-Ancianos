@@ -22,6 +22,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private boolean terminarHiloCorreo = false;
     private boolean terminarHiloButton = false;
     
+    
     /**
      * Creates new form PantallaUsuario
      */
@@ -405,12 +406,11 @@ public class PantallaUsuario extends javax.swing.JFrame {
         terminarHiloCorreo = false;
         
         //cambiar size de las letras 
-        cambiarFuentes();
         
         crearHiloCambioIconCorreo();
     }
     
-    private void cambiarFuentes(){
+    public void cambiarFuentes(){
         List<javax.swing.JLabel> listaLabels = new ArrayList<javax.swing.JLabel>();
         listaLabels.add(labelNombreUser);
         listaLabels.add(labelTituloVentana);
@@ -420,7 +420,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         listaLabels.add(etiquetaButtonDeslizante);
         
         for(javax.swing.JLabel label : listaLabels){
-            label.setFont(cambiarSize(label.getFont().getSize(), 10));
+            label.setFont(cambiarSize(label.getFont().getSize(), PInfUI.getSizeFuente()));
         }
         
         List<javax.swing.JButton> listaBotones = new ArrayList<javax.swing.JButton>();
