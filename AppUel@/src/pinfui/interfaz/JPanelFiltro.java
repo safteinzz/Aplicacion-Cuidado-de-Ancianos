@@ -5,36 +5,52 @@
  */
 package pinfui.interfaz;
 
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
- *
+ * Frame del filtro de usuarios
  * @author ITCOM
  */
 public class JPanelFiltro extends javax.swing.JPanel {
 
+    protected boolean terminarHiloButton = false;
+    
+    private TableRowSorter<TableModel> sorter;
+    
     /**
      * Creates new form JPanelFiltro
-     * @param rol
+     * @param rol 
+     * @throws java.sql.SQLException 
      */
-    public JPanelFiltro(String rol) {
+    public JPanelFiltro(String rol) throws SQLException {
         initComponents();
-        //EN BASE AL ROL QUE LE PASES TE MUESTRA TODO AL PRINCIPIO DEL ROL
-        List<List<String>> listaDeObjetos = PInfUI.gestorDatos.getObjects("1"); //Hay que pasarle el rol
-        DefaultTableModel model = (DefaultTableModel) jTFiltro.getModel();
-        model.setColumnCount(0);
-        model.getDataVector().removeAllElements();
-        model.addColumn("Nombre");
-        model.addColumn("Apellidos");
-        model.addColumn("Email");
-        model.addColumn("Telefono Movil");
-        model.addColumn("Telefono Fijo");
-        model.addColumn("Localidad");
-        model.addColumn("Pais");
-        
-        //RELLENADO CON listaDeObjetos var
-        model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
+        //1 admin, 2 medico, 3 familiar, 4 paciente        
+        List<List<String>> listaDeObjetos = PInfUI.gestorDatos.getObjects(rol); //Hay que pasarle el rol
+        DefaultTableModel model = (DefaultTableModel) jTFiltro.getModel();    
+        for (List<String> objeto : listaDeObjetos) 
+        {
+            model.addRow(new Object[]{objeto.get(0), objeto.get(1), objeto.get(2), objeto.get(3), objeto.get(4)});
+	}      
+        sorter = new TableRowSorter<>(jTFiltro.getModel());
+        jTFiltro.setRowSorter(sorter);     
+    }
+    
+    private void filtro(String filtroInput, int numColumna) {
+        RowFilter<TableModel, Object> rF = null;
+        //If current expression doesn't parse, don't update.
+        try {
+            rF = RowFilter.regexFilter(filtroInput,numColumna);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            return;
+        }
+        sorter.setRowFilter(rF);
     }
 
     /**
@@ -51,27 +67,51 @@ public class JPanelFiltro extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTFiltro = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        panelButtonDeslizante = new javax.swing.JPanel();
+        etiquetaButtonDeslizante = new javax.swing.JLabel();
+        imagenButtonDeslizante = new javax.swing.JLabel();
+
+        jTFCasillaBusqueda.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTFCasillaBusqueda.setText("Buscar");
+        jTFCasillaBusqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jCBFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre y Apellido", "DNI", "Telefono Movil", "Telefono Fijo", "Localidad", " " }));
+        jCBFiltrarPor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setText("Filtrar por:");
 
         jTFiltro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"Pablo Antonio Hernánez", "pablohernandezcontacto@gmail.com", "Alicante / España", "616336989", "NA"}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre y Apellidos", "Email", "Provincia / Pais", "Telefono Movil", "Telefono Fijo"
             }
         ));
-        jTFiltro.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTFiltro.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(jTFiltro);
 
-        jButton1.setText("Buscar");
+        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelButtonDeslizante.setLayout(null);
+
+        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaButtonDeslizante.setText("Buscar");
+        panelButtonDeslizante.add(etiquetaButtonDeslizante);
+        etiquetaButtonDeslizante.setBounds(0, 1, 160, 30);
+
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
+        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseExited(evt);
+            }
+        });
+        panelButtonDeslizante.add(imagenButtonDeslizante);
+        imagenButtonDeslizante.setBounds(0, 0, 190, 35);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,17 +119,18 @@ public class JPanelFiltro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
+                .addComponent(jTFCasillaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTFCasillaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jCBFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18))
+                    .addComponent(jLabel1)
+                    .addComponent(jCBFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 210, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(559, 559, 559)
+                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(20, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,21 +141,72 @@ public class JPanelFiltro extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCBFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                     .addComponent(jTFCasillaBusqueda))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(44, 44, 44)
+                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(340, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void imagenButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseEntered
+        terminarHiloButton = false;
+
+        crearHiloCambioIconButton(imagenButtonDeslizante);
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseEntered
+
+    private void imagenButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseExited
+        terminarHiloButton = true;
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
+    }//GEN-LAST:event_imagenButtonDeslizanteMouseExited
+
+    
+    protected void crearHiloCambioIconButton(javax.swing.JLabel imagenButtonDeslizante){
+        // Creacion de un hilo para cambiar la imagen del correo cuando tengas notificaciones nuevas - Asi llama mas la atencion
+        new Thread(new Runnable() {
+            public void run() {
+                
+                //Se controlara el tiempo para que cambie el icono cada segundo
+                Calendar proximaEjecucion = Calendar.getInstance();
+                proximaEjecucion.setTime(new Date());
+                proximaEjecucion.add(Calendar.MILLISECOND, 5);
+                
+                int contador = 1;
+                //Siempre que terminarHiloCorreo este a false se ejecutara el hilo
+                while(!terminarHiloButton && contador <19){
+                    Calendar fechaActual = Calendar.getInstance();
+                    fechaActual.setTime(new Date());
+                    
+                    if(fechaActual.compareTo(proximaEjecucion) >= 0){
+                        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
+                        contador++;
+                        proximaEjecucion.setTime(new Date());
+                        proximaEjecucion.add(Calendar.MILLISECOND, 5);
+                    }
+
+                    try {
+                        java.lang.Thread.sleep(100);
+                    }catch(Exception e) { }
+                }
+                
+                if(contador == 19){
+                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit19.png")));
+                }
+            }
+        }).start();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel etiquetaButtonDeslizante;
+    private javax.swing.JLabel imagenButtonDeslizante;
     private javax.swing.JComboBox<String> jCBFiltrarPor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFCasillaBusqueda;
     private javax.swing.JTable jTFiltro;
+    private javax.swing.JPanel panelButtonDeslizante;
     // End of variables declaration//GEN-END:variables
 }

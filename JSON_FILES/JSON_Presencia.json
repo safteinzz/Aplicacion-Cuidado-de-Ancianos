@@ -1,0 +1,15 @@
+[
+	{
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:00:56.782Z",
+		"id_tipo_presencia": 1
+	}, {
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:04:56.782Z",
+		"id_tipo_presencia": 2
+	}, {
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:08:56.782Z",
+		"id_tipo_presencia": 3
+	}
+]

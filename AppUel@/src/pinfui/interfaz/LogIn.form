@@ -202,7 +202,7 @@
                   <Color blue="ff" green="99" red="0" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Usuario"/>
+                <Property name="text" type="java.lang.String" value="Dni"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="panelButtonDeslizante">

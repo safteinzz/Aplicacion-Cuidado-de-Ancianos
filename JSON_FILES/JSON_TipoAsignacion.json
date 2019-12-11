@@ -1,0 +1,9 @@
+[
+	{
+		"idTipoAsignacion":1,
+		"descripcion":"Relacion de medico a paciente"
+	}, {
+		"idTipoAsignacion":2,
+		"descripcion":"Relacion de familiar a paciente"
+	}
+]

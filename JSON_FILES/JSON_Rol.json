@@ -1,0 +1,15 @@
+[
+	{
+		"id_Rol": "1",
+		"nombre": "Admin"
+	}, {
+		"id_Rol": "2",
+		"nombre": "Medico"
+	}, {
+		"id_Rol": "3",
+		"nombre": "Familiar"
+	}, {
+		"id_Rol": "4",
+		"nombre": "Paciente"
+	}
+]

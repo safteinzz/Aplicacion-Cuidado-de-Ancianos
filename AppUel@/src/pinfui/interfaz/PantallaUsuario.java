@@ -6,18 +6,22 @@
 package pinfui.interfaz;
 
 import pinfui.dto.LabelDTO;
+import pinfui.dto.TipoVentana;
+import pinfui.entidades.Usuario;
 
 /**
- *
+ * Plantilla para las ventanas de diferentes roles
  * @author ITCOM
  */
 public class PantallaUsuario extends PlantillaPantallas {    
     
-    /**
-     * Creates new form PantallaUsuario
-     */
-    public PantallaUsuario() {
-        initComponents();
+	/**
+	 * Creates new form PantallaUsuario
+	 * @param usuario Usuario logeado
+	 */
+    public PantallaUsuario(Usuario usuario) {
+        super(usuario);
+    	initComponents();
         myInitComponents();
     }
 
@@ -552,8 +556,7 @@ public class PantallaUsuario extends PlantillaPantallas {
     }//GEN-LAST:event_panelMenuMensajeriaMouseExited
 
     private void iconSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSalirMouseClicked
-        PInfUI.ventanaUser.hide();
-        PInfUI.ventanaLogIn.setVisible(true);
+    	PInfUI.abrirVentana(null, this, TipoVentana.LOGIN);
     }//GEN-LAST:event_iconSalirMouseClicked
 
     private void imagenButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseEntered
@@ -647,16 +650,15 @@ public class PantallaUsuario extends PlantillaPantallas {
         terminarHiloCorreo = false;
         
         //cambiar size de las letras 
-        listaLabels.add(new LabelDTO(labelNombreUser, labelNombreUser.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelTituloVentana, labelTituloVentana.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuMensajeria, labelMenuMensajeria.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuInicio, labelMenuInicio.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuCardiaco, labelMenuCardiaco.getFont().getSize()));
-        listaLabels.add(new LabelDTO(etiquetaButtonDeslizante, etiquetaButtonDeslizante.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuCardiaco, labelMenuCardiaco.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuDetectorPuerta, labelMenuDetectorPuerta.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelMenuPresencia, labelMenuPresencia.getFont().getSize()));
-        
+        labelNombreUser.setText(usuario.getNombre());
+        listaLabels.add(new LabelDTO(labelNombreUser,null, labelNombreUser.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelTituloVentana,"tituloInicio", labelTituloVentana.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelMenuMensajeria, "menuMensajeria", labelMenuMensajeria.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelMenuInicio, "tituloInicio", labelMenuInicio.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelMenuCardiaco, "menuRitmoCardiaco", labelMenuCardiaco.getFont().getSize()));
+        listaLabels.add(new LabelDTO(etiquetaButtonDeslizante, "botonGuardar", etiquetaButtonDeslizante.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelMenuDetectorPuerta, "menuDetectorPuerta", labelMenuDetectorPuerta.getFont().getSize()));
+        listaLabels.add(new LabelDTO(labelMenuPresencia, "menuPresencia", labelMenuPresencia.getFont().getSize()));
         
         crearHiloCambioIconCorreo(iconCorreo);
     }
@@ -674,42 +676,8 @@ public class PantallaUsuario extends PlantillaPantallas {
 //        }
     }    
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaUsuario().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel etiquetaButtonDeslizante;
     private javax.swing.JLabel iconCorreo;
     private javax.swing.JLabel iconSalir;

@@ -1,0 +1,210 @@
+[
+	{
+		"id_Provincia" : 1,
+		"provincia" : "Araba/Álava"
+	},
+	{
+		"id_Provincia" : 2,
+		"provincia" : "Albacete"
+	},
+	{
+		"id_Provincia" : 3,
+		"provincia" : "Alicante/Alacant"
+	},
+	{
+		"id_Provincia" : 4,
+		"provincia" : "Almería"
+	},
+	{
+		"id_Provincia" : 5,
+		"provincia" : "Ávila"
+	},
+	{
+		"id_Provincia" : 6,
+		"provincia" : "Badajoz"
+	},
+	{
+		"id_Provincia" : 7,
+		"provincia" : "Balears, Illes"
+	},
+	{
+		"id_Provincia" : 8,
+		"provincia" : "Barcelona"
+	},
+	{
+		"id_Provincia" : 9,
+		"provincia" : "Burgos"
+	},
+	{
+		"id_Provincia" : 10,
+		"provincia" : "Cáceres"
+	},
+	{
+		"id_Provincia" : 11,
+		"provincia" : "Cádiz"
+	},
+	{
+		"id_Provincia" : 12,
+		"provincia" : "Castellón/Castelló"
+	},
+	{
+		"id_Provincia" : 13,
+		"provincia" : "Ciudad Real"
+	},
+	{
+		"id_Provincia" : 14,
+		"provincia" : "Córdoba"
+	},
+	{
+		"id_Provincia" : 15,
+		"provincia" : "Coruña, A"
+	},
+	{
+		"id_Provincia" : 16,
+		"provincia" : "Cuenca"
+	},
+	{
+		"id_Provincia" : 17,
+		"provincia" : "Girona"
+	},
+	{
+		"id_Provincia" : 18,
+		"provincia" : "Granada"
+	},
+	{
+		"id_Provincia" : 19,
+		"provincia" : "Guadalajara"
+	},
+	{
+		"id_Provincia" : 20,
+		"provincia" : "Gipuzkoa"
+	},
+	{
+		"id_Provincia" : 21,
+		"provincia" : "Huelva"
+	},
+	{
+		"id_Provincia" : 22,
+		"provincia" : "Huesca"
+	},
+	{
+		"id_Provincia" : 23,
+		"provincia" : "Jaén"
+	},
+	{
+		"id_Provincia" : 24,
+		"provincia" : "León"
+	},
+	{
+		"id_Provincia" : 25,
+		"provincia" : "Lleida"
+	},
+	{
+		"id_Provincia" : 26,
+		"provincia" : "Rioja, La"
+	},
+	{
+		"id_Provincia" : 27,
+		"provincia" : "Lugo"
+	},
+	{
+		"id_Provincia" : 28,
+		"provincia" : "Madrid"
+	},
+	{
+		"id_Provincia" : 29,
+		"provincia" : "Málaga"
+	},
+	{
+		"id_Provincia" : 30,
+		"provincia" : "Murcia"
+	},
+	{
+		"id_Provincia" : 31,
+		"provincia" : "Navarra"
+	},
+	{
+		"id_Provincia" : 32,
+		"provincia" : "Ourense"
+	},
+	{
+		"id_Provincia" : 33,
+		"provincia" : "Asturias"
+	},
+	{
+		"id_Provincia" : 34,
+		"provincia" : "Palencia"
+	},
+	{
+		"id_Provincia" : 35,
+		"provincia" : "Palmas, Las"
+	},
+	{
+		"id_Provincia" : 36,
+		"provincia" : "Pontevedra"
+	},
+	{
+		"id_Provincia" : 37,
+		"provincia" : "Salamanca"
+	},
+	{
+		"id_Provincia" : 38,
+		"provincia" : "Santa Cruz de Tenerife"
+	},
+	{
+		"id_Provincia" : 39,
+		"provincia" : "Cantabria"
+	},
+	{
+		"id_Provincia" : 40,
+		"provincia" : "Segovia"
+	},
+	{
+		"id_Provincia" : 41,
+		"provincia" : "Sevilla"
+	},
+	{
+		"id_Provincia" : 42,
+		"provincia" : "Soria"
+	},
+	{
+		"id_Provincia" : 43,
+		"provincia" : "Tarragona"
+	},
+	{
+		"id_Provincia" : 44,
+		"provincia" : "Teruel"
+	},
+	{
+		"id_Provincia" : 45,
+		"provincia" : "Toledo"
+	},
+	{
+		"id_Provincia" : 46,
+		"provincia" : "Valencia/València"
+	},
+	{
+		"id_Provincia" : 47,
+		"provincia" : "Valladolid"
+	},
+	{
+		"id_Provincia" : 48,
+		"provincia" : "Bizkaia"
+	},
+	{
+		"id_Provincia" : 49,
+		"provincia" : "Zamora"
+	},
+	{
+		"id_Provincia" : 50,
+		"provincia" : "Zaragoza"
+	},
+	{
+		"id_Provincia" : 51,
+		"provincia" : "Ceuta"
+	},
+	{
+		"id_Provincia" : 52,
+		"provincia" : "Melilla"
+	}
+]

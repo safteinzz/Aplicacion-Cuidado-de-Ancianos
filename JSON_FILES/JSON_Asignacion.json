@@ -1,0 +1,28 @@
+[
+	{
+		"idAsignacion":1,
+		"dniAsignado":"48569758X",
+		"dniAsociado":"11111111H",
+		"idTipoAsociacion":1
+	}, {
+		"idAsignacion":1,
+		"dniAsignado":"48569758X",
+		"dniAsociado":"45978692P",
+		"idTipoAsociacion":1
+	}, {
+		"idAsignacion":1,
+		"dniAsignado":"48569758X",
+		"dniAsociado":"47512368F",
+		"idTipoAsociacion":1
+	}, {
+		"idAsignacion":1,
+		"dniAsignado":"14569823X",
+		"dniAsociado":"47512368F",
+		"idTipoAsociacion":2
+	}, {
+		"idAsignacion":1,
+		"dniAsignado":"14569823X",
+		"dniAsociado":"11111111H",
+		"idTipoAsociacion":2
+	}
+]

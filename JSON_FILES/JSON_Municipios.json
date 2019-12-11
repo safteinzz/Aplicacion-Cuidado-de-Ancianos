@@ -1,0 +1,7002 @@
+[
+	{
+		"id_Municipio" : 1,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 1,
+		"dc" : 4,
+		"nombre" : "Alegría-Dulantzi"
+	},
+	{
+		"id_Municipio" : 2,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 1,
+		"dc" : 9,
+		"nombre" : "Abengibre"
+	},
+	{
+		"id_Municipio" : 3,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 1,
+		"dc" : 5,
+		"nombre" : "Adsubia"
+	},
+	{
+		"id_Municipio" : 4,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 1,
+		"dc" : 0,
+		"nombre" : "Abla"
+	},
+	{
+		"id_Municipio" : 5,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 1,
+		"dc" : 3,
+		"nombre" : "Adanero"
+	},
+	{
+		"id_Municipio" : 6,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Acedera"
+	},
+	{
+		"id_Municipio" : 7,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 1,
+		"dc" : 2,
+		"nombre" : "Alaró"
+	},
+	{
+		"id_Municipio" : 8,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Abrera"
+	},
+	{
+		"id_Municipio" : 9,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 1,
+		"dc" : 1,
+		"nombre" : "Abajas"
+	},
+	{
+		"id_Municipio" : 10,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 1,
+		"dc" : 5,
+		"nombre" : "Abadía"
+	},
+	{
+		"id_Municipio" : 11,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 1,
+		"dc" : 2,
+		"nombre" : "Alcalá de los Gazules"
+	},
+	{
+		"id_Municipio" : 12,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 1,
+		"dc" : 7,
+		"nombre" : "Atzeneta del Maestrat"
+	},
+	{
+		"id_Municipio" : 13,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 1,
+		"dc" : 3,
+		"nombre" : "Abenójar"
+	},
+	{
+		"id_Municipio" : 14,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Adamuz"
+	},
+	{
+		"id_Municipio" : 15,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 1,
+		"dc" : 1,
+		"nombre" : "Abegondo"
+	},
+	{
+		"id_Municipio" : 16,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 1,
+		"dc" : 4,
+		"nombre" : "Abia de la Obispalía"
+	},
+	{
+		"id_Municipio" : 17,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 1,
+		"dc" : 0,
+		"nombre" : "Agullana"
+	},
+	{
+		"id_Municipio" : 18,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Agrón"
+	},
+	{
+		"id_Municipio" : 19,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 1,
+		"dc" : 9,
+		"nombre" : "Abánades"
+	},
+	{
+		"id_Municipio" : 20,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 1,
+		"dc" : 3,
+		"nombre" : "Abaltzisketa"
+	},
+	{
+		"id_Municipio" : 21,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 1,
+		"dc" : 0,
+		"nombre" : "Alájar"
+	},
+	{
+		"id_Municipio" : 22,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 1,
+		"dc" : 5,
+		"nombre" : "Abiego"
+	},
+	{
+		"id_Municipio" : 23,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 1,
+		"dc" : 1,
+		"nombre" : "Albanchez de Mágina"
+	},
+	{
+		"id_Municipio" : 24,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Acebedo"
+	},
+	{
+		"id_Municipio" : 25,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 1,
+		"dc" : 9,
+		"nombre" : "Abella de la Conca"
+	},
+	{
+		"id_Municipio" : 26,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 1,
+		"dc" : 2,
+		"nombre" : "Ábalos"
+	},
+	{
+		"id_Municipio" : 27,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Abadín"
+	},
+	{
+		"id_Municipio" : 28,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 1,
+		"dc" : 4,
+		"nombre" : "Acebeda, La"
+	},
+	{
+		"id_Municipio" : 29,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 1,
+		"dc" : 7,
+		"nombre" : "Alameda"
+	},
+	{
+		"id_Municipio" : 30,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 1,
+		"dc" : 1,
+		"nombre" : "Abanilla"
+	},
+	{
+		"id_Municipio" : 31,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Abáigar"
+	},
+	{
+		"id_Municipio" : 32,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 1,
+		"dc" : 3,
+		"nombre" : "Allariz"
+	},
+	{
+		"id_Municipio" : 33,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 1,
+		"dc" : 9,
+		"nombre" : "Allande"
+	},
+	{
+		"id_Municipio" : 34,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 1,
+		"dc" : 4,
+		"nombre" : "Abarca de Campos"
+	},
+	{
+		"id_Municipio" : 35,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 1,
+		"dc" : 7,
+		"nombre" : "Agaete"
+	},
+	{
+		"id_Municipio" : 36,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 1,
+		"dc" : 0,
+		"nombre" : "Arbo"
+	},
+	{
+		"id_Municipio" : 37,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Abusejo"
+	},
+	{
+		"id_Municipio" : 38,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 1,
+		"dc" : 2,
+		"nombre" : "Adeje"
+	},
+	{
+		"id_Municipio" : 39,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 1,
+		"dc" : 5,
+		"nombre" : "Alfoz de Lloredo"
+	},
+	{
+		"id_Municipio" : 40,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 1,
+		"dc" : 9,
+		"nombre" : "Abades"
+	},
+	{
+		"id_Municipio" : 41,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Aguadulce"
+	},
+	{
+		"id_Municipio" : 42,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 1,
+		"dc" : 1,
+		"nombre" : "Abejar"
+	},
+	{
+		"id_Municipio" : 43,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 1,
+		"dc" : 7,
+		"nombre" : "Aiguamúrcia"
+	},
+	{
+		"id_Municipio" : 44,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 1,
+		"dc" : 2,
+		"nombre" : "Ababuj"
+	},
+	{
+		"id_Municipio" : 45,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 1,
+		"dc" : 5,
+		"nombre" : "Ajofrín"
+	},
+	{
+		"id_Municipio" : 46,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Ademuz"
+	},
+	{
+		"id_Municipio" : 47,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 1,
+		"dc" : 4,
+		"nombre" : "Adalia"
+	},
+	{
+		"id_Municipio" : 48,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 1,
+		"dc" : 0,
+		"nombre" : "Abadiño"
+	},
+	{
+		"id_Municipio" : 49,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 1,
+		"dc" : 6,
+		"nombre" : "Abanto"
+	},
+	{
+		"id_Municipio" : 50,
+		"id_Provincia" : 51,
+		"cod_Municipio" : 1,
+		"dc" : 3,
+		"nombre" : "Ceuta"
+	},
+	{
+		"id_Municipio" : 51,
+		"id_Provincia" : 52,
+		"cod_Municipio" : 1,
+		"dc" : 8,
+		"nombre" : "Melilla"
+	},
+	{
+		"id_Municipio" : 52,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 2,
+		"dc" : 9,
+		"nombre" : "Amurrio"
+	},
+	{
+		"id_Municipio" : 53,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 2,
+		"dc" : 4,
+		"nombre" : "Alatoz"
+	},
+	{
+		"id_Municipio" : 54,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 2,
+		"dc" : 0,
+		"nombre" : "Agost"
+	},
+	{
+		"id_Municipio" : 55,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 2,
+		"dc" : 5,
+		"nombre" : "Abrucena"
+	},
+	{
+		"id_Municipio" : 56,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 2,
+		"dc" : 8,
+		"nombre" : "Adrada, La"
+	},
+	{
+		"id_Municipio" : 57,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Aceuchal"
+	},
+	{
+		"id_Municipio" : 58,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 2,
+		"dc" : 7,
+		"nombre" : "Alaior"
+	},
+	{
+		"id_Municipio" : 59,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 2,
+		"dc" : 3,
+		"nombre" : "Aguilar de Segarra"
+	},
+	{
+		"id_Municipio" : 60,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 2,
+		"dc" : 0,
+		"nombre" : "Abertura"
+	},
+	{
+		"id_Municipio" : 61,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 2,
+		"dc" : 7,
+		"nombre" : "Alcalá del Valle"
+	},
+	{
+		"id_Municipio" : 62,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 2,
+		"dc" : 2,
+		"nombre" : "Aín"
+	},
+	{
+		"id_Municipio" : 63,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 2,
+		"dc" : 8,
+		"nombre" : "Agudo"
+	},
+	{
+		"id_Municipio" : 64,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 2,
+		"dc" : 3,
+		"nombre" : "Aguilar de la Frontera"
+	},
+	{
+		"id_Municipio" : 65,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 2,
+		"dc" : 6,
+		"nombre" : "Ames"
+	},
+	{
+		"id_Municipio" : 66,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 2,
+		"dc" : 9,
+		"nombre" : "Acebrón, El"
+	},
+	{
+		"id_Municipio" : 67,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 2,
+		"dc" : 5,
+		"nombre" : "Aiguaviva"
+	},
+	{
+		"id_Municipio" : 68,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Alamedilla"
+	},
+	{
+		"id_Municipio" : 69,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 2,
+		"dc" : 4,
+		"nombre" : "Ablanque"
+	},
+	{
+		"id_Municipio" : 70,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 2,
+		"dc" : 8,
+		"nombre" : "Aduna"
+	},
+	{
+		"id_Municipio" : 71,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 2,
+		"dc" : 5,
+		"nombre" : "Aljaraque"
+	},
+	{
+		"id_Municipio" : 72,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 2,
+		"dc" : 0,
+		"nombre" : "Abizanda"
+	},
+	{
+		"id_Municipio" : 73,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 2,
+		"dc" : 6,
+		"nombre" : "Alcalá la Real"
+	},
+	{
+		"id_Municipio" : 74,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Algadefe"
+	},
+	{
+		"id_Municipio" : 75,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 2,
+		"dc" : 4,
+		"nombre" : "Àger"
+	},
+	{
+		"id_Municipio" : 76,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 2,
+		"dc" : 7,
+		"nombre" : "Agoncillo"
+	},
+	{
+		"id_Municipio" : 77,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 2,
+		"dc" : 3,
+		"nombre" : "Alfoz"
+	},
+	{
+		"id_Municipio" : 78,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 2,
+		"dc" : 9,
+		"nombre" : "Ajalvir"
+	},
+	{
+		"id_Municipio" : 79,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 2,
+		"dc" : 2,
+		"nombre" : "Alcaucín"
+	},
+	{
+		"id_Municipio" : 80,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 2,
+		"dc" : 6,
+		"nombre" : "Abarán"
+	},
+	{
+		"id_Municipio" : 81,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 2,
+		"dc" : 3,
+		"nombre" : "Abárzuza/Abartzuza"
+	},
+	{
+		"id_Municipio" : 82,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 2,
+		"dc" : 8,
+		"nombre" : "Amoeiro"
+	},
+	{
+		"id_Municipio" : 83,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 2,
+		"dc" : 4,
+		"nombre" : "Aller"
+	},
+	{
+		"id_Municipio" : 84,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 2,
+		"dc" : 2,
+		"nombre" : "Agüimes"
+	},
+	{
+		"id_Municipio" : 85,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 2,
+		"dc" : 5,
+		"nombre" : "Barro"
+	},
+	{
+		"id_Municipio" : 86,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Agallas"
+	},
+	{
+		"id_Municipio" : 87,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 2,
+		"dc" : 7,
+		"nombre" : "Agulo"
+	},
+	{
+		"id_Municipio" : 88,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 2,
+		"dc" : 0,
+		"nombre" : "Ampuero"
+	},
+	{
+		"id_Municipio" : 89,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 2,
+		"dc" : 4,
+		"nombre" : "Adrada de Pirón"
+	},
+	{
+		"id_Municipio" : 90,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Alanís"
+	},
+	{
+		"id_Municipio" : 91,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 2,
+		"dc" : 2,
+		"nombre" : "Albinyana"
+	},
+	{
+		"id_Municipio" : 92,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 2,
+		"dc" : 7,
+		"nombre" : "Abejuela"
+	},
+	{
+		"id_Municipio" : 93,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 2,
+		"dc" : 0,
+		"nombre" : "Alameda de la Sagra"
+	},
+	{
+		"id_Municipio" : 94,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 2,
+		"dc" : 3,
+		"nombre" : "Ador"
+	},
+	{
+		"id_Municipio" : 95,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 2,
+		"dc" : 9,
+		"nombre" : "Aguasal"
+	},
+	{
+		"id_Municipio" : 96,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 2,
+		"dc" : 5,
+		"nombre" : "Abanto y Ciérvana-Abanto Zierbena"
+	},
+	{
+		"id_Municipio" : 97,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 2,
+		"dc" : 8,
+		"nombre" : "Abezames"
+	},
+	{
+		"id_Municipio" : 98,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 2,
+		"dc" : 1,
+		"nombre" : "Acered"
+	},
+	{
+		"id_Municipio" : 99,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 3,
+		"dc" : 5,
+		"nombre" : "Aramaio"
+	},
+	{
+		"id_Municipio" : 100,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 3,
+		"dc" : 0,
+		"nombre" : "Albacete"
+	},
+	{
+		"id_Municipio" : 101,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 3,
+		"dc" : 6,
+		"nombre" : "Agres"
+	},
+	{
+		"id_Municipio" : 102,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 3,
+		"dc" : 1,
+		"nombre" : "Adra"
+	},
+	{
+		"id_Municipio" : 103,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Ahillones"
+	},
+	{
+		"id_Municipio" : 104,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 3,
+		"dc" : 3,
+		"nombre" : "Alcúdia"
+	},
+	{
+		"id_Municipio" : 105,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 3,
+		"dc" : 9,
+		"nombre" : "Alella"
+	},
+	{
+		"id_Municipio" : 106,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 3,
+		"dc" : 2,
+		"nombre" : "Adrada de Haza"
+	},
+	{
+		"id_Municipio" : 107,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 3,
+		"dc" : 6,
+		"nombre" : "Acebo"
+	},
+	{
+		"id_Municipio" : 108,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 3,
+		"dc" : 3,
+		"nombre" : "Algar"
+	},
+	{
+		"id_Municipio" : 109,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 3,
+		"dc" : 8,
+		"nombre" : "Albocàsser"
+	},
+	{
+		"id_Municipio" : 110,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 3,
+		"dc" : 4,
+		"nombre" : "Alamillo"
+	},
+	{
+		"id_Municipio" : 111,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 3,
+		"dc" : 9,
+		"nombre" : "Alcaracejos"
+	},
+	{
+		"id_Municipio" : 112,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 3,
+		"dc" : 2,
+		"nombre" : "Aranga"
+	},
+	{
+		"id_Municipio" : 113,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 3,
+		"dc" : 5,
+		"nombre" : "Alarcón"
+	},
+	{
+		"id_Municipio" : 114,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 3,
+		"dc" : 1,
+		"nombre" : "Albanyà"
+	},
+	{
+		"id_Municipio" : 115,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Albolote"
+	},
+	{
+		"id_Municipio" : 116,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 3,
+		"dc" : 0,
+		"nombre" : "Adobes"
+	},
+	{
+		"id_Municipio" : 117,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 3,
+		"dc" : 4,
+		"nombre" : "Aizarnazabal"
+	},
+	{
+		"id_Municipio" : 118,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 3,
+		"dc" : 1,
+		"nombre" : "Almendro, El"
+	},
+	{
+		"id_Municipio" : 119,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 3,
+		"dc" : 6,
+		"nombre" : "Adahuesca"
+	},
+	{
+		"id_Municipio" : 120,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 3,
+		"dc" : 2,
+		"nombre" : "Alcaudete"
+	},
+	{
+		"id_Municipio" : 121,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Alija del Infantado"
+	},
+	{
+		"id_Municipio" : 122,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 3,
+		"dc" : 0,
+		"nombre" : "Agramunt"
+	},
+	{
+		"id_Municipio" : 123,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 3,
+		"dc" : 3,
+		"nombre" : "Aguilar del Río Alhama"
+	},
+	{
+		"id_Municipio" : 124,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 3,
+		"dc" : 9,
+		"nombre" : "Antas de Ulla"
+	},
+	{
+		"id_Municipio" : 125,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 3,
+		"dc" : 5,
+		"nombre" : "Alameda del Valle"
+	},
+	{
+		"id_Municipio" : 126,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 3,
+		"dc" : 8,
+		"nombre" : "Alfarnate"
+	},
+	{
+		"id_Municipio" : 127,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 3,
+		"dc" : 2,
+		"nombre" : "Águilas"
+	},
+	{
+		"id_Municipio" : 128,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 3,
+		"dc" : 9,
+		"nombre" : "Abaurregaina/Abaurrea Alta"
+	},
+	{
+		"id_Municipio" : 129,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 3,
+		"dc" : 4,
+		"nombre" : "Arnoia, A"
+	},
+	{
+		"id_Municipio" : 130,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 3,
+		"dc" : 0,
+		"nombre" : "Amieva"
+	},
+	{
+		"id_Municipio" : 131,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 3,
+		"dc" : 5,
+		"nombre" : "Abia de las Torres"
+	},
+	{
+		"id_Municipio" : 132,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 3,
+		"dc" : 8,
+		"nombre" : "Antigua"
+	},
+	{
+		"id_Municipio" : 133,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 3,
+		"dc" : 1,
+		"nombre" : "Baiona"
+	},
+	{
+		"id_Municipio" : 134,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Ahigal de los Aceiteros"
+	},
+	{
+		"id_Municipio" : 135,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 3,
+		"dc" : 3,
+		"nombre" : "Alajeró"
+	},
+	{
+		"id_Municipio" : 136,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 3,
+		"dc" : 6,
+		"nombre" : "Anievas"
+	},
+	{
+		"id_Municipio" : 137,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 3,
+		"dc" : 0,
+		"nombre" : "Adrados"
+	},
+	{
+		"id_Municipio" : 138,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Albaida del Aljarafe"
+	},
+	{
+		"id_Municipio" : 139,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 3,
+		"dc" : 2,
+		"nombre" : "Adradas"
+	},
+	{
+		"id_Municipio" : 140,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 3,
+		"dc" : 8,
+		"nombre" : "Albiol, L'"
+	},
+	{
+		"id_Municipio" : 141,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 3,
+		"dc" : 3,
+		"nombre" : "Aguatón"
+	},
+	{
+		"id_Municipio" : 142,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 3,
+		"dc" : 6,
+		"nombre" : "Albarreal de Tajo"
+	},
+	{
+		"id_Municipio" : 143,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 3,
+		"dc" : 9,
+		"nombre" : "Atzeneta d'Albaida"
+	},
+	{
+		"id_Municipio" : 144,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 3,
+		"dc" : 5,
+		"nombre" : "Aguilar de Campos"
+	},
+	{
+		"id_Municipio" : 145,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 3,
+		"dc" : 1,
+		"nombre" : "Amorebieta-Etxano"
+	},
+	{
+		"id_Municipio" : 146,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 3,
+		"dc" : 4,
+		"nombre" : "Alcañices"
+	},
+	{
+		"id_Municipio" : 147,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 3,
+		"dc" : 7,
+		"nombre" : "Agón"
+	},
+	{
+		"id_Municipio" : 148,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 4,
+		"dc" : 0,
+		"nombre" : "Artziniega"
+	},
+	{
+		"id_Municipio" : 149,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 4,
+		"dc" : 5,
+		"nombre" : "Albatana"
+	},
+	{
+		"id_Municipio" : 150,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 4,
+		"dc" : 1,
+		"nombre" : "Aigües"
+	},
+	{
+		"id_Municipio" : 151,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 4,
+		"dc" : 6,
+		"nombre" : "Albánchez"
+	},
+	{
+		"id_Municipio" : 152,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Alange"
+	},
+	{
+		"id_Municipio" : 153,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 4,
+		"dc" : 8,
+		"nombre" : "Algaida"
+	},
+	{
+		"id_Municipio" : 154,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 4,
+		"dc" : 4,
+		"nombre" : "Alpens"
+	},
+	{
+		"id_Municipio" : 155,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 4,
+		"dc" : 1,
+		"nombre" : "Acehúche"
+	},
+	{
+		"id_Municipio" : 156,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 4,
+		"dc" : 8,
+		"nombre" : "Algeciras"
+	},
+	{
+		"id_Municipio" : 157,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 4,
+		"dc" : 3,
+		"nombre" : "Alcalà de Xivert"
+	},
+	{
+		"id_Municipio" : 158,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 4,
+		"dc" : 9,
+		"nombre" : "Albaladejo"
+	},
+	{
+		"id_Municipio" : 159,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 4,
+		"dc" : 4,
+		"nombre" : "Almedinilla"
+	},
+	{
+		"id_Municipio" : 160,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 4,
+		"dc" : 7,
+		"nombre" : "Ares"
+	},
+	{
+		"id_Municipio" : 161,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 4,
+		"dc" : 0,
+		"nombre" : "Albaladejo del Cuende"
+	},
+	{
+		"id_Municipio" : 162,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 4,
+		"dc" : 6,
+		"nombre" : "Albons"
+	},
+	{
+		"id_Municipio" : 163,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Albondón"
+	},
+	{
+		"id_Municipio" : 164,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 4,
+		"dc" : 5,
+		"nombre" : "Alaminos"
+	},
+	{
+		"id_Municipio" : 165,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 4,
+		"dc" : 9,
+		"nombre" : "Albiztur"
+	},
+	{
+		"id_Municipio" : 166,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 4,
+		"dc" : 6,
+		"nombre" : "Almonaster la Real"
+	},
+	{
+		"id_Municipio" : 167,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 4,
+		"dc" : 1,
+		"nombre" : "Agüero"
+	},
+	{
+		"id_Municipio" : 168,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 4,
+		"dc" : 7,
+		"nombre" : "Aldeaquemada"
+	},
+	{
+		"id_Municipio" : 169,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Almanza"
+	},
+	{
+		"id_Municipio" : 170,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 4,
+		"dc" : 5,
+		"nombre" : "Alamús, Els"
+	},
+	{
+		"id_Municipio" : 171,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 4,
+		"dc" : 8,
+		"nombre" : "Ajamil de Cameros"
+	},
+	{
+		"id_Municipio" : 172,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 4,
+		"dc" : 4,
+		"nombre" : "Baleira"
+	},
+	{
+		"id_Municipio" : 173,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 4,
+		"dc" : 0,
+		"nombre" : "Álamo, El"
+	},
+	{
+		"id_Municipio" : 174,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 4,
+		"dc" : 3,
+		"nombre" : "Alfarnatejo"
+	},
+	{
+		"id_Municipio" : 175,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 4,
+		"dc" : 7,
+		"nombre" : "Albudeite"
+	},
+	{
+		"id_Municipio" : 176,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 4,
+		"dc" : 4,
+		"nombre" : "Abaurrepea/Abaurrea Baja"
+	},
+	{
+		"id_Municipio" : 177,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 4,
+		"dc" : 9,
+		"nombre" : "Avión"
+	},
+	{
+		"id_Municipio" : 178,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 4,
+		"dc" : 5,
+		"nombre" : "Avilés"
+	},
+	{
+		"id_Municipio" : 179,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 4,
+		"dc" : 0,
+		"nombre" : "Aguilar de Campoo"
+	},
+	{
+		"id_Municipio" : 180,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 4,
+		"dc" : 3,
+		"nombre" : "Arrecife"
+	},
+	{
+		"id_Municipio" : 181,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 4,
+		"dc" : 6,
+		"nombre" : "Bueu"
+	},
+	{
+		"id_Municipio" : 182,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Ahigal de Villarino"
+	},
+	{
+		"id_Municipio" : 183,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 4,
+		"dc" : 8,
+		"nombre" : "Arafo"
+	},
+	{
+		"id_Municipio" : 184,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 4,
+		"dc" : 1,
+		"nombre" : "Arenas de Iguña"
+	},
+	{
+		"id_Municipio" : 185,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 4,
+		"dc" : 5,
+		"nombre" : "Aguilafuente"
+	},
+	{
+		"id_Municipio" : 186,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Alcalá de Guadaíra"
+	},
+	{
+		"id_Municipio" : 187,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 4,
+		"dc" : 7,
+		"nombre" : "Ágreda"
+	},
+	{
+		"id_Municipio" : 188,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 4,
+		"dc" : 3,
+		"nombre" : "Alcanar"
+	},
+	{
+		"id_Municipio" : 189,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 4,
+		"dc" : 8,
+		"nombre" : "Aguaviva"
+	},
+	{
+		"id_Municipio" : 190,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 4,
+		"dc" : 1,
+		"nombre" : "Alcabón"
+	},
+	{
+		"id_Municipio" : 191,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 4,
+		"dc" : 4,
+		"nombre" : "Agullent"
+	},
+	{
+		"id_Municipio" : 192,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 4,
+		"dc" : 0,
+		"nombre" : "Alaejos"
+	},
+	{
+		"id_Municipio" : 193,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 4,
+		"dc" : 6,
+		"nombre" : "Amoroto"
+	},
+	{
+		"id_Municipio" : 194,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 4,
+		"dc" : 9,
+		"nombre" : "Alcubilla de Nogales"
+	},
+	{
+		"id_Municipio" : 195,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 4,
+		"dc" : 2,
+		"nombre" : "Aguarón"
+	},
+	{
+		"id_Municipio" : 196,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 5,
+		"dc" : 8,
+		"nombre" : "Alborea"
+	},
+	{
+		"id_Municipio" : 197,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 5,
+		"dc" : 4,
+		"nombre" : "Albatera"
+	},
+	{
+		"id_Municipio" : 198,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 5,
+		"dc" : 9,
+		"nombre" : "Alboloduy"
+	},
+	{
+		"id_Municipio" : 199,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 5,
+		"dc" : 2,
+		"nombre" : "Albornos"
+	},
+	{
+		"id_Municipio" : 200,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Albuera, La"
+	},
+	{
+		"id_Municipio" : 201,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 5,
+		"dc" : 1,
+		"nombre" : "Andratx"
+	},
+	{
+		"id_Municipio" : 202,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 5,
+		"dc" : 7,
+		"nombre" : "Ametlla del Vallès, L'"
+	},
+	{
+		"id_Municipio" : 203,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 5,
+		"dc" : 4,
+		"nombre" : "Aceituna"
+	},
+	{
+		"id_Municipio" : 204,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 5,
+		"dc" : 1,
+		"nombre" : "Algodonales"
+	},
+	{
+		"id_Municipio" : 205,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 5,
+		"dc" : 6,
+		"nombre" : "Alcora, l'"
+	},
+	{
+		"id_Municipio" : 206,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 5,
+		"dc" : 2,
+		"nombre" : "Alcázar de San Juan"
+	},
+	{
+		"id_Municipio" : 207,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 5,
+		"dc" : 7,
+		"nombre" : "Almodóvar del Río"
+	},
+	{
+		"id_Municipio" : 208,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 5,
+		"dc" : 0,
+		"nombre" : "Arteixo"
+	},
+	{
+		"id_Municipio" : 209,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 5,
+		"dc" : 3,
+		"nombre" : "Albalate de las Nogueras"
+	},
+	{
+		"id_Municipio" : 210,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 5,
+		"dc" : 9,
+		"nombre" : "Far d'Empordà, El"
+	},
+	{
+		"id_Municipio" : 211,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Albuñán"
+	},
+	{
+		"id_Municipio" : 212,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 5,
+		"dc" : 8,
+		"nombre" : "Alarilla"
+	},
+	{
+		"id_Municipio" : 213,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 5,
+		"dc" : 2,
+		"nombre" : "Alegia"
+	},
+	{
+		"id_Municipio" : 214,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 5,
+		"dc" : 9,
+		"nombre" : "Almonte"
+	},
+	{
+		"id_Municipio" : 215,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 5,
+		"dc" : 0,
+		"nombre" : "Andújar"
+	},
+	{
+		"id_Municipio" : 216,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Antigua, La"
+	},
+	{
+		"id_Municipio" : 217,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 5,
+		"dc" : 8,
+		"nombre" : "Alàs i Cerc"
+	},
+	{
+		"id_Municipio" : 218,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 5,
+		"dc" : 1,
+		"nombre" : "Albelda de Iregua"
+	},
+	{
+		"id_Municipio" : 219,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 5,
+		"dc" : 7,
+		"nombre" : "Barreiros"
+	},
+	{
+		"id_Municipio" : 220,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 5,
+		"dc" : 3,
+		"nombre" : "Alcalá de Henares"
+	},
+	{
+		"id_Municipio" : 221,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 5,
+		"dc" : 6,
+		"nombre" : "Algarrobo"
+	},
+	{
+		"id_Municipio" : 222,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 5,
+		"dc" : 0,
+		"nombre" : "Alcantarilla"
+	},
+	{
+		"id_Municipio" : 223,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 5,
+		"dc" : 7,
+		"nombre" : "Aberin"
+	},
+	{
+		"id_Municipio" : 224,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 5,
+		"dc" : 2,
+		"nombre" : "Baltar"
+	},
+	{
+		"id_Municipio" : 225,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 5,
+		"dc" : 8,
+		"nombre" : "Belmonte de Miranda"
+	},
+	{
+		"id_Municipio" : 226,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 5,
+		"dc" : 3,
+		"nombre" : "Alar del Rey"
+	},
+	{
+		"id_Municipio" : 227,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 5,
+		"dc" : 6,
+		"nombre" : "Artenara"
+	},
+	{
+		"id_Municipio" : 228,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 5,
+		"dc" : 9,
+		"nombre" : "Caldas de Reis"
+	},
+	{
+		"id_Municipio" : 229,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Alameda de Gardón, La"
+	},
+	{
+		"id_Municipio" : 230,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 5,
+		"dc" : 1,
+		"nombre" : "Arico"
+	},
+	{
+		"id_Municipio" : 231,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 5,
+		"dc" : 4,
+		"nombre" : "Argoños"
+	},
+	{
+		"id_Municipio" : 232,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 5,
+		"dc" : 8,
+		"nombre" : "Alconada de Maderuelo"
+	},
+	{
+		"id_Municipio" : 233,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Alcalá del Río"
+	},
+	{
+		"id_Municipio" : 234,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 5,
+		"dc" : 6,
+		"nombre" : "Alcover"
+	},
+	{
+		"id_Municipio" : 235,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 5,
+		"dc" : 1,
+		"nombre" : "Aguilar del Alfambra"
+	},
+	{
+		"id_Municipio" : 236,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 5,
+		"dc" : 4,
+		"nombre" : "Alcañizo"
+	},
+	{
+		"id_Municipio" : 237,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 5,
+		"dc" : 7,
+		"nombre" : "Alaquàs"
+	},
+	{
+		"id_Municipio" : 238,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 5,
+		"dc" : 3,
+		"nombre" : "Alcazarén"
+	},
+	{
+		"id_Municipio" : 239,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 5,
+		"dc" : 9,
+		"nombre" : "Arakaldo"
+	},
+	{
+		"id_Municipio" : 240,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 5,
+		"dc" : 2,
+		"nombre" : "Alfaraz de Sayago"
+	},
+	{
+		"id_Municipio" : 241,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 5,
+		"dc" : 5,
+		"nombre" : "Aguilón"
+	},
+	{
+		"id_Municipio" : 242,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 6,
+		"dc" : 6,
+		"nombre" : "Armiñón"
+	},
+	{
+		"id_Municipio" : 243,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 6,
+		"dc" : 1,
+		"nombre" : "Alcadozo"
+	},
+	{
+		"id_Municipio" : 244,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 6,
+		"dc" : 7,
+		"nombre" : "Alcalalí"
+	},
+	{
+		"id_Municipio" : 245,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 6,
+		"dc" : 2,
+		"nombre" : "Albox"
+	},
+	{
+		"id_Municipio" : 246,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Alburquerque"
+	},
+	{
+		"id_Municipio" : 247,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 6,
+		"dc" : 4,
+		"nombre" : "Artà"
+	},
+	{
+		"id_Municipio" : 248,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 6,
+		"dc" : 0,
+		"nombre" : "Arenys de Mar"
+	},
+	{
+		"id_Municipio" : 249,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 6,
+		"dc" : 3,
+		"nombre" : "Aguas Cándidas"
+	},
+	{
+		"id_Municipio" : 250,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 6,
+		"dc" : 7,
+		"nombre" : "Ahigal"
+	},
+	{
+		"id_Municipio" : 251,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 6,
+		"dc" : 4,
+		"nombre" : "Arcos de la Frontera"
+	},
+	{
+		"id_Municipio" : 252,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 6,
+		"dc" : 9,
+		"nombre" : "Alcudia de Veo"
+	},
+	{
+		"id_Municipio" : 253,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 6,
+		"dc" : 5,
+		"nombre" : "Alcoba"
+	},
+	{
+		"id_Municipio" : 254,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 6,
+		"dc" : 0,
+		"nombre" : "Añora"
+	},
+	{
+		"id_Municipio" : 255,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 6,
+		"dc" : 3,
+		"nombre" : "Arzúa"
+	},
+	{
+		"id_Municipio" : 256,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 6,
+		"dc" : 6,
+		"nombre" : "Albendea"
+	},
+	{
+		"id_Municipio" : 257,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 6,
+		"dc" : 2,
+		"nombre" : "Alp"
+	},
+	{
+		"id_Municipio" : 258,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Albuñol"
+	},
+	{
+		"id_Municipio" : 259,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 6,
+		"dc" : 1,
+		"nombre" : "Albalate de Zorita"
+	},
+	{
+		"id_Municipio" : 260,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 6,
+		"dc" : 5,
+		"nombre" : "Alkiza"
+	},
+	{
+		"id_Municipio" : 261,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 6,
+		"dc" : 2,
+		"nombre" : "Alosno"
+	},
+	{
+		"id_Municipio" : 262,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 6,
+		"dc" : 7,
+		"nombre" : "Aisa"
+	},
+	{
+		"id_Municipio" : 263,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 6,
+		"dc" : 3,
+		"nombre" : "Arjona"
+	},
+	{
+		"id_Municipio" : 264,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Ardón"
+	},
+	{
+		"id_Municipio" : 265,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 6,
+		"dc" : 1,
+		"nombre" : "Albagés, L'"
+	},
+	{
+		"id_Municipio" : 266,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 6,
+		"dc" : 4,
+		"nombre" : "Alberite"
+	},
+	{
+		"id_Municipio" : 267,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 6,
+		"dc" : 0,
+		"nombre" : "Becerreá"
+	},
+	{
+		"id_Municipio" : 268,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 6,
+		"dc" : 6,
+		"nombre" : "Alcobendas"
+	},
+	{
+		"id_Municipio" : 269,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 6,
+		"dc" : 9,
+		"nombre" : "Algatocín"
+	},
+	{
+		"id_Municipio" : 270,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 6,
+		"dc" : 3,
+		"nombre" : "Aledo"
+	},
+	{
+		"id_Municipio" : 271,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 6,
+		"dc" : 0,
+		"nombre" : "Ablitas"
+	},
+	{
+		"id_Municipio" : 272,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 6,
+		"dc" : 5,
+		"nombre" : "Bande"
+	},
+	{
+		"id_Municipio" : 273,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 6,
+		"dc" : 1,
+		"nombre" : "Bimenes"
+	},
+	{
+		"id_Municipio" : 274,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 6,
+		"dc" : 6,
+		"nombre" : "Alba de Cerrato"
+	},
+	{
+		"id_Municipio" : 275,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 6,
+		"dc" : 9,
+		"nombre" : "Arucas"
+	},
+	{
+		"id_Municipio" : 276,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 6,
+		"dc" : 2,
+		"nombre" : "Cambados"
+	},
+	{
+		"id_Municipio" : 277,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Alamedilla, La"
+	},
+	{
+		"id_Municipio" : 278,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 6,
+		"dc" : 4,
+		"nombre" : "Arona"
+	},
+	{
+		"id_Municipio" : 279,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 6,
+		"dc" : 7,
+		"nombre" : "Arnuero"
+	},
+	{
+		"id_Municipio" : 280,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 6,
+		"dc" : 1,
+		"nombre" : "Aldealcorvo"
+	},
+	{
+		"id_Municipio" : 281,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Alcolea del Río"
+	},
+	{
+		"id_Municipio" : 282,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 6,
+		"dc" : 3,
+		"nombre" : "Alconaba"
+	},
+	{
+		"id_Municipio" : 283,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 6,
+		"dc" : 9,
+		"nombre" : "Aldover"
+	},
+	{
+		"id_Municipio" : 284,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 6,
+		"dc" : 4,
+		"nombre" : "Alacón"
+	},
+	{
+		"id_Municipio" : 285,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 6,
+		"dc" : 7,
+		"nombre" : "Alcaudete de la Jara"
+	},
+	{
+		"id_Municipio" : 286,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 6,
+		"dc" : 0,
+		"nombre" : "Albaida"
+	},
+	{
+		"id_Municipio" : 287,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 6,
+		"dc" : 6,
+		"nombre" : "Aldea de San Miguel"
+	},
+	{
+		"id_Municipio" : 288,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 6,
+		"dc" : 2,
+		"nombre" : "Arantzazu"
+	},
+	{
+		"id_Municipio" : 289,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 6,
+		"dc" : 5,
+		"nombre" : "Algodre"
+	},
+	{
+		"id_Municipio" : 290,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 6,
+		"dc" : 8,
+		"nombre" : "Ainzón"
+	},
+	{
+		"id_Municipio" : 291,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 7,
+		"dc" : 7,
+		"nombre" : "Alcalá del Júcar"
+	},
+	{
+		"id_Municipio" : 292,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 7,
+		"dc" : 3,
+		"nombre" : "Alcocer de Planes"
+	},
+	{
+		"id_Municipio" : 293,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 7,
+		"dc" : 8,
+		"nombre" : "Alcolea"
+	},
+	{
+		"id_Municipio" : 294,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 7,
+		"dc" : 1,
+		"nombre" : "Aldeanueva de Santa Cruz"
+	},
+	{
+		"id_Municipio" : 295,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Alconchel"
+	},
+	{
+		"id_Municipio" : 296,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 7,
+		"dc" : 0,
+		"nombre" : "Banyalbufar"
+	},
+	{
+		"id_Municipio" : 297,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 7,
+		"dc" : 6,
+		"nombre" : "Arenys de Munt"
+	},
+	{
+		"id_Municipio" : 298,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 7,
+		"dc" : 9,
+		"nombre" : "Aguilar de Bureba"
+	},
+	{
+		"id_Municipio" : 299,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 7,
+		"dc" : 3,
+		"nombre" : "Albalá"
+	},
+	{
+		"id_Municipio" : 300,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 7,
+		"dc" : 0,
+		"nombre" : "Barbate"
+	},
+	{
+		"id_Municipio" : 301,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 7,
+		"dc" : 5,
+		"nombre" : "Alfondeguilla"
+	},
+	{
+		"id_Municipio" : 302,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 7,
+		"dc" : 1,
+		"nombre" : "Alcolea de Calatrava"
+	},
+	{
+		"id_Municipio" : 303,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 7,
+		"dc" : 6,
+		"nombre" : "Baena"
+	},
+	{
+		"id_Municipio" : 304,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 7,
+		"dc" : 9,
+		"nombre" : "Baña, A"
+	},
+	{
+		"id_Municipio" : 305,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 7,
+		"dc" : 2,
+		"nombre" : "Alberca de Záncara, La"
+	},
+	{
+		"id_Municipio" : 306,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 7,
+		"dc" : 8,
+		"nombre" : "Amer"
+	},
+	{
+		"id_Municipio" : 307,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Albuñuelas"
+	},
+	{
+		"id_Municipio" : 308,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 7,
+		"dc" : 7,
+		"nombre" : "Albares"
+	},
+	{
+		"id_Municipio" : 309,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 7,
+		"dc" : 1,
+		"nombre" : "Altzo"
+	},
+	{
+		"id_Municipio" : 310,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 7,
+		"dc" : 8,
+		"nombre" : "Aracena"
+	},
+	{
+		"id_Municipio" : 311,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 7,
+		"dc" : 3,
+		"nombre" : "Albalate de Cinca"
+	},
+	{
+		"id_Municipio" : 312,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 7,
+		"dc" : 9,
+		"nombre" : "Arjonilla"
+	},
+	{
+		"id_Municipio" : 313,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Arganza"
+	},
+	{
+		"id_Municipio" : 314,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 7,
+		"dc" : 7,
+		"nombre" : "Albatàrrec"
+	},
+	{
+		"id_Municipio" : 315,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 7,
+		"dc" : 0,
+		"nombre" : "Alcanadre"
+	},
+	{
+		"id_Municipio" : 316,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 7,
+		"dc" : 6,
+		"nombre" : "Begonte"
+	},
+	{
+		"id_Municipio" : 317,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 7,
+		"dc" : 2,
+		"nombre" : "Alcorcón"
+	},
+	{
+		"id_Municipio" : 318,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 7,
+		"dc" : 5,
+		"nombre" : "Alhaurín de la Torre"
+	},
+	{
+		"id_Municipio" : 319,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 7,
+		"dc" : 9,
+		"nombre" : "Alguazas"
+	},
+	{
+		"id_Municipio" : 320,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 7,
+		"dc" : 6,
+		"nombre" : "Adiós"
+	},
+	{
+		"id_Municipio" : 321,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 7,
+		"dc" : 1,
+		"nombre" : "Baños de Molgas"
+	},
+	{
+		"id_Municipio" : 322,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 7,
+		"dc" : 7,
+		"nombre" : "Boal"
+	},
+	{
+		"id_Municipio" : 323,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 7,
+		"dc" : 5,
+		"nombre" : "Betancuria"
+	},
+	{
+		"id_Municipio" : 324,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 7,
+		"dc" : 8,
+		"nombre" : "Campo Lameiro"
+	},
+	{
+		"id_Municipio" : 325,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Alaraz"
+	},
+	{
+		"id_Municipio" : 326,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 7,
+		"dc" : 0,
+		"nombre" : "Barlovento"
+	},
+	{
+		"id_Municipio" : 327,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 7,
+		"dc" : 3,
+		"nombre" : "Arredondo"
+	},
+	{
+		"id_Municipio" : 328,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 7,
+		"dc" : 7,
+		"nombre" : "Aldealengua de Pedraza"
+	},
+	{
+		"id_Municipio" : 329,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Algaba, La"
+	},
+	{
+		"id_Municipio" : 330,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 7,
+		"dc" : 9,
+		"nombre" : "Alcubilla de Avellaneda"
+	},
+	{
+		"id_Municipio" : 331,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 7,
+		"dc" : 5,
+		"nombre" : "Aleixar, L'"
+	},
+	{
+		"id_Municipio" : 332,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 7,
+		"dc" : 0,
+		"nombre" : "Alba"
+	},
+	{
+		"id_Municipio" : 333,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 7,
+		"dc" : 3,
+		"nombre" : "Alcolea de Tajo"
+	},
+	{
+		"id_Municipio" : 334,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 7,
+		"dc" : 6,
+		"nombre" : "Albal"
+	},
+	{
+		"id_Municipio" : 335,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 7,
+		"dc" : 2,
+		"nombre" : "Aldeamayor de San Martín"
+	},
+	{
+		"id_Municipio" : 336,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 7,
+		"dc" : 8,
+		"nombre" : "Munitibar-Arbatzegi Gerrikaitz"
+	},
+	{
+		"id_Municipio" : 337,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 7,
+		"dc" : 1,
+		"nombre" : "Almaraz de Duero"
+	},
+	{
+		"id_Municipio" : 338,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 7,
+		"dc" : 4,
+		"nombre" : "Aladrén"
+	},
+	{
+		"id_Municipio" : 339,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 8,
+		"dc" : 8,
+		"nombre" : "Arrazua-Ubarrundia"
+	},
+	{
+		"id_Municipio" : 340,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 8,
+		"dc" : 3,
+		"nombre" : "Alcaraz"
+	},
+	{
+		"id_Municipio" : 341,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 8,
+		"dc" : 9,
+		"nombre" : "Alcoleja"
+	},
+	{
+		"id_Municipio" : 342,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 8,
+		"dc" : 4,
+		"nombre" : "Alcóntar"
+	},
+	{
+		"id_Municipio" : 343,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 8,
+		"dc" : 7,
+		"nombre" : "Aldeaseca"
+	},
+	{
+		"id_Municipio" : 344,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 8,
+		"dc" : 0,
+		"nombre" : "Alconera"
+	},
+	{
+		"id_Municipio" : 345,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 8,
+		"dc" : 6,
+		"nombre" : "Binissalem"
+	},
+	{
+		"id_Municipio" : 346,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 8,
+		"dc" : 2,
+		"nombre" : "Argençola"
+	},
+	{
+		"id_Municipio" : 347,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 8,
+		"dc" : 9,
+		"nombre" : "Alcántara"
+	},
+	{
+		"id_Municipio" : 348,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 8,
+		"dc" : 6,
+		"nombre" : "Barrios, Los"
+	},
+	{
+		"id_Municipio" : 349,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 8,
+		"dc" : 1,
+		"nombre" : "Algimia de Almonacid"
+	},
+	{
+		"id_Municipio" : 350,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 8,
+		"dc" : 7,
+		"nombre" : "Alcubillas"
+	},
+	{
+		"id_Municipio" : 351,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 8,
+		"dc" : 2,
+		"nombre" : "Belalcázar"
+	},
+	{
+		"id_Municipio" : 352,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 8,
+		"dc" : 5,
+		"nombre" : "Bergondo"
+	},
+	{
+		"id_Municipio" : 353,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 8,
+		"dc" : 8,
+		"nombre" : "Alcalá de la Vega"
+	},
+	{
+		"id_Municipio" : 354,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 8,
+		"dc" : 4,
+		"nombre" : "Anglès"
+	},
+	{
+		"id_Municipio" : 355,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 8,
+		"dc" : 3,
+		"nombre" : "Albendiego"
+	},
+	{
+		"id_Municipio" : 356,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 8,
+		"dc" : 7,
+		"nombre" : "Amezketa"
+	},
+	{
+		"id_Municipio" : 357,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 8,
+		"dc" : 4,
+		"nombre" : "Aroche"
+	},
+	{
+		"id_Municipio" : 358,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 8,
+		"dc" : 9,
+		"nombre" : "Albalatillo"
+	},
+	{
+		"id_Municipio" : 359,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 8,
+		"dc" : 5,
+		"nombre" : "Arquillos"
+	},
+	{
+		"id_Municipio" : 360,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 8,
+		"dc" : 0,
+		"nombre" : "Astorga"
+	},
+	{
+		"id_Municipio" : 361,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 8,
+		"dc" : 3,
+		"nombre" : "Albesa"
+	},
+	{
+		"id_Municipio" : 362,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 8,
+		"dc" : 6,
+		"nombre" : "Aldeanueva de Ebro"
+	},
+	{
+		"id_Municipio" : 363,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 8,
+		"dc" : 2,
+		"nombre" : "Bóveda"
+	},
+	{
+		"id_Municipio" : 364,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 8,
+		"dc" : 8,
+		"nombre" : "Aldea del Fresno"
+	},
+	{
+		"id_Municipio" : 365,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 8,
+		"dc" : 1,
+		"nombre" : "Alhaurín el Grande"
+	},
+	{
+		"id_Municipio" : 366,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 8,
+		"dc" : 5,
+		"nombre" : "Alhama de Murcia"
+	},
+	{
+		"id_Municipio" : 367,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 8,
+		"dc" : 2,
+		"nombre" : "Aguilar de Codés"
+	},
+	{
+		"id_Municipio" : 368,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 8,
+		"dc" : 7,
+		"nombre" : "Barbadás"
+	},
+	{
+		"id_Municipio" : 369,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 8,
+		"dc" : 3,
+		"nombre" : "Cabrales"
+	},
+	{
+		"id_Municipio" : 370,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 8,
+		"dc" : 1,
+		"nombre" : "Firgas"
+	},
+	{
+		"id_Municipio" : 371,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 8,
+		"dc" : 4,
+		"nombre" : "Cangas"
+	},
+	{
+		"id_Municipio" : 372,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 8,
+		"dc" : 0,
+		"nombre" : "Alba de Tormes"
+	},
+	{
+		"id_Municipio" : 373,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 8,
+		"dc" : 6,
+		"nombre" : "Breña Alta"
+	},
+	{
+		"id_Municipio" : 374,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 8,
+		"dc" : 9,
+		"nombre" : "Astillero, El"
+	},
+	{
+		"id_Municipio" : 375,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 8,
+		"dc" : 3,
+		"nombre" : "Aldealengua de Santa María"
+	},
+	{
+		"id_Municipio" : 376,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 8,
+		"dc" : 0,
+		"nombre" : "Algámitas"
+	},
+	{
+		"id_Municipio" : 377,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 8,
+		"dc" : 5,
+		"nombre" : "Alcubilla de las Peñas"
+	},
+	{
+		"id_Municipio" : 378,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 8,
+		"dc" : 1,
+		"nombre" : "Alfara de Carles"
+	},
+	{
+		"id_Municipio" : 379,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 8,
+		"dc" : 6,
+		"nombre" : "Albalate del Arzobispo"
+	},
+	{
+		"id_Municipio" : 380,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 8,
+		"dc" : 9,
+		"nombre" : "Aldea en Cabo"
+	},
+	{
+		"id_Municipio" : 381,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 8,
+		"dc" : 2,
+		"nombre" : "Albalat de la Ribera"
+	},
+	{
+		"id_Municipio" : 382,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 8,
+		"dc" : 8,
+		"nombre" : "Almenara de Adaja"
+	},
+	{
+		"id_Municipio" : 383,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 8,
+		"dc" : 4,
+		"nombre" : "Artzentales"
+	},
+	{
+		"id_Municipio" : 384,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 8,
+		"dc" : 7,
+		"nombre" : "Almeida de Sayago"
+	},
+	{
+		"id_Municipio" : 385,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 8,
+		"dc" : 0,
+		"nombre" : "Alagón"
+	},
+	{
+		"id_Municipio" : 386,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 9,
+		"dc" : 1,
+		"nombre" : "Asparrena"
+	},
+	{
+		"id_Municipio" : 387,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 9,
+		"dc" : 6,
+		"nombre" : "Almansa"
+	},
+	{
+		"id_Municipio" : 388,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 9,
+		"dc" : 2,
+		"nombre" : "Alcoy/Alcoi"
+	},
+	{
+		"id_Municipio" : 389,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 9,
+		"dc" : 7,
+		"nombre" : "Alcudia de Monteagud"
+	},
+	{
+		"id_Municipio" : 390,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 9,
+		"dc" : 3,
+		"nombre" : "Aljucén"
+	},
+	{
+		"id_Municipio" : 391,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 9,
+		"dc" : 9,
+		"nombre" : "Búger"
+	},
+	{
+		"id_Municipio" : 392,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 9,
+		"dc" : 5,
+		"nombre" : "Argentona"
+	},
+	{
+		"id_Municipio" : 393,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 9,
+		"dc" : 8,
+		"nombre" : "Albillos"
+	},
+	{
+		"id_Municipio" : 394,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 9,
+		"dc" : 2,
+		"nombre" : "Alcollarín"
+	},
+	{
+		"id_Municipio" : 395,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 9,
+		"dc" : 9,
+		"nombre" : "Benaocaz"
+	},
+	{
+		"id_Municipio" : 396,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 9,
+		"dc" : 4,
+		"nombre" : "Almazora/Almassora"
+	},
+	{
+		"id_Municipio" : 397,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 9,
+		"dc" : 0,
+		"nombre" : "Aldea del Rey"
+	},
+	{
+		"id_Municipio" : 398,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 9,
+		"dc" : 5,
+		"nombre" : "Belmez"
+	},
+	{
+		"id_Municipio" : 399,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 9,
+		"dc" : 8,
+		"nombre" : "Betanzos"
+	},
+	{
+		"id_Municipio" : 400,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 9,
+		"dc" : 1,
+		"nombre" : "Alcantud"
+	},
+	{
+		"id_Municipio" : 401,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 9,
+		"dc" : 7,
+		"nombre" : "Arbúcies"
+	},
+	{
+		"id_Municipio" : 402,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 9,
+		"dc" : 6,
+		"nombre" : "Alcocer"
+	},
+	{
+		"id_Municipio" : 403,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 9,
+		"dc" : 0,
+		"nombre" : "Andoain"
+	},
+	{
+		"id_Municipio" : 404,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 9,
+		"dc" : 7,
+		"nombre" : "Arroyomolinos de León"
+	},
+	{
+		"id_Municipio" : 405,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 9,
+		"dc" : 2,
+		"nombre" : "Albelda"
+	},
+	{
+		"id_Municipio" : 406,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 9,
+		"dc" : 8,
+		"nombre" : "Baeza"
+	},
+	{
+		"id_Municipio" : 407,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 9,
+		"dc" : 3,
+		"nombre" : "Balboa"
+	},
+	{
+		"id_Municipio" : 408,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 9,
+		"dc" : 6,
+		"nombre" : "Albi, L'"
+	},
+	{
+		"id_Municipio" : 409,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 9,
+		"dc" : 9,
+		"nombre" : "Alesanco"
+	},
+	{
+		"id_Municipio" : 410,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 9,
+		"dc" : 5,
+		"nombre" : "Carballedo"
+	},
+	{
+		"id_Municipio" : 411,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 9,
+		"dc" : 1,
+		"nombre" : "Algete"
+	},
+	{
+		"id_Municipio" : 412,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 9,
+		"dc" : 4,
+		"nombre" : "Almáchar"
+	},
+	{
+		"id_Municipio" : 413,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 9,
+		"dc" : 8,
+		"nombre" : "Archena"
+	},
+	{
+		"id_Municipio" : 414,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 9,
+		"dc" : 5,
+		"nombre" : "Aibar/Oibar"
+	},
+	{
+		"id_Municipio" : 415,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 9,
+		"dc" : 0,
+		"nombre" : "Barco de Valdeorras, O"
+	},
+	{
+		"id_Municipio" : 416,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 9,
+		"dc" : 6,
+		"nombre" : "Cabranes"
+	},
+	{
+		"id_Municipio" : 417,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 9,
+		"dc" : 1,
+		"nombre" : "Amayuelas de Arriba"
+	},
+	{
+		"id_Municipio" : 418,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 9,
+		"dc" : 4,
+		"nombre" : "Gáldar"
+	},
+	{
+		"id_Municipio" : 419,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 9,
+		"dc" : 7,
+		"nombre" : "Cañiza, A"
+	},
+	{
+		"id_Municipio" : 420,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 9,
+		"dc" : 3,
+		"nombre" : "Alba de Yeltes"
+	},
+	{
+		"id_Municipio" : 421,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 9,
+		"dc" : 9,
+		"nombre" : "Breña Baja"
+	},
+	{
+		"id_Municipio" : 422,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 9,
+		"dc" : 2,
+		"nombre" : "Bárcena de Cicero"
+	},
+	{
+		"id_Municipio" : 423,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 9,
+		"dc" : 6,
+		"nombre" : "Aldeanueva de la Serrezuela"
+	},
+	{
+		"id_Municipio" : 424,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 9,
+		"dc" : 3,
+		"nombre" : "Almadén de la Plata"
+	},
+	{
+		"id_Municipio" : 425,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 9,
+		"dc" : 8,
+		"nombre" : "Aldealafuente"
+	},
+	{
+		"id_Municipio" : 426,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 9,
+		"dc" : 4,
+		"nombre" : "Alforja"
+	},
+	{
+		"id_Municipio" : 427,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 9,
+		"dc" : 9,
+		"nombre" : "Albarracín"
+	},
+	{
+		"id_Municipio" : 428,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 9,
+		"dc" : 2,
+		"nombre" : "Aldeanueva de Barbarroya"
+	},
+	{
+		"id_Municipio" : 429,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 9,
+		"dc" : 5,
+		"nombre" : "Albalat dels Sorells"
+	},
+	{
+		"id_Municipio" : 430,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 9,
+		"dc" : 1,
+		"nombre" : "Amusquillo"
+	},
+	{
+		"id_Municipio" : 431,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 9,
+		"dc" : 7,
+		"nombre" : "Arrankudiaga"
+	},
+	{
+		"id_Municipio" : 432,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 9,
+		"dc" : 0,
+		"nombre" : "Andavías"
+	},
+	{
+		"id_Municipio" : 433,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 9,
+		"dc" : 3,
+		"nombre" : "Alarba"
+	},
+	{
+		"id_Municipio" : 434,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 10,
+		"dc" : 5,
+		"nombre" : "Ayala/Aiara"
+	},
+	{
+		"id_Municipio" : 435,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 10,
+		"dc" : 0,
+		"nombre" : "Alpera"
+	},
+	{
+		"id_Municipio" : 436,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 10,
+		"dc" : 6,
+		"nombre" : "Alfafara"
+	},
+	{
+		"id_Municipio" : 437,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 10,
+		"dc" : 1,
+		"nombre" : "Alhabia"
+	},
+	{
+		"id_Municipio" : 438,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 10,
+		"dc" : 4,
+		"nombre" : "Aldehuela, La"
+	},
+	{
+		"id_Municipio" : 439,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Almendral"
+	},
+	{
+		"id_Municipio" : 440,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 10,
+		"dc" : 3,
+		"nombre" : "Bunyola"
+	},
+	{
+		"id_Municipio" : 441,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 10,
+		"dc" : 9,
+		"nombre" : "Artés"
+	},
+	{
+		"id_Municipio" : 442,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 10,
+		"dc" : 2,
+		"nombre" : "Alcocero de Mola"
+	},
+	{
+		"id_Municipio" : 443,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 10,
+		"dc" : 6,
+		"nombre" : "Alcuéscar"
+	},
+	{
+		"id_Municipio" : 444,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 10,
+		"dc" : 3,
+		"nombre" : "Bornos"
+	},
+	{
+		"id_Municipio" : 445,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 10,
+		"dc" : 8,
+		"nombre" : "Almedíjar"
+	},
+	{
+		"id_Municipio" : 446,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 10,
+		"dc" : 4,
+		"nombre" : "Alhambra"
+	},
+	{
+		"id_Municipio" : 447,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 10,
+		"dc" : 9,
+		"nombre" : "Benamejí"
+	},
+	{
+		"id_Municipio" : 448,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 10,
+		"dc" : 2,
+		"nombre" : "Boimorto"
+	},
+	{
+		"id_Municipio" : 449,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 10,
+		"dc" : 5,
+		"nombre" : "Alcázar del Rey"
+	},
+	{
+		"id_Municipio" : 450,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 10,
+		"dc" : 1,
+		"nombre" : "Argelaguer"
+	},
+	{
+		"id_Municipio" : 451,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Aldeire"
+	},
+	{
+		"id_Municipio" : 452,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 10,
+		"dc" : 0,
+		"nombre" : "Alcolea de las Peñas"
+	},
+	{
+		"id_Municipio" : 453,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 10,
+		"dc" : 4,
+		"nombre" : "Anoeta"
+	},
+	{
+		"id_Municipio" : 454,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 10,
+		"dc" : 1,
+		"nombre" : "Ayamonte"
+	},
+	{
+		"id_Municipio" : 455,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 10,
+		"dc" : 2,
+		"nombre" : "Bailén"
+	},
+	{
+		"id_Municipio" : 456,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Bañeza, La"
+	},
+	{
+		"id_Municipio" : 457,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 10,
+		"dc" : 0,
+		"nombre" : "Alcanó"
+	},
+	{
+		"id_Municipio" : 458,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 10,
+		"dc" : 3,
+		"nombre" : "Alesón"
+	},
+	{
+		"id_Municipio" : 459,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 10,
+		"dc" : 9,
+		"nombre" : "Castro de Rei"
+	},
+	{
+		"id_Municipio" : 460,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 10,
+		"dc" : 5,
+		"nombre" : "Alpedrete"
+	},
+	{
+		"id_Municipio" : 461,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 10,
+		"dc" : 8,
+		"nombre" : "Almargen"
+	},
+	{
+		"id_Municipio" : 462,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 10,
+		"dc" : 2,
+		"nombre" : "Beniel"
+	},
+	{
+		"id_Municipio" : 463,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 10,
+		"dc" : 9,
+		"nombre" : "Altsasu/Alsasua"
+	},
+	{
+		"id_Municipio" : 464,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 10,
+		"dc" : 4,
+		"nombre" : "Beade"
+	},
+	{
+		"id_Municipio" : 465,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 10,
+		"dc" : 0,
+		"nombre" : "Candamo"
+	},
+	{
+		"id_Municipio" : 466,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 10,
+		"dc" : 5,
+		"nombre" : "Ampudia"
+	},
+	{
+		"id_Municipio" : 467,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 10,
+		"dc" : 8,
+		"nombre" : "Haría"
+	},
+	{
+		"id_Municipio" : 468,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 10,
+		"dc" : 1,
+		"nombre" : "Catoira"
+	},
+	{
+		"id_Municipio" : 469,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Alberca, La"
+	},
+	{
+		"id_Municipio" : 470,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 10,
+		"dc" : 3,
+		"nombre" : "Buenavista del Norte"
+	},
+	{
+		"id_Municipio" : 471,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 10,
+		"dc" : 6,
+		"nombre" : "Bárcena de Pie de Concha"
+	},
+	{
+		"id_Municipio" : 472,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 10,
+		"dc" : 0,
+		"nombre" : "Aldeanueva del Codonal"
+	},
+	{
+		"id_Municipio" : 473,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Almensilla"
+	},
+	{
+		"id_Municipio" : 474,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 10,
+		"dc" : 2,
+		"nombre" : "Aldealices"
+	},
+	{
+		"id_Municipio" : 475,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 10,
+		"dc" : 8,
+		"nombre" : "Alió"
+	},
+	{
+		"id_Municipio" : 476,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 10,
+		"dc" : 3,
+		"nombre" : "Albentosa"
+	},
+	{
+		"id_Municipio" : 477,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 10,
+		"dc" : 6,
+		"nombre" : "Aldeanueva de San Bartolomé"
+	},
+	{
+		"id_Municipio" : 478,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 10,
+		"dc" : 9,
+		"nombre" : "Albalat dels Tarongers"
+	},
+	{
+		"id_Municipio" : 479,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 10,
+		"dc" : 5,
+		"nombre" : "Arroyo de la Encomienda"
+	},
+	{
+		"id_Municipio" : 480,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 10,
+		"dc" : 1,
+		"nombre" : "Arrieta"
+	},
+	{
+		"id_Municipio" : 481,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 10,
+		"dc" : 4,
+		"nombre" : "Arcenillas"
+	},
+	{
+		"id_Municipio" : 482,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 10,
+		"dc" : 7,
+		"nombre" : "Alberite de San Juan"
+	},
+	{
+		"id_Municipio" : 483,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 11,
+		"dc" : 2,
+		"nombre" : "Baños de Ebro/Mañueta"
+	},
+	{
+		"id_Municipio" : 484,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 11,
+		"dc" : 7,
+		"nombre" : "Ayna"
+	},
+	{
+		"id_Municipio" : 485,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 11,
+		"dc" : 3,
+		"nombre" : "Alfàs del Pi, l'"
+	},
+	{
+		"id_Municipio" : 486,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 11,
+		"dc" : 8,
+		"nombre" : "Alhama de Almería"
+	},
+	{
+		"id_Municipio" : 487,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Almendralejo"
+	},
+	{
+		"id_Municipio" : 488,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 11,
+		"dc" : 0,
+		"nombre" : "Calvià"
+	},
+	{
+		"id_Municipio" : 489,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 11,
+		"dc" : 6,
+		"nombre" : "Avià"
+	},
+	{
+		"id_Municipio" : 490,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 11,
+		"dc" : 9,
+		"nombre" : "Alfoz de Bricia"
+	},
+	{
+		"id_Municipio" : 491,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 11,
+		"dc" : 3,
+		"nombre" : "Aldeacentenera"
+	},
+	{
+		"id_Municipio" : 492,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 11,
+		"dc" : 0,
+		"nombre" : "Bosque, El"
+	},
+	{
+		"id_Municipio" : 493,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 11,
+		"dc" : 5,
+		"nombre" : "Almenara"
+	},
+	{
+		"id_Municipio" : 494,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 11,
+		"dc" : 1,
+		"nombre" : "Almadén"
+	},
+	{
+		"id_Municipio" : 495,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 11,
+		"dc" : 6,
+		"nombre" : "Blázquez, Los"
+	},
+	{
+		"id_Municipio" : 496,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 11,
+		"dc" : 9,
+		"nombre" : "Boiro"
+	},
+	{
+		"id_Municipio" : 497,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 11,
+		"dc" : 2,
+		"nombre" : "Alcohujate"
+	},
+	{
+		"id_Municipio" : 498,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 11,
+		"dc" : 8,
+		"nombre" : "Armentera, L'"
+	},
+	{
+		"id_Municipio" : 499,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Alfacar"
+	},
+	{
+		"id_Municipio" : 500,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 11,
+		"dc" : 7,
+		"nombre" : "Alcolea del Pinar"
+	},
+	{
+		"id_Municipio" : 501,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 11,
+		"dc" : 1,
+		"nombre" : "Antzuola"
+	},
+	{
+		"id_Municipio" : 502,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 11,
+		"dc" : 8,
+		"nombre" : "Beas"
+	},
+	{
+		"id_Municipio" : 503,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 11,
+		"dc" : 3,
+		"nombre" : "Albero Alto"
+	},
+	{
+		"id_Municipio" : 504,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 11,
+		"dc" : 9,
+		"nombre" : "Baños de la Encina"
+	},
+	{
+		"id_Municipio" : 505,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Barjas"
+	},
+	{
+		"id_Municipio" : 506,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 11,
+		"dc" : 7,
+		"nombre" : "Alcarràs"
+	},
+	{
+		"id_Municipio" : 507,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 11,
+		"dc" : 0,
+		"nombre" : "Alfaro"
+	},
+	{
+		"id_Municipio" : 508,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 11,
+		"dc" : 6,
+		"nombre" : "Castroverde"
+	},
+	{
+		"id_Municipio" : 509,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 11,
+		"dc" : 2,
+		"nombre" : "Ambite"
+	},
+	{
+		"id_Municipio" : 510,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 11,
+		"dc" : 5,
+		"nombre" : "Almogía"
+	},
+	{
+		"id_Municipio" : 511,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 11,
+		"dc" : 9,
+		"nombre" : "Blanca"
+	},
+	{
+		"id_Municipio" : 512,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 11,
+		"dc" : 6,
+		"nombre" : "Allín/Allin"
+	},
+	{
+		"id_Municipio" : 513,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 11,
+		"dc" : 1,
+		"nombre" : "Beariz"
+	},
+	{
+		"id_Municipio" : 514,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 11,
+		"dc" : 7,
+		"nombre" : "Cangas del Narcea"
+	},
+	{
+		"id_Municipio" : 515,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 11,
+		"dc" : 2,
+		"nombre" : "Amusco"
+	},
+	{
+		"id_Municipio" : 516,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 11,
+		"dc" : 5,
+		"nombre" : "Ingenio"
+	},
+	{
+		"id_Municipio" : 517,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 11,
+		"dc" : 8,
+		"nombre" : "Cerdedo"
+	},
+	{
+		"id_Municipio" : 518,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Alberguería de Argañán, La"
+	},
+	{
+		"id_Municipio" : 519,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 11,
+		"dc" : 0,
+		"nombre" : "Candelaria"
+	},
+	{
+		"id_Municipio" : 520,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 11,
+		"dc" : 3,
+		"nombre" : "Bareyo"
+	},
+	{
+		"id_Municipio" : 521,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Arahal"
+	},
+	{
+		"id_Municipio" : 522,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 11,
+		"dc" : 9,
+		"nombre" : "Aldealpozo"
+	},
+	{
+		"id_Municipio" : 523,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 11,
+		"dc" : 5,
+		"nombre" : "Almoster"
+	},
+	{
+		"id_Municipio" : 524,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 11,
+		"dc" : 0,
+		"nombre" : "Alcaine"
+	},
+	{
+		"id_Municipio" : 525,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 11,
+		"dc" : 3,
+		"nombre" : "Almendral de la Cañada"
+	},
+	{
+		"id_Municipio" : 526,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 11,
+		"dc" : 6,
+		"nombre" : "Alberic"
+	},
+	{
+		"id_Municipio" : 527,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 11,
+		"dc" : 2,
+		"nombre" : "Ataquines"
+	},
+	{
+		"id_Municipio" : 528,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 11,
+		"dc" : 8,
+		"nombre" : "Arrigorriaga"
+	},
+	{
+		"id_Municipio" : 529,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 11,
+		"dc" : 1,
+		"nombre" : "Arcos de la Polvorosa"
+	},
+	{
+		"id_Municipio" : 530,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 11,
+		"dc" : 4,
+		"nombre" : "Albeta"
+	},
+	{
+		"id_Municipio" : 531,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 12,
+		"dc" : 2,
+		"nombre" : "Balazote"
+	},
+	{
+		"id_Municipio" : 532,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 12,
+		"dc" : 8,
+		"nombre" : "Algorfa"
+	},
+	{
+		"id_Municipio" : 533,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 12,
+		"dc" : 3,
+		"nombre" : "Alicún"
+	},
+	{
+		"id_Municipio" : 534,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 12,
+		"dc" : 6,
+		"nombre" : "Amavida"
+	},
+	{
+		"id_Municipio" : 535,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Arroyo de San Serván"
+	},
+	{
+		"id_Municipio" : 536,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 12,
+		"dc" : 5,
+		"nombre" : "Campanet"
+	},
+	{
+		"id_Municipio" : 537,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 12,
+		"dc" : 1,
+		"nombre" : "Avinyó"
+	},
+	{
+		"id_Municipio" : 538,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 12,
+		"dc" : 4,
+		"nombre" : "Alfoz de Santa Gadea"
+	},
+	{
+		"id_Municipio" : 539,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 12,
+		"dc" : 8,
+		"nombre" : "Aldea del Cano"
+	},
+	{
+		"id_Municipio" : 540,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 12,
+		"dc" : 5,
+		"nombre" : "Cádiz"
+	},
+	{
+		"id_Municipio" : 541,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 12,
+		"dc" : 0,
+		"nombre" : "Altura"
+	},
+	{
+		"id_Municipio" : 542,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 12,
+		"dc" : 6,
+		"nombre" : "Almadenejos"
+	},
+	{
+		"id_Municipio" : 543,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 12,
+		"dc" : 1,
+		"nombre" : "Bujalance"
+	},
+	{
+		"id_Municipio" : 544,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 12,
+		"dc" : 4,
+		"nombre" : "Boqueixón"
+	},
+	{
+		"id_Municipio" : 545,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 12,
+		"dc" : 7,
+		"nombre" : "Alconchel de la Estrella"
+	},
+	{
+		"id_Municipio" : 546,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 12,
+		"dc" : 3,
+		"nombre" : "Avinyonet de Puigventós"
+	},
+	{
+		"id_Municipio" : 547,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Algarinejo"
+	},
+	{
+		"id_Municipio" : 548,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 12,
+		"dc" : 6,
+		"nombre" : "Arama"
+	},
+	{
+		"id_Municipio" : 549,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 12,
+		"dc" : 3,
+		"nombre" : "Berrocal"
+	},
+	{
+		"id_Municipio" : 550,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 12,
+		"dc" : 8,
+		"nombre" : "Albero Bajo"
+	},
+	{
+		"id_Municipio" : 551,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 12,
+		"dc" : 4,
+		"nombre" : "Beas de Segura"
+	},
+	{
+		"id_Municipio" : 552,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Barrios de Luna, Los"
+	},
+	{
+		"id_Municipio" : 553,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 12,
+		"dc" : 2,
+		"nombre" : "Alcoletge"
+	},
+	{
+		"id_Municipio" : 554,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 12,
+		"dc" : 5,
+		"nombre" : "Almarza de Cameros"
+	},
+	{
+		"id_Municipio" : 555,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 12,
+		"dc" : 1,
+		"nombre" : "Cervantes"
+	},
+	{
+		"id_Municipio" : 556,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 12,
+		"dc" : 7,
+		"nombre" : "Anchuelo"
+	},
+	{
+		"id_Municipio" : 557,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 12,
+		"dc" : 0,
+		"nombre" : "Álora"
+	},
+	{
+		"id_Municipio" : 558,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 12,
+		"dc" : 4,
+		"nombre" : "Bullas"
+	},
+	{
+		"id_Municipio" : 559,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 12,
+		"dc" : 1,
+		"nombre" : "Allo"
+	},
+	{
+		"id_Municipio" : 560,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 12,
+		"dc" : 6,
+		"nombre" : "Blancos, Os"
+	},
+	{
+		"id_Municipio" : 561,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 12,
+		"dc" : 2,
+		"nombre" : "Cangas de Onís"
+	},
+	{
+		"id_Municipio" : 562,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 12,
+		"dc" : 7,
+		"nombre" : "Antigüedad"
+	},
+	{
+		"id_Municipio" : 563,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 12,
+		"dc" : 0,
+		"nombre" : "Mogán"
+	},
+	{
+		"id_Municipio" : 564,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 12,
+		"dc" : 3,
+		"nombre" : "Cotobade"
+	},
+	{
+		"id_Municipio" : 565,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Alconada"
+	},
+	{
+		"id_Municipio" : 566,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 12,
+		"dc" : 5,
+		"nombre" : "Fasnia"
+	},
+	{
+		"id_Municipio" : 567,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 12,
+		"dc" : 8,
+		"nombre" : "Cabezón de la Sal"
+	},
+	{
+		"id_Municipio" : 568,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 12,
+		"dc" : 2,
+		"nombre" : "Aldea Real"
+	},
+	{
+		"id_Municipio" : 569,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Aznalcázar"
+	},
+	{
+		"id_Municipio" : 570,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 12,
+		"dc" : 4,
+		"nombre" : "Aldealseñor"
+	},
+	{
+		"id_Municipio" : 571,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 12,
+		"dc" : 0,
+		"nombre" : "Altafulla"
+	},
+	{
+		"id_Municipio" : 572,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 12,
+		"dc" : 5,
+		"nombre" : "Alcalá de la Selva"
+	},
+	{
+		"id_Municipio" : 573,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 12,
+		"dc" : 8,
+		"nombre" : "Almonacid de Toledo"
+	},
+	{
+		"id_Municipio" : 574,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 12,
+		"dc" : 1,
+		"nombre" : "Alborache"
+	},
+	{
+		"id_Municipio" : 575,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 12,
+		"dc" : 7,
+		"nombre" : "Bahabón"
+	},
+	{
+		"id_Municipio" : 576,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 12,
+		"dc" : 3,
+		"nombre" : "Bakio"
+	},
+	{
+		"id_Municipio" : 577,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 12,
+		"dc" : 6,
+		"nombre" : "Argañín"
+	},
+	{
+		"id_Municipio" : 578,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 12,
+		"dc" : 9,
+		"nombre" : "Alborge"
+	},
+	{
+		"id_Municipio" : 579,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 13,
+		"dc" : 3,
+		"nombre" : "Barrundia"
+	},
+	{
+		"id_Municipio" : 580,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 13,
+		"dc" : 8,
+		"nombre" : "Balsa de Ves"
+	},
+	{
+		"id_Municipio" : 581,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 13,
+		"dc" : 4,
+		"nombre" : "Algueña"
+	},
+	{
+		"id_Municipio" : 582,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 13,
+		"dc" : 9,
+		"nombre" : "Almería"
+	},
+	{
+		"id_Municipio" : 583,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 13,
+		"dc" : 2,
+		"nombre" : "Arenal, El"
+	},
+	{
+		"id_Municipio" : 584,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 13,
+		"dc" : 5,
+		"nombre" : "Atalaya"
+	},
+	{
+		"id_Municipio" : 585,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 13,
+		"dc" : 1,
+		"nombre" : "Campos"
+	},
+	{
+		"id_Municipio" : 586,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 13,
+		"dc" : 7,
+		"nombre" : "Avinyonet del Penedès"
+	},
+	{
+		"id_Municipio" : 587,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 13,
+		"dc" : 0,
+		"nombre" : "Altable"
+	},
+	{
+		"id_Municipio" : 588,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 13,
+		"dc" : 4,
+		"nombre" : "Aldea del Obispo, La"
+	},
+	{
+		"id_Municipio" : 589,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 13,
+		"dc" : 1,
+		"nombre" : "Castellar de la Frontera"
+	},
+	{
+		"id_Municipio" : 590,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 13,
+		"dc" : 6,
+		"nombre" : "Arañuel"
+	},
+	{
+		"id_Municipio" : 591,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 13,
+		"dc" : 2,
+		"nombre" : "Almagro"
+	},
+	{
+		"id_Municipio" : 592,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 13,
+		"dc" : 7,
+		"nombre" : "Cabra"
+	},
+	{
+		"id_Municipio" : 593,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 13,
+		"dc" : 0,
+		"nombre" : "Brión"
+	},
+	{
+		"id_Municipio" : 594,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 13,
+		"dc" : 3,
+		"nombre" : "Algarra"
+	},
+	{
+		"id_Municipio" : 595,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 13,
+		"dc" : 9,
+		"nombre" : "Begur"
+	},
+	{
+		"id_Municipio" : 596,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 13,
+		"dc" : 5,
+		"nombre" : "Alhama de Granada"
+	},
+	{
+		"id_Municipio" : 597,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 13,
+		"dc" : 8,
+		"nombre" : "Alcoroches"
+	},
+	{
+		"id_Municipio" : 598,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 13,
+		"dc" : 2,
+		"nombre" : "Aretxabaleta"
+	},
+	{
+		"id_Municipio" : 599,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 13,
+		"dc" : 9,
+		"nombre" : "Bollullos Par del Condado"
+	},
+	{
+		"id_Municipio" : 600,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 13,
+		"dc" : 4,
+		"nombre" : "Alberuela de Tubo"
+	},
+	{
+		"id_Municipio" : 601,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 13,
+		"dc" : 8,
+		"nombre" : "Alfarràs"
+	},
+	{
+		"id_Municipio" : 602,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 13,
+		"dc" : 1,
+		"nombre" : "Anguciana"
+	},
+	{
+		"id_Municipio" : 603,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 13,
+		"dc" : 7,
+		"nombre" : "Cervo"
+	},
+	{
+		"id_Municipio" : 604,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 13,
+		"dc" : 3,
+		"nombre" : "Aranjuez"
+	},
+	{
+		"id_Municipio" : 605,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 13,
+		"dc" : 6,
+		"nombre" : "Alozaina"
+	},
+	{
+		"id_Municipio" : 606,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 13,
+		"dc" : 0,
+		"nombre" : "Calasparra"
+	},
+	{
+		"id_Municipio" : 607,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 13,
+		"dc" : 7,
+		"nombre" : "Améscoa Baja"
+	},
+	{
+		"id_Municipio" : 608,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 13,
+		"dc" : 2,
+		"nombre" : "Boborás"
+	},
+	{
+		"id_Municipio" : 609,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 13,
+		"dc" : 8,
+		"nombre" : "Caravia"
+	},
+	{
+		"id_Municipio" : 610,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 13,
+		"dc" : 6,
+		"nombre" : "Moya"
+	},
+	{
+		"id_Municipio" : 611,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 13,
+		"dc" : 9,
+		"nombre" : "Covelo"
+	},
+	{
+		"id_Municipio" : 612,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 13,
+		"dc" : 5,
+		"nombre" : "Aldeacipreste"
+	},
+	{
+		"id_Municipio" : 613,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 13,
+		"dc" : 1,
+		"nombre" : "Frontera"
+	},
+	{
+		"id_Municipio" : 614,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 13,
+		"dc" : 4,
+		"nombre" : "Cabezón de Liébana"
+	},
+	{
+		"id_Municipio" : 615,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 13,
+		"dc" : 8,
+		"nombre" : "Aldeasoña"
+	},
+	{
+		"id_Municipio" : 616,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 13,
+		"dc" : 5,
+		"nombre" : "Aznalcóllar"
+	},
+	{
+		"id_Municipio" : 617,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 13,
+		"dc" : 0,
+		"nombre" : "Aldehuela de Periáñez"
+	},
+	{
+		"id_Municipio" : 618,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 13,
+		"dc" : 6,
+		"nombre" : "Ametlla de Mar, L'"
+	},
+	{
+		"id_Municipio" : 619,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 13,
+		"dc" : 1,
+		"nombre" : "Alcañiz"
+	},
+	{
+		"id_Municipio" : 620,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 13,
+		"dc" : 4,
+		"nombre" : "Almorox"
+	},
+	{
+		"id_Municipio" : 621,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 13,
+		"dc" : 7,
+		"nombre" : "Alboraya"
+	},
+	{
+		"id_Municipio" : 622,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 13,
+		"dc" : 3,
+		"nombre" : "Barcial de la Loma"
+	},
+	{
+		"id_Municipio" : 623,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 13,
+		"dc" : 9,
+		"nombre" : "Barakaldo"
+	},
+	{
+		"id_Municipio" : 624,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 13,
+		"dc" : 2,
+		"nombre" : "Argujillo"
+	},
+	{
+		"id_Municipio" : 625,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 13,
+		"dc" : 5,
+		"nombre" : "Alcalá de Ebro"
+	},
+	{
+		"id_Municipio" : 626,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 14,
+		"dc" : 8,
+		"nombre" : "Berantevilla"
+	},
+	{
+		"id_Municipio" : 627,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 14,
+		"dc" : 3,
+		"nombre" : "Ballestero, El"
+	},
+	{
+		"id_Municipio" : 628,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 14,
+		"dc" : 9,
+		"nombre" : "Alicante/Alacant"
+	},
+	{
+		"id_Municipio" : 629,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 14,
+		"dc" : 4,
+		"nombre" : "Almócita"
+	},
+	{
+		"id_Municipio" : 630,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 14,
+		"dc" : 7,
+		"nombre" : "Arenas de San Pedro"
+	},
+	{
+		"id_Municipio" : 631,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Azuaga"
+	},
+	{
+		"id_Municipio" : 632,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 14,
+		"dc" : 6,
+		"nombre" : "Capdepera"
+	},
+	{
+		"id_Municipio" : 633,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 14,
+		"dc" : 2,
+		"nombre" : "Aiguafreda"
+	},
+	{
+		"id_Municipio" : 634,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 14,
+		"dc" : 5,
+		"nombre" : "Altos, Los"
+	},
+	{
+		"id_Municipio" : 635,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 14,
+		"dc" : 9,
+		"nombre" : "Aldeanueva de la Vera"
+	},
+	{
+		"id_Municipio" : 636,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 14,
+		"dc" : 6,
+		"nombre" : "Conil de la Frontera"
+	},
+	{
+		"id_Municipio" : 637,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 14,
+		"dc" : 1,
+		"nombre" : "Ares del Maestrat"
+	},
+	{
+		"id_Municipio" : 638,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 14,
+		"dc" : 7,
+		"nombre" : "Almedina"
+	},
+	{
+		"id_Municipio" : 639,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 14,
+		"dc" : 2,
+		"nombre" : "Cañete de las Torres"
+	},
+	{
+		"id_Municipio" : 640,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 14,
+		"dc" : 5,
+		"nombre" : "Cabana de Bergantiños"
+	},
+	{
+		"id_Municipio" : 641,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 14,
+		"dc" : 8,
+		"nombre" : "Aliaguilla"
+	},
+	{
+		"id_Municipio" : 642,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 14,
+		"dc" : 4,
+		"nombre" : "Vajol, La"
+	},
+	{
+		"id_Municipio" : 643,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Alhendín"
+	},
+	{
+		"id_Municipio" : 644,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 14,
+		"dc" : 7,
+		"nombre" : "Asteasu"
+	},
+	{
+		"id_Municipio" : 645,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 14,
+		"dc" : 4,
+		"nombre" : "Bonares"
+	},
+	{
+		"id_Municipio" : 646,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 14,
+		"dc" : 9,
+		"nombre" : "Alcalá de Gurrea"
+	},
+	{
+		"id_Municipio" : 647,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 14,
+		"dc" : 5,
+		"nombre" : "Begíjar"
+	},
+	{
+		"id_Municipio" : 648,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Bembibre"
+	},
+	{
+		"id_Municipio" : 649,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 14,
+		"dc" : 3,
+		"nombre" : "Alfés"
+	},
+	{
+		"id_Municipio" : 650,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 14,
+		"dc" : 6,
+		"nombre" : "Anguiano"
+	},
+	{
+		"id_Municipio" : 651,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 14,
+		"dc" : 2,
+		"nombre" : "Corgo, O"
+	},
+	{
+		"id_Municipio" : 652,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 14,
+		"dc" : 8,
+		"nombre" : "Arganda del Rey"
+	},
+	{
+		"id_Municipio" : 653,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 14,
+		"dc" : 1,
+		"nombre" : "Alpandeire"
+	},
+	{
+		"id_Municipio" : 654,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 14,
+		"dc" : 5,
+		"nombre" : "Campos del Río"
+	},
+	{
+		"id_Municipio" : 655,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 14,
+		"dc" : 2,
+		"nombre" : "Ancín/Antzin"
+	},
+	{
+		"id_Municipio" : 656,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 14,
+		"dc" : 7,
+		"nombre" : "Bola, A"
+	},
+	{
+		"id_Municipio" : 657,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 14,
+		"dc" : 3,
+		"nombre" : "Carreño"
+	},
+	{
+		"id_Municipio" : 658,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 14,
+		"dc" : 1,
+		"nombre" : "Oliva, La"
+	},
+	{
+		"id_Municipio" : 659,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 14,
+		"dc" : 4,
+		"nombre" : "Crecente"
+	},
+	{
+		"id_Municipio" : 660,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Aldeadávila de la Ribera"
+	},
+	{
+		"id_Municipio" : 661,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 14,
+		"dc" : 6,
+		"nombre" : "Fuencaliente de la Palma"
+	},
+	{
+		"id_Municipio" : 662,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 14,
+		"dc" : 9,
+		"nombre" : "Cabuérniga"
+	},
+	{
+		"id_Municipio" : 663,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 14,
+		"dc" : 3,
+		"nombre" : "Aldehorno"
+	},
+	{
+		"id_Municipio" : 664,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Badolatosa"
+	},
+	{
+		"id_Municipio" : 665,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 14,
+		"dc" : 5,
+		"nombre" : "Aldehuelas, Las"
+	},
+	{
+		"id_Municipio" : 666,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 14,
+		"dc" : 1,
+		"nombre" : "Amposta"
+	},
+	{
+		"id_Municipio" : 667,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 14,
+		"dc" : 6,
+		"nombre" : "Alcorisa"
+	},
+	{
+		"id_Municipio" : 668,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 14,
+		"dc" : 9,
+		"nombre" : "Añover de Tajo"
+	},
+	{
+		"id_Municipio" : 669,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 14,
+		"dc" : 2,
+		"nombre" : "Albuixech"
+	},
+	{
+		"id_Municipio" : 670,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 14,
+		"dc" : 8,
+		"nombre" : "Barruelo del Valle"
+	},
+	{
+		"id_Municipio" : 671,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 14,
+		"dc" : 4,
+		"nombre" : "Barrika"
+	},
+	{
+		"id_Municipio" : 672,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 14,
+		"dc" : 7,
+		"nombre" : "Arquillinos"
+	},
+	{
+		"id_Municipio" : 673,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 14,
+		"dc" : 0,
+		"nombre" : "Alcalá de Moncayo"
+	},
+	{
+		"id_Municipio" : 674,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 15,
+		"dc" : 6,
+		"nombre" : "Barrax"
+	},
+	{
+		"id_Municipio" : 675,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 15,
+		"dc" : 2,
+		"nombre" : "Almoradí"
+	},
+	{
+		"id_Municipio" : 676,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 15,
+		"dc" : 7,
+		"nombre" : "Alsodux"
+	},
+	{
+		"id_Municipio" : 677,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 15,
+		"dc" : 0,
+		"nombre" : "Arevalillo"
+	},
+	{
+		"id_Municipio" : 678,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Badajoz"
+	},
+	{
+		"id_Municipio" : 679,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 15,
+		"dc" : 9,
+		"nombre" : "Ciutadella de Menorca"
+	},
+	{
+		"id_Municipio" : 680,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 15,
+		"dc" : 5,
+		"nombre" : "Badalona"
+	},
+	{
+		"id_Municipio" : 681,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 15,
+		"dc" : 2,
+		"nombre" : "Aldeanueva del Camino"
+	},
+	{
+		"id_Municipio" : 682,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 15,
+		"dc" : 9,
+		"nombre" : "Chiclana de la Frontera"
+	},
+	{
+		"id_Municipio" : 683,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 15,
+		"dc" : 4,
+		"nombre" : "Argelita"
+	},
+	{
+		"id_Municipio" : 684,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 15,
+		"dc" : 0,
+		"nombre" : "Almodóvar del Campo"
+	},
+	{
+		"id_Municipio" : 685,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 15,
+		"dc" : 5,
+		"nombre" : "Carcabuey"
+	},
+	{
+		"id_Municipio" : 686,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 15,
+		"dc" : 8,
+		"nombre" : "Cabanas"
+	},
+	{
+		"id_Municipio" : 687,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 15,
+		"dc" : 1,
+		"nombre" : "Almarcha, La"
+	},
+	{
+		"id_Municipio" : 688,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 15,
+		"dc" : 7,
+		"nombre" : "Banyoles"
+	},
+	{
+		"id_Municipio" : 689,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Alicún de Ortega"
+	},
+	{
+		"id_Municipio" : 690,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 15,
+		"dc" : 6,
+		"nombre" : "Aldeanueva de Guadalajara"
+	},
+	{
+		"id_Municipio" : 691,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 15,
+		"dc" : 0,
+		"nombre" : "Ataun"
+	},
+	{
+		"id_Municipio" : 692,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 15,
+		"dc" : 7,
+		"nombre" : "Cabezas Rubias"
+	},
+	{
+		"id_Municipio" : 693,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 15,
+		"dc" : 2,
+		"nombre" : "Alcalá del Obispo"
+	},
+	{
+		"id_Municipio" : 694,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 15,
+		"dc" : 8,
+		"nombre" : "Bélmez de la Moraleda"
+	},
+	{
+		"id_Municipio" : 695,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Benavides"
+	},
+	{
+		"id_Municipio" : 696,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 15,
+		"dc" : 6,
+		"nombre" : "Algerri"
+	},
+	{
+		"id_Municipio" : 697,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 15,
+		"dc" : 9,
+		"nombre" : "Arenzana de Abajo"
+	},
+	{
+		"id_Municipio" : 698,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 15,
+		"dc" : 5,
+		"nombre" : "Cospeito"
+	},
+	{
+		"id_Municipio" : 699,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 15,
+		"dc" : 1,
+		"nombre" : "Arroyomolinos"
+	},
+	{
+		"id_Municipio" : 700,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 15,
+		"dc" : 4,
+		"nombre" : "Antequera"
+	},
+	{
+		"id_Municipio" : 701,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 15,
+		"dc" : 8,
+		"nombre" : "Caravaca de la Cruz"
+	},
+	{
+		"id_Municipio" : 702,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 15,
+		"dc" : 5,
+		"nombre" : "Andosilla"
+	},
+	{
+		"id_Municipio" : 703,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 15,
+		"dc" : 0,
+		"nombre" : "Bolo, O"
+	},
+	{
+		"id_Municipio" : 704,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 15,
+		"dc" : 6,
+		"nombre" : "Caso"
+	},
+	{
+		"id_Municipio" : 705,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 15,
+		"dc" : 1,
+		"nombre" : "Arconada"
+	},
+	{
+		"id_Municipio" : 706,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 15,
+		"dc" : 4,
+		"nombre" : "Pájara"
+	},
+	{
+		"id_Municipio" : 707,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 15,
+		"dc" : 7,
+		"nombre" : "Cuntis"
+	},
+	{
+		"id_Municipio" : 708,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Aldea del Obispo"
+	},
+	{
+		"id_Municipio" : 709,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 15,
+		"dc" : 9,
+		"nombre" : "Garachico"
+	},
+	{
+		"id_Municipio" : 710,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 15,
+		"dc" : 2,
+		"nombre" : "Camaleño"
+	},
+	{
+		"id_Municipio" : 711,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 15,
+		"dc" : 6,
+		"nombre" : "Aldehuela del Codonal"
+	},
+	{
+		"id_Municipio" : 712,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Benacazón"
+	},
+	{
+		"id_Municipio" : 713,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 15,
+		"dc" : 8,
+		"nombre" : "Alentisque"
+	},
+	{
+		"id_Municipio" : 714,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 15,
+		"dc" : 4,
+		"nombre" : "Arbolí"
+	},
+	{
+		"id_Municipio" : 715,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 15,
+		"dc" : 2,
+		"nombre" : "Arcicóllar"
+	},
+	{
+		"id_Municipio" : 716,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 15,
+		"dc" : 5,
+		"nombre" : "Alcàsser"
+	},
+	{
+		"id_Municipio" : 717,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 15,
+		"dc" : 1,
+		"nombre" : "Becilla de Valderaduey"
+	},
+	{
+		"id_Municipio" : 718,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 15,
+		"dc" : 7,
+		"nombre" : "Basauri"
+	},
+	{
+		"id_Municipio" : 719,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 15,
+		"dc" : 0,
+		"nombre" : "Arrabalde"
+	},
+	{
+		"id_Municipio" : 720,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 15,
+		"dc" : 3,
+		"nombre" : "Alconchel de Ariza"
+	},
+	{
+		"id_Municipio" : 721,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 16,
+		"dc" : 4,
+		"nombre" : "Bernedo"
+	},
+	{
+		"id_Municipio" : 722,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 16,
+		"dc" : 9,
+		"nombre" : "Bienservida"
+	},
+	{
+		"id_Municipio" : 723,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 16,
+		"dc" : 5,
+		"nombre" : "Almudaina"
+	},
+	{
+		"id_Municipio" : 724,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 16,
+		"dc" : 0,
+		"nombre" : "Antas"
+	},
+	{
+		"id_Municipio" : 725,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 16,
+		"dc" : 3,
+		"nombre" : "Arévalo"
+	},
+	{
+		"id_Municipio" : 726,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Barcarrota"
+	},
+	{
+		"id_Municipio" : 727,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 16,
+		"dc" : 2,
+		"nombre" : "Consell"
+	},
+	{
+		"id_Municipio" : 728,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 16,
+		"dc" : 8,
+		"nombre" : "Bagà"
+	},
+	{
+		"id_Municipio" : 729,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 16,
+		"dc" : 1,
+		"nombre" : "Ameyugo"
+	},
+	{
+		"id_Municipio" : 730,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 16,
+		"dc" : 5,
+		"nombre" : "Aldehuela de Jerte"
+	},
+	{
+		"id_Municipio" : 731,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 16,
+		"dc" : 2,
+		"nombre" : "Chipiona"
+	},
+	{
+		"id_Municipio" : 732,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 16,
+		"dc" : 7,
+		"nombre" : "Artana"
+	},
+	{
+		"id_Municipio" : 733,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 16,
+		"dc" : 3,
+		"nombre" : "Almuradiel"
+	},
+	{
+		"id_Municipio" : 734,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 16,
+		"dc" : 8,
+		"nombre" : "Cardeña"
+	},
+	{
+		"id_Municipio" : 735,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 16,
+		"dc" : 1,
+		"nombre" : "Camariñas"
+	},
+	{
+		"id_Municipio" : 736,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 16,
+		"dc" : 4,
+		"nombre" : "Almendros"
+	},
+	{
+		"id_Municipio" : 737,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 16,
+		"dc" : 0,
+		"nombre" : "Bàscara"
+	},
+	{
+		"id_Municipio" : 738,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Almegíjar"
+	},
+	{
+		"id_Municipio" : 739,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 16,
+		"dc" : 9,
+		"nombre" : "Algar de Mesa"
+	},
+	{
+		"id_Municipio" : 740,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 16,
+		"dc" : 3,
+		"nombre" : "Aia"
+	},
+	{
+		"id_Municipio" : 741,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 16,
+		"dc" : 0,
+		"nombre" : "Cala"
+	},
+	{
+		"id_Municipio" : 742,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 16,
+		"dc" : 5,
+		"nombre" : "Alcampell"
+	},
+	{
+		"id_Municipio" : 743,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 16,
+		"dc" : 1,
+		"nombre" : "Benatae"
+	},
+	{
+		"id_Municipio" : 744,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Benuza"
+	},
+	{
+		"id_Municipio" : 745,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 16,
+		"dc" : 9,
+		"nombre" : "Alguaire"
+	},
+	{
+		"id_Municipio" : 746,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 16,
+		"dc" : 2,
+		"nombre" : "Arenzana de Arriba"
+	},
+	{
+		"id_Municipio" : 747,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 16,
+		"dc" : 8,
+		"nombre" : "Chantada"
+	},
+	{
+		"id_Municipio" : 748,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 16,
+		"dc" : 4,
+		"nombre" : "Atazar, El"
+	},
+	{
+		"id_Municipio" : 749,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 16,
+		"dc" : 7,
+		"nombre" : "Árchez"
+	},
+	{
+		"id_Municipio" : 750,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 16,
+		"dc" : 1,
+		"nombre" : "Cartagena"
+	},
+	{
+		"id_Municipio" : 751,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 16,
+		"dc" : 8,
+		"nombre" : "Ansoáin/Antsoain"
+	},
+	{
+		"id_Municipio" : 752,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 16,
+		"dc" : 3,
+		"nombre" : "Calvos de Randín"
+	},
+	{
+		"id_Municipio" : 753,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 16,
+		"dc" : 9,
+		"nombre" : "Castrillón"
+	},
+	{
+		"id_Municipio" : 754,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 16,
+		"dc" : 7,
+		"nombre" : "Palmas de Gran Canaria, Las"
+	},
+	{
+		"id_Municipio" : 755,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 16,
+		"dc" : 0,
+		"nombre" : "Dozón"
+	},
+	{
+		"id_Municipio" : 756,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Aldealengua"
+	},
+	{
+		"id_Municipio" : 757,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 16,
+		"dc" : 2,
+		"nombre" : "Garafía"
+	},
+	{
+		"id_Municipio" : 758,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 16,
+		"dc" : 5,
+		"nombre" : "Camargo"
+	},
+	{
+		"id_Municipio" : 759,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 16,
+		"dc" : 9,
+		"nombre" : "Aldeonte"
+	},
+	{
+		"id_Municipio" : 760,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Bollullos de la Mitación"
+	},
+	{
+		"id_Municipio" : 761,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 16,
+		"dc" : 1,
+		"nombre" : "Aliud"
+	},
+	{
+		"id_Municipio" : 762,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 16,
+		"dc" : 7,
+		"nombre" : "Arboç, L'"
+	},
+	{
+		"id_Municipio" : 763,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 16,
+		"dc" : 2,
+		"nombre" : "Alfambra"
+	},
+	{
+		"id_Municipio" : 764,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 16,
+		"dc" : 5,
+		"nombre" : "Argés"
+	},
+	{
+		"id_Municipio" : 765,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 16,
+		"dc" : 8,
+		"nombre" : "Alcàntera de Xúquer"
+	},
+	{
+		"id_Municipio" : 766,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 16,
+		"dc" : 4,
+		"nombre" : "Benafarces"
+	},
+	{
+		"id_Municipio" : 767,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 16,
+		"dc" : 0,
+		"nombre" : "Berango"
+	},
+	{
+		"id_Municipio" : 768,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 16,
+		"dc" : 3,
+		"nombre" : "Aspariegos"
+	},
+	{
+		"id_Municipio" : 769,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 16,
+		"dc" : 6,
+		"nombre" : "Aldehuela de Liestos"
+	},
+	{
+		"id_Municipio" : 770,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 17,
+		"dc" : 0,
+		"nombre" : "Campezo/Kanpezu"
+	},
+	{
+		"id_Municipio" : 771,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 17,
+		"dc" : 5,
+		"nombre" : "Bogarra"
+	},
+	{
+		"id_Municipio" : 772,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 17,
+		"dc" : 1,
+		"nombre" : "Alqueria d'Asnar, l'"
+	},
+	{
+		"id_Municipio" : 773,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 17,
+		"dc" : 6,
+		"nombre" : "Arboleas"
+	},
+	{
+		"id_Municipio" : 774,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 17,
+		"dc" : 9,
+		"nombre" : "Aveinte"
+	},
+	{
+		"id_Municipio" : 775,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Baterno"
+	},
+	{
+		"id_Municipio" : 776,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 17,
+		"dc" : 8,
+		"nombre" : "Costitx"
+	},
+	{
+		"id_Municipio" : 777,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 17,
+		"dc" : 4,
+		"nombre" : "Balenyà"
+	},
+	{
+		"id_Municipio" : 778,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 17,
+		"dc" : 7,
+		"nombre" : "Anguix"
+	},
+	{
+		"id_Municipio" : 779,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 17,
+		"dc" : 1,
+		"nombre" : "Alía"
+	},
+	{
+		"id_Municipio" : 780,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 17,
+		"dc" : 8,
+		"nombre" : "Espera"
+	},
+	{
+		"id_Municipio" : 781,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 17,
+		"dc" : 3,
+		"nombre" : "Ayódar"
+	},
+	{
+		"id_Municipio" : 782,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 17,
+		"dc" : 9,
+		"nombre" : "Anchuras"
+	},
+	{
+		"id_Municipio" : 783,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 17,
+		"dc" : 4,
+		"nombre" : "Carlota, La"
+	},
+	{
+		"id_Municipio" : 784,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 17,
+		"dc" : 7,
+		"nombre" : "Cambre"
+	},
+	{
+		"id_Municipio" : 785,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 17,
+		"dc" : 0,
+		"nombre" : "Almodóvar del Pinar"
+	},
+	{
+		"id_Municipio" : 786,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Almuñécar"
+	},
+	{
+		"id_Municipio" : 787,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 17,
+		"dc" : 5,
+		"nombre" : "Algora"
+	},
+	{
+		"id_Municipio" : 788,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 17,
+		"dc" : 9,
+		"nombre" : "Azkoitia"
+	},
+	{
+		"id_Municipio" : 789,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 17,
+		"dc" : 6,
+		"nombre" : "Calañas"
+	},
+	{
+		"id_Municipio" : 790,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 17,
+		"dc" : 1,
+		"nombre" : "Alcolea de Cinca"
+	},
+	{
+		"id_Municipio" : 791,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 17,
+		"dc" : 7,
+		"nombre" : "Cabra del Santo Cristo"
+	},
+	{
+		"id_Municipio" : 792,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Bercianos del Páramo"
+	},
+	{
+		"id_Municipio" : 793,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 17,
+		"dc" : 5,
+		"nombre" : "Alins"
+	},
+	{
+		"id_Municipio" : 794,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 17,
+		"dc" : 8,
+		"nombre" : "Arnedillo"
+	},
+	{
+		"id_Municipio" : 795,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 17,
+		"dc" : 4,
+		"nombre" : "Folgoso do Courel"
+	},
+	{
+		"id_Municipio" : 796,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 17,
+		"dc" : 0,
+		"nombre" : "Batres"
+	},
+	{
+		"id_Municipio" : 797,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 17,
+		"dc" : 3,
+		"nombre" : "Archidona"
+	},
+	{
+		"id_Municipio" : 798,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 17,
+		"dc" : 7,
+		"nombre" : "Cehegín"
+	},
+	{
+		"id_Municipio" : 799,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 17,
+		"dc" : 4,
+		"nombre" : "Anue"
+	},
+	{
+		"id_Municipio" : 800,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 17,
+		"dc" : 9,
+		"nombre" : "Carballeda de Valdeorras"
+	},
+	{
+		"id_Municipio" : 801,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 17,
+		"dc" : 5,
+		"nombre" : "Castropol"
+	},
+	{
+		"id_Municipio" : 802,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 17,
+		"dc" : 0,
+		"nombre" : "Astudillo"
+	},
+	{
+		"id_Municipio" : 803,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 17,
+		"dc" : 3,
+		"nombre" : "Puerto del Rosario"
+	},
+	{
+		"id_Municipio" : 804,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 17,
+		"dc" : 6,
+		"nombre" : "Estrada, A"
+	},
+	{
+		"id_Municipio" : 805,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Aldeanueva de Figueroa"
+	},
+	{
+		"id_Municipio" : 806,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 17,
+		"dc" : 8,
+		"nombre" : "Granadilla de Abona"
+	},
+	{
+		"id_Municipio" : 807,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 17,
+		"dc" : 1,
+		"nombre" : "Campoo de Yuso"
+	},
+	{
+		"id_Municipio" : 808,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 17,
+		"dc" : 5,
+		"nombre" : "Anaya"
+	},
+	{
+		"id_Municipio" : 809,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Bormujos"
+	},
+	{
+		"id_Municipio" : 810,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 17,
+		"dc" : 7,
+		"nombre" : "Almajano"
+	},
+	{
+		"id_Municipio" : 811,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 17,
+		"dc" : 3,
+		"nombre" : "Argentera, L'"
+	},
+	{
+		"id_Municipio" : 812,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 17,
+		"dc" : 8,
+		"nombre" : "Aliaga"
+	},
+	{
+		"id_Municipio" : 813,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 17,
+		"dc" : 1,
+		"nombre" : "Azután"
+	},
+	{
+		"id_Municipio" : 814,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 17,
+		"dc" : 4,
+		"nombre" : "Alzira"
+	},
+	{
+		"id_Municipio" : 815,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 17,
+		"dc" : 0,
+		"nombre" : "Bercero"
+	},
+	{
+		"id_Municipio" : 816,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 17,
+		"dc" : 6,
+		"nombre" : "Bermeo"
+	},
+	{
+		"id_Municipio" : 817,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 17,
+		"dc" : 9,
+		"nombre" : "Asturianos"
+	},
+	{
+		"id_Municipio" : 818,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 17,
+		"dc" : 2,
+		"nombre" : "Alfajarín"
+	},
+	{
+		"id_Municipio" : 819,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 18,
+		"dc" : 6,
+		"nombre" : "Zigoitia"
+	},
+	{
+		"id_Municipio" : 820,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 18,
+		"dc" : 1,
+		"nombre" : "Bonete"
+	},
+	{
+		"id_Municipio" : 821,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 18,
+		"dc" : 7,
+		"nombre" : "Altea"
+	},
+	{
+		"id_Municipio" : 822,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 18,
+		"dc" : 2,
+		"nombre" : "Armuña de Almanzora"
+	},
+	{
+		"id_Municipio" : 823,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 18,
+		"dc" : 5,
+		"nombre" : "Avellaneda"
+	},
+	{
+		"id_Municipio" : 824,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Benquerencia de la Serena"
+	},
+	{
+		"id_Municipio" : 825,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 18,
+		"dc" : 4,
+		"nombre" : "Deyá"
+	},
+	{
+		"id_Municipio" : 826,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 18,
+		"dc" : 0,
+		"nombre" : "Balsareny"
+	},
+	{
+		"id_Municipio" : 827,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 18,
+		"dc" : 3,
+		"nombre" : "Aranda de Duero"
+	},
+	{
+		"id_Municipio" : 828,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 18,
+		"dc" : 7,
+		"nombre" : "Aliseda"
+	},
+	{
+		"id_Municipio" : 829,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 18,
+		"dc" : 4,
+		"nombre" : "Gastor, El"
+	},
+	{
+		"id_Municipio" : 830,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 18,
+		"dc" : 9,
+		"nombre" : "Azuébar"
+	},
+	{
+		"id_Municipio" : 831,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 18,
+		"dc" : 5,
+		"nombre" : "Arenas de San Juan"
+	},
+	{
+		"id_Municipio" : 832,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 18,
+		"dc" : 0,
+		"nombre" : "Carpio, El"
+	},
+	{
+		"id_Municipio" : 833,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 18,
+		"dc" : 3,
+		"nombre" : "Capela, A"
+	},
+	{
+		"id_Municipio" : 834,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 18,
+		"dc" : 6,
+		"nombre" : "Almonacid del Marquesado"
+	},
+	{
+		"id_Municipio" : 835,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 18,
+		"dc" : 2,
+		"nombre" : "Bellcaire d'Empordà"
+	},
+	{
+		"id_Municipio" : 836,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Alquife"
+	},
+	{
+		"id_Municipio" : 837,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 18,
+		"dc" : 1,
+		"nombre" : "Alhóndiga"
+	},
+	{
+		"id_Municipio" : 838,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 18,
+		"dc" : 5,
+		"nombre" : "Azpeitia"
+	},
+	{
+		"id_Municipio" : 839,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 18,
+		"dc" : 2,
+		"nombre" : "Campillo, El"
+	},
+	{
+		"id_Municipio" : 840,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 18,
+		"dc" : 7,
+		"nombre" : "Alcubierre"
+	},
+	{
+		"id_Municipio" : 841,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 18,
+		"dc" : 3,
+		"nombre" : "Cambil"
+	},
+	{
+		"id_Municipio" : 842,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Bercianos del Real Camino"
+	},
+	{
+		"id_Municipio" : 843,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 18,
+		"dc" : 4,
+		"nombre" : "Arnedo"
+	},
+	{
+		"id_Municipio" : 844,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 18,
+		"dc" : 0,
+		"nombre" : "Fonsagrada, A"
+	},
+	{
+		"id_Municipio" : 845,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 18,
+		"dc" : 6,
+		"nombre" : "Becerril de la Sierra"
+	},
+	{
+		"id_Municipio" : 846,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 18,
+		"dc" : 9,
+		"nombre" : "Ardales"
+	},
+	{
+		"id_Municipio" : 847,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 18,
+		"dc" : 3,
+		"nombre" : "Ceutí"
+	},
+	{
+		"id_Municipio" : 848,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 18,
+		"dc" : 0,
+		"nombre" : "Añorbe"
+	},
+	{
+		"id_Municipio" : 849,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 18,
+		"dc" : 5,
+		"nombre" : "Carballeda de Avia"
+	},
+	{
+		"id_Municipio" : 850,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 18,
+		"dc" : 1,
+		"nombre" : "Coaña"
+	},
+	{
+		"id_Municipio" : 851,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 18,
+		"dc" : 6,
+		"nombre" : "Autilla del Pino"
+	},
+	{
+		"id_Municipio" : 852,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 18,
+		"dc" : 9,
+		"nombre" : "San Bartolomé"
+	},
+	{
+		"id_Municipio" : 853,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 18,
+		"dc" : 2,
+		"nombre" : "Forcarei"
+	},
+	{
+		"id_Municipio" : 854,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Aldeanueva de la Sierra"
+	},
+	{
+		"id_Municipio" : 855,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 18,
+		"dc" : 4,
+		"nombre" : "Guancha, La"
+	},
+	{
+		"id_Municipio" : 856,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 18,
+		"dc" : 7,
+		"nombre" : "Cartes"
+	},
+	{
+		"id_Municipio" : 857,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 18,
+		"dc" : 1,
+		"nombre" : "Añe"
+	},
+	{
+		"id_Municipio" : 858,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Brenes"
+	},
+	{
+		"id_Municipio" : 859,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 18,
+		"dc" : 3,
+		"nombre" : "Almaluez"
+	},
+	{
+		"id_Municipio" : 860,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 18,
+		"dc" : 9,
+		"nombre" : "Arnes"
+	},
+	{
+		"id_Municipio" : 861,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 18,
+		"dc" : 4,
+		"nombre" : "Almohaja"
+	},
+	{
+		"id_Municipio" : 862,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 18,
+		"dc" : 7,
+		"nombre" : "Barcience"
+	},
+	{
+		"id_Municipio" : 863,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 18,
+		"dc" : 0,
+		"nombre" : "Alcublas"
+	},
+	{
+		"id_Municipio" : 864,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 18,
+		"dc" : 6,
+		"nombre" : "Berceruelo"
+	},
+	{
+		"id_Municipio" : 865,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 18,
+		"dc" : 2,
+		"nombre" : "Berriatua"
+	},
+	{
+		"id_Municipio" : 866,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 18,
+		"dc" : 5,
+		"nombre" : "Ayoó de Vidriales"
+	},
+	{
+		"id_Municipio" : 867,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 18,
+		"dc" : 8,
+		"nombre" : "Alfamén"
+	},
+	{
+		"id_Municipio" : 868,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 19,
+		"dc" : 9,
+		"nombre" : "Kripan"
+	},
+	{
+		"id_Municipio" : 869,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 19,
+		"dc" : 4,
+		"nombre" : "Bonillo, El"
+	},
+	{
+		"id_Municipio" : 870,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 19,
+		"dc" : 0,
+		"nombre" : "Aspe"
+	},
+	{
+		"id_Municipio" : 871,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 19,
+		"dc" : 5,
+		"nombre" : "Bacares"
+	},
+	{
+		"id_Municipio" : 872,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 19,
+		"dc" : 8,
+		"nombre" : "Ávila"
+	},
+	{
+		"id_Municipio" : 873,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 19,
+		"dc" : 1,
+		"nombre" : "Berlanga"
+	},
+	{
+		"id_Municipio" : 874,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 19,
+		"dc" : 7,
+		"nombre" : "Escorca"
+	},
+	{
+		"id_Municipio" : 875,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 19,
+		"dc" : 3,
+		"nombre" : "Barcelona"
+	},
+	{
+		"id_Municipio" : 876,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 19,
+		"dc" : 6,
+		"nombre" : "Arandilla"
+	},
+	{
+		"id_Municipio" : 877,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 19,
+		"dc" : 0,
+		"nombre" : "Almaraz"
+	},
+	{
+		"id_Municipio" : 878,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 19,
+		"dc" : 7,
+		"nombre" : "Grazalema"
+	},
+	{
+		"id_Municipio" : 879,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 19,
+		"dc" : 8,
+		"nombre" : "Argamasilla de Alba"
+	},
+	{
+		"id_Municipio" : 880,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 19,
+		"dc" : 3,
+		"nombre" : "Castro del Río"
+	},
+	{
+		"id_Municipio" : 881,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 19,
+		"dc" : 6,
+		"nombre" : "Carballo"
+	},
+	{
+		"id_Municipio" : 882,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 19,
+		"dc" : 9,
+		"nombre" : "Altarejos"
+	},
+	{
+		"id_Municipio" : 883,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 19,
+		"dc" : 5,
+		"nombre" : "Besalú"
+	},
+	{
+		"id_Municipio" : 884,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 19,
+		"dc" : 4,
+		"nombre" : "Alique"
+	},
+	{
+		"id_Municipio" : 885,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 19,
+		"dc" : 8,
+		"nombre" : "Beasain"
+	},
+	{
+		"id_Municipio" : 886,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 19,
+		"dc" : 5,
+		"nombre" : "Campofrío"
+	},
+	{
+		"id_Municipio" : 887,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 19,
+		"dc" : 0,
+		"nombre" : "Alerre"
+	},
+	{
+		"id_Municipio" : 888,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 19,
+		"dc" : 6,
+		"nombre" : "Campillo de Arenas"
+	},
+	{
+		"id_Municipio" : 889,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 19,
+		"dc" : 1,
+		"nombre" : "Berlanga del Bierzo"
+	},
+	{
+		"id_Municipio" : 890,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 19,
+		"dc" : 4,
+		"nombre" : "Almacelles"
+	},
+	{
+		"id_Municipio" : 891,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 19,
+		"dc" : 7,
+		"nombre" : "Arrúbal"
+	},
+	{
+		"id_Municipio" : 892,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 19,
+		"dc" : 3,
+		"nombre" : "Foz"
+	},
+	{
+		"id_Municipio" : 893,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 19,
+		"dc" : 9,
+		"nombre" : "Belmonte de Tajo"
+	},
+	{
+		"id_Municipio" : 894,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 19,
+		"dc" : 2,
+		"nombre" : "Arenas"
+	},
+	{
+		"id_Municipio" : 895,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 19,
+		"dc" : 6,
+		"nombre" : "Cieza"
+	},
+	{
+		"id_Municipio" : 896,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 19,
+		"dc" : 3,
+		"nombre" : "Aoiz/Agoitz"
+	},
+	{
+		"id_Municipio" : 897,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 19,
+		"dc" : 8,
+		"nombre" : "Carballiño, O"
+	},
+	{
+		"id_Municipio" : 898,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 19,
+		"dc" : 4,
+		"nombre" : "Colunga"
+	},
+	{
+		"id_Municipio" : 899,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 19,
+		"dc" : 9,
+		"nombre" : "Autillo de Campos"
+	},
+	{
+		"id_Municipio" : 900,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 19,
+		"dc" : 2,
+		"nombre" : "San Bartolomé de Tirajana"
+	},
+	{
+		"id_Municipio" : 901,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 19,
+		"dc" : 5,
+		"nombre" : "Fornelos de Montes"
+	},
+	{
+		"id_Municipio" : 902,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 19,
+		"dc" : 1,
+		"nombre" : "Aldearrodrigo"
+	},
+	{
+		"id_Municipio" : 903,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 19,
+		"dc" : 7,
+		"nombre" : "Guía de Isora"
+	},
+	{
+		"id_Municipio" : 904,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 19,
+		"dc" : 0,
+		"nombre" : "Castañeda"
+	},
+	{
+		"id_Municipio" : 905,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 19,
+		"dc" : 4,
+		"nombre" : "Arahuetes"
+	},
+	{
+		"id_Municipio" : 906,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 19,
+		"dc" : 1,
+		"nombre" : "Burguillos"
+	},
+	{
+		"id_Municipio" : 907,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 19,
+		"dc" : 6,
+		"nombre" : "Almarza"
+	},
+	{
+		"id_Municipio" : 908,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 19,
+		"dc" : 2,
+		"nombre" : "Ascó"
+	},
+	{
+		"id_Municipio" : 909,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 19,
+		"dc" : 7,
+		"nombre" : "Alobras"
+	},
+	{
+		"id_Municipio" : 910,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 19,
+		"dc" : 0,
+		"nombre" : "Bargas"
+	},
+	{
+		"id_Municipio" : 911,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 19,
+		"dc" : 3,
+		"nombre" : "Alcúdia, l'"
+	},
+	{
+		"id_Municipio" : 912,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 19,
+		"dc" : 9,
+		"nombre" : "Berrueces"
+	},
+	{
+		"id_Municipio" : 913,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 19,
+		"dc" : 5,
+		"nombre" : "Berriz"
+	},
+	{
+		"id_Municipio" : 914,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 19,
+		"dc" : 8,
+		"nombre" : "Barcial del Barco"
+	},
+	{
+		"id_Municipio" : 915,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 19,
+		"dc" : 1,
+		"nombre" : "Alforque"
+	},
+	{
+		"id_Municipio" : 916,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 20,
+		"dc" : 3,
+		"nombre" : "Kuartango"
+	},
+	{
+		"id_Municipio" : 917,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 20,
+		"dc" : 8,
+		"nombre" : "Carcelén"
+	},
+	{
+		"id_Municipio" : 918,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 20,
+		"dc" : 4,
+		"nombre" : "Balones"
+	},
+	{
+		"id_Municipio" : 919,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 20,
+		"dc" : 9,
+		"nombre" : "Bayárcal"
+	},
+	{
+		"id_Municipio" : 920,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Bienvenida"
+	},
+	{
+		"id_Municipio" : 921,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 20,
+		"dc" : 1,
+		"nombre" : "Esporles"
+	},
+	{
+		"id_Municipio" : 922,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 20,
+		"dc" : 7,
+		"nombre" : "Begues"
+	},
+	{
+		"id_Municipio" : 923,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 20,
+		"dc" : 0,
+		"nombre" : "Arauzo de Miel"
+	},
+	{
+		"id_Municipio" : 924,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 20,
+		"dc" : 4,
+		"nombre" : "Almoharín"
+	},
+	{
+		"id_Municipio" : 925,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 20,
+		"dc" : 1,
+		"nombre" : "Jerez de la Frontera"
+	},
+	{
+		"id_Municipio" : 926,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 20,
+		"dc" : 6,
+		"nombre" : "Barracas"
+	},
+	{
+		"id_Municipio" : 927,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 20,
+		"dc" : 2,
+		"nombre" : "Argamasilla de Calatrava"
+	},
+	{
+		"id_Municipio" : 928,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 20,
+		"dc" : 7,
+		"nombre" : "Conquista"
+	},
+	{
+		"id_Municipio" : 929,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 20,
+		"dc" : 0,
+		"nombre" : "Carnota"
+	},
+	{
+		"id_Municipio" : 930,
+		"id_Provincia" : 16,
+		"cod_Municipio" : 20,
+		"dc" : 3,
+		"nombre" : "Arandilla del Arroyo"
+	},
+	{
+		"id_Municipio" : 931,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 20,
+		"dc" : 9,
+		"nombre" : "Bescanó"
+	},
+	{
+		"id_Municipio" : 932,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Arenas del Rey"
+	},
+	{
+		"id_Municipio" : 933,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 20,
+		"dc" : 8,
+		"nombre" : "Almadrones"
+	},
+	{
+		"id_Municipio" : 934,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 20,
+		"dc" : 2,
+		"nombre" : "Beizama"
+	},
+	{
+		"id_Municipio" : 935,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 20,
+		"dc" : 9,
+		"nombre" : "Cañaveral de León"
+	},
+	{
+		"id_Municipio" : 936,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 20,
+		"dc" : 4,
+		"nombre" : "Alfántega"
+	},
+	{
+		"id_Municipio" : 937,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 20,
+		"dc" : 0,
+		"nombre" : "Canena"
+	},
+	{
+		"id_Municipio" : 938,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Boca de Huérgano"
+	},
+	{
+		"id_Municipio" : 939,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 20,
+		"dc" : 8,
+		"nombre" : "Almatret"
+	},
+	{
+		"id_Municipio" : 940,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 20,
+		"dc" : 1,
+		"nombre" : "Ausejo"
+	},
+	{
+		"id_Municipio" : 941,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 20,
+		"dc" : 7,
+		"nombre" : "Friol"
+	},
+	{
+		"id_Municipio" : 942,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 20,
+		"dc" : 3,
+		"nombre" : "Berzosa del Lozoya"
+	},
+	{
+		"id_Municipio" : 943,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 20,
+		"dc" : 6,
+		"nombre" : "Arriate"
+	},
+	{
+		"id_Municipio" : 944,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 20,
+		"dc" : 0,
+		"nombre" : "Fortuna"
+	},
+	{
+		"id_Municipio" : 945,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 20,
+		"dc" : 7,
+		"nombre" : "Araitz"
+	},
+	{
+		"id_Municipio" : 946,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 20,
+		"dc" : 2,
+		"nombre" : "Cartelle"
+	},
+	{
+		"id_Municipio" : 947,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 20,
+		"dc" : 8,
+		"nombre" : "Corvera de Asturias"
+	},
+	{
+		"id_Municipio" : 948,
+		"id_Provincia" : 34,
+		"cod_Municipio" : 20,
+		"dc" : 3,
+		"nombre" : "Ayuela"
+	},
+	{
+		"id_Municipio" : 949,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 20,
+		"dc" : 6,
+		"nombre" : "Aldea de San Nicolás, La"
+	},
+	{
+		"id_Municipio" : 950,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 20,
+		"dc" : 9,
+		"nombre" : "Agolada"
+	},
+	{
+		"id_Municipio" : 951,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Aldearrubia"
+	},
+	{
+		"id_Municipio" : 952,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 20,
+		"dc" : 1,
+		"nombre" : "Güímar"
+	},
+	{
+		"id_Municipio" : 953,
+		"id_Provincia" : 39,
+		"cod_Municipio" : 20,
+		"dc" : 4,
+		"nombre" : "Castro-Urdiales"
+	},
+	{
+		"id_Municipio" : 954,
+		"id_Provincia" : 40,
+		"cod_Municipio" : 20,
+		"dc" : 8,
+		"nombre" : "Arcones"
+	},
+	{
+		"id_Municipio" : 955,
+		"id_Provincia" : 41,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Cabezas de San Juan, Las"
+	},
+	{
+		"id_Municipio" : 956,
+		"id_Provincia" : 42,
+		"cod_Municipio" : 20,
+		"dc" : 0,
+		"nombre" : "Almazán"
+	},
+	{
+		"id_Municipio" : 957,
+		"id_Provincia" : 43,
+		"cod_Municipio" : 20,
+		"dc" : 6,
+		"nombre" : "Banyeres del Penedès"
+	},
+	{
+		"id_Municipio" : 958,
+		"id_Provincia" : 44,
+		"cod_Municipio" : 20,
+		"dc" : 1,
+		"nombre" : "Alpeñés"
+	},
+	{
+		"id_Municipio" : 959,
+		"id_Provincia" : 45,
+		"cod_Municipio" : 20,
+		"dc" : 4,
+		"nombre" : "Belvís de la Jara"
+	},
+	{
+		"id_Municipio" : 960,
+		"id_Provincia" : 46,
+		"cod_Municipio" : 20,
+		"dc" : 7,
+		"nombre" : "Alcúdia de Crespins, l'"
+	},
+	{
+		"id_Municipio" : 961,
+		"id_Provincia" : 47,
+		"cod_Municipio" : 20,
+		"dc" : 3,
+		"nombre" : "Bobadilla del Campo"
+	},
+	{
+		"id_Municipio" : 962,
+		"id_Provincia" : 48,
+		"cod_Municipio" : 20,
+		"dc" : 9,
+		"nombre" : "Bilbao"
+	},
+	{
+		"id_Municipio" : 963,
+		"id_Provincia" : 49,
+		"cod_Municipio" : 20,
+		"dc" : 2,
+		"nombre" : "Belver de los Montes"
+	},
+	{
+		"id_Municipio" : 964,
+		"id_Provincia" : 50,
+		"cod_Municipio" : 20,
+		"dc" : 5,
+		"nombre" : "Alhama de Aragón"
+	},
+	{
+		"id_Municipio" : 965,
+		"id_Provincia" : 1,
+		"cod_Municipio" : 21,
+		"dc" : 0,
+		"nombre" : "Elburgo/Burgelu"
+	},
+	{
+		"id_Municipio" : 966,
+		"id_Provincia" : 2,
+		"cod_Municipio" : 21,
+		"dc" : 5,
+		"nombre" : "Casas de Juan Núñez"
+	},
+	{
+		"id_Municipio" : 967,
+		"id_Provincia" : 3,
+		"cod_Municipio" : 21,
+		"dc" : 1,
+		"nombre" : "Banyeres de Mariola"
+	},
+	{
+		"id_Municipio" : 968,
+		"id_Provincia" : 4,
+		"cod_Municipio" : 21,
+		"dc" : 6,
+		"nombre" : "Bayarque"
+	},
+	{
+		"id_Municipio" : 969,
+		"id_Provincia" : 5,
+		"cod_Municipio" : 21,
+		"dc" : 9,
+		"nombre" : "Barco de Ávila, El"
+	},
+	{
+		"id_Municipio" : 970,
+		"id_Provincia" : 6,
+		"cod_Municipio" : 21,
+		"dc" : 2,
+		"nombre" : "Bodonal de la Sierra"
+	},
+	{
+		"id_Municipio" : 971,
+		"id_Provincia" : 7,
+		"cod_Municipio" : 21,
+		"dc" : 8,
+		"nombre" : "Estellencs"
+	},
+	{
+		"id_Municipio" : 972,
+		"id_Provincia" : 8,
+		"cod_Municipio" : 21,
+		"dc" : 4,
+		"nombre" : "Bellprat"
+	},
+	{
+		"id_Municipio" : 973,
+		"id_Provincia" : 9,
+		"cod_Municipio" : 21,
+		"dc" : 7,
+		"nombre" : "Arauzo de Salce"
+	},
+	{
+		"id_Municipio" : 974,
+		"id_Provincia" : 10,
+		"cod_Municipio" : 21,
+		"dc" : 1,
+		"nombre" : "Arroyo de la Luz"
+	},
+	{
+		"id_Municipio" : 975,
+		"id_Provincia" : 11,
+		"cod_Municipio" : 21,
+		"dc" : 8,
+		"nombre" : "Jimena de la Frontera"
+	},
+	{
+		"id_Municipio" : 976,
+		"id_Provincia" : 12,
+		"cod_Municipio" : 21,
+		"dc" : 3,
+		"nombre" : "Betxí"
+	},
+	{
+		"id_Municipio" : 977,
+		"id_Provincia" : 13,
+		"cod_Municipio" : 21,
+		"dc" : 9,
+		"nombre" : "Arroba de los Montes"
+	},
+	{
+		"id_Municipio" : 978,
+		"id_Provincia" : 14,
+		"cod_Municipio" : 21,
+		"dc" : 4,
+		"nombre" : "Córdoba"
+	},
+	{
+		"id_Municipio" : 979,
+		"id_Provincia" : 15,
+		"cod_Municipio" : 21,
+		"dc" : 7,
+		"nombre" : "Carral"
+	},
+	{
+		"id_Municipio" : 980,
+		"id_Provincia" : 17,
+		"cod_Municipio" : 21,
+		"dc" : 6,
+		"nombre" : "Beuda"
+	},
+	{
+		"id_Municipio" : 981,
+		"id_Provincia" : 18,
+		"cod_Municipio" : 21,
+		"dc" : 2,
+		"nombre" : "Armilla"
+	},
+	{
+		"id_Municipio" : 982,
+		"id_Provincia" : 19,
+		"cod_Municipio" : 21,
+		"dc" : 5,
+		"nombre" : "Almoguera"
+	},
+	{
+		"id_Municipio" : 983,
+		"id_Provincia" : 20,
+		"cod_Municipio" : 21,
+		"dc" : 9,
+		"nombre" : "Belauntza"
+	},
+	{
+		"id_Municipio" : 984,
+		"id_Provincia" : 21,
+		"cod_Municipio" : 21,
+		"dc" : 6,
+		"nombre" : "Cartaya"
+	},
+	{
+		"id_Municipio" : 985,
+		"id_Provincia" : 22,
+		"cod_Municipio" : 21,
+		"dc" : 1,
+		"nombre" : "Almudévar"
+	},
+	{
+		"id_Municipio" : 986,
+		"id_Provincia" : 23,
+		"cod_Municipio" : 21,
+		"dc" : 7,
+		"nombre" : "Carboneros"
+	},
+	{
+		"id_Municipio" : 987,
+		"id_Provincia" : 24,
+		"cod_Municipio" : 21,
+		"dc" : 2,
+		"nombre" : "Boñar"
+	},
+	{
+		"id_Municipio" : 988,
+		"id_Provincia" : 25,
+		"cod_Municipio" : 21,
+		"dc" : 5,
+		"nombre" : "Almenar"
+	},
+	{
+		"id_Municipio" : 989,
+		"id_Provincia" : 26,
+		"cod_Municipio" : 21,
+		"dc" : 8,
+		"nombre" : "Autol"
+	},
+	{
+		"id_Municipio" : 990,
+		"id_Provincia" : 27,
+		"cod_Municipio" : 21,
+		"dc" : 4,
+		"nombre" : "Xermade"
+	},
+	{
+		"id_Municipio" : 991,
+		"id_Provincia" : 28,
+		"cod_Municipio" : 21,
+		"dc" : 0,
+		"nombre" : "Berrueco, El"
+	},
+	{
+		"id_Municipio" : 992,
+		"id_Provincia" : 29,
+		"cod_Municipio" : 21,
+		"dc" : 3,
+		"nombre" : "Atajate"
+	},
+	{
+		"id_Municipio" : 993,
+		"id_Provincia" : 30,
+		"cod_Municipio" : 21,
+		"dc" : 7,
+		"nombre" : "Fuente Álamo de Murcia"
+	},
+	{
+		"id_Municipio" : 994,
+		"id_Provincia" : 31,
+		"cod_Municipio" : 21,
+		"dc" : 4,
+		"nombre" : "Aranarache/Aranaratxe"
+	},
+	{
+		"id_Municipio" : 995,
+		"id_Provincia" : 32,
+		"cod_Municipio" : 21,
+		"dc" : 9,
+		"nombre" : "Castrelo do Val"
+	},
+	{
+		"id_Municipio" : 996,
+		"id_Provincia" : 33,
+		"cod_Municipio" : 21,
+		"dc" : 5,
+		"nombre" : "Cudillero"
+	},
+	{
+		"id_Municipio" : 997,
+		"id_Provincia" : 35,
+		"cod_Municipio" : 21,
+		"dc" : 3,
+		"nombre" : "Santa Brígida"
+	},
+	{
+		"id_Municipio" : 998,
+		"id_Provincia" : 36,
+		"cod_Municipio" : 21,
+		"dc" : 6,
+		"nombre" : "Gondomar"
+	},
+	{
+		"id_Municipio" : 999,
+		"id_Provincia" : 37,
+		"cod_Municipio" : 21,
+		"dc" : 2,
+		"nombre" : "Aldeaseca de Alba"
+	},
+	{
+		"id_Municipio" : 1000,
+		"id_Provincia" : 38,
+		"cod_Municipio" : 21,
+		"dc" : 8,
+		"nombre" : "Hermigua"
+	}
+]

@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"lugar": "Salón"
+	}, {
+		"id": 2,
+		"lugar": "Cocina"
+	}, {
+		"id": 3,
+		"lugar": "Habitación"
+	},
+]

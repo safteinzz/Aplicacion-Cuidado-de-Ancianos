@@ -11,9 +11,10 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.SwingUtilities;
 import pinfui.dto.LabelDTO;
+import pinfui.entidades.Usuario;
 
 /**
- *
+ * Plantilla para las diferentes ventanas de usuarios
  * @author ITCOM
  */
 public class PlantillaPantallas extends javax.swing.JFrame {
@@ -23,10 +24,31 @@ public class PlantillaPantallas extends javax.swing.JFrame {
     protected boolean terminarHiloButton = false;
     protected boolean terminarHiloCorreo = false;
     
+    protected Usuario usuario;
+    
+    /**
+     * Constructor 
+     * @param usuario Usuario logeado
+     */
+    public PlantillaPantallas(Usuario usuario) {
+    	this.usuario = usuario;
+    }
+    
+    /**
+     * Metodo especifico para cambiar el tamaño de una fuente
+     * @param style Tipo de estilo, negrita, cursiva, etc
+     * @param sizeActual Tamaño que tiene actualmente la fuente
+     * @param suma Cantidad que se quiere agrandar el tamaño de la fuente actual
+     * @return Devuelve una fuente con el tamaño cambiado
+     */
     protected java.awt.Font cambiarSize(int style, int sizeActual, int suma){
         return new java.awt.Font("Tahoma", style, sizeActual + suma);
     }
     
+    /**
+     * Creacion de un hilo en segundo plano encargado de modificar la imagen de los botones deslizantes
+     * @param imagenButtonDeslizante JLabel al que se le cambiara la imagen
+     */
     protected void crearHiloCambioIconButton(javax.swing.JLabel imagenButtonDeslizante){
         // Creacion de un hilo para cambiar la imagen del correo cuando tengas notificaciones nuevas - Asi llama mas la atencion
         new Thread(new Runnable() {
@@ -62,6 +84,10 @@ public class PlantillaPantallas extends javax.swing.JFrame {
         }).start();
     }
     
+    /**
+     * Creacion de un hilo en segundo plano encargado de modificar la imagen de correo para notificar que hay uno nuevo sin leer
+     * @param iconCorreo JLabel a modificar
+     */
     protected void crearHiloCambioIconCorreo(javax.swing.JLabel iconCorreo){
         // Creacion de un hilo para cambiar la imagen del correo cuando tengas notificaciones nuevas - Asi llama mas la atencion
         new Thread(new Runnable() {
@@ -111,4 +137,32 @@ public class PlantillaPantallas extends javax.swing.JFrame {
             }
         }).start();
     }
+    
+    /**
+     * Metodo encargado de cambiar las fuentes de la lista de labels que tiene una pantalla
+     */
+    protected void cambiarFuentes(){
+        for(LabelDTO label : listaLabels){
+            label.getLabel().setFont(cambiarSize(label.getLabel().getFont().getStyle(), label.getSize(), PInfUI.getSizeFuente()));
+            if(label.getIdTexto() != null) {
+            	label.getLabel().setText(PInfUI.getBundle().getString(label.getIdTexto()));
+            }
+        }
+        
+//        List<javax.swing.JButton> listaBotones = new ArrayList<javax.swing.JButton>();
+//        listaBotones.add(jButton);
+//        
+//        for(javax.swing.JButton boton : listaBotones){
+//            boton.setFont(cambiarSize(boton.getFont().getSize(), 10));
+//        }
+    }    
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+    
 }
