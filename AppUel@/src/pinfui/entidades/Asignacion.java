@@ -7,60 +7,74 @@ package pinfui.entidades;
 
 /**
  * Objeto para agrupar las relaciones entre usuarios
+ * El usuario asignado es el responsable
+ * El usuario asociado es del que se hará responsable el asignado
  * @author ITCOM
  */
 public class Asignacion {
 
-    private int idAsignacion;
-    private String dniAsignado;
-    private String dniAsociado;
-    private int idTipoAsociacion;
+    private String dni_Asociado;
+    private String dni_Asignado;
+    private int id_Tipo; // 2 (familiar paciente) 1 (medico paciente)    
 
-    private transient TipoAsignacion tipoAsignacion;
-    private transient Usuario usuarioAsignado;
     private transient Usuario usuarioAsociado;
+    private transient Usuario usuarioAsignado;
+    private transient TipoAsignacion tipoAsignacion;
 
     public Asignacion() {
     }
 
-    public Asignacion(int idAsignacion, String dniAsignado, String dniAsociado, int idTipoAsociacion) {
-        super();
-        this.idAsignacion = idAsignacion;
-        this.dniAsignado = dniAsignado;
-        this.dniAsociado = dniAsociado;
-        this.idTipoAsociacion = idTipoAsociacion;
+    /**
+     * Metodo de recoleccion de datos MySQL y JSON
+     * @param dni_Asignado
+     * @param dni_Asociado
+     * @param id_Tipo 
+     */
+    public Asignacion(String dni_Asociado, String dni_Asignado, int id_Tipo) {
+        super();        
+        this.dni_Asociado = dni_Asociado;
+        this.dni_Asignado = dni_Asignado;
+        this.id_Tipo = id_Tipo;
     }
 
-    public int getIdAsignacion() {
-        return idAsignacion;
+    /**
+     * Metodo para el registro de asignaciones
+     * @param id_Tipo
+     * @param usuarioAsignado
+     * @param usuarioAsociado 
+     */
+    public Asignacion(Usuario usuarioAsociado, Usuario usuarioAsignado, int id_Tipo) {        
+        this.usuarioAsociado = usuarioAsociado;
+        this.dni_Asociado = this.usuarioAsociado.getDni();
+        this.usuarioAsignado = usuarioAsignado;
+        this.dni_Asignado = this.usuarioAsignado.getDni();        
+        this.id_Tipo = id_Tipo;
+    }
+    
+    
+
+    public String getDni_Asignado() {
+        return dni_Asignado;
     }
 
-    public void setIdAsignacion(int idAsignacion) {
-        this.idAsignacion = idAsignacion;
+    public void setDni_Asignado(String dni_Asignado) {
+        this.dni_Asignado = dni_Asignado;
     }
 
-    public String getDniAsignado() {
-        return dniAsignado;
+    public String getDni_Asociado() {
+        return dni_Asociado;
     }
 
-    public void setDniAsignado(String dniAsignado) {
-        this.dniAsignado = dniAsignado;
+    public void setDni_Asociado(String dni_Asociado) {
+        this.dni_Asociado = dni_Asociado;
     }
 
-    public String getDniAsociado() {
-        return dniAsociado;
+    public int getId_Tipo() {
+        return id_Tipo;
     }
 
-    public void setDniAsociado(String dniAsociado) {
-        this.dniAsociado = dniAsociado;
-    }
-
-    public int getIdTipoAsociacion() {
-        return idTipoAsociacion;
-    }
-
-    public void setIdTipoAsociacion(int idTipoAsociacion) {
-        this.idTipoAsociacion = idTipoAsociacion;
+    public void setId_Tipo(int id_Tipo) {
+        this.id_Tipo = id_Tipo;
     }
 
     public TipoAsignacion getTipoAsignacion() {
@@ -86,5 +100,7 @@ public class Asignacion {
     public void setUsuarioAsociado(Usuario usuarioAsociado) {
         this.usuarioAsociado = usuarioAsociado;
     }
+
+    
 
 }

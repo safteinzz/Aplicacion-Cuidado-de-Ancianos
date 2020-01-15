@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import pinfui.controller.RitmoCardiacoController;
@@ -55,13 +54,14 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
         Calendar fechaDesde = ritmoCardiacoController.getDiaAnterior(fechaHasta);
         rellenarFechaDesde(fechaDesde);
         
+        jTextField1.setText("1");
+        
         pintarGrafica(TipoRango.HORA, 1, fechaDesde, fechaHasta);
         
         listaLabels.add(new LabelDTO(jLabel1,"tipoRango", jLabel1.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel2, "cantidadRango", jLabel2.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel6, "fechaDesde", jLabel6.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel10, "fechaHasta", jLabel10.getFont().getSize()));
-        listaLabels.add(new LabelDTO(etiquetaButtonDeslizante, "botonBuscar", etiquetaButtonDeslizante.getFont().getSize()));
         
         cambiarFuentes();
     }
@@ -141,10 +141,6 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        panelButtonDeslizante = new javax.swing.JPanel();
-        etiquetaButtonDeslizante = new javax.swing.JLabel();
-        imagenButtonDeslizante = new javax.swing.JLabel();
         panelGrafica = new javax.swing.JPanel();
         labelGrafica = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -167,6 +163,8 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
         jTextField8 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
+        iconExcel = new javax.swing.JLabel();
+        jBFiltrar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -183,7 +181,7 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboTipoRango, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,52 +218,6 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelButtonDeslizante.setLayout(null);
-
-        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaButtonDeslizante.setText("Buscar");
-        etiquetaButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseExited(evt);
-            }
-        });
-        panelButtonDeslizante.add(etiquetaButtonDeslizante);
-        etiquetaButtonDeslizante.setBounds(0, 1, 160, 30);
-
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
-        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelButtonDeslizante.add(imagenButtonDeslizante);
-        imagenButtonDeslizante.setBounds(0, 0, 160, 35);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 29, Short.MAX_VALUE)
-                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         panelGrafica.setBackground(new java.awt.Color(255, 255, 255));
@@ -319,7 +271,7 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +327,7 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,6 +346,28 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        iconExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/excel.png"))); // NOI18N
+        iconExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconExcelMouseClicked(evt);
+            }
+        });
+
+        jBFiltrar.setBackground(new java.awt.Color(255, 255, 255));
+        jBFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botonBuscar.png"))); // NOI18N
+        jBFiltrar.setBorder(null);
+        jBFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFiltrar.setDefaultCapable(false);
+        jBFiltrar.setBorderPainted(false);
+        jBFiltrar.setContentAreaFilled(false);
+        jBFiltrar.setFocusPainted(false);
+        jBFiltrar.setOpaque(false);
+        jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFiltrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -402,17 +376,20 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(14, 14, 14)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(panelGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -420,26 +397,60 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jBFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(panelGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Metodo a implementar por el boton de Buscar encargado de recuperar todos los valores del filtro y llamar a pintar la grafica
-     * @param evt Evento desde donde se llama al boton
-     */
-    private void etiquetaButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseClicked
-        System.out.println("pinfui.interfaz.JPanelRitmoCardiaco.etiquetaButtonDeslizanteMouseClicked()");
+    private void iconExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconExcelMouseClicked
+        boolean permisos = true;
+        
+        Item objeto = (Item) comboTipoRango.getSelectedItem();
+        
+        int rango = 1;
+        try {
+        	rango = Integer.valueOf(jTextField1.getText());
+        	
+        	if(0 > rango || rango > 60) {
+        		JOptionPane.showMessageDialog(null, PInfUI.getBundle().getString("error.cantidadRango"),
+    					"Error", ERROR_MESSAGE);
+        		permisos = false;
+        	}
+        } catch(Exception e) {
+        	JOptionPane.showMessageDialog(null, PInfUI.getBundle().getString("error.rangoNoNumero"),
+					"Error", ERROR_MESSAGE);
+        	permisos = false;
+        }
+        
+        Calendar fechaDesde = recuperarFechaDesde();
+        Calendar fechaHasta = recuperarFechaHasta();
+        
+        if(permisos) {
+	        if((fechaDesde == null && fechaHasta == null) || (fechaDesde != null && fechaHasta == null) || (fechaDesde != null && fechaHasta != null && fechaDesde.compareTo(fechaHasta) < 0)) {
+	        	ritmoCardiacoController.createExcel(dniPaciente, nombrePaciente, (TipoRango) objeto.getTipo(), rango, fechaDesde.getTime(), fechaHasta.getTime());
+	        } else {
+	        	JOptionPane.showMessageDialog(null, PInfUI.getBundle().getString("error.rangoFechas"),
+						"Error", ERROR_MESSAGE);
+	        }
+        }
+    }//GEN-LAST:event_iconExcelMouseClicked
+
+    private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
         boolean permisos = true;
         
         Item objeto = (Item) comboTipoRango.getSelectedItem();
@@ -470,18 +481,7 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
 						"Error", ERROR_MESSAGE);
 	        }
         }
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseClicked
-
-    private void etiquetaButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseEntered
-        terminarHiloButton = false;
-
-        crearHiloCambioIconButton(imagenButtonDeslizante);
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseEntered
-
-    private void etiquetaButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseExited
-        terminarHiloButton = true;
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseExited
+    }//GEN-LAST:event_jBFiltrarActionPerformed
 
     /**
      * Metodo encargado pintar la imagen que devuelve RitmoCardiacoController
@@ -505,8 +505,8 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Item> comboTipoRango;
-    private javax.swing.JLabel etiquetaButtonDeslizante;
-    private javax.swing.JLabel imagenButtonDeslizante;
+    private javax.swing.JLabel iconExcel;
+    private javax.swing.JButton jBFiltrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -519,7 +519,6 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jTextField1;
@@ -534,7 +533,6 @@ public class JPanelRitmoCardiaco extends PlantillaJPanel {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel labelGrafica;
-    private javax.swing.JPanel panelButtonDeslizante;
     private javax.swing.JPanel panelGrafica;
     // End of variables declaration//GEN-END:variables
 }

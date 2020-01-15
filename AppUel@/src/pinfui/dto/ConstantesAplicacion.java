@@ -14,4 +14,6 @@ public class ConstantesAplicacion {
 	
 	public static int PORT_SERVER= 9700;
 	
+	public static String NOMBRE_EXCEL_PRESENCIA="SENSOR PRESENCIA";
+	
 }

@@ -12,8 +12,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import pinfui.controller.PresenciaController;
+import pinfui.dto.EstiloCabeceraJTable;
+import pinfui.dto.EstiloCotenidoJTable;
 import pinfui.dto.Item;
 import pinfui.dto.ItemRenderer;
 import pinfui.dto.LabelDTO;
@@ -28,6 +31,9 @@ public class JPanelPresencia extends PlantillaJPanel {
     private PresenciaController presenciaController = new PresenciaController();
     
     private String dniPaciente;
+    private String nombrePaciente;
+    
+    private DefaultTableModel model;
     
     /**
      * Constructor
@@ -36,26 +42,54 @@ public class JPanelPresencia extends PlantillaJPanel {
      */
     public JPanelPresencia(String dniPaciente, String nombrePaciente) {
         this.dniPaciente = dniPaciente;
+        this.nombrePaciente = nombrePaciente;
+        model = new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null},
+                    {null, null, null, null}
+                },
+                new String [] {
+                    PInfUI.getBundle().getString("lugar"), PInfUI.getBundle().getString("fecha")
+                }
+            ) {
+        	public boolean isCellEditable(int row, int column)
+            {
+              return false;//This causes all cells to be not editable
+            }
+        };
+        
+        Calendar fechaHasta = presenciaController.getFechaActual();
+        Calendar fechaDesde = presenciaController.getDiaAnterior(fechaHasta);
+        
+        rellenarTabla(fechaDesde, fechaHasta, null);
 //        this.nombrePaciente = nombrePaciente;
     	initComponents();
+        jTable1.setModel(model);
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.getTableHeader().setDefaultRenderer(new EstiloCabeceraJTable());
+        jTable1.setDefaultRenderer(Object.class, new EstiloCotenidoJTable());
         
+        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.getViewport().setBackground(new java.awt.Color(255, 255, 255));
+        
+    	comboTipoPresencia.addItem(new Item(null, PInfUI.getBundle().getString("seleccionar")));
         for(TipoPresencia tipoPresencia : PInfUI.gestorDatos.getTiposPresencias()){
-            comboTipoPresencia.addItem(new Item(tipoPresencia, tipoPresencia.getLugar()));
+            comboTipoPresencia.addItem(new Item(tipoPresencia, PInfUI.getBundle().getString("tipoPresencia" + tipoPresencia.getId())));
         }
         
         comboTipoPresencia.setRenderer( new ItemRenderer() );
         
-        Calendar fechaHasta = presenciaController.getFechaActual();
+        rellenarFechaDesde(fechaDesde);
         rellenarFechaHasta(fechaHasta);
         
-        Calendar fechaDesde = presenciaController.getDiaAnterior(fechaHasta);
-        rellenarFechaDesde(fechaDesde);
+        iconExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/excel.png")));
+        iconExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
-        rellenarTabla(fechaDesde, fechaHasta, null);
-
+        listaLabels.add(new LabelDTO(jLabel1, "lugar", jLabel1.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel6, "fechaDesde", jLabel6.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel10, "fechaHasta", jLabel10.getFont().getSize()));
-        listaLabels.add(new LabelDTO(etiquetaButtonDeslizante, "botonBuscar", etiquetaButtonDeslizante.getFont().getSize()));
         
         cambiarFuentes();
     }
@@ -132,15 +166,7 @@ public class JPanelPresencia extends PlantillaJPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         comboTipoPresencia = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        panelButtonDeslizante = new javax.swing.JPanel();
-        etiquetaButtonDeslizante = new javax.swing.JLabel();
-        imagenButtonDeslizante = new javax.swing.JLabel();
-        panelGrafica = new javax.swing.JPanel();
-        labelGrafica = new javax.swing.JLabel();
+        jBFiltrar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -161,12 +187,15 @@ public class JPanelPresencia extends PlantillaJPanel {
         jTextField8 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        iconExcel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Tipo de rango");
+        jLabel1.setText("Lugar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -175,9 +204,11 @@ public class JPanelPresencia extends PlantillaJPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboTipoPresencia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 93, Short.MAX_VALUE))
+                    .addComponent(comboTipoPresencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,95 +219,20 @@ public class JPanelPresencia extends PlantillaJPanel {
                 .addComponent(comboTipoPresencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel2.setText("Cantidad de rango");
-
-        jTextField1.setToolTipText("");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 128, Short.MAX_VALUE))
-                    .addComponent(jTextField1))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelButtonDeslizante.setLayout(null);
-
-        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaButtonDeslizante.setText("Buscar");
-        etiquetaButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                etiquetaButtonDeslizanteMouseExited(evt);
+        jBFiltrar.setBackground(new java.awt.Color(255, 255, 255));
+        jBFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botonBuscar.png"))); // NOI18N
+        jBFiltrar.setBorder(null);
+        jBFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFiltrar.setDefaultCapable(false);
+        jBFiltrar.setBorderPainted(false);
+        jBFiltrar.setContentAreaFilled(false);
+        jBFiltrar.setFocusPainted(false);
+        jBFiltrar.setOpaque(false);
+        jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFiltrarActionPerformed(evt);
             }
         });
-        panelButtonDeslizante.add(etiquetaButtonDeslizante);
-        etiquetaButtonDeslizante.setBounds(0, 1, 160, 30);
-
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
-        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelButtonDeslizante.add(imagenButtonDeslizante);
-        imagenButtonDeslizante.setBounds(0, 0, 160, 35);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 29, Short.MAX_VALUE)
-                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        panelGrafica.setBackground(new java.awt.Color(255, 255, 255));
-        panelGrafica.setPreferredSize(new java.awt.Dimension(1000, 600));
-
-        labelGrafica.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panelGraficaLayout = new javax.swing.GroupLayout(panelGrafica);
-        panelGrafica.setLayout(panelGraficaLayout);
-        panelGraficaLayout.setHorizontalGroup(
-            panelGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelGrafica, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
-        );
-        panelGraficaLayout.setVerticalGroup(
-            panelGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelGrafica, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-        );
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setPreferredSize(new java.awt.Dimension(248, 64));
@@ -313,7 +269,7 @@ public class JPanelPresencia extends PlantillaJPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +325,7 @@ public class JPanelPresencia extends PlantillaJPanel {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,6 +344,27 @@ public class JPanelPresencia extends PlantillaJPanel {
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        iconExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconExcelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -395,99 +372,153 @@ public class JPanelPresencia extends PlantillaJPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBFiltrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(panelGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jBFiltrar)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Metodo a implementar por el boton de Buscar encargado de recuperar todos los valores del filtro y llamar a pintar la grafica
-     * @param evt Evento desde donde se llama al boton
-     */
-    private void etiquetaButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseClicked
-        System.out.println("pinfui.interfaz.JPanelRitmoCardiaco.etiquetaButtonDeslizanteMouseClicked()");
-        boolean permisos = true;
-        
-        Item objeto = (Item) comboTipoPresencia.getSelectedItem();
+    private void iconExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconExcelMouseClicked
+    	Item objeto = (Item) comboTipoPresencia.getSelectedItem();
         
         Calendar fechaDesde = recuperarFechaDesde();
         Calendar fechaHasta = recuperarFechaHasta();
         
-        if(permisos) {
-	        if((fechaDesde == null && fechaHasta == null) || (fechaDesde != null && fechaHasta == null) || (fechaDesde != null && fechaHasta != null && fechaDesde.compareTo(fechaHasta) < 0)) {
-	        	rellenarTabla(fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo());
-	        } else {
-	        	JOptionPane.showMessageDialog(null, PInfUI.getBundle().getString("error.rangoFechas"),
-						"Error", ERROR_MESSAGE);
-	        }
+        if(comprobarFiltros(fechaDesde, fechaHasta)) {
+        	//llamada al metodo encargado de abrir un Excel
+        	presenciaController.createExcel(dniPaciente, fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo(), new String [] {
+                    PInfUI.getBundle().getString("lugar"), PInfUI.getBundle().getString("fecha")
+                }, nombrePaciente);
         }
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseClicked
+        
+    }//GEN-LAST:event_iconExcelMouseClicked
 
-    private void etiquetaButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseEntered
-        terminarHiloButton = false;
+    private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
+        Item objeto = (Item) comboTipoPresencia.getSelectedItem();
 
-        crearHiloCambioIconButton(imagenButtonDeslizante);
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseEntered
+        Calendar fechaDesde = recuperarFechaDesde();
+        Calendar fechaHasta = recuperarFechaHasta();
 
-    private void etiquetaButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaButtonDeslizanteMouseExited
-        terminarHiloButton = true;
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
-    }//GEN-LAST:event_etiquetaButtonDeslizanteMouseExited
+        if(comprobarFiltros(fechaDesde, fechaHasta)) {
+            rellenarTabla(fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo());
+        }
+    }//GEN-LAST:event_jBFiltrarActionPerformed
 
+    private boolean comprobarFiltros(Calendar fechaDesde, Calendar fechaHasta) {
+    	if((fechaDesde == null && fechaHasta == null) || (fechaDesde != null && fechaHasta == null) || (fechaDesde != null && fechaHasta != null && fechaDesde.compareTo(fechaHasta) < 0)) {
+        	return true;
+        } else {
+        	JOptionPane.showMessageDialog(null, PInfUI.getBundle().getString("error.rangoFechas"),
+					"Error", ERROR_MESSAGE);
+        	return false;
+        }
+    }
     
     private void rellenarTabla(Calendar fechaDesde, Calendar fechaHasta, TipoPresencia tipoPresencia) {
     	//Cambiar el null por el DefaultModel de la tabla
-    	presenciaController.convertListPresencia(null, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+    	if (model.getRowCount() > 0) {
+    	    for (int i = model.getRowCount() - 1; i > -1; i--) {
+    	    	model.removeRow(i);
+    	    }
+    	}
+    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+//    	presenciaController.convertListPresencia(model, dniPaciente, fechaDesde, fechaHasta, tipoPresencia);
+    	
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Item> comboTipoPresencia;
-    private javax.swing.JLabel etiquetaButtonDeslizante;
-    private javax.swing.JLabel imagenButtonDeslizante;
+    private javax.swing.JLabel iconExcel;
+    private javax.swing.JButton jBFiltrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
@@ -498,8 +529,5 @@ public class JPanelPresencia extends PlantillaJPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JLabel labelGrafica;
-    private javax.swing.JPanel panelButtonDeslizante;
-    private javax.swing.JPanel panelGrafica;
     // End of variables declaration//GEN-END:variables
 }

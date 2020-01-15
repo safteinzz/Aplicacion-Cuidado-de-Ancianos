@@ -5,9 +5,11 @@
  */
 package pinfui.interfaz;
 
-import java.sql.SQLException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -18,9 +20,11 @@ import javax.swing.JOptionPane;
 
 import pinfui.controller.LogInController;
 import pinfui.dto.ConstantesAplicacion;
+import pinfui.dto.Idioma;
+import pinfui.dto.Item;
+import pinfui.dto.ItemRenderer;
 import pinfui.dto.LabelDTO;
 import pinfui.dto.TipoVentana;
-import pinfui.entidades.Asignacion;
 import pinfui.entidades.Usuario;
 
 /**
@@ -43,6 +47,7 @@ public class LogIn extends javax.swing.JFrame {
         initComponents();
         generarHistoricoFuentes();
         cambiarFuentes();
+        
     }
 
     /**
@@ -52,196 +57,186 @@ public class LogIn extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-		jPanel2 = new javax.swing.JPanel();
-		jPanel1 = new javax.swing.JPanel();
-		jPFPass = new javax.swing.JPasswordField();
-		jTFUser = new javax.swing.JTextField();
-		jLabelRegistro = new javax.swing.JLabel();
-		jSeparator1 = new javax.swing.JSeparator();
-		labelTitulo1 = new javax.swing.JLabel();
-		labelTitulo4 = new javax.swing.JLabel();
-		labelTitulo2 = new javax.swing.JLabel();
-		panelButtonDeslizante = new javax.swing.JPanel();
-		etiquetaButtonDeslizante = new javax.swing.JLabel();
-		imagenButtonDeslizante = new javax.swing.JLabel();
-		comboSize = new javax.swing.JComboBox<>();
-		labelTitulo3 = new javax.swing.JLabel();
-		jLabel1 = new javax.swing.JLabel();
-		jComboBox1 = new javax.swing.JComboBox<>();
+        jPanelLogIn = new javax.swing.JPanel();
+        jPFPass = new javax.swing.JPasswordField();
+        jTFUser = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        labelTitulo1 = new javax.swing.JLabel();
+        labelTitulo4 = new javax.swing.JLabel();
+        labelTitulo2 = new javax.swing.JLabel();
+        panelButtonDeslizante = new javax.swing.JPanel();
+        etiquetaButtonDeslizante = new javax.swing.JLabel();
+        imagenButtonDeslizante = new javax.swing.JLabel();
+        comboSize = new javax.swing.JComboBox<>();
+        labelTitulo3 = new javax.swing.JLabel();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ingreso");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-		jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelLogIn.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelLogIn.setLayout(new java.awt.GridBagLayout());
 
-		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPFPass.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    logIn();
+                }
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.ipadx = 366;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
+        jPanelLogIn.add(jPFPass, gridBagConstraints);
 
-		jLabelRegistro.setForeground(new java.awt.Color(51, 51, 255));
-		jLabelRegistro.setText("Aun no estas registrado? Haz click");
-		jLabelRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jLabelRegistroMouseClicked(evt);
-			}
-		});
+        jTFUser.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    logIn();
+                }
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 366;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 0, 0);
+        jPanelLogIn.add(jTFUser, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 371;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        jPanelLogIn.add(jSeparator1, gridBagConstraints);
 
-		labelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
-		labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-		labelTitulo1.setForeground(new java.awt.Color(0, 153, 255));
-		labelTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		labelTitulo1.setText("Introduce tu usuario y contraseña");
+        labelTitulo1.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo1.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo1.setText("Introduce tu usuario y contraseña");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 105;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(87, 0, 0, 0);
+        jPanelLogIn.add(labelTitulo1, gridBagConstraints);
 
-		labelTitulo4.setBackground(new java.awt.Color(255, 255, 255));
-		labelTitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-		labelTitulo4.setForeground(new java.awt.Color(0, 153, 255));
-		labelTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		labelTitulo4.setText("Tamaño de letra");
+        labelTitulo4.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo4.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo4.setText("Tamaño de letra");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.ipadx = 243;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(22, 0, 0, 0);
+        jPanelLogIn.add(labelTitulo4, gridBagConstraints);
 
-		labelTitulo2.setBackground(new java.awt.Color(255, 255, 255));
-		labelTitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-		labelTitulo2.setForeground(new java.awt.Color(0, 153, 255));
-		labelTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		labelTitulo2.setText("Dni");
+        labelTitulo2.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo2.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo2.setText("Dni");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 346;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
+        jPanelLogIn.add(labelTitulo2, gridBagConstraints);
 
-		panelButtonDeslizante.setBackground(new java.awt.Color(255, 255, 255));
-		panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		panelButtonDeslizante.setLayout(null);
+        panelButtonDeslizante.setBackground(new java.awt.Color(255, 255, 255));
+        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelButtonDeslizante.setLayout(null);
 
-		etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-		etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		etiquetaButtonDeslizante.setText("Acceder");
-		panelButtonDeslizante.add(etiquetaButtonDeslizante);
-		etiquetaButtonDeslizante.setBounds(0, 1, 370, 30);
+        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaButtonDeslizante.setText("Acceder");
+        panelButtonDeslizante.add(etiquetaButtonDeslizante);
+        etiquetaButtonDeslizante.setBounds(0, 1, 370, 30);
 
-		imagenButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		imagenButtonDeslizante
-				.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
-		imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				imagenButtonDeslizanteMouseClicked(evt);
-			}
+        imagenButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
+        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                imagenButtonDeslizanteMouseExited(evt);
+            }
+        });
+        panelButtonDeslizante.add(imagenButtonDeslizante);
+        imagenButtonDeslizante.setBounds(0, 0, 370, 35);
 
-			public void mouseEntered(java.awt.event.MouseEvent evt) {
-				imagenButtonDeslizanteMouseEntered(evt);
-			}
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 371;
+        gridBagConstraints.ipady = 33;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(80, 0, 0, 0);
+        jPanelLogIn.add(panelButtonDeslizante, gridBagConstraints);
 
-			public void mouseExited(java.awt.event.MouseEvent evt) {
-				imagenButtonDeslizanteMouseExited(evt);
-			}
-		});
-		panelButtonDeslizante.add(imagenButtonDeslizante);
-		imagenButtonDeslizante.setBounds(0, 0, 370, 35);
+        comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "2", "4", "6", "8", "10", "12", "14", "16" }));
+        comboSize.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboSizeItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.ipadx = 334;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 31, 0);
+        jPanelLogIn.add(comboSize, gridBagConstraints);
 
-		comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(
-				new String[] { "0", "2", "4", "6", "8", "10", "12", "14", "16" }));
-		comboSize.addItemListener(new java.awt.event.ItemListener() {
-			public void itemStateChanged(java.awt.event.ItemEvent evt) {
-				comboSizeItemStateChanged(evt);
-			}
-		});
+        labelTitulo3.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo3.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo3.setText("Contraseña");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 284;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
+        jPanelLogIn.add(labelTitulo3, gridBagConstraints);
 
-		labelTitulo3.setBackground(new java.awt.Color(255, 255, 255));
-		labelTitulo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-		labelTitulo3.setForeground(new java.awt.Color(0, 153, 255));
-		labelTitulo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		labelTitulo3.setText("Contraseña");
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelLogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelLogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+        );
 
-		jLabel1.setText("Acceder");
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
-		jComboBox1.setModel(
-				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addComponent(labelTitulo3, javax.swing.GroupLayout.Alignment.TRAILING,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(labelTitulo2, javax.swing.GroupLayout.Alignment.TRAILING,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(jSeparator1).addComponent(jTFUser)
-				.addComponent(labelTitulo1, javax.swing.GroupLayout.Alignment.TRAILING,
-						javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addComponent(jPFPass)
-				.addComponent(labelTitulo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-						Short.MAX_VALUE)
-				.addComponent(comboSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(159, 159, 159).addComponent(jLabel1)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-						.addContainerGap(78, Short.MAX_VALUE)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-										jPanel1Layout.createSequentialGroup()
-												.addComponent(jLabelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE,
-														240, javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addGap(54, 54, 54))
-								.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-										jPanel1Layout.createSequentialGroup()
-												.addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addGap(22, 22, 22))))
-				.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-						panelButtonDeslizante, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(26, 26, 26)
-						.addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(43, 43, 43).addComponent(labelTitulo1)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18).addComponent(labelTitulo2)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(jTFUser, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18).addComponent(labelTitulo3)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(jPFPass, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18).addComponent(jLabel1)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-						.addComponent(labelTitulo4)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jLabelRegistro).addContainerGap())
-				.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(343, 343, 343)
-								.addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 34,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(108, Short.MAX_VALUE))));
-
-		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-		jPanel2.setLayout(jPanel2Layout);
-		jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel2Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel2Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
-
-    private void jLabelRegistroMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabelRegistroMouseClicked
-        PInfUI.abrirVentana(null, this, TipoVentana.REGISTRO);
-    }// GEN-LAST:event_jLabelRegistroMouseClicked
 
     /**
      * Metodo que cambia el tamaño de fuentes al elegir un numero en el
@@ -266,23 +261,22 @@ public class LogIn extends javax.swing.JFrame {
     }// GEN-LAST:event_imagenButtonDeslizanteMouseEntered
 
     /**
-     * Accion de logeo para el boton de la pantalla - Abre una ventana diferente
-     * segun el rol del usuario logeado
-     *
-     * @param evt
+     * Accion de log in
+     * Es llamada por listener de keys y por el boton de login
      */
-    private void imagenButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_imagenButtonDeslizanteMouseClicked
+    private void logIn()
+    {
         Usuario usuario = null;
         try {
-            usuario = PInfUI.gestorDatos.login("14569823X", "123456789");
-//            usuario = PInfUI.gestorDatos.login(jTFUser.getText(), jPFPass.getText());
+//            usuario = PInfUI.gestorDatos.login("14569823X", "123456789");
+            usuario = PInfUI.gestorDatos.login(jTFUser.getText(), jPFPass.getText());
         } catch (SQLException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (usuario != null) {
             if (usuario.getId_Rol() == ConstantesAplicacion.ROL_ADMIN) {
-                PInfUI.abrirVentana(usuario, this, TipoVentana.REGISTRO);
+                PInfUI.abrirVentana(usuario, this, TipoVentana.ADMIN);
             } else if (usuario.getId_Rol() == ConstantesAplicacion.ROL_MEDICO) {
                 PInfUI.abrirVentana(usuario, this, TipoVentana.MEDICO);
             } else if (usuario.getId_Rol() == ConstantesAplicacion.ROL_FAMILIAR) {
@@ -294,7 +288,14 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La combinación Usuario - Contraseña es incorrecta, prueba de nuevo",
                     "Error", ERROR_MESSAGE);
         }
-
+    }
+    
+    /**
+     * Handler boton login
+     * @param evt 
+     */
+    private void imagenButtonDeslizanteMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_imagenButtonDeslizanteMouseClicked
+        logIn();
     }// GEN-LAST:event_imagenButtonDeslizanteMouseClicked
 
     /**
@@ -383,22 +384,18 @@ public class LogIn extends javax.swing.JFrame {
         return new java.awt.Font("Tahoma", 0, sizeActual + suma);
     }
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JComboBox<String> comboSize;
-	private javax.swing.JLabel etiquetaButtonDeslizante;
-	private javax.swing.JLabel imagenButtonDeslizante;
-	private javax.swing.JComboBox<String> jComboBox1;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabelRegistro;
-	private javax.swing.JPasswordField jPFPass;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JTextField jTFUser;
-	private javax.swing.JLabel labelTitulo1;
-	private javax.swing.JLabel labelTitulo2;
-	private javax.swing.JLabel labelTitulo3;
-	private javax.swing.JLabel labelTitulo4;
-	private javax.swing.JPanel panelButtonDeslizante;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboSize;
+    private javax.swing.JLabel etiquetaButtonDeslizante;
+    private javax.swing.JLabel imagenButtonDeslizante;
+    private javax.swing.JPasswordField jPFPass;
+    private javax.swing.JPanel jPanelLogIn;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTFUser;
+    private javax.swing.JLabel labelTitulo1;
+    private javax.swing.JLabel labelTitulo2;
+    private javax.swing.JLabel labelTitulo3;
+    private javax.swing.JLabel labelTitulo4;
+    private javax.swing.JPanel panelButtonDeslizante;
+    // End of variables declaration//GEN-END:variables
 }

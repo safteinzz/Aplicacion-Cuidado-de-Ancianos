@@ -16,6 +16,7 @@ public class Usuario {
     
     //Relaciones
         private int id_Rol;
+
         private int id_Muncipio;
     
     //Atributos
@@ -35,6 +36,7 @@ public class Usuario {
             private String direccion;  
 
     //Transients
+
         private transient Municipio municipio;
         private transient Rol rol;
         private transient List<Asignacion> listaAsignacion;
@@ -44,6 +46,7 @@ public class Usuario {
     /**
      * Constructor de Usuario para recolección de datos de JSON y MySQL
      * @param id_Rol
+
      * @param id_Muncipio
      * @param dni
      * @param nombre
@@ -57,11 +60,12 @@ public class Usuario {
      */
     public Usuario(int id_Rol, int id_Muncipio, String dni, String nombre, String apellidos,
             String pass_Hashed, byte[] salt, String email, String tlf_Movil, String tlf_Fijo, String direccion) {
+        
+        //Relaciones
         this.id_Rol = id_Rol;
-        this.id_Muncipio = id_Muncipio;
-        
-        //AQUI DEBERIAMOS RELLENAR LOS TRANSIENTS
-        
+        this.id_Muncipio = id_Muncipio;        
+
+        //Atributos
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -74,7 +78,7 @@ public class Usuario {
     }       
     
     /**
-     * Contructor de User para registro sin telefono Fijo
+     * Contructor de User para registro
      * @param dni
      * @param nombre
      * @param apellidos
@@ -83,32 +87,30 @@ public class Usuario {
      * @param municipio
      * @param provincia
      * @param rol
-     * @param direccion
-     * @param idRol 
+     * @param direccion 
+     * @param tlf_Fijo 
      */
     public Usuario(String dni, String nombre, String apellidos, String email, String tlf_Movil,
                     Municipio municipio, Provincia provincia, String direccion, Rol rol, String tlf_Fijo) {
         //Transients
         this.municipio = municipio;
-        this.rol = rol;        
-        
+        this.rol = rol;       
+
         //Relaciones (tambien para insertar en JSON)
         this.id_Muncipio = municipio.getId_Municipio();
         this.id_Rol = rol.getId_Rol();
-        
+
         //Atributos
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
         this.tlf_Movil = tlf_Movil; 
-        this.direccion = direccion;
+        this.direccion = direccion; 
         this.tlf_Fijo = tlf_Fijo;
     }
     
 
-    
-    
     public String getDni() {
         return dni;
     }
@@ -125,21 +127,17 @@ public class Usuario {
         return email;
     }
 
-    public String gettlf_Movil() {
+    public String getTlf_Movil() {
         return tlf_Movil;
     }
 
-    public String gettlf_Fijo() {
+    public String getTlf_Fijo() {
         return tlf_Fijo;
     }
 
     public Municipio getMunicipio() {
         return municipio;
     }
-//
-//    public Provincia getProvincia() {
-//        return provincia;
-//    }
 
     public String getDireccion() {
         return direccion;
@@ -161,21 +159,17 @@ public class Usuario {
         this.email = email;
     }
 
-    public void settlf_Movil(String tlf_Movil) {
+    public void setTlf_Movil(String tlf_Movil) {
         this.tlf_Movil = tlf_Movil;
     }
 
-    public void settlf_Fijo(String tlf_Fijo) {
+    public void setTlf_Fijo(String tlf_Fijo) {
         this.tlf_Fijo = tlf_Fijo;
     }
 
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
     }
-//
-//    public void setProvincia(Provincia provincia) {
-//        this.provincia = provincia;
-//    }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
@@ -188,14 +182,6 @@ public class Usuario {
     public void setId_Rol(int id_Rol) {
         this.id_Rol = id_Rol;
     }
-
-//    public int getId_Provincia() {
-//        return id_Provincia;
-//    }
-//
-//    public void setId_Provincia(int id_Provincia) {
-//        this.id_Provincia = id_Provincia;
-//    }
 
     public int getId_Muncipio() {
         return id_Muncipio;
@@ -250,4 +236,17 @@ public class Usuario {
     public void setListaMensajes(List<Mensaje> listaMensajes) {
         this.listaMensajes = listaMensajes;
     } 
+    
+    public List<Usuario> getUsuariosAsociados()
+    {
+        List<Usuario> listaReturn = new ArrayList<Usuario>();
+        if (this.listaAsignacion != null)
+        {
+            for (Asignacion asig : this.listaAsignacion)
+            {
+                listaReturn.add(asig.getUsuarioAsociado());
+            }
+        }
+        return listaReturn;
+    }
 }

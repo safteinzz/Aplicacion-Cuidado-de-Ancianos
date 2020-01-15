@@ -37,10 +37,6 @@ public class Presencia {
 		this.dni_paciente = dni_paciente;
 	}
 
-	public void setDniPaciente(String dniPaciente) {
-        this.dni_paciente = dni_paciente;
-    }
-
     public java.util.Date getFecha() {
         return fecha;
     }

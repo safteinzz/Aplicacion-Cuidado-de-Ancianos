@@ -8,8 +8,10 @@ package pinfui.dto;
  */
 public enum TipoVentana {
 	LOGIN,
-	FAMILIAR,
-	MEDICO,
+        ADMIN,
+        MEDICO,
+        MEDICOABREPACIENTE,
+	FAMILIAR,	
 	PACIENTE,
 	REGISTRO
 }

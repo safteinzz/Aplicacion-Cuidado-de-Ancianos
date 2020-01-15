@@ -1,0 +1,15 @@
+[
+	{
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:00:56.782Z",
+		"abierta": false
+	}, {
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:04:56.782Z",
+		"abierta": true
+	}, {
+		"dni_paciente": "11111111H",
+		"fecha": "2019-12-01T15:08:56.782Z",
+		"abierta": false
+	}
+]

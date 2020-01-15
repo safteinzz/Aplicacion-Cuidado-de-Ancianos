@@ -29,6 +29,7 @@ import org.jfree.data.time.TimePeriodValues;
 import org.jfree.data.time.TimePeriodValuesCollection;
 import org.jfree.data.xy.XYDataset;
 
+import pinfui.dto.ConstantesAplicacion;
 import pinfui.dto.TipoRango;
 import pinfui.entidades.RitmoCardiaco;
 import pinfui.interfaz.PInfUI;
@@ -46,12 +47,12 @@ public class RitmoCardiacoController extends SensorController{
     
     /**
      * Metodo encargado de devolver la imagen con la grafica de valores
-     * @param dniPaciente - DNI del paciente a buscar
-     * @param nombrePaciente - Nombre del paciente a buscar
-     * @param tipoRango - Tipo de rango para la diferente de puntos de la grafica
-     * @param rango - Cantidad de separacion entre un punto y otro de la grafica
-     * @param fechaDesde - Fecha desde donde empieza a coger valores para la grafica
-     * @param fechaHasta - Fecha hasta donde tiene que coger valores para la grafica
+     * @param dniPaciente DNI del paciente a buscar
+     * @param nombrePaciente Nombre del paciente a buscar
+     * @param tipoRango Tipo de rango para la diferente de puntos de la grafica
+     * @param rango Cantidad de separacion entre un punto y otro de la grafica
+     * @param fechaDesde Fecha desde donde empieza a coger valores para la grafica
+     * @param fechaHasta Fecha hasta donde tiene que coger valores para la grafica
      * @return Devuelve un objeto de Image con la imagen de la grafica creada
      */
     @SuppressWarnings("deprecation")
@@ -105,18 +106,17 @@ public class RitmoCardiacoController extends SensorController{
             e1.printStackTrace();
         }
 
-
         System.out.println(new Date());
         return image;
     }
 
     /**
      * Metodo encargado de transformas los valores de ritmo cardiaco en un objeto para ser utilizado por la grafica JFreeChart
-     * @param dniPaciente - DNI del paciente a buscar
-     * @param tipoRango - Tipo de rango para la diferente de puntos de la grafica
-     * @param rango - Cantidad de separacion entre un punto y otro de la grafica
-     * @param fechaDesde - Fecha desde donde empieza a coger valores para la grafica
-     * @param fechaHasta - Fecha hasta donde tiene que coger valores para la grafica
+     * @param dniPaciente DNI del paciente a buscar
+     * @param tipoRango Tipo de rango para la diferente de puntos de la grafica
+     * @param rango Cantidad de separacion entre un punto y otro de la grafica
+     * @param fechaDesde Fecha desde donde empieza a coger valores para la grafica
+     * @param fechaHasta Fecha hasta donde tiene que coger valores para la grafica
      * @return
      * @throws ParseException
      */
@@ -185,9 +185,9 @@ public class RitmoCardiacoController extends SensorController{
      * rango seleccionado por el usuario, este rango se pasa por parametros al
      * metodo.
      *
-     * @param puntos
-     * @param tipoRango
-     * @param rango
+     * @param puntos Lista con los puntos de los que se quiere calcular la media
+     * @param tipoRango Tipo de rango para la diferente de puntos de la grafica
+     * @param rango Cantidad de separacion entre un punto y otro de la grafica
      * @return List<RitmoCardiaco> lista con los puntos medios obtenidos entre
      * todos los valores.
      */
@@ -262,4 +262,25 @@ public class RitmoCardiacoController extends SensorController{
             fechaPunto.add(Calendar.MINUTE, rango);
         }
     }
+    
+    /**
+     * Metodo para la generacion de un excel con los valores de ritmo cardiaco segun un excel
+     * @param dniPaciente DNI del paciente a buscar
+     * @param nombrePaciente Nombre del paciente a buscar
+     * @param tipoRango Tipo de rango para la diferente de puntos de la grafica
+     * @param rango Cantidad de separacion entre un punto y otro de la grafica
+     * @param fechaDesde Fecha desde donde empieza a coger valores para la grafica
+     * @param fechaHasta Fecha hasta donde tiene que coger valores para la grafica
+     * @return
+     */
+    public boolean createExcel(String dniPaciente, String nombrePaciente, TipoRango tipoRango, int rango, Date fechaDesde, Date fechaHasta) {
+    	List<RitmoCardiaco> puntos = PInfUI.gestorDatos.getRitmoCardiaco(dniPaciente, tipoRango, rango, fechaDesde, fechaHasta);
+		if(puntos != null && !puntos.isEmpty()) {
+			String[] titulo = {"Valor", "Fecha"};
+			super.createExcel(puntos, titulo, ConstantesAplicacion.NOMBRE_EXCEL_PRESENCIA, nombrePaciente);
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
