@@ -46,6 +46,11 @@ public class PInfUI {
             PInfUI.gestorDatos.registroUsuario(false, true,user, "admin", null);
         }
         abrirVentana(null, null, TipoVentana.LOGIN);
+        
+        
+        //entrar roteado
+//        Usuario usuario = PInfUI.gestorDatos.login("14523658F", "123456789");
+//        abrirVentana(usuario, null, TipoVentana.FAMILIAR);
 
         //Creacion de un usuario medico
 //        try {

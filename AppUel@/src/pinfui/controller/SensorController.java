@@ -55,7 +55,6 @@ public class SensorController {
     public Calendar getFechaActual() {
     	Calendar fechaActual = Calendar.getInstance();
         fechaActual.setTime(new Date());
-        fechaActual.add(Calendar.DAY_OF_YEAR, 1);
         return fechaActual;
     }
     

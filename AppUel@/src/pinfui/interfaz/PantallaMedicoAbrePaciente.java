@@ -79,7 +79,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         iconCorreo = new javax.swing.JLabel();
         panelDatosVentana = new javax.swing.JPanel();
         panelInicio = new javax.swing.JPanel();
-        labelTituloVentana = new javax.swing.JLabel();
+        jWelcome = new javax.swing.JButton();
         panelVentanaCardiaco = new javax.swing.JPanel();
         panelVentanaMensajeria = new javax.swing.JPanel();
 
@@ -268,12 +268,15 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
 
         panelDatosVentana.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelInicio.setBackground(new java.awt.Color(102, 255, 255));
+        panelInicio.setBackground(new java.awt.Color(255, 255, 255));
 
-        labelTituloVentana.setBackground(new java.awt.Color(255, 255, 255));
-        labelTituloVentana.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        labelTituloVentana.setForeground(new java.awt.Color(0, 153, 255));
-        labelTituloVentana.setText("Título de la ventana");
+        jWelcome.setBackground(new java.awt.Color(255, 255, 255));
+        jWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/bienvenido.png"))); // NOI18N
+        jWelcome.setBorderPainted(false);
+        jWelcome.setContentAreaFilled(false);
+        jWelcome.setFocusPainted(false);
+        jWelcome.setOpaque(false);
+        jWelcome.setBorder(null);
 
         javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
         panelInicio.setLayout(panelInicioLayout);
@@ -283,7 +286,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelInicioLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+                    .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         panelInicioLayout.setVerticalGroup(
@@ -292,8 +295,8 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelInicioLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(labelTituloVentana)
-                    .addContainerGap(487, Short.MAX_VALUE)))
+                    .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         panelVentanaCardiaco.setBackground(new java.awt.Color(255, 255, 255));
@@ -438,7 +441,6 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         //cambiar size de las letras 
         labelNombreUser.setText(usuario.getNombre());
         listaLabels.add(new LabelDTO(labelNombreUser,null, labelNombreUser.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelTituloVentana,"tituloInicio", labelTituloVentana.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuMensajeria, "menuMensajeria", labelMenuMensajeria.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuInicio, "tituloInicio", labelMenuInicio.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuCardiaco, "menuRitmoCardiaco", labelMenuCardiaco.getFont().getSize()));
@@ -473,11 +475,11 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconCorreo;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton jWelcome;
     private javax.swing.JLabel labelMenuCardiaco;
     private javax.swing.JLabel labelMenuInicio;
     private javax.swing.JLabel labelMenuMensajeria;
     private javax.swing.JLabel labelNombreUser;
-    private javax.swing.JLabel labelTituloVentana;
     private javax.swing.JPanel panelBarraIzquierda;
     private javax.swing.JPanel panelDatosVentana;
     private javax.swing.JPanel panelInicio;

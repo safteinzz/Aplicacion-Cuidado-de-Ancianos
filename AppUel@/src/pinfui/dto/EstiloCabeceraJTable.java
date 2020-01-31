@@ -24,10 +24,10 @@ public class EstiloCabeceraJTable extends DefaultTableCellRenderer {
 		componente.setBackground(new Color(0, 153, 255));
 
 		Border border = BorderFactory.createCompoundBorder();
-		if(column == 0) {
+		if(column != table.getColumnCount() -1) {
+			border = BorderFactory.createCompoundBorder(border, BorderFactory.createMatteBorder(2,2,2,0,Color.black));
+		} else {
 			border = BorderFactory.createCompoundBorder(border, BorderFactory.createMatteBorder(2,2,2,2,Color.black));
-		} else if (column == table.getColumnCount() -1) {
-			border = BorderFactory.createCompoundBorder(border, BorderFactory.createMatteBorder(2,0,2,2,Color.black));
 		}
 		componente.setBorder(border);
 		componente.setFont(new java.awt.Font("Tahoma", Font.BOLD, 13 + PInfUI.getSizeFuente()));

@@ -277,7 +277,7 @@ public class RitmoCardiacoController extends SensorController{
     	List<RitmoCardiaco> puntos = PInfUI.gestorDatos.getRitmoCardiaco(dniPaciente, tipoRango, rango, fechaDesde, fechaHasta);
 		if(puntos != null && !puntos.isEmpty()) {
 			String[] titulo = {"Valor", "Fecha"};
-			super.createExcel(puntos, titulo, ConstantesAplicacion.NOMBRE_EXCEL_PRESENCIA, nombrePaciente);
+			super.createExcel(puntos, titulo, ConstantesAplicacion.NOMBRE_EXCEL_RITMO_CARDIACO, nombrePaciente);
 			return true;
 		} else {
 			return false;

@@ -27,6 +27,10 @@ public class PantallaAdministrador extends PlantillaPantallas {
     public PantallaAdministrador(Usuario usuario) {
         super(usuario);
     	initComponents();
+        buttonNuevo
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/registrarNuevo.png")));
+        
+        
         myInitComponents();
         this.setMinimumSize(new Dimension(1200, 700));
         
@@ -77,9 +81,10 @@ public class PantallaAdministrador extends PlantillaPantallas {
         labelTituloVentana = new javax.swing.JLabel();
         jWelcome = new javax.swing.JButton();
         panelVentanaUsuarios = new javax.swing.JPanel();
+        labelTitulo = new javax.swing.JLabel();
         jPanelListaUsuarios = new javax.swing.JPanel();
-        jButtonRegistro = new javax.swing.JButton();
         jLabelAviso = new javax.swing.JLabel();
+        buttonNuevo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pantalla Administrador");
@@ -95,7 +100,7 @@ public class PantallaAdministrador extends PlantillaPantallas {
         labelNombreUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         iconSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrar-sesion.png"))); // NOI18N
-        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconSalirMouseClicked(evt);
@@ -184,7 +189,7 @@ public class PantallaAdministrador extends PlantillaPantallas {
             panelMenuUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelMenuUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                .addComponent(labelMenuUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelMenuUsuariosLayout.setVerticalGroup(
@@ -256,7 +261,7 @@ public class PantallaAdministrador extends PlantillaPantallas {
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInicioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -271,6 +276,11 @@ public class PantallaAdministrador extends PlantillaPantallas {
 
         panelVentanaUsuarios.setBackground(new java.awt.Color(255, 255, 255));
 
+        labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(0, 153, 255));
+        labelTitulo.setText("Registro de usuarios");
+
         jPanelListaUsuarios.setBackground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jPanelListaUsuariosLayout = new javax.swing.GroupLayout(jPanelListaUsuarios);
@@ -284,22 +294,22 @@ public class PantallaAdministrador extends PlantillaPantallas {
             .addGap(0, 453, Short.MAX_VALUE)
         );
 
-        jButtonRegistro.setBorderPainted(false);
-        jButtonRegistro.setContentAreaFilled(false);
-        jButtonRegistro.setFocusPainted(false);
-        jButtonRegistro.setOpaque(false);
-        jButtonRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botonRegistro.png"))); // NOI18N
-        jButtonRegistro.setBorder(null);
-        jButtonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistroActionPerformed(evt);
-            }
-        });
-
         jLabelAviso.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelAviso.setText("Clique en un usuario para editar sus datos");
+
+        buttonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/registrarNuevo.png"))); // NOI18N
+        buttonNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonNuevoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonNuevoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonNuevoMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelVentanaUsuariosLayout = new javax.swing.GroupLayout(panelVentanaUsuarios);
         panelVentanaUsuarios.setLayout(panelVentanaUsuariosLayout);
@@ -307,24 +317,35 @@ public class PantallaAdministrador extends PlantillaPantallas {
             panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelListaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelListaUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelVentanaUsuariosLayout.createSequentialGroup()
                         .addComponent(jLabelAviso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 378, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistro)))
+                        .addGap(232, 232, 232)
+                        .addComponent(buttonNuevo)
+                        .addGap(0, 239, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelVentanaUsuariosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(661, Short.MAX_VALUE)))
         );
         panelVentanaUsuariosLayout.setVerticalGroup(
             panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVentanaUsuariosLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRegistro)
-                    .addComponent(jLabelAviso))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(45, 45, 45)
+                .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAviso)
+                    .addComponent(buttonNuevo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelListaUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelVentanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelVentanaUsuariosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(514, Short.MAX_VALUE)))
         );
 
         panelVentanaUsuarios.setVisible(false);
@@ -399,13 +420,6 @@ public class PantallaAdministrador extends PlantillaPantallas {
         updatePanel();        
     }//GEN-LAST:event_panelMenuUsuariosMouseClicked
 
-    private void jButtonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistroActionPerformed
-        this.setEnabled(false);
-        PInfUI.abrirVentana(null, null, TipoVentana.REGISTRO);
-        this.setEnabled(true);
-
-    }//GEN-LAST:event_jButtonRegistroActionPerformed
-
     private void panelMenuInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseExited
         panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
         panelMenuInicio.setBorder(null);
@@ -420,6 +434,22 @@ public class PantallaAdministrador extends PlantillaPantallas {
         panelInicio.setVisible(true);
         panelVentanaUsuarios.setVisible(false);
     }//GEN-LAST:event_panelMenuInicioMouseClicked
+
+    private void buttonNuevoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNuevoMouseEntered
+        buttonNuevo
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/registrarNuevo_hover.png")));
+    }//GEN-LAST:event_buttonNuevoMouseEntered
+
+    private void buttonNuevoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNuevoMouseExited
+       buttonNuevo
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/registrarNuevo.png")));
+    }//GEN-LAST:event_buttonNuevoMouseExited
+
+    private void buttonNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNuevoMouseClicked
+        this.setEnabled(false);
+        PInfUI.abrirVentana(null, null, TipoVentana.REGISTRO);
+        this.setEnabled(true);
+    }//GEN-LAST:event_buttonNuevoMouseClicked
 
     /**
      * Metodo de update panel
@@ -445,25 +475,14 @@ public class PantallaAdministrador extends PlantillaPantallas {
         listaLabels.add(new LabelDTO(labelTituloVentana,"tituloInicio", labelTituloVentana.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuInicio, "tituloInicio", labelMenuInicio.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuUsuarios, "menuRitmoCardiaco", labelMenuUsuarios.getFont().getSize()));
-    }
-    
-    public void cambiarFuentes(){
-        for(LabelDTO label : listaLabels){
-            label.getLabel().setFont(cambiarSize(label.getLabel().getFont().getStyle(), label.getSize(), PInfUI.getSizeFuente()));
-        }
+        listaLabels.add(new LabelDTO(labelTitulo, "tituloRegistroUsuario", labelTitulo.getFont().getSize()));
         
-//        jWelcomeax.swing.JButton> listaBotones = new ArrayList<javax.swing.JButton>();
-//        listaBotones.add(jButton);
-//        
-//        for(javax.swing.JButton boton : listaBotones){
-//            boton.setFont(cambiarSize(boton.getFont().getSize(), 10));
-//        }
-    }    
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel buttonNuevo;
     private javax.swing.JLabel iconSalir;
-    private javax.swing.JButton jButtonRegistro;
     private javax.swing.JLabel jLabelAviso;
     public static javax.swing.JPanel jPanelListaUsuarios;
     private javax.swing.JSeparator jSeparator2;
@@ -471,6 +490,7 @@ public class PantallaAdministrador extends PlantillaPantallas {
     private javax.swing.JLabel labelMenuInicio;
     private javax.swing.JLabel labelMenuUsuarios;
     private javax.swing.JLabel labelNombreUser;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JLabel labelTituloVentana;
     private javax.swing.JPanel panelBarraIzquierda;
     private javax.swing.JPanel panelDatosVentana;

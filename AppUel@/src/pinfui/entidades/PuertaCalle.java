@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class PuertaCalle {
 
-    private String dniPaciente;
+    private String dni_paciente;
 
     private Date fecha;
 
@@ -19,18 +19,18 @@ public class PuertaCalle {
 
     }
 
-    public PuertaCalle(String dniPaciente, java.util.Date fecha, boolean abierta) {
-        this.dniPaciente = dniPaciente;
+    public PuertaCalle(String dni_paciente, java.util.Date fecha, boolean abierta) {
+        this.dni_paciente = dni_paciente;
         this.fecha = fecha;
         this.abierta = abierta;
     }
 
     public String getDniPaciente() {
-        return dniPaciente;
+        return dni_paciente;
     }
 
     public void setDniPaciente(String dniPaciente) {
-        this.dniPaciente = dniPaciente;
+        this.dni_paciente = dniPaciente;
     }
 
     public java.util.Date getFecha() {

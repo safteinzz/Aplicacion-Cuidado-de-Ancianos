@@ -66,6 +66,11 @@ public class JPanelPresencia extends PlantillaJPanel {
         rellenarTabla(fechaDesde, fechaHasta, null);
 //        this.nombrePaciente = nombrePaciente;
     	initComponents();
+        buttonExportarExcel
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/exportar.png")));
+        buttonBuscar
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar.png")));
+        
         jTable1.setModel(model);
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.getTableHeader().setDefaultRenderer(new EstiloCabeceraJTable());
@@ -84,9 +89,6 @@ public class JPanelPresencia extends PlantillaJPanel {
         rellenarFechaDesde(fechaDesde);
         rellenarFechaHasta(fechaHasta);
         
-        iconExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/excel.png")));
-        iconExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        
         listaLabels.add(new LabelDTO(jLabel1, "lugar", jLabel1.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel6, "fechaDesde", jLabel6.getFont().getSize()));
         listaLabels.add(new LabelDTO(jLabel10, "fechaHasta", jLabel10.getFont().getSize()));
@@ -102,7 +104,7 @@ public class JPanelPresencia extends PlantillaJPanel {
     	jTextField2.setText(String.valueOf(fecha.get(Calendar.DAY_OF_MONTH)));
     	jTextField3.setText(String.valueOf(fecha.get(Calendar.MONTH) + 1));
     	jTextField4.setText(String.valueOf(fecha.get(Calendar.YEAR)));
-        jTextField8.setText(String.valueOf(fecha.get(Calendar.HOUR)));
+        jTextField8.setText(String.valueOf(fecha.get(Calendar.HOUR_OF_DAY)));
         jTextField9.setText(String.valueOf(fecha.get(Calendar.MINUTE)));
     }
     
@@ -132,7 +134,7 @@ public class JPanelPresencia extends PlantillaJPanel {
     	jTextField5.setText(String.valueOf(fecha.get(Calendar.DAY_OF_MONTH)));
     	jTextField6.setText(String.valueOf(fecha.get(Calendar.MONTH) + 1));
     	jTextField7.setText(String.valueOf(fecha.get(Calendar.YEAR)));
-        jTextField10.setText(String.valueOf(fecha.get(Calendar.HOUR)));
+        jTextField10.setText(String.valueOf(fecha.get(Calendar.HOUR_OF_DAY)));
         jTextField11.setText(String.valueOf(fecha.get(Calendar.MINUTE)));
     }
     
@@ -166,7 +168,6 @@ public class JPanelPresencia extends PlantillaJPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         comboTipoPresencia = new javax.swing.JComboBox<>();
-        jBFiltrar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -189,7 +190,8 @@ public class JPanelPresencia extends PlantillaJPanel {
         jTextField9 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        iconExcel = new javax.swing.JLabel();
+        buttonBuscar = new javax.swing.JLabel();
+        buttonExportarExcel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -218,21 +220,6 @@ public class JPanelPresencia extends PlantillaJPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboTipoPresencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jBFiltrar.setBackground(new java.awt.Color(255, 255, 255));
-        jBFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botonBuscar.png"))); // NOI18N
-        jBFiltrar.setBorder(null);
-        jBFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBFiltrar.setDefaultCapable(false);
-        jBFiltrar.setBorderPainted(false);
-        jBFiltrar.setContentAreaFilled(false);
-        jBFiltrar.setFocusPainted(false);
-        jBFiltrar.setOpaque(false);
-        jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFiltrarActionPerformed(evt);
-            }
-        });
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setPreferredSize(new java.awt.Dimension(248, 64));
@@ -359,9 +346,31 @@ public class JPanelPresencia extends PlantillaJPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        iconExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/buscar.png"))); // NOI18N
+        buttonBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconExcelMouseClicked(evt);
+                buttonBuscarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonBuscarMouseExited(evt);
+            }
+        });
+
+        buttonExportarExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/exportar.png"))); // NOI18N
+        buttonExportarExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonExportarExcel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExportarExcelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonExportarExcelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonExportarExcelMouseExited(evt);
             }
         });
 
@@ -372,7 +381,7 @@ public class JPanelPresencia extends PlantillaJPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -380,47 +389,41 @@ public class JPanelPresencia extends PlantillaJPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBFiltrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(buttonBuscar)
+                        .addGap(31, 31, 31)
+                        .addComponent(buttonExportarExcel)
+                        .addGap(0, 13, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jBFiltrar)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(iconExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonBuscar)
+                    .addComponent(buttonExportarExcel))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void iconExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconExcelMouseClicked
-    	Item objeto = (Item) comboTipoPresencia.getSelectedItem();
-        
-        Calendar fechaDesde = recuperarFechaDesde();
-        Calendar fechaHasta = recuperarFechaHasta();
-        
-        if(comprobarFiltros(fechaDesde, fechaHasta)) {
-        	//llamada al metodo encargado de abrir un Excel
-        	presenciaController.createExcel(dniPaciente, fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo(), new String [] {
-                    PInfUI.getBundle().getString("lugar"), PInfUI.getBundle().getString("fecha")
-                }, nombrePaciente);
-        }
-        
-    }//GEN-LAST:event_iconExcelMouseClicked
+    private void buttonBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseEntered
+        buttonBuscar
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar_hover.png")));
+    }//GEN-LAST:event_buttonBuscarMouseEntered
 
-    private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
+    private void buttonBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseExited
+        buttonBuscar
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar.png")));
+    }//GEN-LAST:event_buttonBuscarMouseExited
+
+    private void buttonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseClicked
         Item objeto = (Item) comboTipoPresencia.getSelectedItem();
 
         Calendar fechaDesde = recuperarFechaDesde();
@@ -429,7 +432,31 @@ public class JPanelPresencia extends PlantillaJPanel {
         if(comprobarFiltros(fechaDesde, fechaHasta)) {
             rellenarTabla(fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo());
         }
-    }//GEN-LAST:event_jBFiltrarActionPerformed
+    }//GEN-LAST:event_buttonBuscarMouseClicked
+
+    private void buttonExportarExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExportarExcelMouseClicked
+        Item objeto = (Item) comboTipoPresencia.getSelectedItem();
+
+        Calendar fechaDesde = recuperarFechaDesde();
+        Calendar fechaHasta = recuperarFechaHasta();
+
+        if(comprobarFiltros(fechaDesde, fechaHasta)) {
+            //llamada al metodo encargado de abrir un Excel
+            presenciaController.createExcel(dniPaciente, fechaDesde, fechaHasta, (TipoPresencia) objeto.getTipo(), new String [] {
+                PInfUI.getBundle().getString("lugar"), PInfUI.getBundle().getString("fecha")
+            }, nombrePaciente);
+        }
+    }//GEN-LAST:event_buttonExportarExcelMouseClicked
+
+    private void buttonExportarExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExportarExcelMouseEntered
+        buttonExportarExcel
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/exportar_hover.png")));
+    }//GEN-LAST:event_buttonExportarExcelMouseEntered
+
+    private void buttonExportarExcelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExportarExcelMouseExited
+        buttonExportarExcel
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/exportar.png")));
+    }//GEN-LAST:event_buttonExportarExcelMouseExited
 
     private boolean comprobarFiltros(Calendar fechaDesde, Calendar fechaHasta) {
     	if((fechaDesde == null && fechaHasta == null) || (fechaDesde != null && fechaHasta == null) || (fechaDesde != null && fechaHasta != null && fechaDesde.compareTo(fechaHasta) < 0)) {
@@ -502,9 +529,9 @@ public class JPanelPresencia extends PlantillaJPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel buttonBuscar;
+    private javax.swing.JLabel buttonExportarExcel;
     private javax.swing.JComboBox<Item> comboTipoPresencia;
-    private javax.swing.JLabel iconExcel;
-    private javax.swing.JButton jBFiltrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -1,6 +1,8 @@
 package pinfui.entidades;
 
-public class Mensaje {
+import java.io.Serializable;
+
+public class Mensaje implements Serializable{
 
 	private String dniUsuario;
 	private String titulo;
@@ -58,5 +60,14 @@ public class Mensaje {
 	public void setEnviadoPor(String enviadoPor) {
 		this.enviadoPor = enviadoPor;
 	}
+
+        public String getEtiqueta() {
+            return etiqueta;
+        }
+
+        public void setEtiqueta(String etiqueta) {
+            this.etiqueta = etiqueta;
+        }
 	
+        
 }

@@ -43,7 +43,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import pinfui.dto.ConstantesAplicacion;
 import pinfui.dto.TipoRango;
@@ -73,13 +79,14 @@ public class GestorDatos {
 	private String userBD = "root";
 	private String passBD = "123456789";
 
-	private boolean modeDB = false;
+	private boolean modeDB = true;
 	// True = Se usa base de datos
 	// False = Se usa JSON
 
 	// DATOS JSON
 //	private String RUTA_JSON = "F:\\JSON\\"; // SERGIO
         private String RUTA_JSON = "../JSON_FILES/"; //Ruta relativa
+//        private String RUTA_JSON = System.getProperty("user.dir") + "/JSON_FILES/"; //Ruta relativa
 
 	private String EXT_JSON = ".json";
 	public String RITMOCARDIACO_JSON = "JSON_RitmoCardiaco";
@@ -548,6 +555,8 @@ public class GestorDatos {
 	 *
 	 * @param dniPaciente DNI del paciente del que se desea buscar los valores de la
 	 *                    puerta de la calle
+         * @param fechaDesde      Fecha desde donde hay que empezar a coger los valores
+	 * @param fechaHasta      Fecha hasta donde hay que coger los valores
 	 * @return
 	 */
 	public List<PuertaCalle> getPuertaCalle(String dniPaciente, Date fechaDesde, Date fechaHasta) {
@@ -597,7 +606,9 @@ public class GestorDatos {
 	 */
 	private List<?> JSONtoObject(String fileJson) {
 		try {
-			Reader reader = new FileReader(RUTA_JSON + fileJson + EXT_JSON);
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream(RUTA_JSON + fileJson + EXT_JSON), "UTF8"));
 			Type listType = null;
 
 			if (fileJson.equals(RITMOCARDIACO_JSON)) {
@@ -635,8 +646,12 @@ public class GestorDatos {
 				}.getType();
 			}
 
-			return new Gson().fromJson(reader, listType);
+			return new Gson().fromJson(in, listType);
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -650,7 +665,7 @@ public class GestorDatos {
 	 *
 	 * @param mensaje Objeto mensaje que se desea guardar
 	 */
-	public void guardarMensaje(Mensaje mensaje) {
+	public static void guardarMensaje(Mensaje mensaje) {
 		try {
 			Socket socket = new Socket("localhost", ConstantesAplicacion.PORT_SERVER);
 

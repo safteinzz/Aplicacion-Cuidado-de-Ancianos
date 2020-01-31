@@ -72,7 +72,7 @@ public class PantallaMedico extends PlantillaPantallas {
         labelNombreUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         iconSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrar-sesion.png"))); // NOI18N
-        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconSalirMouseClicked(evt);
@@ -232,7 +232,7 @@ public class PantallaMedico extends PlantillaPantallas {
                 .addComponent(panelMenuInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMenuPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelMenuMensajeria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
@@ -271,7 +271,7 @@ public class PantallaMedico extends PlantillaPantallas {
         panelInicio.setLayout(panelInicioLayout);
         panelInicioLayout.setHorizontalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
         );
         panelInicioLayout.setVerticalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,6 +414,12 @@ public class PantallaMedico extends PlantillaPantallas {
         panelInicio.setVisible(false);
         panelVentanaPacientes.setVisible(false);
         panelVentanaMensajeria.setVisible(true);
+        
+        panelVentanaMensajeria.setLayout(new java.awt.BorderLayout());
+        panelVentanaMensajeria.removeAll();
+        panelVentanaMensajeria.add(new JPanelMensajeria(this.usuario));
+        panelVentanaMensajeria.revalidate();
+        panelVentanaMensajeria.repaint();
     }//GEN-LAST:event_panelMenuMensajeriaMouseClicked
 
     //metodo para añadir los cambios que queramos nosotros por codigo

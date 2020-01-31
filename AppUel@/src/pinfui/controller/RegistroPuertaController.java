@@ -25,8 +25,8 @@ public class RegistroPuertaController extends SensorController{
     	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     	List<PuertaCalle> listaRegisPuerta = PInfUI.gestorDatos.getPuertaCalle(dniPaciente, fechaDesde.getTime(), fechaHasta.getTime());
     	if(listaRegisPuerta != null && !listaRegisPuerta.isEmpty()) {
-	    	for(PuertaCalle RegisPuerta : listaRegisPuerta) {
-	    		Object[] obj = {sdf.format(RegisPuerta.getFecha())};
+	    	for(PuertaCalle regisPuerta : listaRegisPuerta) {
+	    		Object[] obj = {sdf.format(regisPuerta.getFecha()), (regisPuerta.isAbierta() ? "Abierta" : "Cerrada")};
 	    		
 	    		model.addRow(obj);
 	    	}
@@ -39,7 +39,7 @@ public class RegistroPuertaController extends SensorController{
     public boolean createExcel(String dniPaciente, Calendar fechaDesde, Calendar fechaHasta, String[] titulo, String nombrePaciente) {
             List<PuertaCalle> listaPresencias = PInfUI.gestorDatos.getPuertaCalle(dniPaciente, fechaDesde.getTime(), fechaHasta.getTime());
             if(listaPresencias != null && !listaPresencias.isEmpty()) {
-                    super.createExcel(listaPresencias, titulo, ConstantesAplicacion.NOMBRE_EXCEL_PRESENCIA, nombrePaciente);
+                    super.createExcel(listaPresencias, titulo, ConstantesAplicacion.NOMBRE_EXCEL_PUERTA_CALLE, nombrePaciente);
                     return true;
             } else {
                     return false;

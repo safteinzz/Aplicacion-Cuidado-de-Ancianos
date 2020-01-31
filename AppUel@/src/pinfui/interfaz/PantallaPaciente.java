@@ -7,10 +7,15 @@ package pinfui.interfaz;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.jdatepicker.DatePicker;
+import org.jdatepicker.JDatePicker;
 import pinfui.dto.LabelDTO;
+import pinfui.dto.TipoSensor;
 import pinfui.dto.TipoVentana;
+import pinfui.entidades.Asignacion;
 import pinfui.entidades.Usuario;
 
 /**
@@ -18,6 +23,12 @@ import pinfui.entidades.Usuario;
  * @author ITCOM
  */
 public class PantallaPaciente extends PlantillaPantallas {    
+    
+    private String dniPaciente;
+	private String nombrePaciente;
+	
+	DatePicker picker = new JDatePicker();
+        private TipoSensor tipoSensor;
     
 	/**
 	 * Creates new form PantallaUsuario
@@ -80,17 +91,15 @@ public class PantallaPaciente extends PlantillaPantallas {
         panelDatosVentana = new javax.swing.JPanel();
         panelInicio = new javax.swing.JPanel();
         labelTituloVentana = new javax.swing.JLabel();
-        jButton = new javax.swing.JButton();
-        panelButtonDeslizante = new javax.swing.JPanel();
-        etiquetaButtonDeslizante = new javax.swing.JLabel();
-        imagenButtonDeslizante = new javax.swing.JLabel();
-        panelVentanaCardiaco = new javax.swing.JPanel();
+        panelSensores = new javax.swing.JPanel();
+        panelPacientes = new javax.swing.JPanel();
+        panelFrameSensor = new javax.swing.JPanel();
+        panelVentanaMensajeria = new javax.swing.JPanel();
         panelVentanaPresencia = new javax.swing.JPanel();
         panelVentanaDetectorPuerta = new javax.swing.JPanel();
-        panelVentanaMensajeria = new javax.swing.JPanel();
+        labelTituloSensores = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pantalla Paciente");
 
         panelVentana.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -103,7 +112,7 @@ public class PantallaPaciente extends PlantillaPantallas {
         labelNombreUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         iconSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/cerrar-sesion.png"))); // NOI18N
-        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        iconSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         iconSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconSalirMouseClicked(evt);
@@ -338,7 +347,7 @@ public class PantallaPaciente extends PlantillaPantallas {
                 .addComponent(panelMenuPresencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMenuDetectorPuerta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(panelMenuMensajeria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
@@ -363,132 +372,89 @@ public class PantallaPaciente extends PlantillaPantallas {
 
         panelDatosVentana.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelInicio.setBackground(new java.awt.Color(102, 255, 255));
+        panelInicio.setBackground(new java.awt.Color(255, 255, 255));
 
         labelTituloVentana.setBackground(new java.awt.Color(255, 255, 255));
         labelTituloVentana.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelTituloVentana.setForeground(new java.awt.Color(0, 153, 255));
-        labelTituloVentana.setText("Título de la ventana");
-
-        jButton.setBackground(new java.awt.Color(0, 153, 255));
-        jButton.setText("Guardar");
-        jButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton.setBorderPainted(false);
-        jButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton.setFocusable(false);
-        jButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActionPerformed(evt);
-            }
-        });
-
-        panelButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelButtonDeslizante.setLayout(null);
-
-        etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaButtonDeslizante.setText("Guardar");
-        panelButtonDeslizante.add(etiquetaButtonDeslizante);
-        etiquetaButtonDeslizante.setBounds(0, 1, 160, 30);
-
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
-        imagenButtonDeslizante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        imagenButtonDeslizante.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                imagenButtonDeslizanteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                imagenButtonDeslizanteMouseExited(evt);
-            }
-        });
-        panelButtonDeslizante.add(imagenButtonDeslizante);
-        imagenButtonDeslizante.setBounds(0, 0, 190, 35);
+        labelTituloVentana.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/bienvenido.png"))); // NOI18N
 
         javax.swing.GroupLayout panelInicioLayout = new javax.swing.GroupLayout(panelInicio);
         panelInicio.setLayout(panelInicioLayout);
         panelInicioLayout.setHorizontalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 959, Short.MAX_VALUE)
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelInicioLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
-                        .addGroup(panelInicioLayout.createSequentialGroup()
-                            .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelInicioLayout.createSequentialGroup()
-                                    .addGap(321, 321, 321)
-                                    .addComponent(jButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelInicioLayout.createSequentialGroup()
-                                    .addGap(264, 264, 264)
-                                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addContainerGap()))
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE))
         );
         panelInicioLayout.setVerticalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 525, Short.MAX_VALUE)
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelInicioLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(labelTituloVentana)
-                    .addGap(44, 44, 44)
-                    .addComponent(panelButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(192, 192, 192)
-                    .addComponent(jButton)
-                    .addContainerGap(26, Short.MAX_VALUE)))
+                .addComponent(labelTituloVentana, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
         );
 
-        panelVentanaCardiaco.setBackground(new java.awt.Color(255, 51, 51));
+        panelSensores.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout panelVentanaCardiacoLayout = new javax.swing.GroupLayout(panelVentanaCardiaco);
-        panelVentanaCardiaco.setLayout(panelVentanaCardiacoLayout);
-        panelVentanaCardiacoLayout.setHorizontalGroup(
-            panelVentanaCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
-        );
-        panelVentanaCardiacoLayout.setVerticalGroup(
-            panelVentanaCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
+        panelPacientes.setBackground(new java.awt.Color(255, 255, 255));
+        panelPacientes.setLayout(new java.awt.GridLayout(1, 0));
 
-        panelVentanaPresencia.setBackground(new java.awt.Color(51, 255, 51));
+        panelFrameSensor.setBackground(new java.awt.Color(255, 255, 255));
+        panelFrameSensor.setLayout(new java.awt.GridLayout(1, 0));
 
-        javax.swing.GroupLayout panelVentanaPresenciaLayout = new javax.swing.GroupLayout(panelVentanaPresencia);
-        panelVentanaPresencia.setLayout(panelVentanaPresenciaLayout);
-        panelVentanaPresenciaLayout.setHorizontalGroup(
-            panelVentanaPresenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
-        );
-        panelVentanaPresenciaLayout.setVerticalGroup(
-            panelVentanaPresenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
-        panelVentanaDetectorPuerta.setBackground(new java.awt.Color(255, 255, 102));
-
-        javax.swing.GroupLayout panelVentanaDetectorPuertaLayout = new javax.swing.GroupLayout(panelVentanaDetectorPuerta);
-        panelVentanaDetectorPuerta.setLayout(panelVentanaDetectorPuertaLayout);
-        panelVentanaDetectorPuertaLayout.setHorizontalGroup(
-            panelVentanaDetectorPuertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
-        );
-        panelVentanaDetectorPuertaLayout.setVerticalGroup(
-            panelVentanaDetectorPuertaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
-        panelVentanaMensajeria.setBackground(new java.awt.Color(0, 0, 0));
+        panelVentanaMensajeria.setBackground(new java.awt.Color(255, 255, 255));
+        panelVentanaMensajeria.setOpaque(false);
 
         javax.swing.GroupLayout panelVentanaMensajeriaLayout = new javax.swing.GroupLayout(panelVentanaMensajeria);
         panelVentanaMensajeria.setLayout(panelVentanaMensajeriaLayout);
         panelVentanaMensajeriaLayout.setHorizontalGroup(
             panelVentanaMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 942, Short.MAX_VALUE)
         );
         panelVentanaMensajeriaLayout.setVerticalGroup(
             panelVentanaMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 520, Short.MAX_VALUE)
+        );
+
+        panelFrameSensor.add(panelVentanaMensajeria);
+
+        panelVentanaPresencia.setBackground(new java.awt.Color(51, 255, 51));
+        panelVentanaPresencia.setLayout(new java.awt.GridLayout(1, 0));
+
+        panelVentanaDetectorPuerta.setBackground(new java.awt.Color(255, 255, 102));
+        panelVentanaDetectorPuerta.setLayout(new java.awt.GridLayout(1, 0));
+
+        labelTituloSensores.setBackground(new java.awt.Color(255, 255, 255));
+        labelTituloSensores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        labelTituloSensores.setForeground(new java.awt.Color(0, 153, 255));
+        labelTituloSensores.setText("Título de la ventana");
+
+        javax.swing.GroupLayout panelSensoresLayout = new javax.swing.GroupLayout(panelSensores);
+        panelSensores.setLayout(panelSensoresLayout);
+        panelSensoresLayout.setHorizontalGroup(
+            panelSensoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelVentanaDetectorPuerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelVentanaPresencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addComponent(panelFrameSensor, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addGroup(panelSensoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(labelTituloSensores, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE))
+        );
+        panelSensoresLayout.setVerticalGroup(
+            panelSensoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSensoresLayout.createSequentialGroup()
+                .addGroup(panelSensoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelVentanaDetectorPuerta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelVentanaPresencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
+                .addComponent(panelPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(panelFrameSensor, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+            .addGroup(panelSensoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelSensoresLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(labelTituloSensores, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(472, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout panelDatosVentanaLayout = new javax.swing.GroupLayout(panelDatosVentana);
@@ -499,33 +465,13 @@ public class PantallaPaciente extends PlantillaPantallas {
                 .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                    .addComponent(panelVentanaCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                    .addComponent(panelVentanaPresencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                    .addComponent(panelVentanaDetectorPuerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelDatosVentanaLayout.createSequentialGroup()
-                    .addComponent(panelVentanaMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(panelSensores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosVentanaLayout.setVerticalGroup(
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelVentanaCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelVentanaPresencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelVentanaDetectorPuerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelVentanaMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelSensores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelVentanaLayout = new javax.swing.GroupLayout(panelVentana);
@@ -557,6 +503,42 @@ public class PantallaPaciente extends PlantillaPantallas {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void iconSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSalirMouseClicked
+        PInfUI.abrirVentana(null, this, TipoVentana.LOGIN);
+    }//GEN-LAST:event_iconSalirMouseClicked
+
+    private void panelMenuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseClicked
+        panelInicio.setVisible(true);
+        panelFrameSensor.setVisible(false);
+        panelVentanaPresencia.setVisible(false);
+        panelVentanaDetectorPuerta.setVisible(false);
+        panelVentanaMensajeria.setVisible(false);
+        panelSensores.setVisible(false);
+    }//GEN-LAST:event_panelMenuInicioMouseClicked
+
+    private void panelMenuInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseEntered
+        panelMenuInicio.setBackground(new java.awt.Color(0, 102, 204));
+        panelMenuInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+    }//GEN-LAST:event_panelMenuInicioMouseEntered
+
+    private void panelMenuInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseExited
+        panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
+        panelMenuInicio.setBorder(null);
+    }//GEN-LAST:event_panelMenuInicioMouseExited
+
+    private void panelMenuCardiacoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseClicked
+        panelInicio.setVisible(false);
+        panelFrameSensor.setVisible(true);
+        panelVentanaMensajeria.setVisible(false);
+        panelSensores.setVisible(true);
+        panelPacientes.setVisible(true);
+        
+        tipoSensor = TipoSensor.RITMOCARDIACO;
+
+        labelTituloSensores.setText(PInfUI.getBundle().getString("menuRitmoCardiaco"));
+        pintarGrafica();
+    }//GEN-LAST:event_panelMenuCardiacoMouseClicked
+
     private void panelMenuCardiacoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseEntered
         panelMenuCardiaco.setBackground(new java.awt.Color(0, 102, 204));
         panelMenuCardiaco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -567,49 +549,17 @@ public class PantallaPaciente extends PlantillaPantallas {
         panelMenuCardiaco.setBorder(null);
     }//GEN-LAST:event_panelMenuCardiacoMouseExited
 
-    private void jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonActionPerformed
-
-    private void panelMenuMensajeriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseEntered
-        panelMenuMensajeria.setBackground(new java.awt.Color(0, 102, 204));
-        panelMenuMensajeria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-    }//GEN-LAST:event_panelMenuMensajeriaMouseEntered
-
-    private void panelMenuMensajeriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseExited
-        panelMenuMensajeria.setBackground(new java.awt.Color(0, 153, 255));
-        panelMenuMensajeria.setBorder(null);
-    }//GEN-LAST:event_panelMenuMensajeriaMouseExited
-
-    private void iconSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSalirMouseClicked
-    	PInfUI.abrirVentana(null, this, TipoVentana.LOGIN);
-    }//GEN-LAST:event_iconSalirMouseClicked
-
-    private void imagenButtonDeslizanteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseEntered
-         terminarHiloButton = false;
-         
-         crearHiloCambioIconButton(imagenButtonDeslizante);
-    }//GEN-LAST:event_imagenButtonDeslizanteMouseEntered
-
-    private void imagenButtonDeslizanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenButtonDeslizanteMouseExited
-        terminarHiloButton = true;
-        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png")));
-    }//GEN-LAST:event_imagenButtonDeslizanteMouseExited
-
-    private void panelMenuCardiacoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseClicked
-        panelInicio.setVisible(false);
-        panelVentanaCardiaco.setVisible(true);
-        panelVentanaPresencia.setVisible(false);
-        panelVentanaDetectorPuerta.setVisible(false);
-        panelVentanaMensajeria.setVisible(false);
-    }//GEN-LAST:event_panelMenuCardiacoMouseClicked
-
     private void panelMenuPresenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuPresenciaMouseClicked
         panelInicio.setVisible(false);
-        panelVentanaCardiaco.setVisible(false);
-        panelVentanaPresencia.setVisible(true);
-        panelVentanaDetectorPuerta.setVisible(false);
+        panelFrameSensor.setVisible(true);
         panelVentanaMensajeria.setVisible(false);
+        panelSensores.setVisible(true);
+        panelPacientes.setVisible(true);
+        
+        tipoSensor = TipoSensor.PRESENCIA;
+
+        labelTituloSensores.setText(PInfUI.getBundle().getString("menuPresencia"));
+        recuperarPresencia();
     }//GEN-LAST:event_panelMenuPresenciaMouseClicked
 
     private void panelMenuPresenciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuPresenciaMouseEntered
@@ -624,10 +574,15 @@ public class PantallaPaciente extends PlantillaPantallas {
 
     private void panelMenuDetectorPuertaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuDetectorPuertaMouseClicked
         panelInicio.setVisible(false);
-        panelVentanaCardiaco.setVisible(false);
-        panelVentanaPresencia.setVisible(false);
-        panelVentanaDetectorPuerta.setVisible(true);
+        panelFrameSensor.setVisible(true);
         panelVentanaMensajeria.setVisible(false);
+        panelSensores.setVisible(true);
+        panelPacientes.setVisible(true);
+        
+        tipoSensor = TipoSensor.PUERTACALLE;
+        
+        labelTituloSensores.setText(PInfUI.getBundle().getString("menuDetectorPuerta"));
+        recuperarPuertaCalle();
     }//GEN-LAST:event_panelMenuDetectorPuertaMouseClicked
 
     private void panelMenuDetectorPuertaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuDetectorPuertaMouseEntered
@@ -640,31 +595,30 @@ public class PantallaPaciente extends PlantillaPantallas {
         panelMenuDetectorPuerta.setBorder(null);
     }//GEN-LAST:event_panelMenuDetectorPuertaMouseExited
 
-    private void panelMenuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseClicked
-        panelInicio.setVisible(true);
-        panelVentanaCardiaco.setVisible(false);
-        panelVentanaPresencia.setVisible(false);
-        panelVentanaDetectorPuerta.setVisible(false);
-        panelVentanaMensajeria.setVisible(false);
-    }//GEN-LAST:event_panelMenuInicioMouseClicked
-
-    private void panelMenuInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseEntered
-        panelMenuInicio.setBackground(new java.awt.Color(0, 102, 204));
-        panelMenuInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-    }//GEN-LAST:event_panelMenuInicioMouseEntered
-
-    private void panelMenuInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseExited
-        panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
-        panelMenuInicio.setBorder(null);
-    }//GEN-LAST:event_panelMenuInicioMouseExited
-
     private void panelMenuMensajeriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseClicked
         panelInicio.setVisible(false);
-        panelVentanaCardiaco.setVisible(false);
+        panelFrameSensor.setVisible(false);
         panelVentanaPresencia.setVisible(false);
         panelVentanaDetectorPuerta.setVisible(false);
         panelVentanaMensajeria.setVisible(true);
+        panelSensores.setVisible(false);
+        
+        panelVentanaMensajeria.setLayout(new java.awt.BorderLayout());
+        panelVentanaMensajeria.removeAll();
+        panelVentanaMensajeria.add(new JPanelMensajeria(this.usuario));
+        panelVentanaMensajeria.revalidate();
+        panelVentanaMensajeria.repaint();
     }//GEN-LAST:event_panelMenuMensajeriaMouseClicked
+
+    private void panelMenuMensajeriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseEntered
+        panelMenuMensajeria.setBackground(new java.awt.Color(0, 102, 204));
+        panelMenuMensajeria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+    }//GEN-LAST:event_panelMenuMensajeriaMouseEntered
+
+    private void panelMenuMensajeriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseExited
+        panelMenuMensajeria.setBackground(new java.awt.Color(0, 153, 255));
+        panelMenuMensajeria.setBorder(null);
+    }//GEN-LAST:event_panelMenuMensajeriaMouseExited
 
     //metodo para añadir los cambios que queramos nosotros por codigo
     private void myInitComponents(){
@@ -676,39 +630,84 @@ public class PantallaPaciente extends PlantillaPantallas {
         terminarHiloCorreo = false;
         
         //cambiar size de las letras 
+        
         labelNombreUser.setText(usuario.getNombre());
         listaLabels.add(new LabelDTO(labelNombreUser,null, labelNombreUser.getFont().getSize()));
-        listaLabels.add(new LabelDTO(labelTituloVentana,"tituloInicio", labelTituloVentana.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuMensajeria, "menuMensajeria", labelMenuMensajeria.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuInicio, "tituloInicio", labelMenuInicio.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuCardiaco, "menuRitmoCardiaco", labelMenuCardiaco.getFont().getSize()));
-        listaLabels.add(new LabelDTO(etiquetaButtonDeslizante, "botonGuardar", etiquetaButtonDeslizante.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuDetectorPuerta, "menuDetectorPuerta", labelMenuDetectorPuerta.getFont().getSize()));
         listaLabels.add(new LabelDTO(labelMenuPresencia, "menuPresencia", labelMenuPresencia.getFont().getSize()));
         
+        dniPaciente = usuario.getDni();
+        nombrePaciente = usuario.getNombre() + " " + usuario.getApellidos();
+        
+        
+        panelPacientes.revalidate();
+        panelPacientes.repaint();
+        
+        panelPacientes.setVisible(false);
+        
         crearHiloCambioIconCorreo(iconCorreo);
+
+        cambiarFuentes();
     }
     
-    public void cambiarFuentes(){
-        for(LabelDTO label : listaLabels){
-            label.getLabel().setFont(cambiarSize(label.getLabel().getFont().getStyle(), label.getSize(), PInfUI.getSizeFuente()));
-        }
+    /**
+     * Metodo encargado de pintar la grafica
+     */
+    private void pintarGrafica() {
+    	panelFrameSensor.removeAll();
         
-//        List<javax.swing.JButton> listaBotones = new ArrayList<javax.swing.JButton>();
-//        listaBotones.add(jButton);
-//        
-//        for(javax.swing.JButton boton : listaBotones){
-//            boton.setFont(cambiarSize(boton.getFont().getSize(), 10));
+//        nombrePaciente = "";
+//        for(Asignacion asignacion : usuario.getListaAsignacion()) {
+//            if(asignacion.getUsuarioAsociado().getDni().equalsIgnoreCase(dniPaciente)){
+//                nombrePaciente = asignacion.getUsuarioAsociado().getNombre();
+//            }
 //        }
-    }    
+    	panelFrameSensor.add(new JPanelRitmoCardiaco(dniPaciente, nombrePaciente));
+        panelFrameSensor.revalidate();
+        panelFrameSensor.repaint();
+    }
     
-
+    /**
+     * Metodo encargado de recuperar todos los datos del presencia
+     */
+    private void recuperarPresencia() {
+//    	panelVentanaPresencia.removeAll();
+//    	
+//    	panelVentanaPresencia.add(new JPanelPresencia(dniPaciente, nombrePaciente));
+//    	panelVentanaPresencia.revalidate();
+//    	panelVentanaPresencia.repaint();
+    	
+    	panelFrameSensor.removeAll();
+    	
+        
+//        picker.setTextEditable(true);
+//        picker.setShowYearButtons(true);
+//        panelVentanaCardiaco.add((JComponent) picker);
+//        
+//        System.out.println(picker.getModel().getDay());
+    	
+    	panelFrameSensor.add(new JPanelPresencia(dniPaciente, nombrePaciente));
+    	panelFrameSensor.revalidate();
+    	panelFrameSensor.repaint();
+    }
+    
+    /**
+     * Metodo encargado de recuperar todos los datos de la puerta calle
+     */
+    private void recuperarPuertaCalle() {
+    	panelFrameSensor.removeAll();
+    	
+    	panelFrameSensor.add(new JPanelRegistroPuerta(dniPaciente, nombrePaciente));
+    	panelFrameSensor.revalidate();
+    	panelFrameSensor.repaint();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel etiquetaButtonDeslizante;
     private javax.swing.JLabel iconCorreo;
     private javax.swing.JLabel iconSalir;
-    private javax.swing.JLabel imagenButtonDeslizante;
-    private javax.swing.JButton jButton;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelMenuCardiaco;
     private javax.swing.JLabel labelMenuDetectorPuerta;
@@ -716,10 +715,11 @@ public class PantallaPaciente extends PlantillaPantallas {
     private javax.swing.JLabel labelMenuMensajeria;
     private javax.swing.JLabel labelMenuPresencia;
     private javax.swing.JLabel labelNombreUser;
+    private javax.swing.JLabel labelTituloSensores;
     private javax.swing.JLabel labelTituloVentana;
     private javax.swing.JPanel panelBarraIzquierda;
-    private javax.swing.JPanel panelButtonDeslizante;
     private javax.swing.JPanel panelDatosVentana;
+    private javax.swing.JPanel panelFrameSensor;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelMenuCardiaco;
     private javax.swing.JPanel panelMenuDetectorPuerta;
@@ -727,9 +727,10 @@ public class PantallaPaciente extends PlantillaPantallas {
     private javax.swing.JPanel panelMenuMensajeria;
     private javax.swing.JPanel panelMenuPresencia;
     private javax.swing.JPanel panelOtrasVentanas;
+    private javax.swing.JPanel panelPacientes;
+    private javax.swing.JPanel panelSensores;
     private javax.swing.JPanel panelUsuario;
     private javax.swing.JPanel panelVentana;
-    private javax.swing.JPanel panelVentanaCardiaco;
     private javax.swing.JPanel panelVentanaDetectorPuerta;
     private javax.swing.JPanel panelVentanaMensajeria;
     private javax.swing.JPanel panelVentanaPresencia;

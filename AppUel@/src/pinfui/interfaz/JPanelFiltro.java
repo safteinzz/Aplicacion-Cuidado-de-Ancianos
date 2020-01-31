@@ -5,6 +5,7 @@
  */
 package pinfui.interfaz;
 
+import java.awt.Insets;
 import java.awt.Point;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -21,9 +22,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.PatternSyntaxException;
+import static javax.swing.BorderFactory.createEmptyBorder;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +36,11 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import pinfui.dto.EstiloCabeceraJTable;
+import pinfui.dto.EstiloCotenidoJTable;
+import pinfui.dto.Item;
+import pinfui.dto.ItemRenderer;
+import pinfui.dto.LabelDTO;
 import pinfui.dto.TipoVentana;
 import pinfui.entidades.Asignacion;
 import pinfui.entidades.Usuario;
@@ -72,6 +82,9 @@ public class JPanelFiltro extends PlantillaJPanel {
         
         
         initComponents();
+        
+        buttonBuscar
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar.png")));
         
         this.adminAbrirUsuarios = adminAbrirUsers;
         this.medicoAbrirUsuarios = medicoAbrirUsers;
@@ -160,8 +173,23 @@ public class JPanelFiltro extends PlantillaJPanel {
 //        jTFiltro.setRowSelectionAllowed(true);
 //        jTFiltro.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //        jTFiltro.setRowSelectionInterval(0, 0);
-        jTFiltro.setFocusable(false);
 //        jTFiltro.setRowSelectionAllowed(true);   
+        
+
+        //Setear estilo headers
+        jTFiltro.getTableHeader().setDefaultRenderer(new EstiloCabeceraJTable());
+        
+        //setear renderer de celdas de tabla
+        jTFiltro.setDefaultRenderer(Object.class, new EstiloCotenidoJTable());
+
+
+        jTFiltro.setFocusable(false);
+        
+        //Quitar tabla que no se usa
+        jScrollPaneTabla.getViewport().setBackground(jTFiltro.getBackground());
+        jScrollPaneTabla.setBorder(createEmptyBorder());
+
+        
 
         resizeColumns();
         addComponentListener(new ComponentAdapter() {
@@ -172,6 +200,24 @@ public class JPanelFiltro extends PlantillaJPanel {
         });
         
         
+        
+        //Cargar combo
+//        Todo, DNI, Nombre y Apellidos, Email, Municipio, Provincia, Telefono Movil, Telefono Fijo
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("todo"), PInfUI.getBundle().getString("todo")));  
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("dni"), PInfUI.getBundle().getString("dni")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("nombre"), PInfUI.getBundle().getString("nombre")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("email"), PInfUI.getBundle().getString("email")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("municipio"), PInfUI.getBundle().getString("municipio")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("provincia"), PInfUI.getBundle().getString("provincia")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("tlfMovil"), PInfUI.getBundle().getString("tlfMovil")));
+        jCBFiltrarPor.addItem(new Item(PInfUI.getBundle().getString("tlfFijo"), PInfUI.getBundle().getString("tlfFijo")));
+        
+        //Estilo para el combo
+        jCBFiltrarPor.setRenderer( new ItemRenderer() );
+        
+        listaLabels.add(new LabelDTO(jLabel1, "buscar", jLabel1.getFont().getSize()));
+        
+        cambiarFuentes();
     }
 
     /**
@@ -237,62 +283,69 @@ public class JPanelFiltro extends PlantillaJPanel {
         jTFCasillaBusqueda = new javax.swing.JTextField();
         jCBFiltrarPor = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneTabla = new javax.swing.JScrollPane();
         jTFiltro = new javax.swing.JTable();
-        jBFiltrar = new javax.swing.JButton();
+        buttonBuscar = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(850, 391));
-        setLayout(new java.awt.GridBagLayout());
 
         jTFCasillaBusqueda.setFont(new java.awt.Font("Tahoma", 0, 24));
+        jTFCasillaBusqueda.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTFCasillaBusqueda.setText("Buscar");
         jTFCasillaBusqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTFCasillaBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTFCasillaBusqueda.addMouseListener(new MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e){
-                jTFCasillaBusqueda.setText("");
-            }
-        });
-
-        jTFCasillaBusqueda.addKeyListener(new KeyAdapter(){
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode()==KeyEvent.VK_ENTER){
-                    jBFiltrarPress();
+        jTFCasillaBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTFCasillaBusqueda.setMaximumSize(new java.awt.Dimension(347, 47));
+        jTFCasillaBusqueda.addMouseListener
+        (
+            new MouseAdapter()
+            {
+                @Override
+                public void mouseClicked(MouseEvent e)
+                {
+                    jTFCasillaBusqueda.setText("");
                 }
             }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 339;
-        gridBagConstraints.ipady = 22;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(22, 0, 0, 0);
-        add(jTFCasillaBusqueda, gridBagConstraints);
+        );
 
-        jCBFiltrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todo", "DNI", "Nombre y Apellidos", "Email", "Municipio", "Provincia", "Telefono Movil", "Telefono Fijo" }));
+        jTFCasillaBusqueda.addKeyListener(
+            new KeyAdapter()
+            {
+                @Override
+                public void keyPressed(KeyEvent e)
+                {
+                    if (e.getKeyCode()==KeyEvent.VK_ENTER)
+                    {
+                        jBFiltrarPress();
+                    }
+                }
+            }
+        );
+        jTFCasillaBusqueda.setNextFocusableComponent(jCBFiltrarPor);
+
         jCBFiltrarPor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jCBFiltrarPor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
-        add(jCBFiltrarPor, gridBagConstraints);
+        //Handler enter = guardar
+        jCBFiltrarPor.addKeyListener(
+            new KeyAdapter()
+            {
+                @Override
+                public void keyPressed(KeyEvent e)
+                {
+                    if (e.getKeyCode()==KeyEvent.VK_ENTER)
+                    {
+                        jBFiltrarPress();
+                    }
+                }
+            }
+        );
+        jCBFiltrarPor.setNextFocusableComponent(buttonBuscar);
 
-        jLabel1.setText("Buscar:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(22, 18, 0, 0);
-        add(jLabel1, gridBagConstraints);
+        jLabel1.setText("Buscar");
+
+        jScrollPaneTabla.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPaneTabla.setBorder(null);
+        jScrollPaneTabla.setForeground(new java.awt.Color(255, 255, 255));
 
         jTFiltro.setModel(new javax.swing.table.DefaultTableModel(
 
@@ -309,44 +362,76 @@ public class JPanelFiltro extends PlantillaJPanel {
         }
     );
     jTFiltro.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
-    jScrollPane1.setViewportView(jTFiltro);
+    jTFiltro.setIntercellSpacing(new java.awt.Dimension(0, 0));
+    jScrollPaneTabla.setViewportView(jTFiltro);
 
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 3;
-    gridBagConstraints.gridwidth = 5;
-    gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-    gridBagConstraints.ipadx = 826;
-    gridBagConstraints.ipady = 284;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.weightx = 1.0;
-    gridBagConstraints.weighty = 1.0;
-    gridBagConstraints.insets = new java.awt.Insets(2, 0, 0, 0);
-    add(jScrollPane1, gridBagConstraints);
-
-    jBFiltrar.setBackground(new java.awt.Color(255, 255, 255));
-    jBFiltrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botonBuscar.png"))); // NOI18N
-    jBFiltrar.setBorder(null);
-    jBFiltrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jBFiltrar.setDefaultCapable(false);
-    jBFiltrar.setBorderPainted(false);
-    jBFiltrar.setContentAreaFilled(false);
-    jBFiltrar.setFocusPainted(false);
-    jBFiltrar.setOpaque(false);
-    jBFiltrar.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jBFiltrarActionPerformed(evt);
+    buttonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/buscar.png"))); // NOI18N
+    buttonBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+    buttonBuscar.setNextFocusableComponent(jScrollPaneTabla);
+    buttonBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            buttonBuscarFocusGained(evt);
+        }
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            buttonBuscarFocusLost(evt);
         }
     });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 3;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.gridheight = 3;
-    gridBagConstraints.ipadx = 22;
-    gridBagConstraints.ipady = 9;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(11, 59, 0, 0);
-    add(jBFiltrar, gridBagConstraints);
+    buttonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            buttonBuscarMouseClicked(evt);
+        }
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            buttonBuscarMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            buttonBuscarMouseExited(evt);
+        }
+    });
+    buttonBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            buttonBuscarKeyPressed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+    this.setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jTFCasillaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(jCBFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(buttonBuscar)
+                    .addGap(0, 107, Short.MAX_VALUE))
+                .addComponent(jScrollPaneTabla))
+            .addContainerGap())
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buttonBuscar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)
+                        .addGap(8, 8, 8)
+                        .addComponent(jCBFiltrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jTFCasillaBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+            .addContainerGap())
+    );
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -382,17 +467,36 @@ public class JPanelFiltro extends PlantillaJPanel {
     
     
     
-    /**
-     * Metodo Accion filtro
-     * El metodo en base a la opcion escogida hace una de dos cosas
-     *  1º Filtra por fila en base a lo introducido en el textfield
-     *  2º Filtra en toda la tabla en baso a lo introducido en el textfield
-     * El metodo sabe el modo a usar en base al index de la combobox de busqueda, siendo 0 para TODO y 1,2,3.. para lo demas
-     * @param evt 
-     */
-    private void jBFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFiltrarActionPerformed
+    private void buttonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseClicked
         jBFiltrarPress();
-    }//GEN-LAST:event_jBFiltrarActionPerformed
+    }//GEN-LAST:event_buttonBuscarMouseClicked
+
+    private void buttonBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseEntered
+        buttonBuscar
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar_hover.png")));
+    }//GEN-LAST:event_buttonBuscarMouseEntered
+
+    private void buttonBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBuscarMouseExited
+        buttonBuscar
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar.png")));
+    }//GEN-LAST:event_buttonBuscarMouseExited
+
+    private void buttonBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonBuscarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_SPACE)
+            jBFiltrarPress();
+        else if (evt.getKeyCode() == KeyEvent.VK_ENTER)
+            jBFiltrarPress();
+    }//GEN-LAST:event_buttonBuscarKeyPressed
+
+    private void buttonBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buttonBuscarFocusGained
+        buttonBuscar
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar_hover.png")));
+    }//GEN-LAST:event_buttonBuscarFocusGained
+
+    private void buttonBuscarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buttonBuscarFocusLost
+        buttonBuscar
+        .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/buscar.png")));
+    }//GEN-LAST:event_buttonBuscarFocusLost
 
     private void jBFiltrarPress()
     {
@@ -410,10 +514,10 @@ public class JPanelFiltro extends PlantillaJPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBFiltrar;
-    private javax.swing.JComboBox<String> jCBFiltrarPor;
+    private javax.swing.JLabel buttonBuscar;
+    private javax.swing.JComboBox<Item> jCBFiltrarPor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneTabla;
     private javax.swing.JTextField jTFCasillaBusqueda;
     private javax.swing.JTable jTFiltro;
     // End of variables declaration//GEN-END:variables
