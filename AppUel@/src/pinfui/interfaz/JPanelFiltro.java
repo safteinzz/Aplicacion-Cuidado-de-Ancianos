@@ -93,11 +93,7 @@ public class JPanelFiltro extends PlantillaJPanel {
         //1 admin, 2 medico, 3 familiar, 4 paciente       
         //Si trae rol cargas usuarios por rol
         if(rol != null) {
-            try {            
-                listaUsuarios = PInfUI.gestorDatos.getUsuarios(null, rol, false, false);
-            } catch (SQLException ex) {
-                Logger.getLogger(JPanelFiltro.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            listaUsuarios = PInfUI.gestorDatos.getUsuarios(null, rol, false, false);
         } 
         //Si no trae rol cargas los usuarios asociados al usuario entregado
         else if (user != null) {
@@ -105,11 +101,7 @@ public class JPanelFiltro extends PlantillaJPanel {
         }
         //Si no trae nada rellenas tabla con todos los usuarios (y traes asignaciones) esto es ventana admin !
         else {
-            try {
-                listaUsuarios = PInfUI.gestorDatos.getUsuarios(null,null, true, false);
-            } catch (SQLException ex) {
-                Logger.getLogger(JPanelFiltro.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            listaUsuarios = PInfUI.gestorDatos.getUsuarios(null,null, true, false);
         }
         
         

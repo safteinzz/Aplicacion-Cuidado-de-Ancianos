@@ -17,8 +17,10 @@ public class Presencia {
     
     private transient TipoPresencia tipoPresencia;
 
-    public Presencia() {
-
+    public Presencia(String dni_paciente, Date fecha, int id_tipo_presencia) {
+            this.dni_paciente = dni_paciente;
+            this.fecha = fecha;
+            this.id_tipo_presencia = id_tipo_presencia;
     }
 
     public Presencia(String dni_paciente, Date fecha, int id_tipo_presencia, TipoPresencia tipoPresencia) {

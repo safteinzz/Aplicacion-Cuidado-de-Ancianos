@@ -17,7 +17,7 @@ import pinfui.entidades.Usuario;
 public class JPanelMEnsajeVisor1 extends JFrame{
     
     private JPanelMensajeriaNuevo visor;
-    
+    private JPanelMensajeriaResponder visorRepuesta;
     /**
      * 
      * @param visor     JPanel de visualización del mensaje
@@ -31,8 +31,17 @@ public class JPanelMEnsajeVisor1 extends JFrame{
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
+    public JPanelMEnsajeVisor1(JPanelMensajeriaResponder visorRepuesta){
+        this.visorRepuesta = visorRepuesta;
+        add(this.visorRepuesta);
+        inicializarComponentes();
+        //setSize(visor.getSize());
+        // Cerra la ventana
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }
+    
     public void inicializarComponentes(){
-        setSize(960, 370);
+        setSize(960, 520);
         setTitle("Mensaje");
     }
 

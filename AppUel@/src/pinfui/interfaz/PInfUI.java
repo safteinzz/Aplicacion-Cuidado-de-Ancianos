@@ -50,7 +50,7 @@ public class PInfUI {
         
         //entrar roteado
 //        Usuario usuario = PInfUI.gestorDatos.login("14523658F", "123456789");
-//        abrirVentana(usuario, null, TipoVentana.FAMILIAR);
+//        abrirVentana(usuario, null, TipoVentana.MEDICOABREPACIENTE);
 
         //Creacion de un usuario medico
 //        try {

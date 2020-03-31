@@ -41,6 +41,7 @@ public class Usuario {
         private transient Rol rol;
         private transient List<Asignacion> listaAsignacion;
         private transient List<Mensaje> listaMensajes;
+        private transient List<Nota> listaNotas;
 
         
     /**
@@ -249,4 +250,14 @@ public class Usuario {
         }
         return listaReturn;
     }
+
+	public List<Nota> getListaNotas() {
+		return listaNotas;
+	}
+
+	public void setListaNotas(List<Nota> listaNotas) {
+		this.listaNotas = listaNotas;
+	}
+    
+    
 }

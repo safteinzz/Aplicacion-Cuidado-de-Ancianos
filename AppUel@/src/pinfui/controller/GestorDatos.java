@@ -47,15 +47,19 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.sql.Array;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import pinfui.dto.ConstantesAplicacion;
 import pinfui.dto.TipoRango;
+import pinfui.entidades.Alerta;
 import pinfui.entidades.Asignacion;
+import pinfui.entidades.Etiqueta;
 import pinfui.entidades.Mensaje;
 import pinfui.entidades.Municipio;
+import pinfui.entidades.Nota;
 import pinfui.entidades.Presencia;
 import pinfui.entidades.Provincia;
 import pinfui.entidades.PuertaCalle;
@@ -75,7 +79,7 @@ public class GestorDatos {
 	// DATOS BD
 	private Connection conn;
 	private String myDriver = "com.mysql.cj.jdbc.Driver";
-	private String myUrl = "jdbc:mysql://localhost/DBPInf";
+	private String myUrl = "jdbc:mysql://localhost/DBPInf?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private String userBD = "root";
 	private String passBD = "123456789";
 
@@ -84,7 +88,7 @@ public class GestorDatos {
 	// False = Se usa JSON
 
 	// DATOS JSON
-//	private String RUTA_JSON = "F:\\JSON\\"; // SERGIO
+//	private String RUTA_JSON = "D:\\temp\\JSON_FILES\\"; // SERGIO
         private String RUTA_JSON = "../JSON_FILES/"; //Ruta relativa
 //        private String RUTA_JSON = System.getProperty("user.dir") + "/JSON_FILES/"; //Ruta relativa
 
@@ -100,6 +104,8 @@ public class GestorDatos {
 	public String PROVINCIA_JSON = "JSON_Provincias";
 	public String MUNICIPIO_JSON = "JSON_Municipios";
 	public String TIPOPRESENCIA_JSON = "JSON_TipoPresencia";
+        public String ETIQUETA_JSON = "JSON_Etiqueta";
+        
 
 	public boolean isModeDB() {
 		return modeDB;
@@ -108,8 +114,37 @@ public class GestorDatos {
 	public void setModeDB(boolean modeDB) {
 		this.modeDB = modeDB;
 	}
+	
+        /**
+         * Metodo para recuperar usuarios
+         * Este metodo dirige a:
+         *  @getUsuariosBD si @modeDB = true
+         *  @getUsuariosJSON si @modeDB = false
+         * @return Devuelve una lista con todos los usuarios encontrados
+         */
+	public List<Usuario> getUsuarios(List<String> dniLista, Integer idRol, boolean asignarUsuarios,
+            boolean cargarMensajes)
+        {		
+            if(isModeDB()) {
+                try 
+                {
+                    return getUsuariosBD(dniLista, idRol, asignarUsuarios, cargarMensajes);
+                } 
+                catch (SQLException e) 
+                {
+                    e.printStackTrace();
+                }
+            } 
+            else 
+            {
+                return getUsuariosJSON(dniLista, idRol, asignarUsuarios, cargarMensajes);
+            }
 
+            return null;
+	}
+	
 	/**
+         * BD
 	 * Metodo encargado de listar todos los usuarios que aparecen en el archivo JSON
 	 * Se puede filtrar por dni y/o por id del rol
 	 *
@@ -122,14 +157,104 @@ public class GestorDatos {
 	 * @return Devuelve una lista con todos los usuarios encontrados
 	 * @throws java.sql.SQLException
 	 */
-	public List<Usuario> getUsuarios(List<String> dniLista, Integer idRol, boolean asignarUsuarios,
-                    boolean cargarMensajes) throws SQLException {
+	private List<Usuario> getUsuariosBD(List<String> dniLista, Integer idRol, boolean asignarUsuarios,
+            boolean cargarMensajes) throws SQLException{
+		List<Usuario> listaReturn = new ArrayList<Usuario>();
+		
+		//1- Traer todos los usuarios de que tengan su dni en dniLista
+		//también se puede buscar solo por rol, por lo que tendrás que traer todos los usuarios que tengan ese rol
+		
+		//2- Por cada uno tendrás que recuperar sus objetos, como se hace para el json
+		//intenta que esto sea diferente a JSON, con BD te da la posibilidad de buscar sólo el que quieres
+		
+		String query = "SELECT * FROM USUARIO";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+                if((dniLista != null && !dniLista.isEmpty()) || (idRol != null)){
+                    query += " WHERE ";
+                }
+                
+		//Agregamos a la query la consulta de DNIs por lista
+		if(dniLista != null && !dniLista.isEmpty()) {
+			query += "DNI IN (" ;
+                        
+                        for(int x = 0; x < dniLista.size(); x++){
+                            query += "'" + dniLista.get(x) + "'";
+                            if(x != dniLista.size() - 1){
+                                query += ", ";
+                            }
+                        }
+                        query += ") ";
+			
+                        pstmt = conn.prepareStatement(query);
+		}
+		
+		//Si se quiere buscar por los dos casos, se agrega un AND entre medias
+		if(dniLista != null && !dniLista.isEmpty() && idRol != null) {
+			query += " AND ";
+		}
+		
+		//Agregamos a la query la consulta por idRol
+		if(idRol != null) {
+			query += "ID_ROL = ?";
+                        pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, idRol);
+		}
+		
+		
+		
+		ResultSet resultSet = pstmt.executeQuery();
+		while (resultSet.next()) {
+			listaReturn.add(new Usuario(resultSet.getInt("ID_ROL"), resultSet.getInt("ID_MUNICIPIO"),
+					resultSet.getString("DNI"), resultSet.getString("NOMBRE"), resultSet.getString("APELLIDOS"),
+					resultSet.getString("PASS_HASHED"), resultSet.getBytes("SALT"), resultSet.getString("EMAIL"),
+					resultSet.getString("TLF_MOVIL"), resultSet.getString("TLF_FIJO"),
+					resultSet.getString("DIRECCION")));
+		}
+		conn.close();
+		
+		//recorremos el for de lisa de usuarios para agregar los diferentes objetos
+		for(Usuario user : listaReturn) {
+			//asignacion - Si asignarUsuarios esta false no se agregaran sus asociaciones
+			user.setListaAsignacion(getAsignaciones(user.getDni(), user.getId_Rol(), asignarUsuarios));
+			
+			//rol
+			user.setRol(getRol(user.getId_Rol()));
+			
+			//municipio
+			user.setMunicipio(getMunicipioBD(user.getId_Muncipio()));
+			
+			if(cargarMensajes) {
+				user.setListaMensajes(getMensajes(user.getDni(), null));
+			}
+			
+		}
+		
+		return listaReturn;
+	}
+
+	/**
+         * JSON
+	 * Metodo encargado de listar todos los usuarios que aparecen en el archivo JSON
+	 * Se puede filtrar por dni y/o por id del rol
+	 *
+	 * @param dniLista        Lista con todos los DNIs que se quieren buscar
+	 * @param idRol           Id del rol por el que se quiere buscar los usuarios
+	 * @param asignarUsuarios 'TRUE' si se quiere con los objetos Asignacion vengan
+	 *                        con el objeto Usuario relacionado
+	 * @param cargarMensajes  'TRUE' si se quiere cargar todos los mensajes del
+	 *                        usuario
+	 * @return Devuelve una lista con todos los usuarios encontrados
+	 */
+	private List<Usuario> getUsuariosJSON(List<String> dniLista, Integer idRol, boolean asignarUsuarios,
+                    boolean cargarMensajes) {
 		List<Usuario> listaReturn = new ArrayList<Usuario>();
 
 		List<Usuario> listaTemporal = (List<Usuario>) JSONtoObject(USUARIO_JSON);
 
 		List<Rol> roles = getRoles();
-		List<Asignacion> asignaciones = getAsignaciones(asignarUsuarios);
+		List<Asignacion> asignaciones = getAsignaciones(null, null, asignarUsuarios);
 
 		List<Municipio> listaMunicipios = getMunicipios();
 		List<Provincia> listaProvincias = getProvincias();
@@ -159,14 +284,14 @@ public class GestorDatos {
 						if (rol.getId_Rol() == usuario.getId_Rol()) {
 							usuario.setRol(rol);
                                                         
-                                                        if(asignaciones != null && !asignaciones.isEmpty()){
-                                                            // Agregar las asignaciones a los usuarios
-                                                            for (Asignacion asignacion : asignaciones) {
-                                                                    if (asignacion.getDni_Asociado().equalsIgnoreCase(usuario.getDni()) || asignacion.getDni_Asignado().equalsIgnoreCase(usuario.getDni())) {
-                                                                            usuario.getListaAsignacion().add(asignacion);
-                                                                    }
-                                                            }
-                                                        }
+                            if(asignaciones != null && !asignaciones.isEmpty()){
+                                // Agregar las asignaciones a los usuarios
+                                for (Asignacion asignacion : asignaciones) {
+                                        if (asignacion.getDni_Asociado().equalsIgnoreCase(usuario.getDni()) || asignacion.getDni_Asignado().equalsIgnoreCase(usuario.getDni())) {
+                                                usuario.getListaAsignacion().add(asignacion);
+                                        }
+                                }
+                            }
 
 							// Agregar el municipio al usuario
 							for (Municipio municipio : listaMunicipios) {
@@ -184,9 +309,9 @@ public class GestorDatos {
 								}
 							}
 
-							if (cargarMensajes) {
-								usuario.setListaMensajes(getMensajes(usuario.getDni(), null));
-							}
+//							if (cargarMensajes) {
+//								usuario.setListaMensajes(getMensajes(usuario.getDni(), null));
+//							}
 
 							listaReturn.add(usuario);
 							break;
@@ -198,17 +323,94 @@ public class GestorDatos {
 
 		return listaReturn;
 	}
-
+	
 	/**
-	 * Metodo encargado de listar todos las asignaciones encontrados en el archivo
-	 * JSON
-	 *
-	 * @param asignarUsuarios 'TRUE' si se quiere con los objetos Asignacion vengan
-	 *                        con el objeto Usuario relacionado
-	 * @return Lista con todas las asociaciones de usuarios
-	 * @throws SQLException
+         * Metodo para recuperar Asociaciones
+         * Este metodo dirige a:
+         *  @getAsignacionesBD si @modeDB = true
+         *  @getAsignacionesJSON si @modeDB = false
+         * @return Lista con todas las asociaciones
+         */
+	public List<Asignacion> getAsignaciones(String dni, Integer idRol, boolean asignarUsuarios){
+		
+		if(isModeDB()) {
+			try {
+				return getAsignacionesBD(dni, idRol, asignarUsuarios);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getAsignacionesJSON(asignarUsuarios);
+		}
+		
+		return null;
+	}
+	
+	/**
+         * BD
+	 * Metodo para recuperar Asociaciones
+	 * @return Lista con todas las asociaciones
 	 */
-	public List<Asignacion> getAsignaciones(boolean asignarUsuarios) throws SQLException {
+	private List<Asignacion> getAsignacionesBD(String dni, Integer idRol, boolean asignarUsuarios) throws SQLException {
+		List<Asignacion> listaReturn = new ArrayList<Asignacion>();
+		
+		List<TipoAsignacion> listaTipoAsignacion = getTiposAsignacion();
+		List<String> dniUsuarioAsignado = new ArrayList<String>();
+		
+		//Buscamos las asignaciones por el dni del usuario
+		String query = "SELECT * FROM ASIGNACION WHERE ";
+		
+		//Si el rol es de paciente, tendremos que buscar el dni en DNI_ASIGNADO, por el contrario en DNI_ASOCIADO
+		if(idRol != ConstantesAplicacion.ROL_PACIENTE) {
+			query += "DNI_ASIGNADO = ?";
+		} else {
+			query += "DNI_ASOCIADO = ?";
+		}
+		
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setString(1, dni);
+		
+		ResultSet resultSet = pstmt.executeQuery();
+		while (resultSet.next()) {
+			Asignacion asignacion = new Asignacion(resultSet.getString("DNI_ASOCIADO"), resultSet.getString("DNI_ASIGNADO"), 0);
+			int idTipoAsignacion = resultSet.getInt("ID_TIPO");
+			
+			for(TipoAsignacion tipoAsignacion : listaTipoAsignacion) {
+				if(tipoAsignacion.getIdTipoAsignacion() == idTipoAsignacion) {
+					asignacion.setTipoAsignacion(tipoAsignacion);
+					break;
+				}
+			}
+			
+			//Agregamos la asignacion, con solo los datos primitivos, a la lista a devolver
+			listaReturn.add(asignacion);
+			
+			//Creamos una lista con los DNIs sin repetir de todos los usuarios que estan en las asignaciones
+			
+			if(idRol != ConstantesAplicacion.ROL_PACIENTE) {
+				agregarValorNoRepetidoLista(dniUsuarioAsignado, asignacion.getDni_Asociado());
+			} else {
+				agregarValorNoRepetidoLista(dniUsuarioAsignado, asignacion.getDni_Asignado());
+			}
+		}
+		conn.close();
+		
+		if (asignarUsuarios) {
+			asignarUsuarios(listaReturn, dniUsuarioAsignado);
+		}
+		
+		return listaReturn;
+	}
+	
+	
+	/**
+         * JSON
+	 * Metodo para recuperar Asociaciones
+	 * @return Lista con todas las asociaciones
+	 */
+	private List<Asignacion> getAsignacionesJSON(boolean asignarUsuarios){
 		List<Asignacion> listaReturn = (List<Asignacion>) JSONtoObject(ASIGNACION_JSON);
 
 		List<String> dniUsuarioAsignado = new ArrayList<String>();
@@ -228,50 +430,84 @@ public class GestorDatos {
 
 		// Si el booleano esta a true, agregamos el objeto de usuario a la asignacion.
 		if (asignarUsuarios) {
-			for (Usuario usuario : getUsuarios(dniUsuarioAsignado, null, false, false)) {
-				for (Asignacion asignacion : listaReturn) {
-					if (asignacion.getDni_Asociado().equalsIgnoreCase(usuario.getDni())) {
-						asignacion.setUsuarioAsociado(usuario);
-					}
+			asignarUsuarios(listaReturn, dniUsuarioAsignado);
+		}
 
-					if (asignacion.getDni_Asignado().equalsIgnoreCase(usuario.getDni())) {
-						asignacion.setUsuarioAsignado(usuario);
-					}
+		return listaReturn;		
+	}
+        
+        /**
+	 * Metodo para asignar el objeto usuario a las asignaciones encontradas
+	 * @param listaAsignacion
+	 * @param dniUsuarioAsignado
+	 */
+	private void asignarUsuarios(List<Asignacion> listaAsignacion, List<String> dniUsuarioAsignado) {
+		for (Usuario usuario : getUsuarios(dniUsuarioAsignado, null, false, false)) {
+			for (Asignacion asignacion : listaAsignacion) {
+				if (asignacion.getDni_Asociado().equalsIgnoreCase(usuario.getDni())) {
+					asignacion.setUsuarioAsociado(usuario);
+				}
+
+				if (asignacion.getDni_Asignado().equalsIgnoreCase(usuario.getDni())) {
+					asignacion.setUsuarioAsignado(usuario);
 				}
 			}
 		}
+	}
 
+	
+        /**
+         * Metodo para recuperar tipos de asignacion
+         * Este metodo dirige a:
+         *  @getTiposAsignacionBD si @modeDB = true
+         *  @getTiposAsignacionJSON si @modeDB = false
+         * @return Devuelve una lista con todos los tipos de asociaciones que existen
+         */
+	public List<TipoAsignacion> getTiposAsignacion() {
+		
+		if(isModeDB()) {
+			try {
+				return getTiposAsignacionBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getTiposAsignacionJSON();
+		}
+		
+		return null;
+	}
+	
+	/**
+         * BD
+         * Metodo para recuperar tipos de asignacion
+         * @return Devuelve una lista con todos los tipos de asociaciones que existen
+         * @throws SQLException 
+         */
+	public List<TipoAsignacion> getTiposAsignacionBD() throws SQLException {
+		List<TipoAsignacion> listaReturn = new ArrayList<>();
+		
+		final String query = "select * from tipo_asignacion";
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+                        TipoAsignacion temporal = new TipoAsignacion(rs.getInt("ID_TIPO"), rs.getString("DESCRIPCION"));
+			listaReturn.add(temporal);
+		}
+		conn.close();
+		
 		return listaReturn;
 	}
 
 	/**
-	 * Metodo encargado de agregar un valor no repetido en una lista
-	 *
-	 * @param lista
-	 * @param valor
-	 */
-	private void agregarValorNoRepetidoLista(List<String> lista, String valor) {
-		boolean valorRepetido = false;
-
-		for (String string : lista) {
-			if (string.equalsIgnoreCase(valor)) {
-				valorRepetido = true;
-				break;
-			}
-		}
-
-		if (!valorRepetido) {
-			lista.add(valor);
-		}
-	}
-
-	/**
-	 * Metodo encargado de listar todos los tipos de asignacion encontrados en el
-	 * archivo JSON
-	 *
-	 * @return Devuelve una lista con todos los tipos de asociaciones que existen
-	 */
-	public List<TipoAsignacion> getTiposAsignacion() {
+         * JSON
+         * Metodo para recuperar tipos de asignacion
+         * @return Devuelve una lista con todos los tipos de asociaciones que existen
+         */
+	public List<TipoAsignacion> getTiposAsignacionJSON() {
 		List<TipoAsignacion> listaReturn = (List<TipoAsignacion>) JSONtoObject(TIPOASIGNACION_JSON);
 
 		return listaReturn;
@@ -285,112 +521,301 @@ public class GestorDatos {
 	 * @return Devuelve un rol con todo
 	 * @throws SQLException
 	 */
-	public Rol getRol(int idRol) throws SQLException {
-		for (Rol rol : getRoles()) {
-			if (rol.getId_Rol() == idRol) {
-				return rol;
+	public Rol getRol(int idRol){
+		if(isModeDB()) {
+			try {
+				return getRolBD(idRol);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			for (Rol rol : getRoles()) {
+				if (rol.getId_Rol() == idRol) {
+					return rol;
+				}
 			}
 		}
 
 		return null;
 	}
-
-	/**
-	 * Metodo de extracción de roles de base de datos o JSON La extracción se hace
-	 * en base a la variable modeDB
-	 *
-	 * @return Retorna una lista con objetos rol
-	 * @throws java.sql.SQLException
-	 */
-	public List<Rol> getRoles() throws SQLException {
-		List<Rol> listaRoles = new ArrayList<Rol>();
-
-		// Modo base de datos
-		if (modeDB) {
-			final String query = "select * from roles";
-			Statement statement;
-			ResultSet rs;
-			conn = DriverManager.getConnection(myUrl, userBD, passBD);
-			statement = conn.createStatement();
-			rs = statement.executeQuery(query);
-			while (rs.next()) {
-				Rol temporal = new Rol(Integer.parseInt(rs.getString("ID_ROL")), rs.getString("NOMBRE").toString());
-				listaRoles.add(temporal);
-			}
-			conn.close();
-
-		} // Modo JSON
-		else {
-			listaRoles = (List<Rol>) JSONtoObject(ROL_JSON);
+	
+	//recuperar un unico rol de BD
+	private Rol getRolBD(int idRol) throws SQLException {
+		
+		final String query = "select * from roles where ID_ROL = ?";
+		
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setInt(1, idRol);
+		
+		ResultSet resultSet = pstmt.executeQuery();
+		if (resultSet.next()) {
+			Rol rol = new Rol(resultSet.getInt("ID_ROL"), resultSet.getString("NOMBRE"));
+			return rol;
 		}
-
+		
+		return null;
+	}
+	
+	/**
+         * Metodo para recuperar roles
+         * Este metodo dirige a:
+         *  @getRolesBD si @modeDB = true
+         *  @getRolesJSON si @modeDB = false
+         * @return Devuelve una lista con todos los roles que existen
+         */
+	public List<Rol> getRoles(){
+		if(isModeDB()) {
+			try {
+				return getRolesBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getRolesJSON();
+		}
+		
+		return null;
+	}
+	
+        /**
+         * BD
+         * Metodo para recuperar roles
+         * @return Devuelve una lista con todos los roles que existen
+         * @throws SQLException 
+         */
+	private List<Rol> getRolesBD() throws SQLException{
+		List<Rol> listaRoles = new ArrayList<Rol>();
+		
+		final String query = "select * from roles";
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			Rol temporal = new Rol(Integer.parseInt(rs.getString("ID_ROL")), rs.getString("NOMBRE").toString());
+			listaRoles.add(temporal);
+		}
+		conn.close();
+		
 		return listaRoles;
 	}
+	
+        /**
+         * JSON
+         * Metodo para recuperar roles
+         * @return Devuelve una lista con todos los roles que existen
+         */
+	private List<Rol> getRolesJSON(){
+		List<Rol> listaReturn = (List<Rol>) JSONtoObject(ROL_JSON);
 
+		return listaReturn;
+	}
+	
 	/**
-	 * Metodo de extracción de municipios de base de datos o JSON La extracción se
-	 * hace en base a la variable modeDB
-	 *
-	 * @return Retorna una lista con objetos municipio
-	 * @throws java.sql.SQLException
-	 */
-	public List<Municipio> getMunicipios() throws SQLException {
-		List<Municipio> listaMunicipios = new ArrayList<Municipio>();
-
-		// Modo Base de datos
-		if (modeDB) {
-			final String query = "select * from municipios";
-			Statement statement;
-			ResultSet rs;
-			conn = DriverManager.getConnection(myUrl, userBD, passBD);
-			statement = conn.createStatement();
-			rs = statement.executeQuery(query);
-			while (rs.next()) {
-				Municipio temporal = new Municipio(rs.getInt("ID_PROVINCIA"), rs.getInt("ID_MUNICIPIO"),
-						rs.getInt("COD_MUNICIPIO"), rs.getInt("DC"), rs.getString("NOMBRE"));
-				listaMunicipios.add(temporal);
+         * Metodo para recuperar municipios
+         * Este metodo dirige a:
+         *  @getMunicipiosBD si @modeDB = true
+         *  @getMunicipiosJSON si @modeDB = false
+         * @return Devuelve una lista con todos los municipios
+         */
+	public List<Municipio> getMunicipios(){
+		if(isModeDB()) {
+			try {
+				return getMunicipiosBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			conn.close();
-		} // Modo JSON
-		else {
-			listaMunicipios = (List<Municipio>) JSONtoObject(MUNICIPIO_JSON);
+		} else {
+			return getMunicipiosJSON();
 		}
-
+		
+		return null;
+	}
+	
+        /**
+         * BD
+         * Metodo para recuperar municipios
+         * @return Devuelve una lista con todos los municipios
+         * @throws SQLException 
+         */
+	private List<Municipio> getMunicipiosBD() throws SQLException{
+		List<Municipio> listaMunicipios = new ArrayList<Municipio>();
+		
+		final String query = "select * from municipios";
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			Municipio temporal = new Municipio(rs.getInt("ID_PROVINCIA"), rs.getInt("ID_MUNICIPIO"),
+					rs.getInt("COD_MUNICIPIO"), rs.getInt("DC"), rs.getString("NOMBRE"));
+			listaMunicipios.add(temporal);
+		}
+		conn.close();
+		
 		return listaMunicipios;
 	}
+	
+        /**
+         * JSON
+         * Metodo para recuperar municipios
+         * @return Devuelve una lista con todos los municipios
+         */
+	private List<Municipio> getMunicipiosJSON(){
+		List<Municipio> listaReturn = (List<Municipio>) JSONtoObject(MUNICIPIO_JSON);
 
-	/**
-	 * Metodo de extracción de provincias de base de datos o JSON La extracción se
-	 * hace en base a la variable modeDB
-	 *
-	 * @return Retorna una lista con objetos provincia
-	 * @throws java.sql.SQLException
-	 */
-	public List<Provincia> getProvincias() throws SQLException {
-		List<Provincia> listaProvincias = new ArrayList<Provincia>();
-
-		// Modo Base de datos
-		if (modeDB) {
-			final String query = "select * from provincias";
-			Statement statement;
-			ResultSet rs;
-
-			conn = DriverManager.getConnection(myUrl, userBD, passBD);
-			statement = conn.createStatement();
-			rs = statement.executeQuery(query);
-			while (rs.next()) {
-				Provincia temporal = new Provincia(rs.getInt("ID_PROVINCIA"), rs.getString("PROVINCIA"));
-				listaProvincias.add(temporal);
-			}
-			conn.close();
-
-			return listaProvincias;
-		} // Modo JSON
-		else {
-			listaProvincias = (List<Provincia>) JSONtoObject(PROVINCIA_JSON);
+		return listaReturn;
+	}
+        
+        private Municipio getMunicipioBD(int idMunicipio) throws SQLException {
+		Municipio municipio = null;
+		
+		final String query = "select * from municipios where ID_MUNICIPIO = ?";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setInt(1, idMunicipio);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+                        municipio = new Municipio();
+			municipio = new Municipio(rs.getInt("ID_PROVINCIA"), rs.getInt("ID_MUNICIPIO"),
+					rs.getInt("COD_MUNICIPIO"), rs.getInt("DC"), rs.getString("NOMBRE"));
+			
+			municipio.setCod_Municipio(rs.getInt("COD_MUNICIPIO"));
+			municipio.setDC(rs.getInt("DC"));
+			municipio.setId_Municipio(rs.getInt("ID_MUNICIPIO"));
+			municipio.setId_Provincia(rs.getInt("ID_PROVINCIA"));
+			municipio.setNombre(rs.getString("NOMBRE"));
+                        
+                        municipio.setProvincia(getProvinciaBD(municipio.getId_Provincia()));
 		}
+		conn.close();
+		
+		
+		
+		
+		return municipio;
+	}
+	
+	/**
+         * Metodo para recuperar provincias
+         * Este metodo dirige a:
+         *  @getProvinciasBD si @modeDB = true
+         *  @getProvinciasJSON si @modeDB = false
+         * @return Devuelve una lista con todas las provincias
+         */
+	public List<Provincia> getProvincias(){
+		if(isModeDB()) {
+			try {
+				return getProvinciasBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getProvinciasJSON();
+		}
+		
+		return null;
+	}
+	
+        /**
+         * BD
+         * Metodo para recuperar provincias
+         * @return Devuelve una lista con todas las provincias
+         * @throws SQLException 
+         */
+	private List<Provincia> getProvinciasBD() throws SQLException{
+		List<Provincia> listaProvincias = new ArrayList<Provincia>();
+		
+		final String query = "select * from provincias";
+		Statement statement;
+		ResultSet rs;
+
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			Provincia temporal = new Provincia(rs.getInt("ID_PROVINCIA"), rs.getString("PROVINCIA"));
+			listaProvincias.add(temporal);
+		}
+		conn.close();
 
 		return listaProvincias;
+	}
+	
+        /**
+         * JSON
+         * Metodo para recuperar provincias
+         * @return Devuelve una lista con todas las provincias
+         */
+	private List<Provincia> getProvinciasJSON(){
+		List<Provincia> listaReturn = (List<Provincia>) JSONtoObject(PROVINCIA_JSON);
+
+		return listaReturn;
+	}
+        
+        private Provincia getProvinciaBD(int idProvincia) throws SQLException {
+		final String query = "select * from PROVINCIAS where ID_PROVINCIA = ?";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setInt(1, idProvincia);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			Provincia provincia = new Provincia(rs.getInt("ID_PROVINCIA"), rs.getString("PROVINCIA"));
+			return provincia;
+		}
+		conn.close();
+		
+		return null;
+	}
+	
+        /**
+         * Metodo para recuperar mensajes
+         * Este metodo dirige a:
+         *  @getMensajesBD si @modeDB = true
+         *  @getMensajesJSON si @modeDB = false
+         * @return Devuelve una lista con todos los mensajes
+         */
+	public List<Mensaje> getMensajes(String dniUsuario, Boolean leido) {
+		if(isModeDB()) {
+			try {
+				return getMensajesBD(dniUsuario, leido);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getMensajesJSON(dniUsuario, leido);
+		}
+		
+		return null;
+	}
+	
+	//recuperar los mensajes de BD
+	private List<Mensaje> getMensajesBD(String dniUsuario, Boolean leido) throws SQLException {
+		List<Mensaje> listaReturn = new ArrayList<Mensaje>();
+		
+		final String query = "select * from MENSAJERIA where DNI_EMISOR = ? or DNI_RECEPTORES = ?";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setString(1, dniUsuario);
+		pstmt.setString(2, dniUsuario);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			listaReturn.add(new Mensaje(rs.getString("DNI_EMISOR"), rs.getString("DNI_RECEPTORES"), 
+					rs.getString("ASUNTO"), rs.getString("MENSAJE"), rs.getBoolean("LEIDO"), rs.getString("ETIQUETA")));
+		}
+		conn.close();
+		
+		return listaReturn;
 	}
 
 	/**
@@ -403,13 +828,13 @@ public class GestorDatos {
 	 *                   pone a null se buscan todos
 	 * @return
 	 */
-	private List<Mensaje> getMensajes(String dniUsuario, Boolean leido) {
+	private List<Mensaje> getMensajesJSON(String dniUsuario, Boolean leido) {
 		List<Mensaje> listaReturn = new ArrayList<Mensaje>();
 
 		List<Mensaje> listaTemporal = getMensajes();
 
 		for (Mensaje mensaje : listaTemporal) {
-			if (mensaje.getDniUsuario().equalsIgnoreCase(dniUsuario)) {
+			if (mensaje.getDni_Emisor().equalsIgnoreCase(dniUsuario) || mensaje.getDni_Receptor().equalsIgnoreCase(dniUsuario)) {
 				if (leido == null || leido == mensaje.isLeido()) {
 					listaReturn.add(mensaje);
 				}
@@ -418,39 +843,106 @@ public class GestorDatos {
 
 		return listaReturn;
 	}
-
-	/**
+        
+        /**
 	 * Metodo encargado de listar todos los mensajes encontrados en el archivo JSON
 	 *
 	 * @return Devuelve una lista con todos los mensajes del archivo JSON
 	 */
-	public List<Mensaje> getMensajes() {
+	private List<Mensaje> getMensajes() {
 		List<Mensaje> listaReturn = (List<Mensaje>) JSONtoObject(MENSAJE_JSON);
 
 		return listaReturn;
 	}
 
-	/**
-	 * Metodo encargado de recuperar las mediciones de Ritmo cardiaco guardados en
-	 * un archivio JSON Se filtra por:
-	 *
-	 * @param dni        Solo se recuperaran los valores del dni marcado
+        /**
+         * Metodo para recuperar etiquetas
+         * Este metodo dirige a:
+         *  @getMensajesBD si @modeDB = true
+         *  @getMensajesJSON si @modeDB = false
+         * @return Devuelve una lista con todas las etiquetas
+         */
+        public List<Etiqueta> getEtiquetas() {
+                if(isModeDB()) {
+			try {
+				return getEtiquetasBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getEtiquetasJSON();
+		}
+                
+                return null;
+        }	
+        
+        /**
+         * BD
+         * Metodo para recuperar etiquetas
+         * @return Devuelve una lista con todas las etiquetas
+         * @throws SQLException 
+         */
+        public List<Etiqueta> getEtiquetasBD() throws SQLException {
+                List<Etiqueta> listaReturn = new ArrayList<>();
+		
+		final String query = "select * from etiqueta";
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			Etiqueta temporal = new Etiqueta(rs.getInt("ID_ETIQUETA"), rs.getString("ETIQUETA"));
+			listaReturn.add(temporal);
+		}
+		conn.close();
+		
+		return listaReturn;
+        }
+        
+        /**
+         * JSON
+         * Metodo para recuperar etiquetas
+         * @return Devuelve una lista con todas las etiquetas
+         */
+        public List<Etiqueta> getEtiquetasJSON(){
+                List<Etiqueta> listaReturn = (List<Etiqueta>) JSONtoObject(ETIQUETA_JSON);
+
+		return listaReturn;
+        }
+	
+        /**
+         * Metodo para recuperar datos ritmo cardiaco
+         * Este metodo dirige a:
+         *  @getRitmoCardiacoBD si @modeDB = true
+         *  @getRitmoCardiacoJSON si @modeDB = false
+         * 
+         * @param dni        Solo se recuperaran los valores del dni marcado
 	 * @param tipoRango  Indica a que tipo hay que sumar la cantidad del rango para
 	 *                   el proximo punto (ANIO, MES, DIA, HORA, MINUTO)
 	 * @param rango      Cantidad a sumar para el proximo punto
 	 * @param fechaDesde Fecha desde donde se quiere empezar a tomar las mediciones
 	 * @param fechaHasta Fecha hasta donde se quieren tomar las mediciones
-	 * @return Devuelve una lista con todos los Ritmos cardiacos encontrados segun
-	 *         el filtro en un archivo JSON
-	 */
+         * 
+	 * @return Devuelve una lista con todos los Ritmos cardiacos encontrados segun el filtro 
+         */
 	public List<RitmoCardiaco> getRitmoCardiaco(String dni, TipoRango tipoRango, int rango, Date fechaDesde,
 			Date fechaHasta) {
 		System.out.println("Tiempo traer los datos inicio: " + new Date());
-		List<RitmoCardiaco> listaReturn = new ArrayList<RitmoCardiaco>();
-
-		// Leer json
-		List<RitmoCardiaco> temporal = (List<RitmoCardiaco>) JSONtoObject(RITMOCARDIACO_JSON);
-
+                
+                List<RitmoCardiaco> listaReturn = new ArrayList<RitmoCardiaco>();
+                List<RitmoCardiaco> temporal = new ArrayList<RitmoCardiaco>();
+                
+                if(isModeDB()) {
+			try {
+				temporal = getRitmoCardiacoBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			temporal = getRitmoCardiacoJSON();
+		}
+		
 		for (RitmoCardiaco prueba : temporal) {
 			if (prueba.getDniPaciente().equals(dni)) {
 				boolean permisos = true;
@@ -474,6 +966,115 @@ public class GestorDatos {
 		System.out.println("Tiempo traer los datos fin: " + new Date());
 		return listaReturn;
 	}
+	
+	/**
+         * BD
+         * Metodo para recuperar datos ritmo cardiaco
+         * @return Devuelve una lista con todos los Ritmos cardiacos
+         * @throws SQLException 
+         */
+	private List<RitmoCardiaco> getRitmoCardiacoBD() throws SQLException {
+		List<RitmoCardiaco> listaReturn = new ArrayList<>();
+		
+		final String query = "select * from sensor_ritmo_cardiaco";
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+			RitmoCardiaco temporal = new RitmoCardiaco(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getInt("VALOR"));
+			listaReturn.add(temporal);
+		}
+		conn.close();
+		
+		return listaReturn;
+	}
+
+	/**
+         * JSON
+         * Metodo para recuperar datos ritmo cardiaco
+         * @return Devuelve una lista con todos los Ritmos cardiacos
+         */
+	private List<RitmoCardiaco> getRitmoCardiacoJSON() {
+		List<RitmoCardiaco> listaReturn = (List<RitmoCardiaco>) JSONtoObject(RITMOCARDIACO_JSON);
+                
+                return listaReturn;		
+	}
+	
+	public List<Presencia> getPresencias(String dniPaciente, Date fechaDesde, Date fechaHasta,
+			TipoPresencia idTipoPresencia) 
+        {
+            List<Presencia> listaReturn = new ArrayList<>();
+
+            List<Presencia> listaTemporal = new ArrayList<>();
+
+            List<TipoPresencia> tiposPresencias = getTiposPresencias();
+            
+            if(isModeDB()) 
+            {
+                try {
+                        listaTemporal = getPresenciasBD();
+                } catch (SQLException e) {
+                        e.printStackTrace();
+                }
+            } 
+            else 
+            {
+                    listaTemporal = getPresenciasJSON();
+            }
+
+            
+
+            for (Presencia presencia : listaTemporal) {
+                    boolean permisos = true;
+
+                    if (presencia.getDni_paciente().equalsIgnoreCase(dniPaciente)) {
+
+                            if (fechaDesde != null && fechaDesde.compareTo(presencia.getFecha()) > 0) {
+                                    permisos = false;
+                            }
+
+                            if (fechaHasta != null && fechaHasta.compareTo(presencia.getFecha()) < 0) {
+                                    permisos = false;
+                            }
+
+                            if (permisos) {
+                                    // Setear el objeto tipoPresencia
+                                    for (TipoPresencia tipoPresencia : tiposPresencias) {
+                                            if (idTipoPresencia == null || idTipoPresencia.getId() == tipoPresencia.getId()) {
+                                                    if (tipoPresencia.getId() == presencia.getId_tipo_presencia()) {
+                                                            presencia.setTipoPresencia(tipoPresencia);
+                                                            listaReturn.add(presencia);
+                                                            break;
+                                                    }
+                                            }
+                                    }
+                            }
+                    }
+            }
+
+            return listaReturn;
+	}
+	
+	private List<Presencia> getPresenciasBD() throws SQLException 
+        {
+            List<Presencia> listaReturn = new ArrayList<>();
+		
+            final String query = "select * from SENSOR_PRESENCIA";
+            Statement statement;
+            ResultSet rs;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next()) {
+                    Presencia temporal = new Presencia(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getInt("ID_TIPO_PRESENCIA"));
+                    listaReturn.add(temporal);
+            }
+            conn.close();
+
+            return listaReturn;
+	}
 
 	/**
 	 * Metodo encargado de filtrar las presencias por DNI del paciente
@@ -486,67 +1087,117 @@ public class GestorDatos {
 	 *                        NULL se buscarán todos los tipos de presencias
 	 * @return
 	 */
-	public List<Presencia> getPresencias(String dniPaciente, Date fechaDesde, Date fechaHasta,
-			TipoPresencia idTipoPresencia) {
-		List<Presencia> listaReturn = new ArrayList<Presencia>();
-
-		List<Presencia> listaTemporal = getPresencias();
-
-		List<TipoPresencia> tiposPresencias = getTiposPresencias();
-
-		for (Presencia presencia : listaTemporal) {
-			boolean permisos = true;
-
-			if (presencia.getDni_paciente().equalsIgnoreCase(dniPaciente)) {
-
-				if (fechaDesde != null && fechaDesde.compareTo(presencia.getFecha()) > 0) {
-					permisos = false;
-				}
-
-				if (fechaHasta != null && fechaHasta.compareTo(presencia.getFecha()) < 0) {
-					permisos = false;
-				}
-
-				if (permisos) {
-					// Setear el objeto tipoPresencia
-					for (TipoPresencia tipoPresencia : tiposPresencias) {
-						if (idTipoPresencia == null || idTipoPresencia.getId() == tipoPresencia.getId()) {
-							if (tipoPresencia.getId() == presencia.getId_tipo_presencia()) {
-								presencia.setTipoPresencia(tipoPresencia);
-								listaReturn.add(presencia);
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		return listaReturn;
-	}
-
-	/**
-	 * Metodo encargado de listar todas las presencias encontrados en el archivo
-	 * JSON
-	 *
-	 * @return Devuelve una lista con todos las presencias del archivo JSON
-	 */
-	private List<Presencia> getPresencias() {
+	private List<Presencia> getPresenciasJSON() {
 		List<Presencia> listaReturn = (List<Presencia>) JSONtoObject(PRESENCIA_JSON);
-
-		return listaReturn;
+                
+                return listaReturn;
 	}
 
+	public List<TipoPresencia> getTiposPresencias(){
+		if(isModeDB()) {
+			try {
+				return getTiposPresenciasBD();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+                    return getTiposPresenciasJSON();
+		}
+		
+		return null;
+	}
+	
+	//Recuperar todos los tipos de presencias de BD
+	private List<TipoPresencia> getTiposPresenciasBD() throws SQLException
+        {
+            List<TipoPresencia> listaReturn = new ArrayList<>();
+		
+            final String query = "select * from TIPO_PRESENCIA";
+            Statement statement;
+            ResultSet rs;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next()) 
+            {
+                TipoPresencia temporal = new TipoPresencia(rs.getInt("ID_PRESENCIA"), rs.getString("LUGAR"));
+                listaReturn.add(temporal);
+            }
+            conn.close();
+
+            return listaReturn;
+	}
+	
 	/**
 	 * Metodo encargado de listar todos los tipos de presencias encontrados en el
 	 * archivo JSON
 	 *
 	 * @return Devuelve una lista con todos los tipos de presencias del archivo JSON
 	 */
-	public List<TipoPresencia> getTiposPresencias() {
+	private List<TipoPresencia> getTiposPresenciasJSON() {
 		List<TipoPresencia> listaReturn = (List<TipoPresencia>) JSONtoObject(TIPOPRESENCIA_JSON);
 
 		return listaReturn;
+	}
+	
+	public List<PuertaCalle> getPuertaCalle(String dniPaciente, Date fechaDesde, Date fechaHasta) {
+            List<PuertaCalle> listaReturn = new ArrayList<>();
+            List<PuertaCalle> listaTemporal = new ArrayList<>();
+            
+            if(isModeDB()) {
+                    try {
+                        listaTemporal = getPuertaCalleBD();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+            } else {
+                    listaTemporal = getPuertaCalleJSON();
+            }
+                
+            
+
+            for (PuertaCalle puertaCalle : listaTemporal) 
+            {
+                if (puertaCalle.getDniPaciente().equalsIgnoreCase(dniPaciente)) 
+                {
+                    boolean permisos = true;    
+                    if (fechaDesde != null && fechaDesde.compareTo(puertaCalle.getFecha()) > 0) 
+                    {
+                            permisos = false;
+                    }
+
+                    if (fechaHasta != null && fechaHasta.compareTo(puertaCalle.getFecha()) < 0) 
+                    {
+                            permisos = false;
+                    }
+
+                    if (permisos) 
+                    {
+                        listaReturn.add(puertaCalle);
+                    }
+                }
+            }
+
+            return listaReturn;
+	}
+	
+	private List<PuertaCalle> getPuertaCalleBD() throws SQLException {
+            List<PuertaCalle> listaReturn = new ArrayList<>();
+		
+            final String query = "select * from SENSOR_PUERTA_CALLE";
+            Statement statement;
+            ResultSet rs;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next()) 
+            {
+                PuertaCalle temporal = new PuertaCalle(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getBoolean("ABIERTA"));
+                listaReturn.add(temporal);
+            }
+            conn.close();
+
+            return listaReturn;
 	}
 
 	/**
@@ -559,42 +1210,11 @@ public class GestorDatos {
 	 * @param fechaHasta      Fecha hasta donde hay que coger los valores
 	 * @return
 	 */
-	public List<PuertaCalle> getPuertaCalle(String dniPaciente, Date fechaDesde, Date fechaHasta) {
-		List<PuertaCalle> listaReturn = new ArrayList<PuertaCalle>();
+	private List<PuertaCalle> getPuertaCalleJSON() 
+        {
+            List<PuertaCalle> listaReturn = (List<PuertaCalle>) JSONtoObject(PUERTACALLE_JSON);
 
-		List<PuertaCalle> listaTemporal = (List<PuertaCalle>) JSONtoObject(PUERTACALLE_JSON);
-
-		for (PuertaCalle puertaCalle : listaTemporal) {
-                    if (puertaCalle.getDniPaciente().equalsIgnoreCase(dniPaciente)) {
-                        boolean permisos = true;    
-                        if (fechaDesde != null && fechaDesde.compareTo(puertaCalle.getFecha()) > 0) {
-                                permisos = false;
-                        }
-
-                        if (fechaHasta != null && fechaHasta.compareTo(puertaCalle.getFecha()) < 0) {
-                                permisos = false;
-                        }
-
-                        if (permisos) {
-                            listaReturn.add(puertaCalle);
-                        }
-                    }
-		}
-
-		return listaReturn;
-	}
-
-	/**
-	 * Metodo encargado de listar todos los valores de la puerta de la calle
-	 * encontrados en el archivo JSON
-	 *
-	 * @return Devuelve una lista con todos los valores de la puerta de la calle del
-	 *         archivo JSON
-	 */
-	public List<PuertaCalle> getPuertaCalle() {
-		List<PuertaCalle> listaReturn = (List<PuertaCalle>) JSONtoObject(PUERTACALLE_JSON);
-
-		return listaReturn;
+            return listaReturn;
 	}
 
 	/**
@@ -604,11 +1224,12 @@ public class GestorDatos {
 	 * @param fileJson
 	 * @return Lista de los objetos del archivo json seleccionado
 	 */
-	private List<?> JSONtoObject(String fileJson) {
+	private List<?> JSONtoObject(String fileJson) 
+        {
 		try {
 			BufferedReader in = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream(RUTA_JSON + fileJson + EXT_JSON), "UTF8"));
+                                                new InputStreamReader(
+                                                    new FileInputStream(RUTA_JSON + fileJson + EXT_JSON), "UTF8"));
 			Type listType = null;
 
 			if (fileJson.equals(RITMOCARDIACO_JSON)) {
@@ -812,43 +1433,52 @@ public class GestorDatos {
 	 *         con el DNI y la contraseña
 	 * @throws SQLException
 	 */
-	public Usuario login(String dni, String pass) throws SQLException {
-		// MODO DB
-		if (modeDB) {
-			final String query = "SELECT * FROM USUARIO WHERE DNI = ?";
-			conn = DriverManager.getConnection(myUrl, userBD, passBD);
-			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, dni);
-			ResultSet resultSet = pstmt.executeQuery();
-			while (resultSet.next()) {
-				Usuario user = new Usuario(resultSet.getInt("ID_ROL"), resultSet.getInt("ID_MUNICIPIO"),
-						resultSet.getString("DNI"), resultSet.getString("NOMBRE"), resultSet.getString("APELLIDOS"),
-						resultSet.getString("PASS_HASHED"), resultSet.getBytes("SALT"), resultSet.getString("EMAIL"),
-						resultSet.getString("TLF_MOVIL"), resultSet.getString("TLF_FIJO"),
-						resultSet.getString("DIRECCION"));
-				if (getHash(pass, user.getSalt()).equals(resultSet.getString("PASS_HASHED"))) {
-					conn.close();
-					return user;
-				}
+	public Usuario login(String dni, String pass) {
+		if(isModeDB()) {
+			try {
+				return loginBD(dni, pass);
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			conn.close();
-		} // MODO JSON
-		else {
-			List<String> listaDni = new ArrayList<String>();
-			listaDni.add(dni);
-			List<Usuario> listaUsuario = getUsuarios(listaDni, null, true, true);
+		} else {
+			return loginJSON(dni, pass);
+		}
+		
+		return null;
+	}
+	
+	public Usuario loginBD(String dni, String pass) throws SQLException{
+		List<String> listaDni = new ArrayList<String>();
+		listaDni.add(dni);
+		List<Usuario> listaUsuario = getUsuarios(listaDni, null, true, true);
 
-			if (listaUsuario != null && !listaUsuario.isEmpty()) {
-				for (Usuario usuario : listaUsuario) {
-					if (getHash(pass, usuario.getSalt()).equals(usuario.getPass_Hashed())) {
-						return usuario;
-					}
+		if (listaUsuario != null && !listaUsuario.isEmpty()) {
+			for (Usuario usuario : listaUsuario) {
+				if (getHash(pass, usuario.getSalt()).equals(usuario.getPass_Hashed())) {
+					return usuario;
 				}
 			}
 		}
+		
 		return null;
 	}
+	
+	private Usuario loginJSON(String dni, String pass) {
+		List<String> listaDni = new ArrayList<String>();
+		listaDni.add(dni);
+		List<Usuario> listaUsuario = getUsuarios(listaDni, null, true, true);
 
+		if (listaUsuario != null && !listaUsuario.isEmpty()) {
+			for (Usuario usuario : listaUsuario) {
+				if (getHash(pass, usuario.getSalt()).equals(usuario.getPass_Hashed())) {
+					return usuario;
+				}
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Metodo para comprobar si el dni existe en la base de datos
 	 *
@@ -856,184 +1486,271 @@ public class GestorDatos {
 	 * @return true si esta repetido, false si no lo esta
 	 * @throws SQLException
 	 */
-	public boolean DNIRepetido(Usuario user) throws SQLException {
-		// Modo Base de datos
-		if (modeDB) {
-			final String query = "SELECT * FROM USUARIO WHERE DNI = ?";
-			conn = DriverManager.getConnection(myUrl, userBD, passBD);
-			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, user.getDni());
-			ResultSet resultSet = pstmt.executeQuery();
-			if (resultSet.next()) {
-				conn.close();
-				return true;
+	public boolean DNIRepetido(String dni) {
+		if(isModeDB()) {
+			try {
+				return DNIRepetidoDB(dni);
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			conn.close();
-		} 
-                // Modo JSON
-		else {
-			List<Usuario> listaUsuario = getUsuarios(null, null, false, false);
-
-			for (Usuario usuarioLista : listaUsuario) {
-				if (usuarioLista.getDni().equalsIgnoreCase(user.getDni())) {
-					return true;
-				}
-			}
+		} else {
+			return DNIRepetidoJSON(dni);
 		}
+		
 		return false;
 	}
+	
+	private boolean DNIRepetidoDB(String dni) throws SQLException {
+		final String query = "SELECT * FROM USUARIO WHERE DNI = ?";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, dni);
+		ResultSet resultSet = pstmt.executeQuery();
+		if (resultSet.next()) {
+			conn.close();
+			return true;
+		}
+		conn.close();
+		
+		return false;
+	}
+	
+	public boolean DNIRepetidoJSON(String dni) {
+		List<Usuario> listaUsuario = getUsuarios(null, null, false, false);
 
-        
-        /**
-        * Metodo de registro de usuarios
-        *
-        * @param editar parametro que nos dice que es un nuevo registro o una update a uno ya existente
-        * @param passCambiada para saber si ha cambiado la contraseña
-        * @param user mandas usuario reyenado
-        * @param pass mandas contraseña para hashear
-        * @param aEditar valores del usuario antes de editar
-        * @return retorna true si ha tenido exito al crear el usuario o false si no
-        * @throws SQLException
-        * @throws              java.security.NoSuchAlgorithmException
-        */
-	public boolean registroUsuario(boolean editar, boolean passCambiada, Usuario user, String pass, Usuario aEditar) throws SQLException, NoSuchAlgorithmException 
+		for (Usuario usuarioLista : listaUsuario) {
+			if (usuarioLista.getDni().equalsIgnoreCase(dni)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean registroUsuario(boolean editar, boolean passCambiada, Usuario user, String pass, Usuario aEditar)
         {
-            if (!DNIRepetido(user) || editar) 
+            if (!DNIRepetido(user.getDni()) || editar) 
             {
                 if (passCambiada)
                 {
                     byte[] salt = null;
-                    salt = getSalt();
+
+                    try 
+                    {
+                        salt = getSalt();
+                    } 
+                    catch (NoSuchAlgorithmException e) 
+                    {
+                        //Si salta una excepcion al generar el SALT no guardaremos el usuario
+                        e.printStackTrace();
+                        return false;
+                    }
+
                     String contrasenaHashed = getHash(pass, salt);
 
                     user.setSalt(salt);
                     user.setPass_Hashed(contrasenaHashed);
                 }
 
-                // MODO BDATOS
-                if (modeDB) 
-                {
-                    //SI ESTA EN MODO EDITAR ES UN UPDATE NO UN INSERT
-                    //esto lo hare mas adelante ***
-                    if (editar)
+                if(isModeDB()) {
+                    try 
                     {
-                        
-                    }
-                    else
+                        return registroUsuarioBD(editar, user, aEditar, passCambiada);
+                    } 
+                    catch (SQLException e) 
                     {
-                        String query = "insert into USUARIO(DNI, PASS_HASHED, ID_ROL, NOMBRE, APELLIDOS, EMAIL, TLF_MOVIL, TLF_FIJO, ID_MUNICIPIO, DIRECCION, SALT)"
-                                        + " values (?,?,?,?,?,?,?,?,?,?,?);";
-
-                        conn = DriverManager.getConnection(myUrl, userBD, passBD);
-
-
-                        // Preparar el statement
-                        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-                            pstmt.setString(1, user.getDni());
-                            pstmt.setString(2, user.getPass_Hashed());
-                            pstmt.setInt(3, user.getId_Rol());
-                            pstmt.setString(4, user.getNombre());
-                            pstmt.setString(5, user.getApellidos());
-                            pstmt.setString(6, user.getEmail());
-                            pstmt.setString(7, user.getTlf_Movil());
-                            pstmt.setString(8, user.getTlf_Fijo());
-                            if (user.getId_Muncipio() == -1)
-                                pstmt.setNull(9, java.sql.Types.INTEGER);
-                            else
-                                pstmt.setInt(9, user.getId_Muncipio());
-                            pstmt.setString(10, user.getDireccion());
-                            pstmt.setBytes(11, user.getSalt());
-                            pstmt.executeUpdate();
-
-                        }
-                        conn.close();
-                        return true;
+                        e.printStackTrace();
                     }
-                }
-                //MODO JSON
+                } 
                 else 
                 {
-                    List<Usuario> listaUsuario = getUsuarios(null, null, false, false);
-                    if (editar)
-                    {
-                        for(int i = 0; i < listaUsuario.size(); i++) 
-                        {        
-                            Usuario u = listaUsuario.get(i);
-                            
-//                            String a1 = u.getDni();
-//                            String a2 = user.getDni();
-//                            System.out.println(i + " = \n\"" + u.getDni() + "\"" + "\n\"" + user.getDni() + "\"\n");
-                            if (u.getDni() == null ? aEditar.getDni() == null : u.getDni().equals(aEditar.getDni()))
-                            {
-                                System.out.println("test");
-                                listaUsuario.set(i, user);
-                            }
-                        }
-//                        listaUsuario.stream().filter((u) -> (u.getDni().equals(user.getDni()))).forEachOrdered((u) -> {
-//                            u = user;
-//                        });
-                    }
-                    else 
-                    {
-                        listaUsuario.add(user);
-                    }
-                    ObjecttoJson(listaUsuario, USUARIO_JSON);
-                    return true;
+                    return registroUsuarioJSON(editar, user, aEditar);
                 }
-            }
-            //SI EL DNI ESTA REPETIDO RETURN FALSE
+            }		
             return false;
 	}
-
-        /**
-         * Metodo registro de asignacion, trae una asignacion ya creada y la guarda en BD o JSON
-        * @param editar parametro que nos dice que es un nuevo registro o una update a uno ya existente
-        * @param pListAsignacion asignaciones que deberemos actualizar o insertar
-        * @return
-        * @throws SQLException 
-        */
-        public boolean registroAsignacion(boolean editar, List<Asignacion> pListAsignacion) throws SQLException
+	
+	/**
+     * Metodo de registro de usuarios
+     *
+     * @param editar parametro que nos dice que es un nuevo registro o una update a uno ya existente
+     * @param passCambiada para saber si ha cambiado la contraseña
+     * @param user mandas usuario reyenado
+     * @param pass mandas contraseña para hashear
+     * @param aEditar valores del usuario antes de editar
+     * @return retorna true si ha tenido exito al crear el usuario o false si no
+     * @throws SQLException
+     * @throws              java.security.NoSuchAlgorithmException
+     */
+	public boolean registroUsuarioBD(boolean editar, Usuario user, Usuario aEditar, boolean passCambiada) throws SQLException
         {
-            //Modo base de datos
-            if (modeDB)
+            //SI ESTA EN MODO EDITAR ES UN UPDATE NO UN INSERT
+            //esto lo hare mas adelante ***
+            String query;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            PreparedStatement preparedStmt;
+            if (editar) 
             {
-                return true;
-            }
-            //Modo JSON
-            else
-            {                
-                List<Asignacion> listaAsignacion = getAsignaciones(false);
+                query = "DELETE FROM usuario WHERE dni = ?";
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, aEditar.getDni());
+                preparedStmt.execute();
                 
-                //SI ESTA EN MODO EDITAR TRAEMOS ASIGNACIONES Y BORRAMOS LAS QUE TENGA EL USUARIO
-                if (editar)
+                
+                // UPDATE DE POSIBLES USUARIOS ASIGNADOS A ESTE USUARIO
+                query = "UPDATE ASIGNACION SET DNI_ASIGNADO = ? WHERE DNI_ASIGNADO = ?";
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, user.getDni());
+                preparedStmt.setString(2, aEditar.getDni());
+                preparedStmt.execute();
+            }
+            
+            query = "insert into USUARIO(DNI, PASS_HASHED, ID_ROL, NOMBRE, APELLIDOS, EMAIL, TLF_MOVIL, TLF_FIJO, ID_MUNICIPIO, DIRECCION, SALT)"
+                            + " values (?,?,?,?,?,?,?,?,?,?,?);";
+
+            
+
+
+            // Preparar el statement
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, user.getDni());
+            if (passCambiada)
+                preparedStmt.setString(2, user.getPass_Hashed());
+            else
+                preparedStmt.setString(2, aEditar.getPass_Hashed());
+            preparedStmt.setInt(3, user.getId_Rol());
+            preparedStmt.setString(4, user.getNombre());
+            preparedStmt.setString(5, user.getApellidos());
+            preparedStmt.setString(6, user.getEmail());
+            preparedStmt.setString(7, user.getTlf_Movil());
+            preparedStmt.setString(8, user.getTlf_Fijo());
+            if (user.getId_Muncipio() == -1)
+                preparedStmt.setNull(9, java.sql.Types.INTEGER);
+            else
+                preparedStmt.setInt(9, user.getId_Muncipio());
+            preparedStmt.setString(10, user.getDireccion());
+            if (passCambiada)
+                preparedStmt.setBytes(11, user.getSalt());
+            else
+                preparedStmt.setBytes(11, aEditar.getSalt());
+            preparedStmt.execute();
+
+            conn.close();
+            return true;            
+	}
+	
+	public boolean registroUsuarioJSON(boolean editar, Usuario user, Usuario aEditar) 
+        {
+            List<Usuario> listaUsuario = getUsuarios(null, null, false, false);
+                
+            if (editar)
+            {
+                for(int i = 0; i < listaUsuario.size(); i++) 
+                {        
+                    Usuario u = listaUsuario.get(i);
+
+                    if (u.getDni() == null ? aEditar.getDni() == null : u.getDni().equals(aEditar.getDni()))
+                    {
+                        System.out.println("test");
+                        listaUsuario.set(i, user);
+                    }
+                }
+            }
+            else 
+            {
+                listaUsuario.add(user);
+            }
+            ObjecttoJson(listaUsuario, USUARIO_JSON);
+            return true;
+	}
+    
+	/**
+    * Metodo registro de asignacion, trae una asignacion ya creada y la guarda en BD o JSON
+    * @param editar parametro que nos dice que es un nuevo registro o una update a uno ya existente
+    * @param pListAsignacion asignaciones que deberemos actualizar o insertar
+    * @return
+    */
+	public boolean registroAsignacion(boolean editar, List<Asignacion> pListAsignacion)
+        {
+            if(isModeDB()) 
+            {
+                try 
                 {
-                    for(int i = 0; i < listaAsignacion.size(); i++) 
-                    {        
-                        Asignacion a = listaAsignacion.get(i);
-                        
-                        for (Asignacion a2 : pListAsignacion)
+                    return registroAsignacionBD(editar, pListAsignacion);
+                } 
+                catch (SQLException e) 
+                {
+                    e.printStackTrace();
+                }
+            } 
+            else 
+            {
+                return registroAsignacionJSON(editar, pListAsignacion);
+            }
+
+            return false;
+	}
+	
+	public boolean registroAsignacionBD(boolean editar, List<Asignacion> pListAsignacion) throws SQLException 
+        {
+            //tengo que meter inserts de cada objeto de la lista recorriendo la lista
+            // para editar tengo que recorrer la lista de parametro y borrar las asignaciones que existan en base al getDni_asociado para luego meterlas como estan arriba
+            String query;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            if (editar) 
+            {
+                query = "DELETE FROM ASIGNACION WHERE DNI_ASOCIADO = ?";
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, pListAsignacion.get(0).getDni_Asociado());
+                preparedStmt.execute();
+            }
+            
+            for (Asignacion a : pListAsignacion)
+            {
+                query = "insert into ASIGNACION(DNI_ASOCIADO, DNI_ASIGNADO, ID_TIPO)" 
+                    + " values (?,?,?)";
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, a.getDni_Asociado());
+                preparedStmt.setString(2, a.getDni_Asignado());
+                preparedStmt.setInt(3, a.getId_Tipo());
+                preparedStmt.execute();
+            }
+            
+            return true;
+	}
+
+	public boolean registroAsignacionJSON(boolean editar, List<Asignacion> pListAsignacion) 
+        {
+            List<Asignacion> listaAsignacion = getAsignaciones(null, null, false);
+        
+            //SI ESTA EN MODO EDITAR TRAEMOS ASIGNACIONES Y BORRAMOS LAS QUE TENGA EL USUARIO
+            if (editar)
+            {
+                for(int i = 0; i < listaAsignacion.size(); i++) 
+                {        
+                    Asignacion a = listaAsignacion.get(i);
+
+                    for (Asignacion a2 : pListAsignacion)
+                    {
+                        if (a2.getId_Tipo() == a.getId_Tipo() && 
+                                a2.getDni_Asociado().equals(a.getDni_Asociado()))
                         {
-                            if (a2.getId_Tipo() == a.getId_Tipo() && 
-                                    a2.getDni_Asociado().equals(a.getDni_Asociado()))
-                            {
-                                listaAsignacion.set(i, a2);
-                            }
+                            listaAsignacion.set(i, a2);
                         }
                     }
                 }
-                else
-                {
-                   pListAsignacion.forEach((as) -> {
-                    listaAsignacion.add(as);
-                    }); 
-                }
-                
-                ObjecttoJson(listaAsignacion, ASIGNACION_JSON);
-                return true;
             }
-        }
-        
+            else
+            {
+               pListAsignacion.forEach((as) -> {
+                listaAsignacion.add(as);
+                }); 
+            }
+
+            ObjecttoJson(listaAsignacion, ASIGNACION_JSON);
+            return true;
+	}
+
 	/**
 	 * Metodo para encriptar una contraseña a partir de un SALT
 	 *
@@ -1080,4 +1797,38 @@ public class GestorDatos {
 
 		return salt;
 	}
+        
+        
+        /**
+	 * Metodo encargado de agregar un valor no repetido en una lista
+	 *
+	 * @param lista
+	 * @param valor
+	 */
+	private void agregarValorNoRepetidoLista(List<String> lista, String valor) {
+		boolean valorRepetido = false;
+
+		for (String string : lista) {
+			if (string.equalsIgnoreCase(valor)) {
+				valorRepetido = true;
+				break;
+			}
+		}
+
+		if (!valorRepetido) {
+			lista.add(valor);
+		}
+	}
+        
+        public List<Alerta> getAlertas(List<String> dniLista) {
+		return null;
+	}
+	
+	public List<Nota> getNotas(String dni){
+		return null;
+	}
+        
+        public boolean borrarNota(int id){
+            return true;
+        }
 }

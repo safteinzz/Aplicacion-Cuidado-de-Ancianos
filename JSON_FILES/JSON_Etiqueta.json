@@ -1,0 +1,15 @@
+[
+	{
+		"ID_ETIQUETA": "1",
+		"ETIQUETA": "Consulta"
+	}, {
+		"ID_ETIQUETA": "2",
+		"ETIQUETA": "Revisión"
+	}, {
+		"ID_ETIQUETA": "3",
+		"ETIQUETA": "Resultados"
+	}, {
+		"ID_ETIQUETA": "4",
+		"ETIQUETA": "Tratamiento"
+	}
+]

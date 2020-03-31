@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import pinfui.dto.LabelDTO;
 import pinfui.dto.TipoSensor;
-import pinfui.dto.TipoVentana;
 import pinfui.entidades.Usuario;
 
 /**
@@ -72,11 +71,15 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         jSeparator2 = new javax.swing.JSeparator();
         panelMenuInicio = new javax.swing.JPanel();
         labelMenuInicio = new javax.swing.JLabel();
+        imagenMenuInicio = new javax.swing.JLabel();
         panelMenuCardiaco = new javax.swing.JPanel();
         labelMenuCardiaco = new javax.swing.JLabel();
+        imagenMenuCardiaco = new javax.swing.JLabel();
         panelMenuMensajeria = new javax.swing.JPanel();
         labelMenuMensajeria = new javax.swing.JLabel();
         iconCorreo = new javax.swing.JLabel();
+        imagenMenuMensajeria = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         panelDatosVentana = new javax.swing.JPanel();
         panelInicio = new javax.swing.JPanel();
         jWelcome = new javax.swing.JButton();
@@ -84,6 +87,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelVentanaMensajeria = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1375, 1000));
 
         panelVentana.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,7 +106,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
             .addGroup(panelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelNombreUser)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelUsuarioLayout.setVerticalGroup(
             panelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +120,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
 
         panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
         panelMenuInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        panelMenuInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelMenuInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelMenuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelMenuInicioMouseClicked(evt);
@@ -132,26 +136,39 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         labelMenuInicio.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelMenuInicio.setText("Inicio");
 
+        imagenMenuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/boton_menu/boton_menu1.png"))); // NOI18N
+        imagenMenuInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout panelMenuInicioLayout = new javax.swing.GroupLayout(panelMenuInicio);
         panelMenuInicio.setLayout(panelMenuInicioLayout);
         panelMenuInicioLayout.setHorizontalGroup(
             panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuInicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelMenuInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelMenuInicioLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(labelMenuInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelMenuInicioLayout.createSequentialGroup()
+                    .addComponent(imagenMenuInicio)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         panelMenuInicioLayout.setVerticalGroup(
             panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuInicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelMenuInicio)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 46, Short.MAX_VALUE)
+            .addGroup(panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelMenuInicioLayout.createSequentialGroup()
+                    .addGap(0, 15, Short.MAX_VALUE)
+                    .addComponent(labelMenuInicio)
+                    .addGap(0, 15, Short.MAX_VALUE)))
+            .addGroup(panelMenuInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imagenMenuInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelMenuCardiaco.setBackground(new java.awt.Color(0, 153, 255));
         panelMenuCardiaco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        panelMenuCardiaco.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelMenuCardiaco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelMenuCardiaco.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelMenuCardiacoMouseClicked(evt);
@@ -167,26 +184,32 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         labelMenuCardiaco.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelMenuCardiaco.setText("Sensor de ritmo cardiaco");
 
+        imagenMenuCardiaco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/boton_menu/boton_menu1.png"))); // NOI18N
+        imagenMenuCardiaco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout panelMenuCardiacoLayout = new javax.swing.GroupLayout(panelMenuCardiaco);
         panelMenuCardiaco.setLayout(panelMenuCardiacoLayout);
         panelMenuCardiacoLayout.setHorizontalGroup(
             panelMenuCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuCardiacoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(labelMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
+            .addGroup(panelMenuCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imagenMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMenuCardiacoLayout.setVerticalGroup(
             panelMenuCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuCardiacoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelMenuCardiaco)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(labelMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelMenuCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imagenMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelMenuMensajeria.setBackground(new java.awt.Color(0, 153, 255));
         panelMenuMensajeria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        panelMenuMensajeria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelMenuMensajeria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelMenuMensajeria.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelMenuMensajeriaMouseClicked(evt);
@@ -205,6 +228,9 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         iconCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/correo.png"))); // NOI18N
         iconCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        imagenMenuMensajeria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/boton_menu/boton_menu1.png"))); // NOI18N
+        imagenMenuMensajeria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout panelMenuMensajeriaLayout = new javax.swing.GroupLayout(panelMenuMensajeria);
         panelMenuMensajeria.setLayout(panelMenuMensajeriaLayout);
         panelMenuMensajeriaLayout.setHorizontalGroup(
@@ -215,26 +241,39 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(iconCorreo)
                 .addContainerGap())
+            .addGroup(panelMenuMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imagenMenuMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMenuMensajeriaLayout.setVerticalGroup(
             panelMenuMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuMensajeriaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(iconCorreo)
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(panelMenuMensajeriaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelMenuMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iconCorreo)
-                    .addComponent(labelMenuMensajeria))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(labelMenuMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelMenuMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imagenMenuMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout panelOtrasVentanasLayout = new javax.swing.GroupLayout(panelOtrasVentanas);
         panelOtrasVentanas.setLayout(panelOtrasVentanasLayout);
         panelOtrasVentanasLayout.setHorizontalGroup(
             panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenuCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelMenuMensajeria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelMenuInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
+                .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelMenuMensajeria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelMenuInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelMenuCardiaco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
         );
         panelOtrasVentanasLayout.setVerticalGroup(
             panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,6 +283,8 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMenuCardiaco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(panelMenuMensajeria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(panelOtrasVentanasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelOtrasVentanasLayout.createSequentialGroup()
@@ -256,7 +297,9 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelBarraIzquierdaLayout.setHorizontalGroup(
             panelBarraIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelOtrasVentanas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelBarraIzquierdaLayout.createSequentialGroup()
+                .addComponent(panelOtrasVentanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelBarraIzquierdaLayout.setVerticalGroup(
             panelBarraIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,16 +325,16 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelInicio.setLayout(panelInicioLayout);
         panelInicioLayout.setHorizontalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 938, Short.MAX_VALUE)
+            .addGap(0, 1038, Short.MAX_VALUE)
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelInicioLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE)
+                    .addComponent(jWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         panelInicioLayout.setVerticalGroup(
             panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
             .addGroup(panelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelInicioLayout.createSequentialGroup()
                     .addContainerGap()
@@ -305,7 +348,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelVentanaCardiaco.setLayout(panelVentanaCardiacoLayout);
         panelVentanaCardiacoLayout.setHorizontalGroup(
             panelVentanaCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 1042, Short.MAX_VALUE)
         );
         panelVentanaCardiacoLayout.setVerticalGroup(
             panelVentanaCardiacoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +361,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelVentanaMensajeria.setLayout(panelVentanaMensajeriaLayout);
         panelVentanaMensajeriaLayout.setHorizontalGroup(
             panelVentanaMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 918, Short.MAX_VALUE)
+            .addGap(0, 1042, Short.MAX_VALUE)
         );
         panelVentanaMensajeriaLayout.setVerticalGroup(
             panelVentanaMensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +372,7 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelDatosVentana.setLayout(panelDatosVentanaLayout);
         panelDatosVentanaLayout.setHorizontalGroup(
             panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosVentanaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVentanaLayout.createSequentialGroup()
                 .addComponent(panelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelDatosVentanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,23 +423,37 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelMenuCardiacoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseEntered
-        panelMenuCardiaco.setBackground(new java.awt.Color(0, 102, 204));
-        panelMenuCardiaco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+//        panelMenuCardiaco.setBackground(new java.awt.Color(0, 102, 204));
+//        panelMenuCardiaco.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        
+        terminarHiloButton = false;
+        imagenMenuCardiaco.setVisible(true);
+        crearHiloCambioIconButton(imagenMenuCardiaco);
     }//GEN-LAST:event_panelMenuCardiacoMouseEntered
 
     private void panelMenuCardiacoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseExited
-        panelMenuCardiaco.setBackground(new java.awt.Color(0, 153, 255));
-        panelMenuCardiaco.setBorder(null);
+//        panelMenuCardiaco.setBackground(new java.awt.Color(0, 153, 255));
+//        panelMenuCardiaco.setBorder(null);
+        
+        terminarHiloButton = false;
+        imagenMenuCardiaco.setVisible(false);
     }//GEN-LAST:event_panelMenuCardiacoMouseExited
 
     private void panelMenuMensajeriaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseEntered
-        panelMenuMensajeria.setBackground(new java.awt.Color(0, 102, 204));
-        panelMenuMensajeria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+//        panelMenuMensajeria.setBackground(new java.awt.Color(0, 102, 204));
+//        panelMenuMensajeria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        
+        terminarHiloButton = false;
+        imagenMenuMensajeria.setVisible(true);
+        crearHiloCambioIconButton(imagenMenuMensajeria);
     }//GEN-LAST:event_panelMenuMensajeriaMouseEntered
 
     private void panelMenuMensajeriaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseExited
-        panelMenuMensajeria.setBackground(new java.awt.Color(0, 153, 255));
-        panelMenuMensajeria.setBorder(null);
+//        panelMenuMensajeria.setBackground(new java.awt.Color(0, 153, 255));
+//        panelMenuMensajeria.setBorder(null);
+        
+        terminarHiloButton = false;
+        imagenMenuMensajeria.setVisible(false);
     }//GEN-LAST:event_panelMenuMensajeriaMouseExited
 
     private void panelMenuCardiacoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuCardiacoMouseClicked
@@ -413,16 +470,29 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         panelVentanaCardiaco.setVisible(false);
 
         panelVentanaMensajeria.setVisible(false);
+        
+        panelInicio.setLayout(new java.awt.BorderLayout());
+        panelInicio.removeAll();
+        panelInicio.add(new JPanelInicio(this.usuario));
+        panelInicio.revalidate();
+        panelInicio.repaint();
     }//GEN-LAST:event_panelMenuInicioMouseClicked
 
     private void panelMenuInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseEntered
-        panelMenuInicio.setBackground(new java.awt.Color(0, 102, 204));
-        panelMenuInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+//        panelMenuInicio.setBackground(new java.awt.Color(0, 102, 204));
+//        panelMenuInicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        
+        terminarHiloButton = false;
+        imagenMenuInicio.setVisible(true);
+        crearHiloCambioIconButton(imagenMenuInicio);
     }//GEN-LAST:event_panelMenuInicioMouseEntered
 
     private void panelMenuInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuInicioMouseExited
-        panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
-        panelMenuInicio.setBorder(null);
+//        panelMenuInicio.setBackground(new java.awt.Color(0, 153, 255));
+//        panelMenuInicio.setBorder(null);
+        
+        terminarHiloButton = false;
+        imagenMenuInicio.setVisible(false);
     }//GEN-LAST:event_panelMenuInicioMouseExited
 
     private void panelMenuMensajeriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuMensajeriaMouseClicked
@@ -446,20 +516,13 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
         listaLabels.add(new LabelDTO(labelMenuCardiaco, "menuRitmoCardiaco", labelMenuCardiaco.getFont().getSize()));
         
         crearHiloCambioIconCorreo(iconCorreo);
-    }
-    
-    public void cambiarFuentes(){
-        for(LabelDTO label : listaLabels){
-            label.getLabel().setFont(cambiarSize(label.getLabel().getFont().getStyle(), label.getSize(), PInfUI.getSizeFuente()));
-        }
         
-//        List<javax.swing.JButton> listaBotones = new ArrayList<javax.swing.JButton>();
-//        listaBotones.add(jButton);
-//        
-//        for(javax.swing.JButton boton : listaBotones){
-//            boton.setFont(cambiarSize(boton.getFont().getSize(), 10));
-//        }
-    }  
+        cambiarFuentes();
+        
+        imagenMenuInicio.setVisible(false);
+        imagenMenuCardiaco.setVisible(false);
+        imagenMenuMensajeria.setVisible(false);
+    }
     
     /**
      * Metodo encargado de pintar la grafica
@@ -474,6 +537,10 @@ public class PantallaMedicoAbrePaciente extends PlantillaPantallas {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconCorreo;
+    private javax.swing.JLabel imagenMenuCardiaco;
+    private javax.swing.JLabel imagenMenuInicio;
+    private javax.swing.JLabel imagenMenuMensajeria;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jWelcome;
     private javax.swing.JLabel labelMenuCardiaco;

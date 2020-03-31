@@ -160,6 +160,7 @@ public class LogIn extends javax.swing.JFrame {
         etiquetaButtonDeslizante.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         etiquetaButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaButtonDeslizante.setText("Acceder");
+        etiquetaButtonDeslizante.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         imagenButtonDeslizante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit.png"))); // NOI18N
@@ -181,26 +182,26 @@ public class LogIn extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(116, 116, 116)
                 .addComponent(etiquetaButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 25, Short.MAX_VALUE)
+                    .addGap(116, 116, 116)
                     .addComponent(imagenButtonDeslizante)
-                    .addGap(0, 26, Short.MAX_VALUE)))
+                    .addContainerGap(116, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(etiquetaButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(etiquetaButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 35, Short.MAX_VALUE)
-                    .addComponent(imagenButtonDeslizante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 35, Short.MAX_VALUE)))
+                    .addGap(35, 35, 35)
+                    .addComponent(imagenButtonDeslizante)
+                    .addContainerGap(30, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -208,9 +209,9 @@ public class LogIn extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+                .addGap(33, 33, 33))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,11 +244,11 @@ public class LogIn extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(90, 90, 90)
                 .addComponent(iconSpain)
-                .addGap(51, 51, 51)
+                .addGap(77, 77, 77)
                 .addComponent(iconUSA)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,12 +403,8 @@ public class LogIn extends javax.swing.JFrame {
     private void logIn()
     {
         Usuario usuario = null;
-        try {
 //            usuario = PInfUI.gestorDatos.login("14569823X", "123456789");
-            usuario = PInfUI.gestorDatos.login(jTFUser.getText(), jPFPass.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        usuario = PInfUI.gestorDatos.login(jTFUser.getText(), jPFPass.getText());
 
         if (usuario != null) {
             if (usuario.getId_Rol() == ConstantesAplicacion.ROL_ADMIN) {
@@ -454,7 +451,7 @@ public class LogIn extends javax.swing.JFrame {
      *
      * @param imagenButtonDeslizante JLabel al que se le cambiara la imagen
      */
-    private void crearHiloCambioIconButton() {
+    protected void crearHiloCambioIconButton() {
         // Creacion de un hilo para cambiar la imagen del correo cuando tengas
         // notificaciones nuevas - Asi llama mas la atencion
         new Thread(new Runnable() {

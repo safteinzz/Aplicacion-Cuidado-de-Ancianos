@@ -13,8 +13,8 @@ package pinfui.entidades;
  */
 public class Asignacion {
 
-    private String dni_Asociado;
-    private String dni_Asignado;
+    private String dni_Asociado;//paciente
+    private String dni_Asignado;//medico y familiar
     private int id_Tipo; // 2 (familiar paciente) 1 (medico paciente)    
 
     private transient Usuario usuarioAsociado;

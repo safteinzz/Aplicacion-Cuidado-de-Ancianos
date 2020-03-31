@@ -63,25 +63,32 @@ public class PlantillaPantallas extends javax.swing.JFrame {
                 
                 int contador = 1;
                 //Siempre que terminarHiloCorreo este a false se ejecutara el hilo
-                while(!terminarHiloButton && contador <19){
+                while(!terminarHiloButton && contador <40){
                     Calendar fechaActual = Calendar.getInstance();
                     fechaActual.setTime(new Date());
                     
                     if(fechaActual.compareTo(proximaEjecucion) >= 0){
-                        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit" + contador + ".png")));
+                        imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/boton_menu/boton_menu" + contador + ".png")));
                         contador++;
                         proximaEjecucion.setTime(new Date());
                         proximaEjecucion.add(Calendar.MILLISECOND, 5);
                     }
 
                     try {
-                        java.lang.Thread.sleep(100);
+                        if(contador > 36){
+                            java.lang.Thread.sleep(100);
+                        } else {
+                            java.lang.Thread.sleep(10);
+                        }
                     }catch(Exception e) { }
                 }
                 
-                if(contador == 19){
-                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit19.png")));
+                if(terminarHiloButton){
+                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/boton_menu/boton_menu1.png")));
                 }
+//                if(contador == 19){
+//                    imagenButtonDeslizante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/submit19.png")));
+//                }
             }
         }).start();
     }

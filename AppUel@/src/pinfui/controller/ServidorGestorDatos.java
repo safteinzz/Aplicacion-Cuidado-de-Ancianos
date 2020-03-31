@@ -49,11 +49,11 @@ public class ServidorGestorDatos extends Thread {
             GestorDatos gestorDatos = new GestorDatos();
 
             //Recuperamos todos los mensajes actuales 
-            List<Mensaje> listaMensajes = gestorDatos.getMensajes();
-            listaMensajes.add(mensaje);
-
-            //Guardamos toda la lista de mensajes con el nuevo mensaje en el archivo JSON
-            gestorDatos.ObjecttoJson(listaMensajes, gestorDatos.MENSAJE_JSON);
+//            List<Mensaje> listaMensajes = gestorDatos.getMensajes();
+//            listaMensajes.add(mensaje);
+//
+//            //Guardamos toda la lista de mensajes con el nuevo mensaje en el archivo JSON
+//            gestorDatos.ObjecttoJson(listaMensajes, gestorDatos.MENSAJE_JSON);
 
             //Devolver el permiso al semaforo
             semaforoMensaje.release();

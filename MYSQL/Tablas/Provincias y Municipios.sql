@@ -2,28 +2,60 @@ DROP DATABASE IF EXISTS DBPInf;
 CREATE DATABASE DBPInf;
 use DBPInf;
 
+
+# =============================================================================
+# ~Tabla PROVINCIAS
+#
+#		Se relaciona con MUNICIPIO
+#			@ID_PROVINCIA, No se necesita auto_increment porque los valores son fijos
+#
+# =============================================================================
 CREATE TABLE IF NOT EXISTS PROVINCIAS (
+
 	#ATRIBUTOS
+    
 		#PRIMARY KEY
+        
 			ID_PROVINCIA INT NOT NULL PRIMARY KEY,
+            
 		#RESTO
+        
 			PROVINCIA varchar(30) COLLATE UTF8_SPANISH_CI NOT NULL
 );
 
+
+# =============================================================================
+# ~Tabla PROVINCIAS
+#
+#		Se relaciona con USUARIO
+#			@ID_PROVINCIA, se utiliza como relación 1 a n
+#
+#
+#		Se relaciona con MUNICIPIO
+#			@ID_MUNICIPIO, Clave foranea
+#
+# =============================================================================
 CREATE TABLE IF NOT EXISTS MUNICIPIOS (
+
 	#RELACIONES
+    
 		ID_PROVINCIA INT NOT NULL,
 	
     #ATRIBUTOS
+    
 		#PRIMARY KEY
+        
 			ID_MUNICIPIO INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+            
 		#RESTO
-			COD_MUNICIPIO int(11) NOT NULL,
+        
+			COD_MUNICIPIO int(11) NOT NULL,            
 			DC int(11) NOT NULL,
 			NOMBRE varchar(100) COLLATE UTF8_SPANISH_CI NOT NULL,
 	
     #CLAVES FORANEAS
-    FOREIGN KEY FK_MUNICIPIO_PROVINCIA(ID_PROVINCIA) REFERENCES PROVINCIAS(ID_PROVINCIA)
+    
+		FOREIGN KEY FK_MUNICIPIO_PROVINCIA(ID_PROVINCIA) REFERENCES PROVINCIAS(ID_PROVINCIA)
 );
 
 INSERT INTO `provincias` (`id_provincia`, `provincia`)

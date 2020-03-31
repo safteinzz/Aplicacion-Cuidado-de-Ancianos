@@ -63,13 +63,9 @@ public class Registro extends javax.swing.JFrame {
         }
         
         //EXTRACCION DE DATOS
-        try {
-            municipiosLista = PInfUI.gestorDatos.getMunicipios();
-            provinciasLista = PInfUI.gestorDatos.getProvincias();
-            rolesLista = PInfUI.gestorDatos.getRoles();
-        } catch (SQLException ex) {
-            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        municipiosLista = PInfUI.gestorDatos.getMunicipios();
+        provinciasLista = PInfUI.gestorDatos.getProvincias();
+        rolesLista = PInfUI.gestorDatos.getRoles();
         
         
         
@@ -1055,33 +1051,28 @@ public class Registro extends javax.swing.JFrame {
                     telefonoFijo
                 );
 
-                try {
-                    //Si el usuario es paciente hay que crear asignaciones
-                    //El paciente siempre debera asignar un familiar
-                    //1 = medico - paciente
-                    //2 = familiar - paciente
-                    if (((Rol)jCBRol.getSelectedItem()).getId_Rol() == 4)
-                    {
-                        Asignacion pacienteMedico = new Asignacion(user, this.medicoAsignado, 1);
-                        Asignacion pacienteFamiliar = new Asignacion(user, this.familiarAsignado, 2);
-                        List<Asignacion> listaAsignacion = new ArrayList<>();
-                        listaAsignacion.add(pacienteMedico);
-                        listaAsignacion.add(pacienteFamiliar);
-                        PInfUI.gestorDatos.registroAsignacion(editar, listaAsignacion);
-                    }
-                    //Llamar al registro pasandole el usuario y la contraseña
-                    if(PInfUI.gestorDatos.registroUsuario(editar, passCambiada, user, jPFContrasena.getText(), aEditar))
-                    {
-                        JOptionPane.showMessageDialog(null, "Guardado con exito", "Information", INFORMATION_MESSAGE);
-                        PantallaAdministrador.updatePanel();
-                    }
-
-                    else
+                //Si el usuario es paciente hay que crear asignaciones
+                //El paciente siempre debera asignar un familiar
+                //1 = medico - paciente
+                //2 = familiar - paciente
+                if (((Rol)jCBRol.getSelectedItem()).getId_Rol() == 4)
+                {
+                    Asignacion pacienteMedico = new Asignacion(user, this.medicoAsignado, 1);
+                    Asignacion pacienteFamiliar = new Asignacion(user, this.familiarAsignado, 2);
+                    List<Asignacion> listaAsignacion = new ArrayList<>();
+                    listaAsignacion.add(pacienteMedico);
+                    listaAsignacion.add(pacienteFamiliar);
+                    PInfUI.gestorDatos.registroAsignacion(editar, listaAsignacion);
+                }
+                //Llamar al registro pasandole el usuario y la contraseña
+                if(PInfUI.gestorDatos.registroUsuario(editar, passCambiada, user, jPFContrasena.getText(), aEditar))
+                {
+                    JOptionPane.showMessageDialog(null, "Guardado con exito", "Information", INFORMATION_MESSAGE);
+                    PantallaAdministrador.updatePanel();
+                }
+                else
                     JOptionPane.showMessageDialog(null, "El DNI introducido ya existe", "Error", ERROR_MESSAGE);
-                }
-                catch (SQLException | NoSuchAlgorithmException ex) {
-                    JOptionPane.showMessageDialog(null, "Error en la creación de la cuenta", "Error", ERROR_MESSAGE);
-                }
+                
 
                 //CERRAR VENTANA
                 this.dispose();

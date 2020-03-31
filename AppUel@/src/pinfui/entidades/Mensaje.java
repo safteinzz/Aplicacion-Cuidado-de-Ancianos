@@ -4,45 +4,57 @@ import java.io.Serializable;
 
 public class Mensaje implements Serializable{
 
-	private String dniUsuario;
-	private String titulo;
-	private String contenido;
+	private String dni_Emisor;
+	private String dni_Receptor;
+	private String asunto;
+	private String mensaje;
 	private boolean leido;
-	private String enviadoPor;
+//	private String enviadoPor;
         private String etiqueta;
 	
 	public Mensaje() { }
 
-	public Mensaje(String dniUsuario, String titulo, String contenido, boolean leido, String enviadoPor) {
-		this.dniUsuario = dniUsuario;
-		this.titulo = titulo;
-		this.contenido = contenido;
+	public Mensaje(String dni_Emisor, String dni_Receptor, String asunto, String mensaje, boolean leido,
+			String etiqueta) {
+		super();
+		this.dni_Emisor = dni_Emisor;
+		this.dni_Receptor = dni_Receptor;
+		this.asunto = asunto;
+		this.mensaje = mensaje;
 		this.leido = leido;
-		this.enviadoPor = enviadoPor;
+		this.etiqueta = etiqueta;
 	}
 
-	public String getDniUsuario() {
-		return dniUsuario;
+	public String getDni_Emisor() {
+		return dni_Emisor;
 	}
 
-	public void setDniUsuario(String dniUsuario) {
-		this.dniUsuario = dniUsuario;
+	public void setDni_Emisor(String dni_Emisor) {
+		this.dni_Emisor = dni_Emisor;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getDni_Receptor() {
+		return dni_Receptor;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setDni_Receptor(String dni_Receptor) {
+		this.dni_Receptor = dni_Receptor;
 	}
 
-	public String getContenido() {
-		return contenido;
+	public String getAsunto() {
+		return asunto;
 	}
 
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
+	public void setAsunto(String asunto) {
+		this.asunto = asunto;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 
 	public boolean isLeido() {
@@ -51,14 +63,6 @@ public class Mensaje implements Serializable{
 
 	public void setLeido(boolean leido) {
 		this.leido = leido;
-	}
-
-	public String getEnviadoPor() {
-		return enviadoPor;
-	}
-
-	public void setEnviadoPor(String enviadoPor) {
-		this.enviadoPor = enviadoPor;
 	}
 
         public String getEtiqueta() {

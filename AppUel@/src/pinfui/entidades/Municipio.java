@@ -23,7 +23,11 @@ public class Municipio {
             private String nombre;
     
     private transient Provincia provincia;
-            
+         
+    public Municipio(){
+        
+    }
+    
     /**
      * Constructor de Municipio
      * @param id_Provincia

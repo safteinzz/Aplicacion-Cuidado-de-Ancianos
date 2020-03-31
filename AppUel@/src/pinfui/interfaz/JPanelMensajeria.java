@@ -36,6 +36,7 @@ public class JPanelMensajeria extends PlantillaJPanel{
     private List<Mensaje> mensajes;
     private JPanelMensajeriaNuevo visorMensaje;
     private JPanelMEnsajeVisor1 mo = null;
+    private JPanelMensajeriaResponder visorMensajeRespuesta;
     
 
     /**
@@ -181,6 +182,9 @@ public class JPanelMensajeria extends PlantillaJPanel{
         buttonCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/nuevoMensaje.png"))); // NOI18N
         buttonCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCrearMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buttonCrearMouseEntered(evt);
             }
@@ -286,11 +290,11 @@ public class JPanelMensajeria extends PlantillaJPanel{
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         int filaSeleccionada = jTable2.getSelectedRow();
-        visorMensaje = new JPanelMensajeriaNuevo(usuario, mensajes.get(filaSeleccionada));
+        visorMensajeRespuesta = new JPanelMensajeriaResponder(usuario, mensajes.get(filaSeleccionada));
         if(mo != null){
             mo.dispose();
         }
-        mo = new JPanelMEnsajeVisor1(visorMensaje);
+        mo = new JPanelMEnsajeVisor1(visorMensajeRespuesta);
         mo.setVisible(true);
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -317,6 +321,15 @@ public class JPanelMensajeria extends PlantillaJPanel{
     private void jCBFiltrarPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBFiltrarPorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBFiltrarPorActionPerformed
+
+    private void buttonCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCrearMouseClicked
+        // TODO add your handling code here:
+        Mensaje mensaje = new Mensaje();
+        JPanelMensajeriaNuevo mensajeNuevo = new JPanelMensajeriaNuevo(usuario, mensaje);
+        
+        mo = new JPanelMEnsajeVisor1(mensajeNuevo);
+        mo.setVisible(true);
+    }//GEN-LAST:event_buttonCrearMouseClicked
 
     private void jBFiltrarPress()
     {
@@ -349,7 +362,7 @@ public class JPanelMensajeria extends PlantillaJPanel{
         
         for(Mensaje mensaje : usuario.getListaMensajes()){
             Object [] mensajito = {
-                mensaje.getEnviadoPor(), mensaje.getTitulo(), mensaje.getEtiqueta()
+                mensaje.getDni_Emisor(), mensaje.getAsunto(), mensaje.getEtiqueta()
             };
             model.addRow(mensajito);
             mensajes.add(mensaje);
