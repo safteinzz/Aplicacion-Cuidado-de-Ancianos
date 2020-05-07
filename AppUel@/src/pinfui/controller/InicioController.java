@@ -29,11 +29,7 @@ public class InicioController {
     	}
 		
     	List<Alerta> listaAlertas = PInfUI.gestorDatos.getAlertas(dniLista);
-        
-        //BORRAR
-        listaAlertas = new ArrayList<Alerta>();
-        listaAlertas.add(new Alerta("12536", "SENSOR", 1, new Date()));
-        listaAlertas.add(new Alerta("12536", "SENSOR", 50, new Date()));
+        usuario.setListaAlertas(listaAlertas);
         
     	if(listaAlertas != null && !listaAlertas.isEmpty()) {
     		for(Alerta alerta : listaAlertas) {
@@ -45,6 +41,16 @@ public class InicioController {
     	
     	return false;
 	}
+        
+        public boolean borrarAlerta(int[] filasSeleccionadas, Usuario usuario){
+            for(int filaSeleccionada : filasSeleccionadas){
+                if(!PInfUI.gestorDatos.borrarAlerta(usuario.getListaAlertas().get(filaSeleccionada).getId())){
+                    return false;
+                }
+            }
+            
+            return true;
+        }
 	
 	public boolean cargarTablaMensajeria(DefaultTableModel model, Usuario usuario) {
 
@@ -74,16 +80,11 @@ public class InicioController {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
 		usuario.setListaNotas(PInfUI.gestorDatos.getNotas(usuario.getDni()));
-		
-                //BORRAR
-                usuario.setListaNotas(new ArrayList<Nota>());
-                usuario.getListaNotas().add(new Nota(1, "1255", new Date(), "NOTA"));
-                usuario.getListaNotas().add(new Nota(2, "1255", new Date(), "NOTA2"));
                 
 		if(usuario.getListaNotas() != null && !usuario.getListaNotas().isEmpty()) {
 			for(Nota nota : usuario.getListaNotas()) {
-				Object[] obj = { sdf.format(nota.getFecha()), nota.getNota() };
-	    		model.addRow(obj);
+                            Object[] obj = { sdf.format(nota.getFecha()), nota.getNota() };
+                            model.addRow(obj);
 			}
 			
 			return true;

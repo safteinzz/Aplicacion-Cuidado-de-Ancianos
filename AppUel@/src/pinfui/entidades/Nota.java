@@ -14,7 +14,8 @@ public class Nota {
     }
 
     public Nota(int id, String dni, Date fecha, String nota) {
-        super();
+        super();        
+        this.id = id;
         this.dni = dni;
         this.fecha = fecha;
         this.nota = nota;

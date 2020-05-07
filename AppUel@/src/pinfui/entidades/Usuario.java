@@ -42,6 +42,7 @@ public class Usuario {
         private transient List<Asignacion> listaAsignacion;
         private transient List<Mensaje> listaMensajes;
         private transient List<Nota> listaNotas;
+        private transient List<Alerta> listaAlertas;
 
         
     /**
@@ -258,6 +259,14 @@ public class Usuario {
 	public void setListaNotas(List<Nota> listaNotas) {
 		this.listaNotas = listaNotas;
 	}
+
+    public List<Alerta> getListaAlertas() {
+        return listaAlertas;
+    }
+
+    public void setListaAlertas(List<Alerta> listaAlertas) {
+        this.listaAlertas = listaAlertas;
+    }
     
     
 }

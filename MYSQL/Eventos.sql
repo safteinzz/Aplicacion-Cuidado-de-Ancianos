@@ -1,5 +1,6 @@
-use DBPInf;
+use pr_itcom;
 
+SET GLOBAL event_scheduler = 1;
 #https://dev.mysql.com/doc/refman/8.0/en/create-event.html
 #CREATE
 #    [DEFINER = user]

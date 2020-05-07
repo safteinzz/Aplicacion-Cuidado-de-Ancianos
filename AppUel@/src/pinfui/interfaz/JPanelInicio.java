@@ -11,6 +11,7 @@ import pinfui.dto.ConstantesAplicacion;
 import pinfui.dto.EstiloCabeceraJTable;
 import pinfui.dto.EstiloCotenidoJTable;
 import pinfui.dto.LabelDTO;
+import pinfui.dto.TipoVentana;
 import pinfui.entidades.Mensaje;
 import pinfui.entidades.Usuario;
 
@@ -20,7 +21,7 @@ import pinfui.entidades.Usuario;
  */
 public class JPanelInicio extends PlantillaJPanel {
 
-	private InicioController inicioController = new InicioController();
+    private InicioController inicioController = new InicioController();
 	
     private DefaultTableModel modelNotas;
     private DefaultTableModel modelMensajeria;
@@ -330,9 +331,19 @@ public class JPanelInicio extends PlantillaJPanel {
                 .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/borrar.png")));
     }//GEN-LAST:event_buttonBorrarMouseExited
 
+    public void refrescarTablaNotas(){
+        if (modelNotas.getRowCount() > 0) {
+    	    for (int i = modelNotas.getRowCount() - 1; i > -1; i--) {
+    	    	modelNotas.removeRow(i);
+    	    }
+    	}
+        inicioController.cargarTablaNotas(modelNotas, usuario);
+    }
+    
     private void buttonBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrarMouseClicked
         inicioController.borrarNotas(tablaNotas.getSelectedRows(), usuario); 
-        inicioController.cargarTablaNotas(modelNotas, usuario);
+        //Cambiar el null por el DefaultModel de la tabla
+    	refrescarTablaNotas();
     }//GEN-LAST:event_buttonBorrarMouseClicked
 
     private void buttonNuevaNotaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNuevaNotaMouseEntered
@@ -346,11 +357,22 @@ public class JPanelInicio extends PlantillaJPanel {
     }//GEN-LAST:event_buttonNuevaNotaMouseExited
 
     private void buttonNuevaNotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNuevaNotaMouseClicked
-        // TODO add your handling code here:
+       
+        this.setEnabled(false);
+        PantallaNuevaNota ventanaNuevaNota = new PantallaNuevaNota(usuario, this);
+        ventanaNuevaNota.setVisible(true);
+        this.setEnabled(true);
     }//GEN-LAST:event_buttonNuevaNotaMouseClicked
 
     private void buttonBorrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrar1MouseClicked
-        // TODO add your handling code here:
+        inicioController.borrarAlerta(tablaAlertas.getSelectedRows(), usuario); 
+        //Cambiar el null por el DefaultModel de la tabla
+    	if (modelAlertas.getRowCount() > 0) {
+    	    for (int i = modelAlertas.getRowCount() - 1; i > -1; i--) {
+    	    	modelAlertas.removeRow(i);
+    	    }
+    	}
+        inicioController.cargarTablaAlertas(modelAlertas, usuario);
     }//GEN-LAST:event_buttonBorrar1MouseClicked
 
     private void buttonBorrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonBorrar1MouseEntered

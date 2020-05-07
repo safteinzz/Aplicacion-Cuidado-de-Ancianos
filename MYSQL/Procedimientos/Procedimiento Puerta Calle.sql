@@ -1,4 +1,4 @@
-use DBPInf;
+use pr_itcom;
 
 #Para el sensor de puerta calle se creará un procedimiento automático que se registrará una alerta si el tiempo que ha estado abierta la puerta de la calle
 #ha sido superior a 30 minutos (1800 segundos) (se puede poner 1 hora para utilizar las mismas funciones que el anterior).
@@ -12,7 +12,7 @@ use DBPInf;
 DROP FUNCTION IF EXISTS CHECK_ALERTA_PUERTA;
 DROP PROCEDURE IF EXISTS ALERTA_PUERTA;
 
-SET GLOBAL log_bin_trust_function_creators = 1;
+#SET GLOBAL log_bin_trust_function_creators = 1;
 
 DELIMITER $$
 

@@ -1,4 +1,4 @@
-use DBPInf;
+use pr_itcom;
 
 #Para el sensor de presencia se creará un procedimiento automático que registre la diferencia de horas entre un valor y otro, si el valor registrado 
 #es superior a 4 horas entonces creará un registro en la tabla alerta con los siguientes valores: 

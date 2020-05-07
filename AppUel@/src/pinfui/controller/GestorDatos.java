@@ -48,6 +48,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.sql.Array;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,6 +106,7 @@ public class GestorDatos {
 	public String MUNICIPIO_JSON = "JSON_Municipios";
 	public String TIPOPRESENCIA_JSON = "JSON_TipoPresencia";
         public String ETIQUETA_JSON = "JSON_Etiqueta";
+        public String NOTA_JSON = "JSON_Nota";
         
 
 	public boolean isModeDB() {
@@ -230,7 +232,8 @@ public class GestorDatos {
 			}
 			
 		}
-		
+		pstmt.close();
+                resultSet.close();
 		return listaReturn;
 	}
 
@@ -396,7 +399,8 @@ public class GestorDatos {
 			}
 		}
 		conn.close();
-		
+		pstmt.close();
+                resultSet.close();
 		if (asignarUsuarios) {
 			asignarUsuarios(listaReturn, dniUsuarioAsignado);
 		}
@@ -554,7 +558,9 @@ public class GestorDatos {
 			Rol rol = new Rol(resultSet.getInt("ID_ROL"), resultSet.getString("NOMBRE"));
 			return rol;
 		}
-		
+		conn.close();
+                pstmt.close();
+                resultSet.close();
 		return null;
 	}
 	
@@ -599,7 +605,8 @@ public class GestorDatos {
 			listaRoles.add(temporal);
 		}
 		conn.close();
-		
+		statement.close();
+                rs.close();
 		return listaRoles;
 	}
 	
@@ -656,7 +663,8 @@ public class GestorDatos {
 			listaMunicipios.add(temporal);
 		}
 		conn.close();
-		
+		statement.close();
+                rs.close();
 		return listaMunicipios;
 	}
 	
@@ -695,7 +703,8 @@ public class GestorDatos {
                         municipio.setProvincia(getProvinciaBD(municipio.getId_Provincia()));
 		}
 		conn.close();
-		
+		pstmt.close();
+                rs.close();
 		
 		
 		
@@ -744,7 +753,8 @@ public class GestorDatos {
 			listaProvincias.add(temporal);
 		}
 		conn.close();
-
+                statement.close();
+                rs.close();
 		return listaProvincias;
 	}
 	
@@ -772,7 +782,9 @@ public class GestorDatos {
 			return provincia;
 		}
 		conn.close();
-		
+		pstmt.close();
+                rs.close();
+                
 		return null;
 	}
 	
@@ -814,7 +826,9 @@ public class GestorDatos {
 					rs.getString("ASUNTO"), rs.getString("MENSAJE"), rs.getBoolean("LEIDO"), rs.getString("ETIQUETA")));
 		}
 		conn.close();
-		
+		pstmt.close();
+                rs.close();
+                
 		return listaReturn;
 	}
 
@@ -896,7 +910,8 @@ public class GestorDatos {
 			listaReturn.add(temporal);
 		}
 		conn.close();
-		
+		statement.close();
+                rs.close();
 		return listaReturn;
         }
         
@@ -907,6 +922,65 @@ public class GestorDatos {
          */
         public List<Etiqueta> getEtiquetasJSON(){
                 List<Etiqueta> listaReturn = (List<Etiqueta>) JSONtoObject(ETIQUETA_JSON);
+
+		return listaReturn;
+        }
+        
+        /**
+         * Metodo para recuperar etiquetas
+         * Este metodo dirige a:
+         *  @getMensajesBD si @modeDB = true
+         *  @getMensajesJSON si @modeDB = false
+         * @return Devuelve una lista con todas las etiquetas
+         */
+        public List<Nota> getNotas(String dni) {
+                if(isModeDB()) {
+			try {
+				return getNotasBD(dni);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			return getNotasJSON();
+		}
+                
+                return null;
+        }	
+        
+        /**
+         * BD
+         * Metodo para recuperar etiquetas
+         * @return Devuelve una lista con todas las etiquetas
+         * @throws SQLException 
+         */
+        public List<Nota> getNotasBD(String dni) throws SQLException {
+                List<Nota> listaReturn = new ArrayList<>();
+                
+                final String query = "select * from nota where dni = ?";
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		
+		PreparedStatement pstmt = conn.prepareStatement(query);
+		
+		pstmt.setString(1, dni);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			Nota temporal = new Nota(rs.getInt("ID"),rs.getString("DNI"), rs.getDate("FECHA"), rs.getString("NOTA"));
+			listaReturn.add(temporal);
+		}
+		conn.close();
+		pstmt.close();
+                rs.close();
+                
+		return listaReturn;
+        }
+        
+        /**
+         * JSON
+         * Metodo para recuperar etiquetas
+         * @return Devuelve una lista con todas las etiquetas
+         */
+        public List<Nota> getNotasJSON(){
+                List<Nota> listaReturn = (List<Nota>) JSONtoObject(NOTA_JSON);
 
 		return listaReturn;
         }
@@ -987,7 +1061,9 @@ public class GestorDatos {
 			listaReturn.add(temporal);
 		}
 		conn.close();
-		
+		statement.close();
+                rs.close();
+                
 		return listaReturn;
 	}
 
@@ -1072,7 +1148,8 @@ public class GestorDatos {
                     listaReturn.add(temporal);
             }
             conn.close();
-
+            statement.close();
+            rs.close();
             return listaReturn;
 	}
 
@@ -1124,7 +1201,9 @@ public class GestorDatos {
                 listaReturn.add(temporal);
             }
             conn.close();
-
+            statement.close();
+            rs.close();
+            
             return listaReturn;
 	}
 	
@@ -1196,7 +1275,9 @@ public class GestorDatos {
                 listaReturn.add(temporal);
             }
             conn.close();
-
+            statement.close();
+            rs.close();
+            
             return listaReturn;
 	}
 
@@ -1280,6 +1361,7 @@ public class GestorDatos {
 
 	}
 
+      
 	/**
 	 * Metodo encargado de guardar un mensaje dentro de un archivo JSON el metodo se
 	 * conecta al servidor gestor datos para poder guardar mensajes simultaneamente
@@ -1311,6 +1393,19 @@ public class GestorDatos {
 			e.printStackTrace();
 		}
 	}
+        
+        public void guardarMensajeBD(Mensaje mensaje) throws SQLException{
+            final String principal = "insert into MENSAJERIA "
+                    + "(DNI_EMISOR,DNI_RECEPTORES,ID_ETIQUETA,LEIDO,ASUNTO,MENSAJE)";
+            Statement statement;
+            ResultSet rs;
+            conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            statement = conn.createStatement();
+            String query = principal + " values ("+ "'"+mensaje.getDni_Emisor()+"'," + "'"+mensaje.getDni_Emisor()+"',"
+                    + "'"+mensaje.getDni_Receptor()+"'," + "'"+mensaje.getEtiqueta()+"'," + "'FALSE'" + "'"+mensaje.getAsunto()+"',"
+                    + "'"+mensaje.getMensaje()+"'" + ")";
+            rs = statement.executeQuery(query);
+        }
 
 	/**
 	 * Guarda cualquiera lista de objetos en el JSON seleccionado por parametros
@@ -1415,12 +1510,13 @@ public class GestorDatos {
 					e1.printStackTrace();
 				}
 			}
-
+                        statement.close();
+                        rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+                
 		return listaReturn;
 	}
 
@@ -1511,7 +1607,8 @@ public class GestorDatos {
 			return true;
 		}
 		conn.close();
-		
+		pstmt.close();
+                resultSet.close();
 		return false;
 	}
 	
@@ -1636,6 +1733,7 @@ public class GestorDatos {
             preparedStmt.execute();
 
             conn.close();
+            preparedStmt.close();
             return true;            
 	}
 	
@@ -1697,10 +1795,11 @@ public class GestorDatos {
             // para editar tengo que recorrer la lista de parametro y borrar las asignaciones que existan en base al getDni_asociado para luego meterlas como estan arriba
             String query;
             conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            PreparedStatement preparedStmt = null;
             if (editar) 
             {
                 query = "DELETE FROM ASIGNACION WHERE DNI_ASOCIADO = ?";
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt = conn.prepareStatement(query);
                 preparedStmt.setString(1, pListAsignacion.get(0).getDni_Asociado());
                 preparedStmt.execute();
             }
@@ -1709,12 +1808,14 @@ public class GestorDatos {
             {
                 query = "insert into ASIGNACION(DNI_ASOCIADO, DNI_ASIGNADO, ID_TIPO)" 
                     + " values (?,?,?)";
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt = conn.prepareStatement(query);
                 preparedStmt.setString(1, a.getDni_Asociado());
                 preparedStmt.setString(2, a.getDni_Asignado());
                 preparedStmt.setInt(3, a.getId_Tipo());
                 preparedStmt.execute();
             }
+            conn.close();
+            preparedStmt.close();
             
             return true;
 	}
@@ -1821,14 +1922,102 @@ public class GestorDatos {
 	}
         
         public List<Alerta> getAlertas(List<String> dniLista) {
-		return null;
-	}
-	
-	public List<Nota> getNotas(String dni){
-		return null;
+            List<Alerta> listaReturn = new ArrayList<>();
+            try {	
+                
+                String query = "select * from alerta where DNI_PACIENTE in (";
+                for(int x = 0; x < dniLista.size(); x++){
+                    query += "'" + dniLista.get(x) + "'";
+                    if(x != dniLista.size() - 1){
+                        query += ", ";
+                    }
+                }
+                query += ")";
+                
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		
+		Statement statement;
+		ResultSet rs;
+		conn = DriverManager.getConnection(myUrl, userBD, passBD);
+		statement = conn.createStatement();
+		rs = statement.executeQuery(query);
+		while (rs.next()) {
+                    Alerta temporal = new Alerta(rs.getInt("ID"), rs.getString("DNI_PACIENTE"), rs.getString("SENSOR"), rs.getInt("VALOR"), rs.getDate("FECHA"));
+                    listaReturn.add(temporal);
+		}
+		conn.close();
+		statement.close();
+                rs.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(GestorDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            return listaReturn;
 	}
         
         public boolean borrarNota(int id){
+            try {
+                conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            
+                PreparedStatement preparedStmt;
+                String query = "DELETE FROM NOTA WHERE ID = ?";
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setInt(1, id);
+                preparedStmt.execute();
+
+                preparedStmt.close();  
+
+                conn.close();
+                return true;
+            } catch (SQLException ex) {
+                Logger.getLogger(GestorDatos.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+        }
+        
+        public boolean borrarAlerta(int id){
+            try {
+                conn = DriverManager.getConnection(myUrl, userBD, passBD);
+            
+                PreparedStatement preparedStmt;
+                String query = "DELETE FROM ALERTA WHERE ID = ?";
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setInt(1, id);
+                preparedStmt.execute();
+
+                preparedStmt.close();  
+
+                conn.close();
+                return true;
+            } catch (SQLException ex) {
+                Logger.getLogger(GestorDatos.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+        }
+        
+        
+        
+        public boolean crearNota(String dni, String texto){
+            try{
+                String query;
+                conn = DriverManager.getConnection(myUrl, userBD, passBD);
+                PreparedStatement preparedStmt = null;
+
+                query = "insert into NOTA(DNI, FECHA, NOTA)" 
+                    + " values (?,?,?)";
+
+                preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, dni);
+                preparedStmt.setDate(2, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+                preparedStmt.setString(3, texto);
+                preparedStmt.execute();
+
+                conn.close();
+                preparedStmt.close();
+            }catch (SQLException ex) {
+                Logger.getLogger(GestorDatos.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
             return true;
         }
 }

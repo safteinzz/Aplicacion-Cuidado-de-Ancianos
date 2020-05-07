@@ -54,16 +54,9 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
         
         cargarTablaUsuarios();
         
-        cambiarFuentes();
-    }
-    
-    public JPanelMensajeriaNuevo(Usuario usuario) {
-        initComponents();
-        this.usuario = usuario;
-        mensaje = new Mensaje();
-        visibleToAll(true);
-        mensajeToVista();
+        cargarEtiquetas();
         
+        cambiarFuentes();
     }
     
     private void visibleToAll(boolean visible){
@@ -213,6 +206,9 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
         buttonEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/enviar.png"))); // NOI18N
         buttonEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonEnviarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buttonEnviarMouseEntered(evt);
             }
@@ -278,6 +274,10 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFTituloActionPerformed
 
+    private void buttonEnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnviarMouseClicked
+        enviarMensaje();
+    }//GEN-LAST:event_buttonEnviarMouseClicked
+
     private void cargarTablaUsuarios(){
         jTableUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         jTableUsuarios.getTableHeader().setDefaultRenderer(new EstiloCabeceraJTable());
@@ -334,15 +334,17 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
         String contenido = "¬¬¬ " + usuario.getNombre() + " ¬¬¬\n"
                 + jTextArea1.getText();
         String etiqeta = (String) jCBEtiqueta.getSelectedItem();
-        ArrayList<String> seleccionados = new ArrayList<>();
-        for(int i : jTableUsuarios.getSelectedRows()){
-            seleccionados.add((String)jTableUsuarios.getValueAt(i, 0));
+        String receptores = "";
+        for(int x = 0; x < jTableUsuarios.getSelectedRows().length; x++){
+            int idTabla = jTableUsuarios.getSelectedRows()[x];
+            receptores += (String)jTableUsuarios.getValueAt(idTabla, 0);
+            if(x != jTableUsuarios.getSelectedRows().length - 1){
+                receptores += "|";
+            }
         }
         
-        for (String destinatario : seleccionados){
-            mensaje = new Mensaje(usuario.getDni(), destinatario, "asunto", contenido, false, etiqeta);
-            GestorDatos.guardarMensaje(mensaje);
-        }
+        mensaje = new Mensaje(usuario.getDni(), receptores, "asunto", contenido, false, etiqeta);
+        GestorDatos.guardarMensaje(mensaje);
     }
     
     public Mensaje getMensaje() {

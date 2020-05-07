@@ -1,4 +1,4 @@
-
+use pr_itcom;
 
 ALTER USER 'safteinzz'@'%' IDENTIFIED BY '21505519';
 UPDATE mysql.user SET Host='localhost' WHERE Host='%' AND User='safteinzz';
@@ -20,12 +20,20 @@ FLUSH PRIVILEGES;
 SET FOREIGN_KEY_CHECKS=0;
 
 #DELETE FROM usuario WHERE dni = 
+delete from asignacion where DNI_ASOCIADO = '70355541N';
 
-use DBPInf;
+insert into ASIGNACION(DNI_ASOCIADO, DNI_ASIGNADO, ID_TIPO)
+values 
+('70355541N', '70355539N', 1),
+('70355541N', '70355540N', 2);
+
+
+
+
 select * from usuario;
 select id_Rol from roles;
 select * from municipios;
-select * from sensor_ritmo_cardiaco;
+select * from sensor_ritmo_cardiaco where DNI_PACIENTE = '70355541N';
 select * from tipo_asignacion;
 select * from asignacion;
 

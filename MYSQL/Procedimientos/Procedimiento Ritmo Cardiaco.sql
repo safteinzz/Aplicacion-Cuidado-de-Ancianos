@@ -1,4 +1,4 @@
-use DBPInf;
+use pr_itcom;
 
 #https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html
 # Para el sensor de ritmo cardiaco se creará un procedimiento que registrará una alerta si el valor registrado por el sensor es superior a 160 pulsaciones

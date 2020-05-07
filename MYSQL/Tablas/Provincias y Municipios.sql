@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS DBPInf;
-CREATE DATABASE DBPInf;
-use DBPInf;
+DROP DATABASE IF EXISTS pr_itcom;
+CREATE DATABASE pr_itcom;
+use pr_itcom;
 
 
 # =============================================================================

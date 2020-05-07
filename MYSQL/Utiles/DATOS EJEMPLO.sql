@@ -1,4 +1,4 @@
- use DBPInf;
+use pr_itcom;
  
   SET FOREIGN_KEY_CHECKS = 0; 
 TRUNCATE TABLE ALERTA;
