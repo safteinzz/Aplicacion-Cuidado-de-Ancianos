@@ -80,9 +80,9 @@ public class GestorDatos {
 	// DATOS BD
 	private Connection conn;
 	private String myDriver = "com.mysql.cj.jdbc.Driver";
-	private String myUrl = "jdbc:mysql://localhost/DBPInf?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private String userBD = "root";
-	private String passBD = "123456789";
+	private String myUrl = "jdbc:mysql://2.139.176.212/pr_itcom?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private String userBD = "pr_itcom";
+	private String passBD = "pr.itcom.11";
 
 	private boolean modeDB = true;
 	// True = Se usa base de datos
@@ -813,7 +813,7 @@ public class GestorDatos {
 	private List<Mensaje> getMensajesBD(String dniUsuario, Boolean leido) throws SQLException {
 		List<Mensaje> listaReturn = new ArrayList<Mensaje>();
 		
-		final String query = "select * from MENSAJERIA where DNI_EMISOR = ? or DNI_RECEPTORES = ?";
+		final String query = "select * from MENSAJERIA where MENSAJERIA.DNI_EMISOR = ? or MENSAJERIA.DNI_RECEPTORES = ?";
 		conn = DriverManager.getConnection(myUrl, userBD, passBD);
 		
 		PreparedStatement pstmt = conn.prepareStatement(query);
@@ -823,7 +823,7 @@ public class GestorDatos {
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			listaReturn.add(new Mensaje(rs.getString("DNI_EMISOR"), rs.getString("DNI_RECEPTORES"), 
-					rs.getString("ASUNTO"), rs.getString("MENSAJE"), rs.getBoolean("LEIDO"), rs.getString("ETIQUETA")));
+					rs.getString("ASUNTO"), rs.getString("MENSAJE"), rs.getBoolean("LEIDO"), rs.getInt("ID_ETIQUETA")));
 		}
 		conn.close();
 		pstmt.close();
@@ -964,7 +964,7 @@ public class GestorDatos {
 		pstmt.setString(1, dni);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
-			Nota temporal = new Nota(rs.getInt("ID"),rs.getString("DNI"), rs.getDate("FECHA"), rs.getString("NOTA"));
+			Nota temporal = new Nota(rs.getInt("ID"),rs.getString("DNI"), rs.getTimestamp("FECHA"), rs.getString("NOTA"));
 			listaReturn.add(temporal);
 		}
 		conn.close();
@@ -1050,14 +1050,14 @@ public class GestorDatos {
 	private List<RitmoCardiaco> getRitmoCardiacoBD() throws SQLException {
 		List<RitmoCardiaco> listaReturn = new ArrayList<>();
 		
-		final String query = "select * from sensor_ritmo_cardiaco";
+		final String query = "select * from sensor_ritmo_cardiaco order by FECHA";
 		Statement statement;
 		ResultSet rs;
 		conn = DriverManager.getConnection(myUrl, userBD, passBD);
 		statement = conn.createStatement();
 		rs = statement.executeQuery(query);
 		while (rs.next()) {
-			RitmoCardiaco temporal = new RitmoCardiaco(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getInt("VALOR"));
+			RitmoCardiaco temporal = new RitmoCardiaco(rs.getString("DNI_PACIENTE"), rs.getTimestamp("FECHA"), rs.getInt("VALOR"));
 			listaReturn.add(temporal);
 		}
 		conn.close();
@@ -1144,7 +1144,7 @@ public class GestorDatos {
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
             while (rs.next()) {
-                    Presencia temporal = new Presencia(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getInt("ID_TIPO_PRESENCIA"));
+                    Presencia temporal = new Presencia(rs.getString("DNI_PACIENTE"), rs.getTimestamp("FECHA"), rs.getInt("ID_TIPO_PRESENCIA"));
                     listaReturn.add(temporal);
             }
             conn.close();
@@ -1271,7 +1271,7 @@ public class GestorDatos {
             rs = statement.executeQuery(query);
             while (rs.next()) 
             {
-                PuertaCalle temporal = new PuertaCalle(rs.getString("DNI_PACIENTE"), rs.getDate("FECHA"), rs.getBoolean("ABIERTA"));
+                PuertaCalle temporal = new PuertaCalle(rs.getString("DNI_PACIENTE"), rs.getTimestamp("FECHA"), rs.getBoolean("ABIERTA"));
                 listaReturn.add(temporal);
             }
             conn.close();
@@ -1362,13 +1362,25 @@ public class GestorDatos {
 	}
 
       
+        public void guardarMensaje(Mensaje mensaje) {
+		if(isModeDB()) {
+			try {
+				guardarMensajeBD(mensaje);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			guardarMensajeJson(mensaje);
+		}
+	}
+        
 	/**
 	 * Metodo encargado de guardar un mensaje dentro de un archivo JSON el metodo se
 	 * conecta al servidor gestor datos para poder guardar mensajes simultaneamente
 	 *
 	 * @param mensaje Objeto mensaje que se desea guardar
 	 */
-	public static void guardarMensaje(Mensaje mensaje) {
+	public static void guardarMensajeJson(Mensaje mensaje) {
 		try {
 			Socket socket = new Socket("localhost", ConstantesAplicacion.PORT_SERVER);
 
@@ -1397,14 +1409,14 @@ public class GestorDatos {
         public void guardarMensajeBD(Mensaje mensaje) throws SQLException{
             final String principal = "insert into MENSAJERIA "
                     + "(DNI_EMISOR,DNI_RECEPTORES,ID_ETIQUETA,LEIDO,ASUNTO,MENSAJE)";
-            Statement statement;
-            ResultSet rs;
+            PreparedStatement preparedStmt;
             conn = DriverManager.getConnection(myUrl, userBD, passBD);
-            statement = conn.createStatement();
-            String query = principal + " values ("+ "'"+mensaje.getDni_Emisor()+"'," + "'"+mensaje.getDni_Emisor()+"',"
-                    + "'"+mensaje.getDni_Receptor()+"'," + "'"+mensaje.getEtiqueta()+"'," + "'FALSE'" + "'"+mensaje.getAsunto()+"',"
+            String query = principal + " values ("+ "'"+mensaje.getDni_Emisor()+"'," + "'"+mensaje.getDni_Receptor()+"'," 
+                    + mensaje.getEtiqueta()+"," + "FALSE" + ",'"+mensaje.getAsunto()+"',"
                     + "'"+mensaje.getMensaje()+"'" + ")";
-            rs = statement.executeQuery(query);
+            System.out.println(query.toString());
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.execute();
         }
 
 	/**
@@ -1942,7 +1954,7 @@ public class GestorDatos {
 		statement = conn.createStatement();
 		rs = statement.executeQuery(query);
 		while (rs.next()) {
-                    Alerta temporal = new Alerta(rs.getInt("ID"), rs.getString("DNI_PACIENTE"), rs.getString("SENSOR"), rs.getInt("VALOR"), rs.getDate("FECHA"));
+                    Alerta temporal = new Alerta(rs.getInt("ID"), rs.getString("DNI_PACIENTE"), rs.getString("SENSOR"), rs.getInt("VALOR"), rs.getTimestamp("FECHA"));
                     listaReturn.add(temporal);
 		}
 		conn.close();
@@ -2017,7 +2029,7 @@ public class GestorDatos {
             }catch (SQLException ex) {
                 Logger.getLogger(GestorDatos.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
-            }
+}
             return true;
         }
 }

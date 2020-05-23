@@ -21,6 +21,7 @@ import pinfui.dto.EstiloCotenidoJTable;
 import pinfui.dto.Item;
 import pinfui.dto.ItemRenderer;
 import pinfui.dto.LabelDTO;
+import pinfui.entidades.Etiqueta;
 import pinfui.entidades.Mensaje;
 import pinfui.entidades.TipoPresencia;
 import pinfui.entidades.Usuario;
@@ -37,6 +38,7 @@ public class JPanelMensajeria extends PlantillaJPanel{
     private JPanelMensajeriaNuevo visorMensaje;
     private JPanelMEnsajeVisor1 mo = null;
     private JPanelMensajeriaResponder visorMensajeRespuesta;
+    private ArrayList<Etiqueta> etiquetas;
     
 
     /**
@@ -349,6 +351,7 @@ public class JPanelMensajeria extends PlantillaJPanel{
             {
               return false;//This causes all cells to be not editable
             }};
+        cargarEtiquetas();
         cargarListaRegistros();
         jTable2.setModel(model);
         jTable2.setBackground(new java.awt.Color(255, 255, 255));
@@ -361,11 +364,19 @@ public class JPanelMensajeria extends PlantillaJPanel{
         mensajes = new ArrayList<>();
         
         for(Mensaje mensaje : usuario.getListaMensajes()){
+            
             Object [] mensajito = {
-                mensaje.getDni_Emisor(), mensaje.getAsunto(), mensaje.getEtiqueta()
+                mensaje.getDni_Emisor(), mensaje.getAsunto(), etiquetas.get(mensaje.getEtiqueta()-1).getEtiqueta()//en BBDD empienzan en 1 y la lista en 0
             };
             model.addRow(mensajito);
             mensajes.add(mensaje);
+        }
+    }
+    
+    private void cargarEtiquetas(){
+        etiquetas = new ArrayList<Etiqueta>();
+        for (Etiqueta etiq : PInfUI.gestorDatos.getEtiquetas()){
+            etiquetas.add(etiq);
         }
     }
     

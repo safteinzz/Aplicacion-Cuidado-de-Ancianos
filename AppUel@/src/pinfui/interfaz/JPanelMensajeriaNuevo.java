@@ -257,7 +257,7 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBEtiquetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEtiquetaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jCBEtiquetaActionPerformed
 
     private void buttonEnviarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnviarMouseEntered
@@ -323,17 +323,26 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
         for (Etiqueta etiq : PInfUI.gestorDatos.getEtiquetas()){
             etiquetas.add(etiq);
             eti.add(etiq.getEtiqueta());
+            jCBEtiqueta.addItem(new Item(etiq, etiq.getEtiqueta()));
         }
         listaEtiquetas = etiquetas;
-        String [] etiquetaValores = eti.toArray(new String[eti.size()]);
-        jCBEtiqueta = new JComboBox(etiquetaValores);
     }
     
     private void enviarMensaje(){
         String titulo = jTFTitulo.getText();
         String contenido = "¬¬¬ " + usuario.getNombre() + " ¬¬¬\n"
                 + jTextArea1.getText();
-        String etiqeta = (String) jCBEtiqueta.getSelectedItem();
+        Item etiqetaItem = (Item) jCBEtiqueta.getSelectedItem();
+        Etiqueta etiqueta = (Etiqueta) etiqetaItem.getTipo();
+        //String etiquetaStr = (String) jCBEtiqueta.getSelectedItem().toString();
+        /*boolean coincide = false;
+        int etiqueta = 0;
+        for (int i=0; i<listaEtiquetas.size() && !coincide; i++){
+            if(listaEtiquetas.get(i).getEtiqueta().equals(etiquetaStr)){
+                coincide = true;
+                etiqueta = listaEtiquetas.get(i).getId_etiqueta();
+            }
+        }*/
         String receptores = "";
         for(int x = 0; x < jTableUsuarios.getSelectedRows().length; x++){
             int idTabla = jTableUsuarios.getSelectedRows()[x];
@@ -343,8 +352,8 @@ public class JPanelMensajeriaNuevo extends PlantillaJPanel {
             }
         }
         
-        mensaje = new Mensaje(usuario.getDni(), receptores, "asunto", contenido, false, etiqeta);
-        GestorDatos.guardarMensaje(mensaje);
+        mensaje = new Mensaje(usuario.getDni(), receptores, jTFTitulo.getText(), contenido, false, etiqueta.getId_etiqueta());
+        PInfUI.gestorDatos.guardarMensaje(mensaje);
     }
     
     public Mensaje getMensaje() {

@@ -113,6 +113,13 @@ public class JPanelInicio extends PlantillaJPanel {
     	inicioController.cargarTablaNotas(modelNotas, usuario);
     	
     	inicioController.cargarTablaMensajeria(modelMensajeria, usuario);
+        
+        buttonBorrar
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/borrar.png")));
+        buttonBorrar1
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/borrar.png")));
+        buttonNuevaNota
+                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/nuevaNota.png")));
     }
        
     /**

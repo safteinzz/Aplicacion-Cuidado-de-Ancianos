@@ -26,7 +26,7 @@ public class RegistroPuertaController extends SensorController{
     	List<PuertaCalle> listaRegisPuerta = PInfUI.gestorDatos.getPuertaCalle(dniPaciente, fechaDesde.getTime(), fechaHasta.getTime());
     	if(listaRegisPuerta != null && !listaRegisPuerta.isEmpty()) {
 	    	for(PuertaCalle regisPuerta : listaRegisPuerta) {
-	    		Object[] obj = {sdf.format(regisPuerta.getFecha()), (regisPuerta.isAbierta() ? "Abierta" : "Cerrada")};
+	    		Object[] obj = {sdf.format(regisPuerta.getFecha()), (regisPuerta.isAbierta() ? PInfUI.getBundle().getString("abierta") : PInfUI.getBundle().getString("cerrada"))};
 	    		
 	    		model.addRow(obj);
 	    	}

@@ -10,12 +10,12 @@ public class Mensaje implements Serializable{
 	private String mensaje;
 	private boolean leido;
 //	private String enviadoPor;
-        private String etiqueta;
+        private int etiqueta;
 	
 	public Mensaje() { }
 
 	public Mensaje(String dni_Emisor, String dni_Receptor, String asunto, String mensaje, boolean leido,
-			String etiqueta) {
+			int etiqueta) {
 		super();
 		this.dni_Emisor = dni_Emisor;
 		this.dni_Receptor = dni_Receptor;
@@ -65,11 +65,11 @@ public class Mensaje implements Serializable{
 		this.leido = leido;
 	}
 
-        public String getEtiqueta() {
+        public int getEtiqueta() {
             return etiqueta;
         }
 
-        public void setEtiqueta(String etiqueta) {
+        public void setEtiqueta(int etiqueta) {
             this.etiqueta = etiqueta;
         }
 	

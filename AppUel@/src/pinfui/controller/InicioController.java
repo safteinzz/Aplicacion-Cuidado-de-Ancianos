@@ -24,7 +24,7 @@ public class InicioController {
     		dniLista.add(usuario.getDni());
     	} else {
     		for(Asignacion asignacion : usuario.getListaAsignacion()) {
-    			dniLista.add(asignacion.getDni_Asignado());
+    			dniLista.add(asignacion.getDni_Asociado());
     		}
     	}
 		
@@ -77,7 +77,7 @@ public class InicioController {
 	}
 	
 	public boolean cargarTablaNotas(DefaultTableModel model, Usuario usuario) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		usuario.setListaNotas(PInfUI.gestorDatos.getNotas(usuario.getDni()));
                 

@@ -52,6 +52,8 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
         
         cargarTablaUsuarios();
         
+        cargarEtiquetas();
+        
         cambiarFuentes();
         
         rellenarDatosIniciales();
@@ -75,7 +77,6 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
     private void mensajeToVista(){
         
         jTFTitulo.setText(mensaje.getAsunto());
-        jTextArea1.setText(mensaje.getMensaje());
     }
 
     /**
@@ -279,6 +280,9 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
         buttonEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/es_ES/enviar.png"))); // NOI18N
         buttonEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonEnviarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buttonEnviarMouseEntered(evt);
             }
@@ -340,6 +344,10 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBEtiqueta1ActionPerformed
 
+    private void buttonEnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonEnviarMouseClicked
+        enviarMensaje();
+    }//GEN-LAST:event_buttonEnviarMouseClicked
+
     private void cargarTablaUsuarios(){
         jTableUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         jTableUsuarios.getTableHeader().setDefaultRenderer(new EstiloCabeceraJTable());
@@ -380,10 +388,9 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
         for (Etiqueta etiq : PInfUI.gestorDatos.getEtiquetas()){
             etiquetas.add(etiq);
             eti.add(etiq.getEtiqueta());
+            jCBEtiqueta1.addItem(new Item(etiq, etiq.getEtiqueta()));
         }
         listaEtiquetas = etiquetas;
-        String [] etiquetaValores = eti.toArray(new String[eti.size()]);
-        jCBEtiqueta1 = new JComboBox(etiquetaValores);
     }
     
     private ArrayList<Usuario> cargarUsuariosReferidos(){
@@ -404,15 +411,16 @@ public class JPanelMensajeriaResponder extends PlantillaJPanel {
         String contenido = jTextArea2.getText() + "\n" 
                 + "¬¬¬ " + usuario.getNombre() + " ¬¬¬\n"
                 + jTextArea1.getText();
-        String etiqeta = (String) jCBEtiqueta1.getSelectedItem();
+        Item etiqetaItem = (Item) jCBEtiqueta1.getSelectedItem();
+        Etiqueta etiqueta = (Etiqueta) etiqetaItem.getTipo();
         ArrayList<String> seleccionados = new ArrayList<>();
         for(int i : jTableUsuarios.getSelectedRows()){
             seleccionados.add((String)jTableUsuarios.getValueAt(i, 0));
         }
         
         for (String destinatario : seleccionados){
-            mensaje = new Mensaje(usuario.getDni(), destinatario, "asunto", contenido, false, etiqeta);
-            GestorDatos.guardarMensaje(mensaje);
+            mensaje = new Mensaje(usuario.getDni(), destinatario, jTFTitulo.getText(), contenido, false, etiqueta.getId_etiqueta());
+            PInfUI.gestorDatos.guardarMensaje(mensaje);
         }
     }
     

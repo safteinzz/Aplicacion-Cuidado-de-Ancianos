@@ -31,6 +31,7 @@ public class PantallaNuevaNota extends PlantillaPantallas {
         buttonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/images/botones/" + PInfUI.bundle.getLocale() + "/guardar.png")));
         
         listaLabels.add(new LabelDTO(labelTitulo, "tituloNuevaNota", labelTitulo.getFont().getSize()));
+        cambiarFuentes();
         
         //Handler de salida de la ventana
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);        
